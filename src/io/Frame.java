@@ -1,9 +1,12 @@
 package io;
 
+import javax.swing.*;
+
 /**
- * Created by Hampus on 2015-02-22.
+ * Creates and updates the frame.
  */
-public class Frame {
+public class Frame extends JFrame{
+
 
 
 }
