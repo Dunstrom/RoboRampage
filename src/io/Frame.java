@@ -1,5 +1,7 @@
 package io;
 
+import board.Board;
+
 import javax.swing.*;
 
 /**
@@ -7,6 +9,13 @@ import javax.swing.*;
  */
 public class Frame extends JFrame{
 
+    private IOComponent iOComponent;
 
+    public Frame(Board board) {
+
+        iOComponent = new IOComponent(board);
+        add(iOComponent);
+
+    }
 
 }
