@@ -1,8 +1,5 @@
 package game;
 
-
-import game.Game;
-
 import javax.swing.*;
 
 /**
@@ -28,7 +25,7 @@ public class Main {
         timer.setCoalesce(true);
         timer.start();
 
-    }// a change
+    }
 
 }
 

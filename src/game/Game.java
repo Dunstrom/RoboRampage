@@ -20,7 +20,11 @@ public class Game {
         startGame();
     }
 
-    public void startGame() {
+    /**
+     * <h1>startGame</h1><br>
+     *     <p>Starts the game by creating both bord and a frame.</p>
+     */
+    private void startGame() {
         board =  new Board(width, height);
         frame = new Frame(board);
     }
