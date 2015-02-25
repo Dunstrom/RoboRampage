@@ -13,8 +13,15 @@ public class Frame extends JFrame{
 
     public Frame(Board board) {
 
+        super("RoboRampage");
+
         iOComponent = new IOComponent(board);
         add(iOComponent);
+
+        setSize(iOComponent.getPreferredSize());
+        requestFocus();
+        setVisible(true);
+        pack();
 
     }
 
