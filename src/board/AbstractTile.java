@@ -8,10 +8,11 @@ import java.awt.*;
  */
 public abstract class AbstractTile implements Tile{
 
-    private final static int tileSize = 30;
+    private final static int TILE_SIZE = 30;
     private int x;
     private int y;
     private Color backgroundColor = Color.GRAY;
+    private Color borderColor = Color.WHITE;
 
     public int getX() {
         return x;
@@ -22,10 +23,10 @@ public abstract class AbstractTile implements Tile{
     }
 
     public static int getTileSize() {
-        return tileSize;
+        return TILE_SIZE;
     }
 
-    public AbstractTile(int x, int y) {
+    protected AbstractTile(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -35,15 +36,17 @@ public abstract class AbstractTile implements Tile{
      *     <p>Draws the outline and background of every tile</p>
      */
     public void draw(Graphics g) {
-        //Todo: Make every tile draw it's outlines for a better graphical appearance.
 
         //Draws the background of the tile
         g.setColor(backgroundColor);
-        g.fillRect(getX(), getY(), getTileSize(), getTileSize());
+        g.fillRect(x, y, TILE_SIZE, TILE_SIZE);
+
+        //Draws the border of the tiles
+        g.setColor(borderColor);
+        g.drawRect(x, y, TILE_SIZE, TILE_SIZE);
     }
 
-    public void update() {
-
-    }
+    public abstract void update();
 
 }
+

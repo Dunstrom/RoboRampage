@@ -8,8 +8,6 @@ import java.awt.*;
  */
 public interface Tile {
 
-
-
     public void draw(Graphics g);
 
     public void update();

@@ -17,7 +17,7 @@ public class EmptyTile extends AbstractTile{
     }
 
     public void update() {
-        super.update();
+
     }
 
 }
