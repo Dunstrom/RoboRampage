@@ -8,14 +8,14 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- *<h1>IOComponent</h1><br>
- *     <p>Handles the input and output.</p>
+ *<h1>BoardComponent</h1><br>
+ *     <p>Handles the input and output for the board.</p>
  */
-public class IOComponent extends JComponent implements BoardListener {
+public class BoardComponent extends JComponent implements BoardListener {
 
     private Board board;
 
-    public IOComponent(Board board) {
+    public BoardComponent(Board board) {
 
         this.board = board;
 
@@ -41,6 +41,7 @@ public class IOComponent extends JComponent implements BoardListener {
      */
     @Override
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
 
         board.draw(g);
 
