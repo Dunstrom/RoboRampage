@@ -10,7 +10,7 @@ import java.awt.*;
  */
 public abstract class AbstractTile implements Tile{
 
-    private final static int TILE_SIZE = 30;
+    private final static int TILE_SIZE = 40;
     private int x;
     private int y;
     private Color backgroundColor = Color.GRAY;

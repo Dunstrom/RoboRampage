@@ -13,7 +13,7 @@ public class Game {
 
     private JFrame frame;
     private Board board;
-    private int boardWidth = 10;
+    private int boardWidth = 20;
     private int boardHeight = 10;
 
     public Game() {
