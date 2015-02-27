@@ -1,20 +1,28 @@
 package robot;
 
+
 import java.awt.*;
 
 /**
  * <h>AbstractRobot</h><br>
  *     <p>Abstract class for all robots in the game.</p>
  */
-public class AbstractRobot implements RobotInterface {
+public abstract class AbstractRobot implements Robot
+{
 
-    private int x;
-    private int y;
-    private char orientation;//Orientation 'N' = UP (NORTH), 'S' = DOWN (SOUTH), 'W' = LEFT (WEST), 'E' = RIGHT (EAST)
+    protected int x;
+    protected int y;
+    protected char orientation;//Orientation 'N' = UP (NORTH), 'S' = DOWN (SOUTH), 'W' = LEFT (WEST), 'E' = RIGHT (EAST)
 
     //For the collisionhandling
     private int tempX;
     private int tempY;
+
+    public AbstractRobot(final int x, final int y, final char orientation) {
+        this.x = x;
+        this.y = y;
+        this.orientation = orientation;
+    }
 
     /**
      * <h1>movable</h1><br>
@@ -33,6 +41,15 @@ public class AbstractRobot implements RobotInterface {
      */
     @Override public void move(final int xChange, final int yChange) {
 
+        tempX = x + xChange;
+        tempY = y + yChange;
+
+        if (movable()){
+            x = tempX;
+            y = tempY;
+        }
+
+
     }
 
     /**
@@ -49,6 +66,27 @@ public class AbstractRobot implements RobotInterface {
      * @param g a Graphics object
      */
     @Override public void draw(final Graphics g) {
+
+        g.setColor(Color.BLUE);
+        g.fillRect(x*30+5, y*30+5, 20, 20);
+
+        g.setColor(Color.BLACK);
+        switch (orientation) {
+            case 'N':
+                g.drawString("N", x*30+5, y*30+5);
+                break;
+            case 'S':
+                g.drawString("S", x*30+5, y*30+5);
+                break;
+            case 'W':
+                g.drawString("W", x*30+5, y*30+5);
+                break;
+            case 'E':
+                g.drawString("E", x*30+5, y*30+5);
+                break;
+
+        }
+
 
     }
 }

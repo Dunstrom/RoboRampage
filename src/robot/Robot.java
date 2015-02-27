@@ -6,7 +6,7 @@ import java.awt.*;
  * <h1>RobotInterface</h1><br>
  *     <p>Interface for the robots</p>
  */
-public interface RobotInterface
+public interface Robot
 {
 
     /**
