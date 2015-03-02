@@ -32,7 +32,8 @@ public interface Robot
 
     /**
      * <h1>draw</h1><br>
-     *     <p>Draws the robot on the screen</p>
+     *     <p>Draws the robot on the screen<br>
+     *     NOTE: This is a very temporary draw method for testing, sould be reimplemented later</p>
      * @param g a Graphics object
      */
     void draw(Graphics g);

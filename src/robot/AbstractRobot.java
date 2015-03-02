@@ -9,10 +9,10 @@ import java.awt.*;
  */
 public abstract class AbstractRobot implements Robot
 {
-
     protected int x;
     protected int y;
     protected char orientation;//Orientation 'N' = UP (NORTH), 'S' = DOWN (SOUTH), 'W' = LEFT (WEST), 'E' = RIGHT (EAST)
+    protected int hitPoints;
 
     //For the collisionhandling
     private int tempX;
@@ -29,9 +29,7 @@ public abstract class AbstractRobot implements Robot
      *     <p>checks if robot can be moved</p>
      * @return true if robot is movable
      */
-    @Override public boolean movable() {
-	return false;
-    }
+    @Override public boolean movable() {return false;}
 
     /**
      * <h1>move</h1><br>
@@ -48,8 +46,6 @@ public abstract class AbstractRobot implements Robot
             x = tempX;
             y = tempY;
         }
-
-
     }
 
     /**
@@ -84,10 +80,7 @@ public abstract class AbstractRobot implements Robot
             case 'E':
                 g.drawString("E", x*30+5, y*30+5);
                 break;
-
         }
-
-
     }
 }
 

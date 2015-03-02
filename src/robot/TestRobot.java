@@ -8,6 +8,7 @@ public class TestRobot extends AbstractRobot {
 
     public TestRobot(final int x, final int y, final char orientation){
 	super(x,y, orientation);
+	hitPoints = 10;
     }
 
     /**
@@ -30,7 +31,7 @@ public class TestRobot extends AbstractRobot {
 		break;
 	}
     }
-
+    
     /**
      * <h1>turnLeft</h1><br>
      *     <p>Turns the robot left 90 degrees</p>
