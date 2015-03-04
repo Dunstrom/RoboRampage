@@ -13,6 +13,11 @@ public class GameFrame extends JFrame{
     private BoardComponent boardComponent;
     private Player activePlayer;
 
+    /**
+     * <h1>setActivePlayer</h1><br>
+     *     <p>Sets the activePlayer to a a player. The active player is the one whom's interface is displayed</p>
+     * @param player the player whom's turn it is.
+     */
     public void setActivePlayer(Player player) {
         remove(activePlayer.getPanel());
         activePlayer = player;

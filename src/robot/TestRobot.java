@@ -14,6 +14,10 @@ public class TestRobot extends AbstractRobot {
 
     }
 
+	/**
+	 * <h1>addMoveForwardOne</h1><br>
+	 *     <p>Adds a moveforwardOne to the queue of pre programmed moves.</p>
+	 */
     public void addMoveForwardOne(){
 	programmedMoves.add(moveForward);
     }

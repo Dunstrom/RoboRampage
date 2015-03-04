@@ -36,6 +36,10 @@ public class Game {
 
     }
 
+    /**
+     * <h1>executeTurn</h1><br>
+     *     <p>Finishes the turn by telling the board to update and resets the turn.</p>
+     */
     private void executeTurn() {
 
         board.update();
