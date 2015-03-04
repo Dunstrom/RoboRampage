@@ -48,6 +48,10 @@ public abstract class AbstractTile implements Tile{
 
     }
 
+    /**
+     * <h1>update</h1><br>
+     *     <p>Abstract tile does nothing.</p>
+     */
     @Override
     public abstract void update();
 

@@ -6,6 +6,10 @@ package board;
  */
 public interface BoardListener {
 
+    /**
+     * <h1>boardChanged</h1><br>
+     *     <p>Method to be implemented and called every time the board changes.</p>
+     */
     public void boardChanged();
 
 }

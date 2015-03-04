@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Keeps tracks of all the tiles on the board.
+ * <h1>Board</h1><br>
+ *     <p>Keeps tracks of all the tiles on the board.</p>
  */
 public class Board {
 
@@ -76,7 +77,10 @@ public class Board {
 
     }
 
-
+    /**
+     * <h1>update</h1><br>
+     *     <p>Updates the board by updating robots and updating the tiles.</p>
+     */
     public void update(){
 
         updateRobots();
@@ -141,6 +145,12 @@ public class Board {
 
     // Robot stuff
 
+    /**
+     * <h1>canMoveRobot</h1><br>
+     *     <p>Checks if the robot can be moved to it's temporary position.</p>
+     * @param robot a Abstract robot that is going to be moved.
+     * @return a boolean, true if the robot is movable false if it isn't.
+     */
     private boolean canMoveRobot(AbstractRobot robot){
 
 
@@ -159,6 +169,11 @@ public class Board {
 
     }
 
+    /**
+     * <h1>moveRobot</h1><br>
+     *     <p>Get's the next move programmed in to the robot and tries to move the robot.</p>
+     * @param robot the robot that is to be moved.
+     */
     private void moveRobot(AbstractRobot robot) {
 
         robot.getNextMove().run(); // sets tempx and tempy
@@ -170,10 +185,19 @@ public class Board {
 
     }
 
+    /**
+     * <h1>robotAttack</h1><br>
+     *     <p>Makes the robot attack</p>
+     * @param robot the robot that shall attack.
+     */
     private void robotAttack(AbstractRobot robot) {
         notifyListeners();
     }
 
+    /**
+     * <h1>updateRobots</h1><br>
+     *     <p>Moves the robots as they are programmed and makes them attack.</p>
+     */
     private void updateRobots() {
 
         for(AbstractRobot robot : robots){
