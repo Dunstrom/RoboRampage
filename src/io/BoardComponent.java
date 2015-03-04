@@ -18,6 +18,7 @@ public class BoardComponent extends JComponent implements BoardListener {
     public BoardComponent(Board board) {
 
         this.board = board;
+        board.addBoardListener(this);
 
     }
 
