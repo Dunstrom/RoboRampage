@@ -2,6 +2,7 @@ package robot;
 
 
 import java.awt.*;
+import java.util.*;
 
 /**
  * <h>AbstractRobot</h><br>
@@ -15,13 +16,44 @@ public abstract class AbstractRobot implements Robot
     protected int hitPoints;
 
     //For the collisionhandling
-    private int tempX;
-    private int tempY;
+    protected int tempX;
+    protected int tempY;
+
+    protected Queue<Runnable> programmedMoves;
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getTempY() {
+        return tempY;
+    }
+
+    public char getOrientation() {
+        return orientation;
+    }
+
+    public int getHitPoints() {
+        return hitPoints;
+    }
+
+    public int getTempX() {
+        return tempX;
+    }
+
+    public Runnable getNextMove() {
+        return programmedMoves.poll();
+    }
 
     public AbstractRobot(final int x, final int y, final char orientation) {
         this.x = x;
         this.y = y;
         this.orientation = orientation;
+        programmedMoves = new LinkedList<Runnable>();
     }
 
     /**
@@ -32,20 +64,16 @@ public abstract class AbstractRobot implements Robot
     @Override public boolean movable() {return false;}
 
     /**
-     * <h1>move</h1><br>
+     * <h1>place</h1><br>
      *     <p>changes the robots position</p>
-     * @param xChange amount of tiles to move on the x-axis. pos. x -> right, neg. x -> left.
-     * @param yChange amount of tiles to move on the y-axis. pos. y -> down, neg. y -> up.
+     * @param newX amount of tiles to place on the x-axis. pos. x -> right, neg. x -> left.
+     * @param newY amount of tiles to place on the y-axis. pos. y -> down, neg. y -> up.
      */
-    @Override public void move(final int xChange, final int yChange) {
+    @Override public void place(final int newX, final int newY) {
 
-        tempX = x + xChange;
-        tempY = y + yChange;
+        x = newX;
+        y = newY;
 
-        if (movable()){
-            x = tempX;
-            y = tempY;
-        }
     }
 
     /**
@@ -64,21 +92,21 @@ public abstract class AbstractRobot implements Robot
     @Override public void draw(final Graphics g) {
 
         g.setColor(Color.BLUE);
-        g.fillRect(x*30+5, y*30+5, 20, 20);
+        g.fillRect(x, y, 20, 20);
 
         g.setColor(Color.BLACK);
         switch (orientation) {
             case 'N':
-                g.drawString("N", x*30+5, y*30+5);
+                g.drawString("N", x, y);
                 break;
             case 'S':
-                g.drawString("S", x*30+5, y*30+5);
+                g.drawString("S", x, y);
                 break;
             case 'W':
-                g.drawString("W", x*30+5, y*30+5);
+                g.drawString("W", x, y);
                 break;
             case 'E':
-                g.drawString("E", x*30+5, y*30+5);
+                g.drawString("E", x, y);
                 break;
         }
     }

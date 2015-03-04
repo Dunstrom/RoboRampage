@@ -1,5 +1,7 @@
 package board;
 
+import robot.AbstractRobot;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,7 @@ public class Board {
     private int width;
     private int height;
     private List<BoardListener> listeners;
+    private List<AbstractRobot> robots;
 
     public int getWidth() {
         return width;
@@ -20,6 +23,14 @@ public class Board {
 
     public int getHeight() {
         return height;
+    }
+
+    public void addRobot(AbstractRobot robot){
+        robots.add(robot);
+    }
+
+    public void removeRobot(AbstractRobot robot){
+        robots.remove(robot);
     }
 
     public void addBoardListener(BoardListener bl) {
@@ -36,8 +47,12 @@ public class Board {
         this.height = height;
         initBoard(width, height);
         listeners = new ArrayList<BoardListener>();
+        robots = new ArrayList<AbstractRobot>();
+        notifyListeners();
 
     }
+
+    // Board stuff
 
     /**
      * <h1>initBoard</h1><br>
@@ -58,6 +73,17 @@ public class Board {
             }
 
         }
+
+    }
+
+
+    public void update(){
+
+        updateRobots();
+
+        updateTiles();
+
+        notifyListeners();
 
     }
 
@@ -97,6 +123,10 @@ public class Board {
 
         }
 
+        for(AbstractRobot robot : robots) {
+            robot.draw(g);
+        }
+
     }
 
     /**
@@ -107,6 +137,55 @@ public class Board {
         for(BoardListener listener : listeners) {
             listener.boardChanged();
         }
+    }
+
+    // Robot stuff
+
+    private boolean canMoveRobot(AbstractRobot robot){
+
+
+        if(!robots.contains(robot)){// Is robot on board
+            throw new IllegalArgumentException("Robot not on the board");
+        }
+
+        for (AbstractRobot otherRobot : robots) {
+            if(!robot.equals(otherRobot)){
+                if(otherRobot.getX() == robot.getTempX() && otherRobot.getY() == robot.getTempY()){
+                    return false;//Todo: Add push robot stuff!
+                }
+            }
+        }
+        return true;
+
+    }
+
+    private void moveRobot(AbstractRobot robot) {
+
+        robot.getNextMove().run(); // sets tempx and tempy
+
+        if(canMoveRobot(robot)){ // check if move to tempx and tempy is possible
+            robot.place(robot.getTempX(), robot.getTempY()); // sets x to tempx and y to tempy
+            notifyListeners();
+        }
+
+    }
+
+    private void robotAttack(AbstractRobot robot) {
+        notifyListeners();
+    }
+
+    private void updateRobots() {
+
+        for(AbstractRobot robot : robots){
+
+            moveRobot(robot);
+
+            robotAttack(robot);
+
+            notifyListeners();
+
+        }
+
     }
 
 }

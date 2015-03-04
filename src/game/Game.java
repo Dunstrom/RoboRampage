@@ -29,14 +29,28 @@ public class Game {
      */
     private void startGame() {
         board =  new Board(boardWidth, boardHeight);
-        frame = new GameFrame(board);
-        testPlayer = new Player("testPlayer", new TestRobot(3 * AbstractTile.getTileSize(), 3 * AbstractTile.getTileSize(), 'S'));
+        TestRobot testRobot = new TestRobot(3 * AbstractTile.getTileSize(), 3 * AbstractTile.getTileSize(), 'S');
+        board.addRobot(testRobot);
+        testPlayer = new Player("testPlayer", testRobot);
+        frame = new GameFrame(board, testPlayer);
+
+    }
+
+    private void executeTurn() {
+
+        board.update();
+
+        testPlayer.setDone(false);
     }
 
     /**
      * <h1>update</h1><br>
      *     <p>Updates the game every tick of the timer<p/>
      */
-    public void update() {}
+    public void update() {
+        if(testPlayer.getDone()){
+            executeTurn();
+        }
+    }
 
 }

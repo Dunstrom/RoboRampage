@@ -1,7 +1,9 @@
 package game;
 
-import io.PlayerInterfaceComponent;
-import robot.AbstractRobot;
+import robot.TestRobot;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 /**
  * Created by Hampus on 2015-03-02.
@@ -9,17 +11,55 @@ import robot.AbstractRobot;
 public class Player {
 
     private String name;
-    private AbstractRobot robot;
-    private PlayerInterfaceComponent component;
+    private final TestRobot robot;
+    private JPanel panel;
+    private JButton endTurnButton;
+    private JButton moveButton;
+    private boolean done;
 
-    public Player(String name, AbstractRobot robot) {
+    public void setDone(boolean b) {
+        done = b;
+    }
+
+    public boolean getDone() {
+        return done;
+    }
+
+    public JPanel getPanel() {
+        return panel;
+    }
+
+    public Player(String name, TestRobot rb) {
 
         this.name = name;
-        this.robot = robot;
+        this.robot = rb;
+        done = false;
 
-        component = new PlayerInterfaceComponent(this);
+        panel  = new JPanel();
+        endTurnButton  = new JButton("End Turn");
+        moveButton = new JButton("Move");
+
+        moveButton.setAction(new AbstractAction(){
+            @Override public void actionPerformed(final ActionEvent e) {
+                robot.addMoveForwardOne();
+            }
+        });
+
+        endTurnButton.setAction(new AbstractAction(){
+            @Override public void actionPerformed(final ActionEvent e) {
+                done = true;
+            }
+        });
+
+        endTurnButton.setText("End Turn");
+        moveButton.setText("Move");
+
+        panel.add(endTurnButton);
+        panel.add(moveButton);
 
     }
+
+
 
 
 

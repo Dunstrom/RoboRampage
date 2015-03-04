@@ -1,5 +1,7 @@
 package robot;
 
+import board.AbstractTile;
+
 /**
  * <h1>TestRobot</h1><br>
  *     <p>Class to create test robots</p>
@@ -9,28 +11,35 @@ public class TestRobot extends AbstractRobot {
     public TestRobot(final int x, final int y, final char orientation){
 	super(x,y, orientation);
 	hitPoints = 10;
+
     }
 
-    /**
-     * <h1>moveForwardOne</h1><br>
-     *     <p>Makes the robot move one step in the direction it is facing</p>
-     */
-    public void moveForwardOne(){
-	switch (orientation){
-	    case 'N':
-		move(0,1);
-		break;
-	    case 'S':
-		move(0,-1);
-		break;
-	    case 'W':
-		move(-1,0);
-		break;
-	    case 'E':
-		move(1,0);
-		break;
-	}
+    public void addMoveForwardOne(){
+	programmedMoves.add(moveForward);
     }
+
+    Runnable moveForward = new Runnable() {
+	public void run() {
+	    switch (orientation){
+	    	    case 'N':
+			tempX = x;
+			tempY = y + AbstractTile.getTileSize();
+	    		break;
+	    	    case 'S':
+			tempX = x;
+			tempY = y - AbstractTile.getTileSize();
+	    		break;
+	    	    case 'W':
+			tempX = x - AbstractTile.getTileSize();
+			tempY = y;
+	    		break;
+	    	    case 'E':
+			tempX = x + AbstractTile.getTileSize();
+			tempY = y;
+	    		break;
+	    	}
+	}
+    };
     
     /**
      * <h1>turnLeft</h1><br>
@@ -39,16 +48,16 @@ public class TestRobot extends AbstractRobot {
     public void turnLeft() {
 	switch (orientation) {
 	    case 'N':
-		move(0, 1);
+		place(0, 1);
 		break;
 	    case 'S':
-		move(0, -1);
+		place(0, -1);
 		break;
 	    case 'W':
-		move(-1, 0);
+		place(-1, 0);
 		break;
 	    case 'E':
-		move(1, 0);
+		place(1, 0);
 		break;
 	}
     }

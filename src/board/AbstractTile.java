@@ -1,7 +1,5 @@
 package board;
 
-import robot.AbstractRobot;
-
 import java.awt.*;
 
 /**
@@ -15,12 +13,7 @@ public abstract class AbstractTile implements Tile{
     private int y;
     private Color backgroundColor = Color.GRAY;
     private Color borderColor = Color.WHITE;
-    private boolean ocupied;
-    private AbstractRobot robot;
 
-    public boolean isOcupied() {
-        return ocupied;
-    }
 
     public int getX() {
         return x;
@@ -37,7 +30,6 @@ public abstract class AbstractTile implements Tile{
     protected AbstractTile(int x, int y) {
         this.x = x;
         this.y = y;
-        ocupied = false;
     }
 
     /**
@@ -53,10 +45,7 @@ public abstract class AbstractTile implements Tile{
         //Draws the border of the tiles
         g.setColor(borderColor);
         g.drawRect(x, y, TILE_SIZE, TILE_SIZE);
-        
-        if(ocupied){
-            robot.draw(g);
-        }
+
     }
 
     @Override
