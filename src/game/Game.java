@@ -1,7 +1,9 @@
 package game;
 
+import board.AbstractTile;
 import board.Board;
 import io.GameFrame;
+import robot.TestRobot;
 
 import javax.swing.*;
 
@@ -15,6 +17,7 @@ public class Game {
     private Board board;
     private int boardWidth = 20;
     private int boardHeight = 10;
+    private Player testPlayer;
 
     public Game() {
         startGame();
@@ -27,6 +30,7 @@ public class Game {
     private void startGame() {
         board =  new Board(boardWidth, boardHeight);
         frame = new GameFrame(board);
+        testPlayer = new Player("testPlayer", new TestRobot(3 * AbstractTile.getTileSize(), 3 * AbstractTile.getTileSize(), 'S'));
     }
 
     /**
