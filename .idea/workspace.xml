@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8c2e1e0-bd86-4976-8596-68d4c3c8c0d7" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Hampus\Documents\RoboRampage\out\production\RoboRampage\game\Main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Hampus\Documents\RoboRampage\out\production\RoboRampage\game\Main.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Hampus\Documents\RoboRampage\src\game\Main.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/board/AbstractTile.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/board/AbstractTile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/board/Board.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/board/Board.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/board/EmptyTile.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/board/EmptyTile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/game/Game.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/game/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/robot/AbstractRobot.java" afterPath="$PROJECT_DIR$/src/robot/AbstractRobot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/AbstractTile.java" afterPath="$PROJECT_DIR$/src/board/AbstractTile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/Board.java" afterPath="$PROJECT_DIR$/src/board/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/io/BoardComponent.java" afterPath="$PROJECT_DIR$/src/io/BoardComponent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/BoardListener.java" afterPath="$PROJECT_DIR$/src/board/BoardListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/EmptyTile.java" afterPath="$PROJECT_DIR$/src/board/EmptyTile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Game.java" afterPath="$PROJECT_DIR$/src/game/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/io/GameFrame.java" afterPath="$PROJECT_DIR$/src/io/GameFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Player.java" afterPath="$PROJECT_DIR$/src/game/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RoboRampage.iml" afterPath="$PROJECT_DIR$/RoboRampage.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/robot/Robot.java" afterPath="$PROJECT_DIR$/src/robot/Robot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/robot/TestRobot.java" afterPath="$PROJECT_DIR$/src/robot/TestRobot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/Tile.java" afterPath="$PROJECT_DIR$/src/board/Tile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RoboRampage.iws" />
@@ -609,7 +593,7 @@
       <option name="number" value="Default" />
       <updated>1424641959834</updated>
       <workItem from="1424641962343" duration="3622000" />
-      <workItem from="1425566112186" duration="900000" />
+      <workItem from="1425566112186" duration="963000" />
     </task>
     <task id="LOCAL-00001" summary="Added Frame class">
       <created>1424642132383</created>
@@ -623,11 +607,17 @@
       <option name="project" value="LOCAL" />
       <updated>1424645559445</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixed javadocs and moved main method to Game class according to feedback from tetris">
+      <created>1425567054123</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1425567054123</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4522000" />
+    <option name="totallyTimeSpent" value="4585000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -651,7 +641,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -732,7 +722,8 @@
     </option>
     <MESSAGE value="Added Frame class" />
     <MESSAGE value="Created a structure for tiles and a way for board to initialize itself with all empty tiles and to update all it's tiles. &#10;&#10;Perhaps a private method taking a function and then goes through all the boards tiles and using the function on each tile would decrease code repetition. &#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created a structure for tiles and a way for board to initialize itself with all empty tiles and to update all it's tiles. &#10;&#10;Perhaps a private method taking a function and then goes through all the boards tiles and using the function on each tile would decrease code repetition. &#10;" />
+    <MESSAGE value="Fixed javadocs and moved main method to Game class according to feedback from tetris" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed javadocs and moved main method to Game class according to feedback from tetris" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
