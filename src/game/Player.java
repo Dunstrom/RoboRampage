@@ -13,12 +13,10 @@ public class Player {
     private String name;
     private final TestRobot robot;
     private JPanel panel;
-    private JButton endTurnButton;
-    private JButton moveButton;
     private boolean done;
 
-    public void setDone(boolean b) {
-        done = b;
+    public void setDone(boolean bool) {
+        done = bool;
     }
 
     public boolean getDone() {
@@ -36,8 +34,8 @@ public class Player {
         done = false;
 
         panel  = new JPanel();
-        endTurnButton  = new JButton("End Turn");
-        moveButton = new JButton("Move");
+        JButton endTurnButton  = new JButton("End Turn");
+        JButton moveButton = new JButton("Move");
 
         moveButton.setAction(new AbstractAction(){
             @Override public void actionPerformed(final ActionEvent e) {

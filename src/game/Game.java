@@ -5,17 +5,15 @@ import board.Board;
 import io.GameFrame;
 import robot.TestRobot;
 
+import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 /**
- * Keeps track of gamestuff, initialize the game and such.
+ * Keeps track of game stuff, initialize the game and such.
  */
 public class Game {
 
-    private JFrame frame;
     private Board board;
-    private int boardWidth = 20;
-    private int boardHeight = 10;
     private Player testPlayer;
 
     public Game() {
@@ -26,11 +24,13 @@ public class Game {
      * Starts the game by creating both bord and a frame.
      */
     private void startGame() {
+        int boardWidth = 20; //amount of tiles the board are wide
+        int boardHeight = 10;
         board =  new Board(boardWidth, boardHeight);
         TestRobot testRobot = new TestRobot(3 * AbstractTile.getTileSize(), 3 * AbstractTile.getTileSize(), 'S');
         board.addRobot(testRobot);
         testPlayer = new Player("testPlayer", testRobot);
-        frame = new GameFrame(board, testPlayer);
+        new GameFrame(board, testPlayer);
 
     }
 
@@ -65,7 +65,7 @@ public class Game {
 
         final Action doOneFrame = new AbstractAction() {
             @Override
-            public void actionPerformed(java.awt.event.ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 game.update();
             }
         };

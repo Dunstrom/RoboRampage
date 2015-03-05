@@ -80,7 +80,7 @@ public abstract class AbstractRobot implements Robot
      *     <p>Makes the robot attack</p>
      */
     @Override public void attack() {
-
+        //TODO: Implement attack
     }
 
     /**
@@ -90,8 +90,10 @@ public abstract class AbstractRobot implements Robot
      */
     @Override public void draw(final Graphics g) {
 
+        int robotSize = 20;
+
         g.setColor(Color.BLUE);
-        g.fillRect(x, y, 20, 20);
+        g.fillRect(x, y, robotSize, robotSize);
 
         g.setColor(Color.BLACK);
         switch (orientation) {

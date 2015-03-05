@@ -10,7 +10,6 @@ import javax.swing.*;
  */
 public class GameFrame extends JFrame{
 
-    private BoardComponent boardComponent;
     private Player activePlayer;
 
     /**
@@ -29,7 +28,7 @@ public class GameFrame extends JFrame{
 
         activePlayer = player;
 
-        boardComponent = new BoardComponent(board);
+        BoardComponent boardComponent = new BoardComponent(board);
         board.addBoardListener(boardComponent);
         setLayout(new BorderLayout());
         add(activePlayer.getPanel(), BorderLayout.PAGE_END);
