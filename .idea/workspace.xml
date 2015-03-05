@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8c2e1e0-bd86-4976-8596-68d4c3c8c0d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/robot/AbstractRobot.java" afterPath="$PROJECT_DIR$/src/robot/AbstractRobot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Game.java" afterPath="$PROJECT_DIR$/src/game/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/io/GameFrame.java" afterPath="$PROJECT_DIR$/src/io/GameFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Player.java" afterPath="$PROJECT_DIR$/src/game/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/robot/Robot.java" afterPath="$PROJECT_DIR$/src/robot/Robot.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RoboRampage.iws" />
@@ -604,7 +599,7 @@
       <option name="number" value="Default" />
       <updated>1424641959834</updated>
       <workItem from="1424641962343" duration="3622000" />
-      <workItem from="1425566112186" duration="1878000" />
+      <workItem from="1425566112186" duration="1912000" />
     </task>
     <task id="LOCAL-00001" summary="Added Frame class">
       <created>1424642132383</created>
@@ -630,11 +625,17 @@
       <option name="project" value="LOCAL" />
       <updated>1425567079259</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Made a code analyze and fixed some of the problems">
+      <created>1425568019403</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1425568019403</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5500000" />
+    <option name="totallyTimeSpent" value="5534000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -657,8 +658,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="7" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -740,7 +741,8 @@
     <MESSAGE value="Added Frame class" />
     <MESSAGE value="Created a structure for tiles and a way for board to initialize itself with all empty tiles and to update all it's tiles. &#10;&#10;Perhaps a private method taking a function and then goes through all the boards tiles and using the function on each tile would decrease code repetition. &#10;" />
     <MESSAGE value="Fixed javadocs and moved main method to Game class according to feedback from tetris" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed javadocs and moved main method to Game class according to feedback from tetris" />
+    <MESSAGE value="Made a code analyze and fixed some of the problems" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made a code analyze and fixed some of the problems" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
