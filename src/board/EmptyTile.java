@@ -3,8 +3,7 @@ package board;
 import java.awt.*;
 
 /**
- *<h1>EmptyTile</h1><br>
- *     <p>The basic empty tile that don't do much.</p>
+ *The basic empty tile that don't do much.
  */
 public class EmptyTile extends AbstractTile{
 
@@ -13,8 +12,7 @@ public class EmptyTile extends AbstractTile{
     }
 
     /**
-     * <h1>draw</h1><br>
-     *     <p>Draws nothing else then super does because the tile is empty.</p>
+     * Draws nothing else then super does because the tile is empty.
      * @param g a Graphics object.
      */
     public void draw(Graphics g){
@@ -22,8 +20,7 @@ public class EmptyTile extends AbstractTile{
     }
 
     /**
-     * <h1>update</h1><br>
-     *     <p>Empty tiles do nothing</p>
+     * Empty tiles do nothing
      */
     public void update() {
 

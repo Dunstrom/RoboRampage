@@ -3,8 +3,7 @@ package robot;
 import board.AbstractTile;
 
 /**
- * <h1>TestRobot</h1><br>
- *     <p>Class to create test robots</p>
+ * Class to create test robots
  */
 public class TestRobot extends AbstractRobot {
 
@@ -15,8 +14,7 @@ public class TestRobot extends AbstractRobot {
     }
 
 	/**
-	 * <h1>addMoveForwardOne</h1><br>
-	 *     <p>Adds a moveforwardOne to the queue of pre programmed moves.</p>
+	 * Adds a moveforwardOne to the queue of pre programmed moves.
 	 */
     public void addMoveForwardOne(){
 	programmedMoves.add(moveForward);
@@ -46,8 +44,7 @@ public class TestRobot extends AbstractRobot {
     };
     
     /**
-     * <h1>turnLeft</h1><br>
-     *     <p>Turns the robot left 90 degrees</p>
+     * Turns the robot left 90 degrees
      */
     public void turnLeft() {
 	switch (orientation) {
@@ -67,8 +64,7 @@ public class TestRobot extends AbstractRobot {
     }
 
     /**
-     * <h1>turnRight</h1><br>
-     *     <p>Turns the robot right 90 degrees</p>
+     * Turns the robot right 90 degrees
      */
     public void turnRight() {
 	switch (orientation) {

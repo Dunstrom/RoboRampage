@@ -5,8 +5,7 @@ import java.awt.*;
 import java.util.*;
 
 /**
- * <h>AbstractRobot</h><br>
- *     <p>Abstract class for all robots in the game.</p>
+ * Abstract class for all robots in the game.
  */
 public abstract class AbstractRobot implements Robot
 {

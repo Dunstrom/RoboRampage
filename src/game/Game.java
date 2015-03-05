@@ -8,8 +8,7 @@ import robot.TestRobot;
 import javax.swing.*;
 
 /**
- * <h1>Game</h1><br>
- *     <p>Keeps track of gamestuff, initialize the game and such.</p>
+ * Keeps track of gamestuff, initialize the game and such.
  */
 public class Game {
 
@@ -24,8 +23,7 @@ public class Game {
     }
 
     /**
-     * <h1>startGame</h1><br>
-     *     <p>Starts the game by creating both bord and a frame.</p>
+     * Starts the game by creating both bord and a frame.
      */
     private void startGame() {
         board =  new Board(boardWidth, boardHeight);
@@ -37,8 +35,7 @@ public class Game {
     }
 
     /**
-     * <h1>executeTurn</h1><br>
-     *     <p>Finishes the turn by telling the board to update and resets the turn.</p>
+     * Finishes the turn by telling the board to update and resets the turn.
      */
     private void executeTurn() {
 
@@ -48,13 +45,35 @@ public class Game {
     }
 
     /**
-     * <h1>update</h1><br>
-     *     <p>Updates the game every tick of the timer<p/>
+     * Updates the game every tick of the timer
      */
     public void update() {
         if(testPlayer.getDone()){
             executeTurn();
         }
+    }
+
+    /**
+     * Main method that runs the game by using a timer.
+     * @param args String[] with arguments
+     */
+    public static void main(String[] args) {
+
+        final int updateTime = 500;
+
+        final Game game = new Game();
+
+        final Action doOneFrame = new AbstractAction() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                game.update();
+            }
+        };
+
+        final Timer timer = new Timer(updateTime, doOneFrame);
+        timer.setCoalesce(true);
+        timer.start();
+
     }
 
 }

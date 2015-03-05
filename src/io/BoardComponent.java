@@ -8,8 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- *<h1>BoardComponent</h1><br>
- *     <p>Handles the input and output for the board.</p>
+ * Handles the input and output for the board.
  */
 public class BoardComponent extends JComponent implements BoardListener {
 
@@ -22,8 +21,7 @@ public class BoardComponent extends JComponent implements BoardListener {
     }
 
     /**
-     * <h1>getPreferredSize</h1><br>
-     *     <p>Takes the board width, height and the tileSize and makes a Dimension object.</p>
+     * Takes the board width, height and the tileSize and makes a Dimension object.
      * @return a Dimension object.
      */
     @Override
@@ -35,8 +33,7 @@ public class BoardComponent extends JComponent implements BoardListener {
     }
 
     /**
-     * <h1>paintComponent</h1><br>
-     *     <p>Overrides JComponents paintComponent and draws the board.</p>
+     * Overrides JComponents paintComponent and draws the board.
      * @param g a Graphics object.
      */
     @Override
@@ -48,8 +45,7 @@ public class BoardComponent extends JComponent implements BoardListener {
     }
 
     /**
-     * <h1>boardChanged</h1><br>
-     *     <p>Repaints the board whenever it changes.</p>
+     * Repaints the board whenever it changes.
      */
     public void boardChanged() {
         repaint();

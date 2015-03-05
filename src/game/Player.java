@@ -6,8 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 /**
- *<h1>Player</h1><br>
- *     <p>Keep track of the player. Containing the players interface and it's robot.</p>
+ * Keep track of the player. Containing the players interface and it's robot.</p>
  */
 public class Player {
 
