@@ -1,9 +1,12 @@
 package robot;
 
 
+import io.ImageLoader;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.image.BufferedImage;
 import java.util.*;
 
 /**
@@ -24,8 +27,9 @@ public abstract class AbstractRobot implements Robot
     protected boolean endable;
     protected boolean done;
     protected JLabel infoBox;
+    protected JLabel displayedMoves;
 
-    protected Queue<Runnable> programmedMoves;
+    protected Queue<AbstractMove> programmedMoves;
     protected final static int maxQueuedMoves = 3;
 
     public static int getMaxQueuedMoves() {
@@ -80,7 +84,7 @@ public abstract class AbstractRobot implements Robot
         this.y = y;
         this.orientation = orientation;
 
-        programmedMoves = new LinkedList<Runnable>();
+        programmedMoves = new LinkedList<AbstractMove>();
 
         setupPlayerInterface(name);
 
@@ -98,7 +102,8 @@ public abstract class AbstractRobot implements Robot
         JButton endTurnButton  = new JButton();
         JButton removeMoveButton = new JButton();
         infoBox = new JLabel("It's " + name + "s turn");
-
+        displayedMoves = new JLabel();
+        updateDisplayedMoves();
 
         removeMoveButton.setAction(new AbstractAction() {
             @Override
@@ -110,6 +115,7 @@ public abstract class AbstractRobot implements Robot
             @Override public void actionPerformed(final ActionEvent e) {
                 if(endable){
                     done = true;
+                    endable = false;
                 }
             }
         });
@@ -120,6 +126,22 @@ public abstract class AbstractRobot implements Robot
         panel.add(removeMoveButton);
         panel.add(endTurnButton);
         panel.add(infoBox);
+        panel.add(displayedMoves);
+
+    }
+
+    /**
+     * Constructs a string and sets it to the JLabel displayedMoves.
+     */
+    private void updateDisplayedMoves(){
+
+        StringBuilder builder = new StringBuilder();
+
+        for(int i = 0; i < programmedMoves.size(); i++){
+            //builder.append(programmedMoves.get(i).display()); TODO: The documentation says LinkedList has a get method but apperantly idea don't agree... needs to be fixed
+        }
+
+        displayedMoves.setText(builder.toString());
 
     }
 
@@ -155,7 +177,34 @@ public abstract class AbstractRobot implements Robot
     @Override public void draw(final Graphics g) {
 
         int robotSize = 20; //Size of the robot in pixels
+        ImageLoader imageLoader = new ImageLoader();
+        /*BufferedImage robotImage = imageLoader.loadImage("Robot.png");
+        if(robotImage != null) {
+            g.drawImage(robotImage, x, y, null);
+        } else {
 
+            g.setColor(Color.BLUE);
+            g.fillRect(x, y, robotSize, robotSize);
+
+            g.setColor(Color.BLACK);
+            switch (orientation) {
+                case NORTH:
+                    g.drawString("N", x, y);
+                    break;
+                case SOUTH:
+                    g.drawString("S", x, y);
+                    break;
+                case WEST:
+                    g.drawString("W", x, y);
+                    break;
+                case EAST:
+                    g.drawString("E", x, y);
+                    break;
+
+
+            }
+        }
+        */
         g.setColor(Color.BLUE);
         g.fillRect(x, y, robotSize, robotSize);
 
@@ -173,6 +222,8 @@ public abstract class AbstractRobot implements Robot
             case EAST:
                 g.drawString("E", x, y);
                 break;
+
+
         }
     }
 
@@ -180,16 +231,18 @@ public abstract class AbstractRobot implements Robot
      * Adds a move to the list of pre programmed moves.
      * @param move a Runnable that is supposed to be executed in the sequential move phase of the game.
      */
-    protected void addProgrammedMove(Runnable move){
+    protected void addProgrammedMove(AbstractMove move){
 
         if(programmedMoves.size() < maxQueuedMoves){
             programmedMoves.add(move);
             if(programmedMoves.size() == maxQueuedMoves) {
                 endable = true;
             }
+            updateDisplayedMoves();
         }else {
             programmedMoves.remove();
             programmedMoves.add(move);
+            updateDisplayedMoves();
         }
     }
 

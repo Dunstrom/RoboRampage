@@ -61,7 +61,7 @@ public class TestRobot extends AbstractRobot {
 	/**
 	 * Runnable that moves the robot one step forward.
 	 */
-	Runnable moveForwardOne = new Runnable() {
+	AbstractMove moveForwardOne = new AbstractMove() {
 		@Override
 		public void run() {
 			switch (orientation) {
@@ -83,12 +83,17 @@ public class TestRobot extends AbstractRobot {
 					break;
 			}
 		}
+
+		@Override
+		public String display() {
+			return "Forward 1";
+		}
 	};
 
 	/**
 	 * Runnable that turns the robot left 90 degrees
 	 */
-	Runnable turnLeft = new Runnable() {
+	AbstractMove turnLeft = new AbstractMove() {
 		@Override
 		public void run() {
 			switch (orientation) {
@@ -113,6 +118,11 @@ public class TestRobot extends AbstractRobot {
 					tempY = y;
 					break;
 			}
+		}
+
+		@Override
+		public String display() {
+			return "Turn Left";
 		}
 	};
 
@@ -120,7 +130,7 @@ public class TestRobot extends AbstractRobot {
 	/**
 	 * Runnable that turns the robot right 90 degrees
 	 */
-	Runnable turnRight = new Runnable() {
+	AbstractMove turnRight = new AbstractMove() {
 		@Override
 		public void run() {
 			switch (orientation) {
@@ -146,6 +156,12 @@ public class TestRobot extends AbstractRobot {
 					break;
 			}
 		}
+
+		@Override
+		public String display() {
+			return "Turn Right";
+		}
+
 	};
 
 }
