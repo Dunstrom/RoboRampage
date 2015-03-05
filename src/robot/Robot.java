@@ -5,8 +5,13 @@ import java.awt.*;
 /**
  * Interface for the robots
  */
-public interface Robot
-{
+public interface Robot {
+
+    /**
+     * Sets up the interface in which the player interacts with the game.
+     * @param name Name of the player using the interface
+     */
+    void setupPlayerInterface(String name);
 
     /**
      * checks if robot can be moved

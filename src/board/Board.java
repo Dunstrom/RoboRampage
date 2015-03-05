@@ -80,11 +80,15 @@ public class Board {
      */
     public void update(){
 
-        updateRobots();
+        for(int i = 0; i < AbstractRobot.getMaxQueuedMoves(); i++){
 
-        updateTiles();
+            updateRobots();
 
-        notifyListeners();
+            updateTiles();
+
+            notifyListeners();
+
+        }
 
     }
 

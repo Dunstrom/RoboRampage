@@ -3,6 +3,7 @@ package game;
 import board.AbstractTile;
 import board.Board;
 import io.GameFrame;
+import robot.Orientation;
 import robot.TestRobot;
 
 import java.awt.event.ActionEvent;
@@ -14,7 +15,7 @@ import javax.swing.*;
 public class Game {
 
     private Board board;
-    private Player testPlayer;
+    private TestRobot testRobot;
 
     public Game() {
         startGame();
@@ -27,10 +28,9 @@ public class Game {
         int boardWidth = 20; //amount of tiles the board are wide
         int boardHeight = 10;
         board =  new Board(boardWidth, boardHeight);
-        TestRobot testRobot = new TestRobot(3 * AbstractTile.getTileSize(), 3 * AbstractTile.getTileSize(), 'S');
+        testRobot = new TestRobot(3 * AbstractTile.getTileSize(), 3 * AbstractTile.getTileSize(), Orientation.NORTH, "Player 1");
         board.addRobot(testRobot);
-        testPlayer = new Player("testPlayer", testRobot);
-        new GameFrame(board, testPlayer);
+        new GameFrame(board, testRobot);
 
     }
 
@@ -41,14 +41,14 @@ public class Game {
 
         board.update();
 
-        testPlayer.setDone(false);
+        testRobot.setDone(false);
     }
 
     /**
      * Updates the game every tick of the timer
      */
     public void update() {
-        if(testPlayer.getDone()){
+        if(testRobot.getDone()){
             executeTurn();
         }
     }
