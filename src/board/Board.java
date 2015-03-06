@@ -88,6 +88,8 @@ public class Board {
 
             notifyListeners();
 
+            //TODO: Add a timer or something that makes the computer wait for a while until next move
+
         }
 
     }
