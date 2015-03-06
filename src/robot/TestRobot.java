@@ -67,11 +67,11 @@ public class TestRobot extends AbstractRobot {
 			switch (orientation) {
 				case NORTH:
 					tempX = x;
-					tempY = y + AbstractTile.getTileSize();
+					tempY = y - AbstractTile.getTileSize();
 					break;
 				case SOUTH:
 					tempX = x;
-					tempY = y - AbstractTile.getTileSize();
+					tempY = y + AbstractTile.getTileSize();
 					break;
 				case WEST:
 					tempX = x - AbstractTile.getTileSize();

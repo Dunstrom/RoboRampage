@@ -6,8 +6,8 @@ import io.ImageLoader;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.image.BufferedImage;
-import java.util.*;
+import java.util.Queue;
+import java.util.LinkedList;
 
 /**
  * Abstract class for all robots in the game.
@@ -102,7 +102,7 @@ public abstract class AbstractRobot implements Robot
         JButton endTurnButton  = new JButton();
         JButton removeMoveButton = new JButton();
         infoBox = new JLabel("It's " + name + "s turn");
-        displayedMoves = new JLabel();
+        displayedMoves = new JLabel("Hej");
         updateDisplayedMoves();
 
         removeMoveButton.setAction(new AbstractAction() {
@@ -133,16 +133,17 @@ public abstract class AbstractRobot implements Robot
     /**
      * Constructs a string and sets it to the JLabel displayedMoves.
      */
-    private void updateDisplayedMoves(){
+    public void updateDisplayedMoves(){
 
         StringBuilder builder = new StringBuilder();
+        builder.append("You have choosen: ");
 
-        for(int i = 0; i < programmedMoves.size(); i++){
-            //builder.append(programmedMoves.get(i).display()); TODO: The documentation says LinkedList has a get method but apperantly idea don't agree... needs to be fixed
+        for (AbstractMove programmedMove : programmedMoves) {
+            builder.append(programmedMove.display());
+            builder.append(" ");
         }
 
         displayedMoves.setText(builder.toString());
-
     }
 
     /**

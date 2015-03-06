@@ -202,6 +202,8 @@ public class Board {
 
             robotAttack(robot);
 
+            robot.updateDisplayedMoves();
+
             notifyListeners();
 
         }
