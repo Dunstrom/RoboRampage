@@ -206,21 +206,24 @@ public abstract class AbstractRobot implements Robot
         }
         */
         g.setColor(Color.BLUE);
-        g.fillRect(x, y, robotSize, robotSize);
-
+        final int yRobotOffset = 10;
+        final int xRobotOffset = 10;
+        g.fillRect(x + xRobotOffset, y + yRobotOffset, robotSize, robotSize);
+        final int yTextOffset = 15 + yRobotOffset;
+        final int xTextOffset = 5 + xRobotOffset;
         g.setColor(Color.BLACK);
         switch (orientation) {
             case NORTH:
-                g.drawString("N", x, y);
+                g.drawString("N", x + xTextOffset, y + yTextOffset);
                 break;
             case SOUTH:
-                g.drawString("S", x, y);
+                g.drawString("S", x + xTextOffset, y + yTextOffset);
                 break;
             case WEST:
-                g.drawString("W", x, y);
+                g.drawString("W", x + xTextOffset, y + yTextOffset);
                 break;
             case EAST:
-                g.drawString("E", x, y);
+                g.drawString("E", x + xTextOffset, y + yTextOffset);
                 break;
 
 
@@ -250,9 +253,10 @@ public abstract class AbstractRobot implements Robot
      * Removes a the latest added programmed move.
      */
     protected void removeProgrammedMove(){
-        if(programmedMoves.size() > 0){
+        if(!programmedMoves.isEmpty()){
             programmedMoves.remove();
             endable = false;
+            updateDisplayedMoves();
         }
     }
 
