@@ -35,49 +35,36 @@ public abstract class AbstractRobot implements Robot
     public static int getMaxQueuedMoves() {
         return maxQueuedMoves;
     }
-
     public int getX() {
         return x;
     }
-
     public int getY() {
         return y;
     }
-
     public int getTempY() {
         return tempY;
     }
-
     public Orientation getOrientation() {
         return orientation;
     }
-
     public int getHitPoints() {
         return hitPoints;
     }
-
     public int getTempX() {
         return tempX;
     }
-
     public Runnable getNextMove() {
         return programmedMoves.poll();
     }
-
-
-
     public void setDone(boolean bool) {
         done = bool;
     }
-
     public boolean getDone() {
         return done;
     }
-
     public JPanel getPanel() {
         return panel;
     }
-
     public AbstractRobot(final int x, final int y, final Orientation orientation, String name) {
 
         this.x = x;

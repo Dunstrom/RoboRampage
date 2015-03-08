@@ -12,6 +12,8 @@ import javax.swing.*;
 public class GameFrame extends JFrame{
 
     private AbstractRobot activePlayer;
+    private BoardComponent boardComponent;
+
 
     /**
      * Sets the activePlayer to a a robot. The activePlayer is the one who's interface is displayed.
@@ -20,7 +22,13 @@ public class GameFrame extends JFrame{
     public void setActivePlayer(AbstractRobot player) {
         remove(activePlayer.getPanel());
         activePlayer = player;
-        add(activePlayer.getPanel());
+        add(activePlayer.getPanel(), BorderLayout.PAGE_END);
+
+	setSize(boardComponent.getPreferredSize());
+ 	requestFocus();
+ 	setVisible(true);
+	pack();
+
     }
 
     public GameFrame(Board board, AbstractRobot player) {
@@ -29,7 +37,7 @@ public class GameFrame extends JFrame{
 
         activePlayer = player;
 
-        BoardComponent boardComponent = new BoardComponent(board);
+        boardComponent = new BoardComponent(board);
         board.addBoardListener(boardComponent);
         setLayout(new BorderLayout());
         add(activePlayer.getPanel(), BorderLayout.PAGE_END);

@@ -3,10 +3,13 @@ package game;
 import board.AbstractTile;
 import board.Board;
 import io.GameFrame;
+import robot.AbstractRobot;
 import robot.Orientation;
 import robot.TestRobot;
 
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.*;
 
 /**
@@ -15,7 +18,10 @@ import javax.swing.*;
 public class Game {
 
     private Board board;
-    private TestRobot testRobot;
+    private List<AbstractRobot> players;
+    private int numberOfPlayers = 2;
+    private AbstractRobot currentPlayer;
+    private GameFrame game;
 
     public Game() {
         startGame();
@@ -25,13 +31,28 @@ public class Game {
      * Starts the game by creating both bord and a frame.
      */
     private void startGame() {
-        int boardWidth = 20; //amount of tiles the board are wide
+        int boardWidth = 20; //amount of tiles the board is wide
         int boardHeight = 10;
         board =  new Board(boardWidth, boardHeight);
-        testRobot = new TestRobot(3 * AbstractTile.getTileSize(), 3 * AbstractTile.getTileSize(), Orientation.NORTH, "Player 1");
-        board.addRobot(testRobot);
-        new GameFrame(board, testRobot);
+	players = new ArrayList<AbstractRobot>();
 
+	addPlayers(numberOfPlayers);
+
+	currentPlayer = players.get(0);
+        game = new GameFrame(board, currentPlayer);
+
+    }
+
+    /**
+     * Adds al the players to the game.
+     * @param numberOfPlayers number of players in this game
+     */
+    private void addPlayers(int numberOfPlayers){
+	for (int i = 0; i < numberOfPlayers; i++) {
+	    AbstractRobot testRobot = new TestRobot((3 + i*2) * AbstractTile.getTileSize(), 3 * AbstractTile.getTileSize(), Orientation.NORTH, "Player 1");
+	    players.add(testRobot);
+	    board.addRobot(testRobot);
+	}
     }
 
     /**
@@ -41,15 +62,25 @@ public class Game {
 
         board.update();
 
-        testRobot.setDone(false);
+	for (AbstractRobot player : players) {
+	    player.setDone(false);
+	}
     }
 
     /**
      * Updates the game every tick of the timer
      */
     public void update() {
-        if(testRobot.getDone()){
-            executeTurn();
+        if(currentPlayer.getDone()){
+	    if(players.indexOf(currentPlayer) < players.size()-1){//Are there more players left this turn?
+		currentPlayer = players.get(players.indexOf(currentPlayer) + 1);
+		game.setActivePlayer(currentPlayer);
+	    }
+	    else{
+		executeTurn();
+		currentPlayer = players.get(0);
+		game.setActivePlayer(currentPlayer);
+	    }
         }
     }
 
