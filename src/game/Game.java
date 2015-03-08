@@ -52,16 +52,16 @@ public class Game {
      * @param numberOfPlayers number of players in this game
      */
     private void addPlayers(int numberOfPlayers){
-	for (int i = 0; i < numberOfPlayers; i++) {
-        Color color = PLAYER_COLORS[i];
-        String name = PLAYER_NAMES[i];
-        Orientation dir = Orientation.NORTH;
-        int x = (3 + i*2) * AbstractTile.getTileSize();
-        int y = 3 * AbstractTile.getTileSize();
-	    AbstractRobot testRobot = new TestRobot(x, y, dir, name, color);
-	    players.add(testRobot);
-	    board.addRobot(testRobot);
-	}
+	    for (int i = 0; i < numberOfPlayers; i++) {
+            Color color = PLAYER_COLORS[i];
+            String name = PLAYER_NAMES[i];
+            Orientation dir = Orientation.NORTH;
+            int x = (3 + i*2) * AbstractTile.getTileSize();
+            int y = 3 * AbstractTile.getTileSize();
+	        AbstractRobot testRobot = new TestRobot(x, y, dir, name, color);
+	        players.add(testRobot);
+	        board.addRobot(testRobot);
+	    }
     }
 
     /**
