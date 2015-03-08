@@ -4,14 +4,15 @@ import board.AbstractTile;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 /**
  * Class to create test robots
  */
 public class TestRobot extends AbstractRobot {
 
-	public TestRobot(final int x, final int y, final Orientation orientation, String name) {
-		super(x, y, orientation, name);
+	public TestRobot(final int x, final int y, final Orientation orientation, String name, Color color) {
+		super(x, y, orientation, name, color);
 		hitPoints = 10;
 
 	}

@@ -1,10 +1,8 @@
 package robot;
 
-
-import io.ImageLoader;
-
 import javax.swing.*;
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.util.Queue;
 import java.util.LinkedList;
@@ -12,28 +10,32 @@ import java.util.LinkedList;
 /**
  * Abstract class for all robots in the game.
  */
-public abstract class AbstractRobot implements Robot
-{
+public abstract class AbstractRobot implements Robot {
+
+    // Position
     protected int x;
     protected int y;
     protected Orientation orientation;
-    protected int hitPoints;
 
     //For the collisionhandling
     protected int tempX;
     protected int tempY;
 
+    //Interface and output
     protected JPanel panel;
     protected boolean endable;
     protected boolean done;
     protected JLabel infoBox;
     protected JLabel displayedMoves;
+    protected Color color;
 
+    // Stats
     protected Queue<AbstractMove> programmedMoves;
-    protected final static int maxQueuedMoves = 3;
+    protected final static int MAX_QUEUED_MOVES = 3;
+    protected int hitPoints;
 
     public static int getMaxQueuedMoves() {
-        return maxQueuedMoves;
+        return MAX_QUEUED_MOVES;
     }
     public int getX() {
         return x;
@@ -65,11 +67,13 @@ public abstract class AbstractRobot implements Robot
     public JPanel getPanel() {
         return panel;
     }
-    public AbstractRobot(final int x, final int y, final Orientation orientation, String name) {
+
+    public AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final Color color) {
 
         this.x = x;
         this.y = y;
         this.orientation = orientation;
+        this.color = color;
 
         programmedMoves = new LinkedList<AbstractMove>();
 
@@ -164,36 +168,9 @@ public abstract class AbstractRobot implements Robot
      */
     @Override public void draw(final Graphics g) {
 
-        int robotSize = 20; //Size of the robot in pixels
-        ImageLoader imageLoader = new ImageLoader();
-        /*BufferedImage robotImage = imageLoader.loadImage("Robot.png");
-        if(robotImage != null) {
-            g.drawImage(robotImage, x, y, null);
-        } else {
+        final int robotSize = 20; //Size of the robot in pixels
 
-            g.setColor(Color.BLUE);
-            g.fillRect(x, y, robotSize, robotSize);
-
-            g.setColor(Color.BLACK);
-            switch (orientation) {
-                case NORTH:
-                    g.drawString("N", x, y);
-                    break;
-                case SOUTH:
-                    g.drawString("S", x, y);
-                    break;
-                case WEST:
-                    g.drawString("W", x, y);
-                    break;
-                case EAST:
-                    g.drawString("E", x, y);
-                    break;
-
-
-            }
-        }
-        */
-        g.setColor(Color.BLUE);
+        g.setColor(color);
         final int yRobotOffset = 10;
         final int xRobotOffset = 10;
         g.fillRect(x + xRobotOffset, y + yRobotOffset, robotSize, robotSize);
@@ -224,9 +201,9 @@ public abstract class AbstractRobot implements Robot
      */
     protected void addProgrammedMove(AbstractMove move){
 
-        if(programmedMoves.size() < maxQueuedMoves){
+        if(programmedMoves.size() < MAX_QUEUED_MOVES){
             programmedMoves.add(move);
-            if(programmedMoves.size() == maxQueuedMoves) {
+            if(programmedMoves.size() == MAX_QUEUED_MOVES) {
                 endable = true;
             }
             updateDisplayedMoves();

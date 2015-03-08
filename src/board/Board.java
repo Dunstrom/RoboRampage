@@ -208,4 +208,14 @@ public class Board {
 
     }
 
+    private void wait(int time) {
+
+        try {
+            Thread.sleep(time);
+        } catch(InterruptedException e) {
+            //Thread.currentThread().interrupt();
+        }
+
+    }
+
 }
