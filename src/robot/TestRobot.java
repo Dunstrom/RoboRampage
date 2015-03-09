@@ -18,44 +18,44 @@ public class TestRobot extends AbstractRobot {
 	}
 
 	/**
-	 * Adds move forward, turn left and turn right buttons to the panel.
+	 * Adds move forward, turn left and turn right buttons to the mainPanel.
 	 * @param name Name of the player using the interface
 	 */
 	@Override
 	public void setupPlayerInterface(String name) {
-		super.setupPlayerInterface(name);
-		JButton moveForwardButton = new JButton();
-		JButton turnLeftButton = new JButton();
-		JButton turnRightButton = new JButton();
+	    super.setupPlayerInterface(name);
+	    JButton moveForwardButton = new JButton();
+	    JButton turnLeftButton = new JButton();
+	    JButton turnRightButton = new JButton();
 
-		moveForwardButton.setAction(new AbstractAction() {
+	    moveForwardButton.setAction(new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				addProgrammedMove(moveForwardOne);
 			}
 		});
 
-		turnLeftButton.setAction(new AbstractAction() {
+	    turnLeftButton.setAction(new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				addProgrammedMove(turnLeft);
 			}
 		});
 
-		turnRightButton.setAction(new AbstractAction() {
+	    turnRightButton.setAction(new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				addProgrammedMove(turnRight);
 			}
 		});
 
-		moveForwardButton.setText("Forward");
-		turnLeftButton.setText("Turn Left");
-		turnRightButton.setText("Turn Right");
+	    moveForwardButton.setText("Forward");
+	    turnLeftButton.setText("Turn Left");
+	    turnRightButton.setText("Turn Right");
 
-		panel.add(moveForwardButton);
-		panel.add(turnLeftButton);
-		panel.add(turnRightButton);
+	    moveButtonPanel.add(moveForwardButton);
+	    moveButtonPanel.add(turnLeftButton);
+	    moveButtonPanel.add(turnRightButton);
 
 	}
 

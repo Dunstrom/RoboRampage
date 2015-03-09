@@ -1,9 +1,13 @@
 package robot;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.util.Queue;
 import java.util.LinkedList;
 
@@ -22,7 +26,9 @@ public abstract class AbstractRobot implements Robot {
     protected int tempY;
 
     //Interface and output
-    protected JPanel panel;
+    protected JPanel mainPanel;
+    protected JPanel moveButtonPanel;
+    protected JPanel turnButtonPanel;
     protected boolean endable;
     protected boolean done;
     protected JLabel infoBox;
@@ -64,8 +70,8 @@ public abstract class AbstractRobot implements Robot {
     public boolean getDone() {
         return done;
     }
-    public JPanel getPanel() {
-        return panel;
+    public JPanel getMainPanel() {
+        return mainPanel;
     }
 
     public AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final Color color) {
@@ -89,16 +95,21 @@ public abstract class AbstractRobot implements Robot {
 
         done = false;
 
-        panel  = new JPanel();
+        mainPanel = new JPanel(new BorderLayout());
+        turnButtonPanel = new JPanel(new GridLayout());
+        moveButtonPanel = new JPanel(new FlowLayout());
+
         JButton endTurnButton  = new JButton();
         JButton removeMoveButton = new JButton();
+
         infoBox = new JLabel("It's " + name + "s turn");
-        displayedMoves = new JLabel("Hej");
+        displayedMoves = new JLabel();
+
         updateDisplayedMoves();
 
-        removeMoveButton.setAction(new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        removeMoveButton.setAction(new AbstractAction()
+        {
+            @Override public void actionPerformed(ActionEvent e) {
                 removeProgrammedMove();
             }
         });
@@ -114,10 +125,13 @@ public abstract class AbstractRobot implements Robot {
         removeMoveButton.setText("Remove Move");
         endTurnButton.setText("End Turn");
 
-        panel.add(removeMoveButton);
-        panel.add(endTurnButton);
-        panel.add(infoBox);
-        panel.add(displayedMoves);
+        turnButtonPanel.add(removeMoveButton);
+        turnButtonPanel.add(endTurnButton);
+
+        mainPanel.add(turnButtonPanel, BorderLayout.LINE_START);
+        mainPanel.add(moveButtonPanel, BorderLayout.CENTER);
+        mainPanel.add(infoBox, BorderLayout.PAGE_START);
+        mainPanel.add(displayedMoves, BorderLayout.PAGE_END);
 
     }
 
