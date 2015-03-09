@@ -3,8 +3,7 @@ package board;
 import java.awt.*;
 
 /**
- * <h1>AbstractTile</h1><br>
- *     <p>An abstract class that implements the most basic methods and fields every tile needs</p>
+ * An abstract class that implements the most basic methods and fields every tile needs
  */
 public abstract class AbstractTile implements Tile{
 
@@ -33,8 +32,7 @@ public abstract class AbstractTile implements Tile{
     }
 
     /**
-     * <h1>draw()</h1><br>
-     *     <p>Draws the outline and background of every tile and if a robot ocupies it tells the robot to draw itself</p>
+     * Draws the outline and background of every tile and if a robot ocupies it tells the robot to draw itself
      */
     public void draw(Graphics g) {
 
@@ -49,8 +47,7 @@ public abstract class AbstractTile implements Tile{
     }
 
     /**
-     * <h1>update</h1><br>
-     *     <p>Abstract tile does nothing.</p>
+     * Abstract tile does nothing.
      */
     @Override
     public abstract void update();

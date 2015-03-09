@@ -2,89 +2,167 @@ package robot;
 
 import board.AbstractTile;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+
 /**
- * <h1>TestRobot</h1><br>
- *     <p>Class to create test robots</p>
+ * Class to create test robots
  */
 public class TestRobot extends AbstractRobot {
 
-    public TestRobot(final int x, final int y, final char orientation){
-	super(x,y, orientation);
-	hitPoints = 10;
+	public TestRobot(final int x, final int y, final Orientation orientation, String name, Color color) {
+		super(x, y, orientation, name, color);
+		hitPoints = 10;
 
-    }
+	}
 
 	/**
-	 * <h1>addMoveForwardOne</h1><br>
-	 *     <p>Adds a moveforwardOne to the queue of pre programmed moves.</p>
+	 * Adds move forward, turn left and turn right buttons to the panel.
+	 * @param name Name of the player using the interface
 	 */
-    public void addMoveForwardOne(){
-	programmedMoves.add(moveForward);
-    }
+	@Override
+	public void setupPlayerInterface(String name) {
+		super.setupPlayerInterface(name);
+		JButton moveForwardButton = new JButton();
+		JButton turnLeftButton = new JButton();
+		JButton turnRightButton = new JButton();
 
-    Runnable moveForward = new Runnable() {
-	public void run() {
-	    switch (orientation){
-	    	    case 'N':
-			tempX = x;
-			tempY = y + AbstractTile.getTileSize();
-	    		break;
-	    	    case 'S':
-			tempX = x;
-			tempY = y - AbstractTile.getTileSize();
-	    		break;
-	    	    case 'W':
-			tempX = x - AbstractTile.getTileSize();
-			tempY = y;
-	    		break;
-	    	    case 'E':
-			tempX = x + AbstractTile.getTileSize();
-			tempY = y;
-	    		break;
-	    	}
-	}
-    };
-    
-    /**
-     * <h1>turnLeft</h1><br>
-     *     <p>Turns the robot left 90 degrees</p>
-     */
-    public void turnLeft() {
-	switch (orientation) {
-	    case 'N':
-		place(0, 1);
-		break;
-	    case 'S':
-		place(0, -1);
-		break;
-	    case 'W':
-		place(-1, 0);
-		break;
-	    case 'E':
-		place(1, 0);
-		break;
-	}
-    }
+		moveForwardButton.setAction(new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				addProgrammedMove(moveForwardOne);
+			}
+		});
 
-    /**
-     * <h1>turnRight</h1><br>
-     *     <p>Turns the robot right 90 degrees</p>
-     */
-    public void turnRight() {
-	switch (orientation) {
-	    case 'N':
-		orientation = 'E';
-		break;
-	    case 'E':
-		orientation = 'S';
-		break;
-	    case 'S':
-		orientation = 'W';
-		break;
-	    case 'W':
-		orientation = 'N';
-		break;
+		turnLeftButton.setAction(new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				addProgrammedMove(turnLeft);
+			}
+		});
+
+		turnRightButton.setAction(new AbstractAction() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				addProgrammedMove(turnRight);
+			}
+		});
+
+		moveForwardButton.setText("Forward");
+		turnLeftButton.setText("Turn Left");
+		turnRightButton.setText("Turn Right");
+
+		panel.add(moveForwardButton);
+		panel.add(turnLeftButton);
+		panel.add(turnRightButton);
+
 	}
-    }
+
+	/**
+	 * Runnable that moves the robot one step forward.
+	 */
+	AbstractMove moveForwardOne = new AbstractMove() {
+		@Override
+		public void run() {
+			switch (orientation) {
+				case NORTH:
+					tempX = x;
+					tempY = y - AbstractTile.getTileSize();
+					break;
+				case SOUTH:
+					tempX = x;
+					tempY = y + AbstractTile.getTileSize();
+					break;
+				case WEST:
+					tempX = x - AbstractTile.getTileSize();
+					tempY = y;
+					break;
+				case EAST:
+					tempX = x + AbstractTile.getTileSize();
+					tempY = y;
+					break;
+			}
+		}
+
+		@Override
+		public String display() {
+			return "Forward 1";
+		}
+	};
+
+	/**
+	 * Runnable that turns the robot left 90 degrees
+	 */
+	AbstractMove turnLeft = new AbstractMove() {
+		@Override
+		public void run() {
+			switch (orientation) {
+				case NORTH:
+					orientation = Orientation.WEST;
+					tempX = x;
+					tempY = y;
+					break;
+				case SOUTH:
+					orientation = Orientation.EAST;
+					tempX = x;
+					tempY = y;
+					break;
+				case WEST:
+					orientation = Orientation.SOUTH;
+					tempX = x;
+					tempY = y;
+					break;
+				case EAST:
+					orientation = Orientation.NORTH;
+					tempX = x;
+					tempY = y;
+					break;
+			}
+		}
+
+		@Override
+		public String display() {
+			return "Turn Left";
+		}
+	};
+
+
+	/**
+	 * Runnable that turns the robot right 90 degrees
+	 */
+	AbstractMove turnRight = new AbstractMove() {
+		@Override
+		public void run() {
+			switch (orientation) {
+				case NORTH:
+					orientation = Orientation.EAST;
+					tempX = x;
+					tempY = y;
+					break;
+				case EAST:
+					orientation = Orientation.SOUTH;
+					tempX = x;
+					tempY = y;
+					break;
+				case SOUTH:
+					orientation = Orientation.WEST;
+					tempX = x;
+					tempY = y;
+					break;
+				case WEST:
+					orientation = Orientation.NORTH;
+					tempX = x;
+					tempY = y;
+					break;
+			}
+		}
+
+		@Override
+		public String display() {
+			return "Turn Right";
+		}
+
+	};
 
 }

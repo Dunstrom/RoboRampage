@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <h1>Board</h1><br>
- *     <p>Keeps tracks of all the tiles on the board.</p>
+ * Keeps tracks of all the tiles on the board.
  */
 public class Board {
 
@@ -56,8 +55,7 @@ public class Board {
     // Board stuff
 
     /**
-     * <h1>initBoard</h1><br>
-     *     <p>Initialize the board with all empty tiles</p>
+     * Initialize the board with all empty tiles
      * @param width an int telling the board how many tiles it should have per row.
      * @param height an int telling the board how many rows it should have.
      */
@@ -78,23 +76,25 @@ public class Board {
     }
 
     /**
-     * <h1>update</h1><br>
-     *     <p>Updates the board by updating robots and updating the tiles.</p>
+     * Updates the board by updating robots and updating the tiles.
      */
     public void update(){
 
-        updateRobots();
+        for(int i = 0; i < AbstractRobot.getMaxQueuedMoves(); i++){
 
-        updateTiles();
+            updateRobots();
 
-        notifyListeners();
+            updateTiles();
+
+            //TODO: Add a timer or something that makes the computer wait for a while until next move
+
+        }
 
     }
 
     /**
-     * <h1>updateTiles</h1><br>
-     *     <p>Goes through all the tiles on the board and updates them.
-     *     So the tiles for example, shoot, moves or kills the robots</p>
+     * Goes through all the tiles on the board and updates them.
+     * So the tiles for example, shoot, moves or kills the robots
      */
     public void updateTiles() {
 
@@ -107,12 +107,11 @@ public class Board {
             }
 
         }
-
+	notifyListeners();
     }
 
     /**
-     * <h1>draw</h1><br>
-     *     <p>Draws the board by going through all the tiles and draws them.</p>
+     * Draws the board by going through all the tiles and draws them.
      * @param g a Graphics object needed to draw the individual tile.
      */
     public void draw(Graphics g) {
@@ -134,8 +133,7 @@ public class Board {
     }
 
     /**
-     * <h1>notifyListeners</h1><br>
-     *     <p>Notifies all the boardListeners by calling their boardChanged method.</p>
+     * Notifies all the boardListeners by calling their boardChanged method.
      */
     private void notifyListeners() {
         for(BoardListener listener : listeners) {
@@ -146,8 +144,7 @@ public class Board {
     // Robot stuff
 
     /**
-     * <h1>canMoveRobot</h1><br>
-     *     <p>Checks if the robot can be moved to it's temporary position.</p>
+     * Checks if the robot can be moved to it's temporary position.
      * @param robot a Abstract robot that is going to be moved.
      * @return a boolean, true if the robot is movable false if it isn't.
      */
@@ -170,8 +167,7 @@ public class Board {
     }
 
     /**
-     * <h1>moveRobot</h1><br>
-     *     <p>Get's the next move programmed in to the robot and tries to move the robot.</p>
+     * Get's the next move programmed in to the robot and tries to move the robot.
      * @param robot the robot that is to be moved.
      */
     private void moveRobot(AbstractRobot robot) {
@@ -186,8 +182,7 @@ public class Board {
     }
 
     /**
-     * <h1>robotAttack</h1><br>
-     *     <p>Makes the robot attack</p>
+     * Makes the robot attack
      * @param robot the robot that shall attack.
      */
     private void robotAttack(AbstractRobot robot) {
@@ -195,8 +190,7 @@ public class Board {
     }
 
     /**
-     * <h1>updateRobots</h1><br>
-     *     <p>Moves the robots as they are programmed and makes them attack.</p>
+     * Moves the robots as they are programmed and makes them attack.
      */
     private void updateRobots() {
 
@@ -206,8 +200,20 @@ public class Board {
 
             robotAttack(robot);
 
+            robot.updateDisplayedMoves();
+
             notifyListeners();
 
+        }
+
+    }
+
+    private void wait(int time) {
+
+        try {
+            Thread.sleep(time);
+        } catch(InterruptedException e) {
+            //Thread.currentThread().interrupt();
         }
 
     }

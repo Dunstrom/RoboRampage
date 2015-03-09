@@ -3,37 +3,37 @@ package robot;
 import java.awt.*;
 
 /**
- * <h1>RobotInterface</h1><br>
- *     <p>Interface for the robots</p>
+ * Interface for the robots
  */
-public interface Robot
-{
+public interface Robot {
 
     /**
-     * <h1>movable</h1><br>
-     *     <p>checks if robot can be moved</p>
+     * Sets up the interface in which the player interacts with the game.
+     * @param name Name of the player using the interface
+     */
+    void setupPlayerInterface(String name);
+
+    /**
+     * checks if robot can be moved
      * @return true if robot is movable
      */
     boolean movable();
 
     /**
-     * <h1>place</h1><br>
-     *     <p>changes the robots position</p>
-     * @param xChange amount of tiles to place on the x-axis. pos. x -> right, neg. x -> left.
-     * @param yChange amount of tiles to place on the y-axis. pos. y -> down, neg. y -> up.
+     * changes the robots position
+     * @param newX amount of tiles to place on the x-axis. pos. x -> right, neg. x -> left.
+     * @param newY amount of tiles to place on the y-axis. pos. y -> down, neg. y -> up.
      */
-    void place(int xChange, int yChange);
+    void place(int newX, int newY);
 
     /**
-     * <h1>attack</h1><br>
-     *     <p>Makes the robot attack</p>
+     * Makes the robot attack
      */
     void attack();
 
     /**
-     * <h1>draw</h1><br>
-     *     <p>Draws the robot on the screen<br>
-     *     NOTE: This is a very temporary draw method for testing, sould be reimplemented later</p>
+     * Draws the robot on the screen
+     * NOTE: This is a very temporary draw method for testing, sould be reimplemented later
      * @param g a Graphics object
      */
     void draw(Graphics g);
