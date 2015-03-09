@@ -5,14 +5,20 @@ import board.AbstractTile;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.awt.Graphics2D;
 
 /**
  * Class to create test robots
  */
 public class TestRobot extends AbstractRobot {
 
+	private BufferedImage sprite;
+
 	public TestRobot(final int x, final int y, final Orientation orientation, String name, Color color) {
 		super(x, y, orientation, name, color);
+		sprite = loadImage("../Resources/Robot.png");
 		hitPoints = 10;
 
 	}
@@ -164,5 +170,30 @@ public class TestRobot extends AbstractRobot {
 		}
 
 	};
+
+	@Override
+	public void draw(Graphics g) {
+		Graphics2D g2d = (Graphics2D) g;
+		final int degreesToRotate;
+		switch (orientation) {
+			case NORTH:
+				degreesToRotate = 0;
+				break;
+			case WEST:
+				degreesToRotate = 270;
+				break;
+			case SOUTH:
+				degreesToRotate = 180;
+				break;
+			case EAST:
+				degreesToRotate = 90;
+				break;
+			default:
+				degreesToRotate = 0;
+		}
+
+		drawImageRotated(sprite, degreesToRotate, x, y, g2d);
+
+	}
 
 }
