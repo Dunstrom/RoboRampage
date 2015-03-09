@@ -43,7 +43,7 @@ public class Game {
 	    addPlayers(numberOfPlayers);
 	    currentPlayer = players.get(0);
 
-        game = new GameFrame(board, currentPlayer);
+        game = new GameFrame(board, currentPlayer.getMainPanel());
 
     }
 
@@ -84,12 +84,12 @@ public class Game {
         if(currentPlayer.getDone()){
 	        if(players.indexOf(currentPlayer) < players.size()-1){//Are there more players left this turn?
 		        currentPlayer = players.get(players.indexOf(currentPlayer) + 1);
-		        game.setActivePlayer(currentPlayer);
+		        game.setActivePlayer(currentPlayer.getMainPanel());
 	        }
 	    else{
 		    executeTurn();
 		    currentPlayer = players.get(0);
-		    game.setActivePlayer(currentPlayer);
+		    game.setActivePlayer(currentPlayer.getMainPanel());
 	        }
         }
     }

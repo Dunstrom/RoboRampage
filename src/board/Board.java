@@ -154,6 +154,9 @@ public class Board {
         if(!robots.contains(robot)){// Is robot on board
             throw new IllegalArgumentException("Robot not on the board");
         }
+        else if(robot.getTempX() < 0 || robot.getTempY() < 0 || robot.getTempX() >= width*AbstractTile.getTileSize() || robot.getTempY() >= height*AbstractTile.getTileSize()){
+            return false;
+        }
 
         for (AbstractRobot otherRobot : robots) {
             if(!robot.equals(otherRobot)){
@@ -163,7 +166,6 @@ public class Board {
             }
         }
         return true;
-
     }
 
     /**

@@ -1,7 +1,6 @@
 package io;
 
 import board.Board;
-import robot.AbstractRobot;
 
 import java.awt.BorderLayout;
 import javax.swing.*;
@@ -11,39 +10,37 @@ import javax.swing.*;
  */
 public class GameFrame extends JFrame{
 
-    private AbstractRobot activePlayer;
+    private JPanel currentPlayerInterface;
     private BoardComponent boardComponent;
 
-    private void setLayout(){
+    /**
+     * Sets the activePlayer to a a robot. The activePlayer is the one who's interface is displayed.
+     * @param nextPlayerInterface the player who's turn it is next.
+     */
+    public void setActivePlayer(JPanel nextPlayerInterface) {
+        remove(currentPlayerInterface);
+        currentPlayerInterface = nextPlayerInterface;
+        add(currentPlayerInterface, BorderLayout.PAGE_END);
 
         setSize(boardComponent.getPreferredSize());
        	pack();
-    }
-    /**
-     * Sets the activePlayer to a a robot. The activePlayer is the one who's interface is displayed.
-     * @param player the player who's turn it is.
-     */
-    public void setActivePlayer(AbstractRobot player) {
-        remove(activePlayer.getMainPanel());
-        activePlayer = player;
-        add(activePlayer.getMainPanel(), BorderLayout.PAGE_END);
 
-        setLayout();
     }
 
-    public GameFrame(Board board, AbstractRobot player) {
+    public GameFrame(Board board, JPanel playerInterface) {
 
         super("RoboRampage");
 
-        activePlayer = player;
+        currentPlayerInterface = playerInterface;
 
         boardComponent = new BoardComponent(board);
         board.addBoardListener(boardComponent);
         setLayout(new BorderLayout());
-        add(activePlayer.getMainPanel(), BorderLayout.PAGE_END);
+        add(currentPlayerInterface, BorderLayout.PAGE_END);
         add(boardComponent,BorderLayout.CENTER);
 
-        setLayout();
+        setSize(boardComponent.getPreferredSize());
+       	pack();
         requestFocus();
         setVisible(true);
     }
