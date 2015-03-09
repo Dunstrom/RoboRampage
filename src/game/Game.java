@@ -35,8 +35,8 @@ public class Game {
      * Starts the game by creating both bord and a frame.
      */
     private void startGame() {
-        int boardWidth = 20; //amount of tiles the board is wide
-        int boardHeight = 10;
+        final int boardWidth = 20;
+        final int boardHeight = 10;
         board =  new Board(boardWidth, boardHeight);
 
         players = new ArrayList<AbstractRobot>();
