@@ -1,15 +1,22 @@
 package robot;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImageOp;
+import java.io.*;
+import java.net.URL;
 import java.util.Queue;
 import java.util.LinkedList;
+import java.awt.image.AffineTransformOp;
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
 
 /**
  * Abstract class for all robots in the game.
@@ -34,6 +41,7 @@ public abstract class AbstractRobot implements Robot {
     protected JLabel infoBox;
     protected JLabel displayedMoves;
     protected Color color;
+    public final static int ROBOT_SIZE = 20;
 
     // Stats
     protected Queue<AbstractMove> programmedMoves;
@@ -182,12 +190,12 @@ public abstract class AbstractRobot implements Robot {
      */
     @Override public void draw(final Graphics g) {
 
-        final int robotSize = 20; //Size of the robot in pixels
+
 
         g.setColor(color);
         final int yRobotOffset = 10;
         final int xRobotOffset = 10;
-        g.fillRect(x + xRobotOffset, y + yRobotOffset, robotSize, robotSize);
+        g.fillRect(x + xRobotOffset, y + yRobotOffset, ROBOT_SIZE, ROBOT_SIZE);
         final int yTextOffset = 15 + yRobotOffset;
         final int xTextOffset = 5 + xRobotOffset;
         g.setColor(Color.BLACK);
@@ -237,6 +245,39 @@ public abstract class AbstractRobot implements Robot {
             endable = false;
             updateDisplayedMoves();
         }
+    }
+
+    /**
+     * Loads an image
+     * @param fileName The file name as a string
+     * @return a BufferedImage
+     */
+    protected BufferedImage loadImage(String fileName) {
+
+        BufferedImage image;
+        URL url = AbstractRobot.class.getResource(fileName);
+        try {
+            image = ImageIO.read(url);
+        }catch(IOException e){
+            e.printStackTrace();
+            image = null;
+        }
+
+
+        return image;
+    }
+
+    protected void drawImageRotated(BufferedImage image, double degreesToRotate, int x, int y, Graphics2D g2d){
+
+        double rotationRequired = Math.toRadians(degreesToRotate);
+        double locationX = image.getWidth() / 2;
+        double locationY = image.getHeight() / 2;
+        AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
+        BufferedImageOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
+
+        // Drawing the rotated image at the required drawing locations
+        g2d.drawImage(op.filter(image, null), x, y, null);
+
     }
 
 }

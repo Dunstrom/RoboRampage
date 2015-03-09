@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4b2ba63f-9f31-470d-814d-e8e09e348aae" name="Default" comment="Changed collision handling so that robots cant leave the board.&#10;Started working on a menu for the game">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/menu/Menu.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/menu/MenuFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/robot/AbstractRobot.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/robot/AbstractRobot.class" />
+    <list default="true" id="4b2ba63f-9f31-470d-814d-e8e09e348aae" name="Default" comment="Added constructor to abstractRobot.&#10;Added hitPoints field to abstract robot.&#10;Added class testRobot to create a robot for testing.&#10;&#10;Implemented move method in abstractRobot, robots can now be moved across the board.&#10;Implemented temporary draw method in abstractRobot, robots are now represented by a blue square and a string showing the direction.&#10;Implemented a moveForwardOne method in testRobot to move the robot one tile in the direction it is facing.&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/board/Board.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/board/Board.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/io/BoardComponent.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/io/BoardComponent.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/game/Game.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/game/Game.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/io/GameFrame.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/io/GameFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/robot/TestRobot.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/robot/TestRobot.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/Board.java" afterPath="$PROJECT_DIR$/src/board/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Game.java" afterPath="$PROJECT_DIR$/src/game/Game.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/robot/AbstractRobot.java" afterPath="$PROJECT_DIR$/src/robot/AbstractRobot.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/io/GameFrame.java" afterPath="$PROJECT_DIR$/src/io/GameFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/robot/TestRobot.java" afterPath="$PROJECT_DIR$/src/robot/TestRobot.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RoboRampage.iws" />
@@ -50,30 +48,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/board/Board.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6016371" vertical-offset="1989" max-vertical-offset="3474">
-              <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
-              <folding>
-                <element signature="e#386#387#0" expanded="true" />
-                <element signature="e#414#415#0" expanded="true" />
-                <element signature="e#444#445#0" expanded="true" />
-                <element signature="e#473#474#0" expanded="true" />
-                <element signature="method#initBoard#0;class#Board#0" expanded="false" />
-                <element signature="method#updateTiles#0;class#Board#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractRobot.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AbstractRobot.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/robot/AbstractRobot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="747" max-vertical-offset="2592">
-              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+            <state vertical-scroll-proportion="1.3015007" vertical-offset="918" max-vertical-offset="2556">
+              <caret line="133" column="61" selection-start-line="133" selection-start-column="61" selection-end-line="133" selection-end-column="61" />
               <folding>
-                <element signature="e#1725#1726#0" expanded="true" />
                 <element signature="method#updateDisplayedMoves#0;class#AbstractRobot#0" expanded="false" />
                 <element signature="docComment;method#movable#0;class#AbstractRobot#0" expanded="false" />
                 <element signature="docComment;method#place#0;class#AbstractRobot#0" expanded="false" />
@@ -90,69 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractTile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/board/AbstractTile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="1044">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding>
-                <element signature="e#529#530#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GameFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/io/GameFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="972">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="44" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/menu/Menu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="198">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MenuFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/menu/MenuFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="311" max-vertical-offset="1044">
-              <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-              <folding>
-                <element signature="e#167#168#0" expanded="true" />
-                <element signature="e#205#206#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="2232">
-              <caret line="41" column="49" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
-              <folding>
-                <element signature="e#2877#3033#0" expanded="true" />
-                <element signature="e#3032#3033#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BoardComponent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/io/BoardComponent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="1062">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1026">
+              <caret line="43" column="48" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -184,12 +106,11 @@
         <option value="$PROJECT_DIR$/src/io/PlayerInterface.java" />
         <option value="$PROJECT_DIR$/src/board/AbstractTile.java" />
         <option value="$PROJECT_DIR$/src/game/Player.java" />
-        <option value="$PROJECT_DIR$/src/robot/TestRobot.java" />
-        <option value="$PROJECT_DIR$/src/robot/AbstractRobot.java" />
-        <option value="$PROJECT_DIR$/src/io/GameFrame.java" />
         <option value="$PROJECT_DIR$/src/board/Board.java" />
         <option value="$PROJECT_DIR$/src/game/Game.java" />
-        <option value="$PROJECT_DIR$/src/menu/MenuFrame.java" />
+        <option value="$PROJECT_DIR$/src/io/GameFrame.java" />
+        <option value="$PROJECT_DIR$/src/robot/TestRobot.java" />
+        <option value="$PROJECT_DIR$/src/robot/AbstractRobot.java" />
       </list>
     </option>
   </component>
@@ -292,24 +213,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="menu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RoboRampage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RoboRampage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="io" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -376,7 +279,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.MenuFrame">
+  <component name="RunManager" selected="Application.Game">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -413,34 +316,6 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="game.Game" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="RoboRampage" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="MenuFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="menu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="menu.MenuFrame" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -697,16 +572,14 @@
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="Application.Game" />
-      <item index="2" class="java.lang.String" itemvalue="Application.MenuFrame" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.MenuFrame" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Game" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Main" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Application.Game" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -731,7 +604,7 @@
       <workItem from="1425054107339" duration="152000" />
       <workItem from="1425288582419" duration="4042000" />
       <workItem from="1425468580805" duration="9074000" />
-      <workItem from="1425897360546" duration="11885000" />
+      <workItem from="1425897360546" duration="3097000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on some basic stuff for the board, frame and IO. To make the project move towards it's first milestone. Had to do some thinking about how to structure the tiles for the board. Still not sure I've chosen the right one. Also in the board maybe a generic method that goes through the tiles and can be used to do different things would reduce code repetition.">
       <created>1424720237139</created>
@@ -745,17 +618,11 @@
       <option name="project" value="LOCAL" />
       <updated>1424887311423</updated>
     </task>
-    <task id="LOCAL-00003" summary="Fixed layout in playerInterface">
-      <created>1425900504493</created>
-      <option name="number" value="00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1425900504493</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39733000" />
+    <option name="totallyTimeSpent" value="30945000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -799,7 +666,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39627907" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3963964" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -861,12 +728,19 @@
     <MESSAGE value="Started working on some basic stuff for the board, frame and IO. To make the project move towards it's first milestone. Had to do some thinking about how to structure the tiles for the board. Still not sure I've chosen the right one. Also in the board maybe a generic method that goes through the tiles and can be used to do different things would reduce code repetition." />
     <MESSAGE value="New Game class to start, stop, pause the game and to contain gamestuff like score... &#10;&#10;Problem, accidentally ran startGame in both constructor and then in the mainloop but removed it from the gameloop so now it's just one window." />
     <MESSAGE value="First milestone reached. The game has a board and draws it to a screen. &#10;&#10;Problems encountered:&#10;&#10;g.fillRect() filled the rectangle over it's borders so when I used g.drawRect first then g.fillRect() no borders appeared but when I switched places on the method calls it worked." />
-    <MESSAGE value="Fixed layout in playerInterface" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed layout in playerInterface" />
+    <option name="LAST_COMMIT_MESSAGE" value="First milestone reached. The game has a board and draws it to a screen. &#10;&#10;Problems encountered:&#10;&#10;g.fillRect() filled the rectangle over it's borders so when I used g.drawRect first then g.fillRect() no borders appeared but when I switched places on the method calls it worked." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/board/Board.java</url>
+          <line>165</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -875,6 +749,41 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/robot/TestRobot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="2916">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="class#1607:2117" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/board/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1764" max-vertical-offset="3366">
+          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+          <folding>
+            <element signature="e#386#387#0" expanded="false" />
+            <element signature="e#414#415#0" expanded="false" />
+            <element signature="e#444#445#0" expanded="false" />
+            <element signature="e#473#474#0" expanded="false" />
+            <element signature="e#521#522#0" expanded="false" />
+            <element signature="e#554#555#0" expanded="false" />
+            <element signature="e#605#606#0" expanded="false" />
+            <element signature="e#641#642#0" expanded="false" />
+            <element signature="e#695#696#0" expanded="false" />
+            <element signature="e#728#729#0" expanded="false" />
+            <element signature="e#785#786#0" expanded="false" />
+            <element signature="e#821#822#0" expanded="false" />
+            <element signature="method#initBoard#0;class#Board#0" expanded="false" />
+            <element signature="method#updateTiles#0;class#Board#0" expanded="false" />
+            <element signature="e#4507#4508#0" expanded="false" />
+            <element signature="e#4540#4541#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/board/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="486">
@@ -912,7 +821,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1332" max-vertical-offset="3798">
           <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
           <folding>
-            <element signature="e#1725#1726#0" expanded="true" />
             <element signature="method#updateDisplayedMoves#0;class#AbstractRobot#0" expanded="false" />
             <element signature="docComment;method#movable#0;class#AbstractRobot#0" expanded="false" />
             <element signature="docComment;method#place#0;class#AbstractRobot#0" expanded="false" />
@@ -932,10 +840,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="684" max-vertical-offset="2196">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#2877#3033#0" expanded="true" />
-            <element signature="e#3032#3033#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -960,7 +865,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1656">
           <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
           <folding>
-            <element signature="e#1725#1726#0" expanded="true" />
             <element signature="method#updateDisplayedMoves#0;class#AbstractRobot#0" expanded="false" />
             <element signature="docComment;method#movable#0;class#AbstractRobot#0" expanded="false" />
             <element signature="docComment;method#place#0;class#AbstractRobot#0" expanded="false" />
@@ -980,10 +884,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="468" max-vertical-offset="828">
           <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding>
-            <element signature="e#2877#3033#0" expanded="true" />
-            <element signature="e#3032#3033#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1026,7 +927,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1710">
           <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
           <folding>
-            <element signature="e#1725#1726#0" expanded="true" />
             <element signature="method#updateDisplayedMoves#0;class#AbstractRobot#0" expanded="false" />
             <element signature="docComment;method#movable#0;class#AbstractRobot#0" expanded="false" />
             <element signature="docComment;method#place#0;class#AbstractRobot#0" expanded="false" />
@@ -1065,7 +965,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1710">
           <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
           <folding>
-            <element signature="e#1725#1726#0" expanded="true" />
             <element signature="method#updateDisplayedMoves#0;class#AbstractRobot#0" expanded="false" />
             <element signature="docComment;method#movable#0;class#AbstractRobot#0" expanded="false" />
             <element signature="docComment;method#place#0;class#AbstractRobot#0" expanded="false" />
@@ -1252,6 +1151,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/board/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1550" max-vertical-offset="2862">
+          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+          <folding>
+            <element signature="e#386#387#0" expanded="false" />
+            <element signature="e#414#415#0" expanded="false" />
+            <element signature="e#444#445#0" expanded="false" />
+            <element signature="e#473#474#0" expanded="false" />
+            <element signature="e#521#522#0" expanded="false" />
+            <element signature="e#554#555#0" expanded="false" />
+            <element signature="e#605#606#0" expanded="false" />
+            <element signature="e#641#642#0" expanded="false" />
+            <element signature="e#695#696#0" expanded="false" />
+            <element signature="e#728#729#0" expanded="false" />
+            <element signature="e#785#786#0" expanded="false" />
+            <element signature="e#821#822#0" expanded="false" />
+            <element signature="method#initBoard#0;class#Board#0" expanded="false" />
+            <element signature="method#updateTiles#0;class#Board#0" expanded="false" />
+            <element signature="e#4507#4508#0" expanded="false" />
+            <element signature="e#4540#4541#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/board/AbstractTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/BoardComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.592233" vertical-offset="228" max-vertical-offset="1062">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1067961" vertical-offset="0" max-vertical-offset="2142">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/GameFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="1026">
+          <caret line="43" column="48" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/robot/TestRobot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="231" max-vertical-offset="2304">
@@ -1264,10 +1220,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/robot/AbstractRobot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="747" max-vertical-offset="2592">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.3015007" vertical-offset="918" max-vertical-offset="2556">
+          <caret line="133" column="61" selection-start-line="133" selection-start-column="61" selection-end-line="133" selection-end-column="61" />
           <folding>
-            <element signature="e#1725#1726#0" expanded="true" />
             <element signature="method#updateDisplayedMoves#0;class#AbstractRobot#0" expanded="false" />
             <element signature="docComment;method#movable#0;class#AbstractRobot#0" expanded="false" />
             <element signature="docComment;method#place#0;class#AbstractRobot#0" expanded="false" />
@@ -1279,77 +1234,6 @@
             <element signature="method#addProgrammedMove#0;class#AbstractRobot#0" expanded="false" />
             <element signature="docComment;method#removeProgrammedMove#0;class#AbstractRobot#0" expanded="false" />
             <element signature="method#removeProgrammedMove#0;class#AbstractRobot#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/board/AbstractTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="1044">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="e#529#530#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/BoardComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="1062">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="2232">
-          <caret line="41" column="49" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
-          <folding>
-            <element signature="e#2877#3033#0" expanded="true" />
-            <element signature="e#3032#3033#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/menu/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="198">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/GameFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="972">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="44" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/menu/MenuFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="311" max-vertical-offset="1044">
-          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-          <folding>
-            <element signature="e#167#168#0" expanded="true" />
-            <element signature="e#205#206#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/board/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6016371" vertical-offset="1989" max-vertical-offset="3474">
-          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
-          <folding>
-            <element signature="e#386#387#0" expanded="true" />
-            <element signature="e#414#415#0" expanded="true" />
-            <element signature="e#444#445#0" expanded="true" />
-            <element signature="e#473#474#0" expanded="true" />
-            <element signature="method#initBoard#0;class#Board#0" expanded="false" />
-            <element signature="method#updateTiles#0;class#Board#0" expanded="false" />
           </folding>
         </state>
       </provider>
