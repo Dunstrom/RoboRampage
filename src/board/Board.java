@@ -206,6 +206,8 @@ public class Board {
 
             notifyListeners();
 
+            wait(1000);
+
         }
 
     }
@@ -215,7 +217,7 @@ public class Board {
         try {
             Thread.sleep(time);
         } catch(InterruptedException e) {
-            //Thread.currentThread().interrupt();
+            e.printStackTrace();
         }
 
     }

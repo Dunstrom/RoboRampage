@@ -46,10 +46,10 @@ public class BoardComponent extends JComponent implements BoardListener {
     }
 
     /**
-     * Repaints the board whenever it changes.
+     * Repaints the board immediately whenever it changes.
      */
     public void boardChanged() {
-        repaint();
+        paintImmediately(0,0,board.getWidth() * AbstractTile.getTileSize(), board.getHeight() * AbstractTile.getTileSize());
     }
 
 }
