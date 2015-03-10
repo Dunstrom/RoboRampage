@@ -267,6 +267,14 @@ public abstract class AbstractRobot implements Robot {
         return image;
     }
 
+    /**
+     * Takes an image and draws it rotated to the screen.
+     * @param image The image we want to draw.
+     * @param degreesToRotate The amount of degrees to rotate the image.
+     * @param x the x position where we draw the image.
+     * @param y the y position where we draw the image.
+     * @param g2d a Graphics2D object that draws the image to the screen.
+     */
     protected void drawImageRotated(BufferedImage image, double degreesToRotate, int x, int y, Graphics2D g2d){
 
         double rotationRequired = Math.toRadians(degreesToRotate);
@@ -275,7 +283,6 @@ public abstract class AbstractRobot implements Robot {
         AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
         BufferedImageOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
 
-        // Drawing the rotated image at the required drawing locations
         g2d.drawImage(op.filter(image, null), x, y, null);
 
     }

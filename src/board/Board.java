@@ -212,6 +212,10 @@ public class Board {
 
     }
 
+    /**
+     * Makes the program wait.
+     * @param time the amount of time you want the program to wait, in miliseconds.
+     */
     private void wait(int time) {
 
         try {

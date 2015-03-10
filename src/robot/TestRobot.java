@@ -171,6 +171,11 @@ public class TestRobot extends AbstractRobot {
 
 	};
 
+
+    /**
+     * Draws the robot by drawing it's sprite rotated in the right direction. Completely overrides supermethod since we don't want to draw that at all.
+     * @param g a Graphics object
+     */
 	@Override
 	public void draw(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
