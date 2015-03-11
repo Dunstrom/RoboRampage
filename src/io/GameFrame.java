@@ -23,8 +23,6 @@ public class GameFrame extends JFrame implements BoardListener
         remove(currentPlayerInterface);
         currentPlayerInterface = nextPlayerInterface;
         add(currentPlayerInterface, BorderLayout.PAGE_END);
-
-        setSize(boardComponent.getPreferredSize());
        	pack();
 
     }
@@ -42,11 +40,17 @@ public class GameFrame extends JFrame implements BoardListener
         setLayout(new BorderLayout());
         add(currentPlayerInterface, BorderLayout.PAGE_END);
         add(boardComponent,BorderLayout.CENTER);
-
-        setSize(boardComponent.getPreferredSize());
+        
        	pack();
         requestFocus();
         setVisible(true);
+    }
+
+    /**
+     * Repaints the entire frame
+     */
+    public void repaintFrame() {
+        repaint(0,0,0,getWidth(), getHeight());
     }
 
     @Override public void boardChanged() {

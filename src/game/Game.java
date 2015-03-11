@@ -20,9 +20,9 @@ public class Game {
 
     private Board board;
     private List<AbstractRobot> players;
-    private int numberOfPlayers = 2;
+    private final static int NUMBER_OF_PLAYERS = 2;
     private AbstractRobot currentPlayer;
-    private GameFrame game;
+    private GameFrame gameFrame;
     private static final Color[] PLAYER_COLORS = {Color.BLUE, Color.RED, Color.YELLOW, Color.GREEN};
     private static final String[] PLAYER_NAMES = {"Blue", "Red", "Yellow", "Green"};
 
@@ -39,11 +39,11 @@ public class Game {
         final int boardHeight = 10;
         board =  new Board(boardWidth, boardHeight);
 
-        players = new ArrayList<AbstractRobot>();
-	    addPlayers(numberOfPlayers);
+        players = new ArrayList<>();
+	    addPlayers(NUMBER_OF_PLAYERS);
 	    currentPlayer = players.get(0);
 
-        game = new GameFrame(board, currentPlayer.getMainPanel());
+        gameFrame = new GameFrame(board, currentPlayer.getMainPanel());
 
     }
 
@@ -78,20 +78,23 @@ public class Game {
     }
 
     /**
-     * Updates the game every tick of the timer
+     * Updates the gameFrame every tick of the timer
      */
     public void update() {
         if(currentPlayer.getDone()){
 	        if(players.indexOf(currentPlayer) < players.size()-1){//Are there more players left this turn?
 		        currentPlayer = players.get(players.indexOf(currentPlayer) + 1);
-		        game.setActivePlayer(currentPlayer.getMainPanel());
+		        gameFrame.setActivePlayer(currentPlayer.getMainPanel());
 	        }
 	    else{
 		    executeTurn();
 		    currentPlayer = players.get(0);
-		    game.setActivePlayer(currentPlayer.getMainPanel());
+		    gameFrame.setActivePlayer(currentPlayer.getMainPanel());
 	        }
         }
+
+        gameFrame.repaintFrame();
+
     }
 
     /**
