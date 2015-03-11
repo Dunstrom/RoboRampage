@@ -47,7 +47,8 @@ public abstract class AbstractRobot implements Robot {
     protected Queue<AbstractMove> programmedMoves;
     protected final static int MAX_QUEUED_MOVES = 3;
     protected int hitPoints;
-    protected int damage = 1;
+    protected int damage;
+    protected boolean dead;
 
     // Getters
 
@@ -95,6 +96,8 @@ public abstract class AbstractRobot implements Robot {
         return orientation;
     }
 
+    public boolean isDead() { return dead; }
+
     // Setters
 
     public void setTempX(int newTempX) { tempX = newTempX; }
@@ -112,6 +115,8 @@ public abstract class AbstractRobot implements Robot {
         this.orientation = orientation;
         this.color = color;
         hitPoints = 10;
+        damage = 1;
+        dead = false;
 
         programmedMoves = new LinkedList<>();
 
@@ -301,9 +306,7 @@ public abstract class AbstractRobot implements Robot {
     public void takeDamage(int damage) {
         hitPoints -= damage;
         if(hitPoints < 1) {
-
-            //roboten dör
-
+            dead = true;
         }
     }
 
