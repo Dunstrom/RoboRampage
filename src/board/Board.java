@@ -144,7 +144,7 @@ public class Board {
     // Robot stuff
 
     /**
-     * Checks if the robot can be moved to it's temporary position.
+     * Checks if the robot can be moved to it's temporary position. If there is another robot in the way then push it.
      * @param robot a Abstract robot that is going to be moved.
      * @return a boolean, true if the robot is movable false if it isn't.
      */
@@ -161,7 +161,38 @@ public class Board {
         for (AbstractRobot otherRobot : robots) {
             if(!robot.equals(otherRobot)){
                 if(otherRobot.getX() == robot.getTempX() && otherRobot.getY() == robot.getTempY()){
-                    return false;//Todo: Add push robot stuff!
+
+                    int x = otherRobot.getX();
+                    int y = otherRobot.getY();
+                    int oneTile = AbstractTile.getTileSize();
+
+                    switch (robot.getOrientation()){
+
+                        case NORTH:
+                            otherRobot.setTempX(x);
+                            otherRobot.setTempY(y - oneTile);
+                            break;
+                        case SOUTH:
+                            otherRobot.setTempX(x);
+                            otherRobot.setTempY(y + oneTile);
+                            break;
+                        case WEST:
+                            otherRobot.setTempX(x - oneTile);
+                            otherRobot.setTempY(y);
+                            break;
+                        case EAST:
+                            otherRobot.setTempX(x + oneTile);
+                            otherRobot.setTempY(y);
+                            break;
+
+                    }
+
+                    if(canMoveRobot(otherRobot)){ // check if move to tempx and tempy is possible
+                        otherRobot.place(otherRobot.getTempX(), otherRobot.getTempY()); // sets x to tempx and y to tempy
+                        notifyListeners();
+                    }
+
+                    return true;
                 }
             }
         }

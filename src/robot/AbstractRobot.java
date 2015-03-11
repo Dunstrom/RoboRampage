@@ -48,39 +48,61 @@ public abstract class AbstractRobot implements Robot {
     protected final static int MAX_QUEUED_MOVES = 3;
     protected int hitPoints;
 
+    // Getters
+
     public static int getMaxQueuedMoves() {
         return MAX_QUEUED_MOVES;
     }
+
     public int getX() {
         return x;
     }
+
     public int getY() {
         return y;
     }
+
     public int getTempY() {
         return tempY;
     }
-    public Orientation getOrientation() {
-        return orientation;
-    }
+
     public int getHitPoints() {
         return hitPoints;
     }
+
     public int getTempX() {
         return tempX;
     }
+
     public Runnable getNextMove() {
         return programmedMoves.poll();
     }
+
     public void setDone(boolean bool) {
         done = bool;
     }
+
     public boolean getDone() {
         return done;
     }
+
     public JPanel getMainPanel() {
         return mainPanel;
     }
+
+    public Orientation getOrientation() {
+        return orientation;
+    }
+
+    // Setters
+
+    public void setTempX(int newTempX) { tempX = newTempX; }
+
+    public void setTempY(int newTempY) {
+        tempY = newTempY;
+    }
+
+
 
     public AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final Color color) {
 
@@ -158,12 +180,6 @@ public abstract class AbstractRobot implements Robot {
 
         displayedMoves.setText(builder.toString());
     }
-
-    /**
-     * checks if robot can be moved
-     * @return true if robot is movable
-     */
-    @Override public boolean movable() {return false;}
 
     /**
      * changes the robots position
