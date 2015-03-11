@@ -7,11 +7,11 @@ import java.awt.*;
  */
 public abstract class AbstractTile implements Tile{
 
-    private final static int TILE_SIZE = 50;
-    private int x;
-    private int y;
-    private Color backgroundColor = Color.GRAY;
-    private Color borderColor = Color.WHITE;
+    protected final static int TILE_SIZE = 50;
+    protected int x;
+    protected int y;
+    protected Color backgroundColor = Color.GRAY;
+    protected Color borderColor = Color.WHITE;
 
 
     public int getX() {
@@ -21,6 +21,11 @@ public abstract class AbstractTile implements Tile{
     public int getY() {
         return y;
     }
+
+    /**
+     * @return boolean true if the tile is blocking if not, false.
+     */
+    abstract boolean isBlocking();
 
     public static int getTileSize() {
         return TILE_SIZE;

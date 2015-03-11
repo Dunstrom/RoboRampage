@@ -21,11 +21,6 @@ public interface Robot {
     void place(int newX, int newY);
 
     /**
-     * Makes the robot attack
-     */
-    void attack();
-
-    /**
      * Draws the robot on the screen
      * NOTE: This is a very temporary draw method for testing, sould be reimplemented later
      * @param g a Graphics object

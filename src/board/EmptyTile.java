@@ -12,6 +12,13 @@ public class EmptyTile extends AbstractTile{
     }
 
     /**
+     * @return boolean false because EmptyTile don't block anything.
+     */
+    public boolean isBlocking() {
+        return false;
+    }
+
+    /**
      * Draws nothing else then super does because the tile is empty.
      * @param g a Graphics object.
      */

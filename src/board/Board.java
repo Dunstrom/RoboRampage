@@ -1,6 +1,7 @@
 package board;
 
 import robot.AbstractRobot;
+import robot.Orientation;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -215,11 +216,81 @@ public class Board {
     }
 
     /**
+     * Finds out if theres a robot at a certain tile.
+     * @param row an int that tells which row to look.
+     * @param col an int that tells which col to look.
+     * @return a AbstractRobot if there is a robot else returns null
+     */
+    private AbstractRobot getRobotAt(int row, int col) {
+        for(AbstractRobot robot : robots){
+            int robotRow = robot.getY() / AbstractTile.getTileSize();
+            int robotCol = robot.getX() / AbstractTile.getTileSize();
+            if(robotCol == col && robotRow == row) {
+                return robot;
+            }
+        }
+        return null;
+    }
+
+    /**
      * Makes the robot attack
      * @param robot the robot that shall attack.
      */
     private void robotAttack(AbstractRobot robot) {
-        notifyListeners();
+
+        Orientation orientation = robot.getOrientation();
+        int y = robot.getY();
+        int x = robot.getX();
+
+        switch(orientation){
+
+            case NORTH:
+                for(int yToCheck = y-1; y > 0; y--){
+                    if(tiles[yToCheck][x].isBlocking()){
+                        break;
+                    }
+                    AbstractRobot target = getRobotAt(y, x);
+                    if(target != null){
+                        target.takeDamage(robot.getDamage());
+                    }
+                }
+                break;
+            case SOUTH:
+                for(int yToCheck = y+1; y < height; y++){
+                    if(tiles[yToCheck][x].isBlocking()){
+                        break;
+                    }
+                    AbstractRobot target = getRobotAt(y, x);
+                    if(target != null){
+                        target.takeDamage(robot.getDamage());
+                    }
+                }
+                break;
+            case EAST:
+                for(int xToCheck = x+1; x < width; x++){
+                    if(tiles[xToCheck][x].isBlocking()){
+                        break;
+                    }
+                    AbstractRobot target = getRobotAt(y, x);
+                    if(target != null){
+                        target.takeDamage(robot.getDamage());
+                    }
+                }
+                break;
+            case WEST:
+                for(int xToCheck = x-1; x > 0; x--){
+                    if(tiles[xToCheck][x].isBlocking()){
+                        break;
+                    }
+                    AbstractRobot target = getRobotAt(y, x);
+                    if(target != null){
+                        target.takeDamage(robot.getDamage());
+                    }
+                }
+                break;
+
+        }
+
     }
 
     /**

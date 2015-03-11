@@ -47,6 +47,7 @@ public abstract class AbstractRobot implements Robot {
     protected Queue<AbstractMove> programmedMoves;
     protected final static int MAX_QUEUED_MOVES = 3;
     protected int hitPoints;
+    protected int damage = 1;
 
     // Getters
 
@@ -110,6 +111,7 @@ public abstract class AbstractRobot implements Robot {
         this.y = y;
         this.orientation = orientation;
         this.color = color;
+        hitPoints = 10;
 
         programmedMoves = new LinkedList<>();
 
@@ -191,13 +193,6 @@ public abstract class AbstractRobot implements Robot {
         x = newX;
         y = newY;
 
-    }
-
-    /**
-     * Makes the robot attack
-     */
-    @Override public void attack() {
-        //TODO: Implement attack
     }
 
     /**
@@ -301,6 +296,19 @@ public abstract class AbstractRobot implements Robot {
 
         g2d.drawImage(op.filter(image, null), x, y, null);
 
+    }
+
+    public void takeDamage(int damage) {
+        hitPoints -= damage;
+        if(hitPoints < 1) {
+
+            //roboten dör
+
+        }
+    }
+
+    public int getDamage() {
+        return damage;
     }
 
 }
