@@ -89,7 +89,7 @@ public abstract class AbstractRobot implements Robot {
         this.orientation = orientation;
         this.color = color;
 
-        programmedMoves = new LinkedList<AbstractMove>();
+        programmedMoves = new LinkedList<>();
 
         setupPlayerInterface(name);
 

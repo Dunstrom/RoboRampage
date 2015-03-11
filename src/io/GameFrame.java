@@ -1,14 +1,16 @@
 package io;
 
 import board.Board;
+import board.BoardListener;
 
-import java.awt.BorderLayout;
+import java.awt.*;
 import javax.swing.*;
 
 /**
  * Creates and updates the frame.
  */
-public class GameFrame extends JFrame{
+public class GameFrame extends JFrame implements BoardListener
+{
 
     private JPanel currentPlayerInterface;
     private BoardComponent boardComponent;
@@ -31,6 +33,8 @@ public class GameFrame extends JFrame{
 
         super("RoboRampage");
 
+        board.addBoardListener(this);
+
         currentPlayerInterface = playerInterface;
 
         boardComponent = new BoardComponent(board);
@@ -45,4 +49,7 @@ public class GameFrame extends JFrame{
         setVisible(true);
     }
 
+    @Override public void boardChanged() {
+
+    }
 }
