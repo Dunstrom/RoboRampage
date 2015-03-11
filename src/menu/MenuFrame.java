@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class MenuFrame extends JFrame {
 
-    private int players;
+    private JPanel playerSelect;
 
     public static void main(String[] args) {
 	JFrame menu = new MenuFrame();
@@ -14,39 +14,54 @@ public class MenuFrame extends JFrame {
     public MenuFrame() {
 	super("RoboRampage");
 
+
+	final int height = 400;
+	final int width = 400;
+
 	setLayout(new BorderLayout());
 
+	setResizable(false);
+
 	Label title = new Label("ROBO RAMPAGE");
-
 	JPanel playerSelect = new JPanel();
-	JPanel p1Panel = new JPanel();
-	Label player1 = new Label("Player 1:");
-	JTextField p1Name = new JTextField();
-	JButton p1Robot = new JButton("Robot");
-	JButton p1Color = new JButton("Color");
-
 	JButton addPlayerBtn = new JButton("Add Player");
-
 	JButton startBtn = new JButton("START");
 
 	add(title, BorderLayout.PAGE_START);
 
-	p1Panel.add(player1);
-	p1Panel.add(p1Name);
-	p1Panel.add(p1Robot);
-	p1Panel.add(p1Color);
+	playerSelect.add(addPlayer(1));
 
-	playerSelect.add(p1Panel);
 	playerSelect.add(addPlayerBtn);
 
 	add(playerSelect, BorderLayout.CENTER);
 
 	add(startBtn, BorderLayout.PAGE_END);
 
-	pack();
+	setSize(width, height);
  	requestFocus();
  	setVisible(true);
 
+    }
+
+    private JPanel addPlayer(int playerNumber){
+
+	JPanel playerPanel = new JPanel();
+	Label playerNr = new Label("Player " + playerNumber + ":");
+
+	JTextField playerName = new JTextField("Name");
+	playerName.setColumns(10);
+
+	JButton playerRobot = new JButton("Robot");
+	JButton playerColor = new JButton("Color");
+
+	JButton addPlayerBtn = new JButton("Add Player");
+
+	playerPanel.add(playerNr);
+	playerPanel.add(playerName);
+	playerPanel.add(playerRobot);
+	playerPanel.add(playerColor);
+
+	return playerPanel;
     }
 
 }
