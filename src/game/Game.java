@@ -93,7 +93,7 @@ public class Game {
 	        }
         }
 
-        gameFrame.repaintFrame();
+        gameFrame.repaintPlayerInterface();
 
     }
 

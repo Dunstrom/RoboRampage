@@ -9,7 +9,7 @@ import javax.swing.*;
 /**
  * Creates and updates the frame.
  */
-public class GameFrame extends JFrame implements BoardListener
+public class GameFrame extends JFrame
 {
 
     private JPanel currentPlayerInterface;
@@ -31,8 +31,6 @@ public class GameFrame extends JFrame implements BoardListener
 
         super("RoboRampage");
 
-        board.addBoardListener(this);
-
         currentPlayerInterface = playerInterface;
 
         boardComponent = new BoardComponent(board);
@@ -40,20 +38,16 @@ public class GameFrame extends JFrame implements BoardListener
         setLayout(new BorderLayout());
         add(currentPlayerInterface, BorderLayout.PAGE_END);
         add(boardComponent,BorderLayout.CENTER);
-        
+
        	pack();
         requestFocus();
         setVisible(true);
     }
 
     /**
-     * Repaints the entire frame
+     * Repaints the playerInterface
      */
-    public void repaintFrame() {
-        repaint(0,0,0,getWidth(), getHeight());
-    }
-
-    @Override public void boardChanged() {
-
+    public void repaintPlayerInterface() {
+        repaint(0,0,boardComponent.getHeight(),getWidth(), getHeight());
     }
 }
