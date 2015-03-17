@@ -19,7 +19,7 @@ public class TestRobot extends AbstractRobot {
 	public TestRobot(final int x, final int y, final Orientation orientation, String name, Color color) {
 		super(x, y, orientation, name, color);
 		sprite = loadImage("../Resources/Robot.png");
-		hitPoints = 10;
+		hitpoints = 10;
 
 	}
 

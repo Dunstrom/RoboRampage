@@ -267,7 +267,7 @@ public class Board {
         switch(orientation){
 
             case NORTH:
-                for(int yToCheck = y-tileSize; y > 0; y--){
+                for(int yToCheck = y-tileSize; yToCheck > 0; yToCheck--){
                     if(tiles[yToCheck / tileSize][x / tileSize].isBlocking()){
                         break;
                     }
@@ -278,7 +278,7 @@ public class Board {
                 }
                 break;
             case SOUTH:
-                for(int yToCheck = y+tileSize; y < height; y++){
+                for(int yToCheck = y+tileSize; yToCheck < height; yToCheck++){
                     if(tiles[yToCheck / tileSize][x / tileSize].isBlocking()){
                         break;
                     }
@@ -289,7 +289,7 @@ public class Board {
                 }
                 break;
             case EAST:
-                for(int xToCheck = x+tileSize; x < width; x++){
+                for(int xToCheck = x+tileSize; xToCheck < width; xToCheck++){
                     if(tiles[xToCheck / tileSize][x / tileSize].isBlocking()){
                         break;
                     }
@@ -300,7 +300,7 @@ public class Board {
                 }
                 break;
             case WEST:
-                for(int xToCheck = x-tileSize; x > 0; x--){
+                for(int xToCheck = x-tileSize; xToCheck > 0; xToCheck--){
                     if(tiles[xToCheck / tileSize][x / tileSize].isBlocking()){
                         break;
                     }

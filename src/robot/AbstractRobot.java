@@ -42,11 +42,12 @@ public abstract class AbstractRobot implements Robot {
     protected JLabel displayedMoves;
     protected Color color;
     public final static int ROBOT_SIZE = 20;
+    protected JLabel healthLabel;
 
     // Stats
     protected Queue<AbstractMove> programmedMoves;
     protected final static int MAX_QUEUED_MOVES = 3;
-    protected int hitPoints;
+    protected int hitpoints;
     protected int damage;
     protected boolean dead;
 
@@ -68,8 +69,8 @@ public abstract class AbstractRobot implements Robot {
         return tempY;
     }
 
-    public int getHitPoints() {
-        return hitPoints;
+    public int getHitpoints() {
+        return hitpoints;
     }
 
     public int getTempX() {
@@ -114,7 +115,7 @@ public abstract class AbstractRobot implements Robot {
         this.y = y;
         this.orientation = orientation;
         this.color = color;
-        hitPoints = 10;
+        hitpoints = 10;
         damage = 1;
         dead = false;
 
@@ -142,15 +143,18 @@ public abstract class AbstractRobot implements Robot {
         infoBox = new JLabel("It's " + name + "s turn");
         displayedMoves = new JLabel();
 
+        // Temporary
+        healthLabel = new JLabel(Integer.toString(hitpoints));
+        mainPanel.add(healthLabel, BorderLayout.LINE_END);
+
         updateDisplayedMoves();
 
-        removeMoveButton.setAction(new AbstractAction()
-        {
+        removeMoveButton.setAction(new AbstractAction() {
             @Override public void actionPerformed(ActionEvent e) {
                 removeProgrammedMove();
             }
         });
-        endTurnButton.setAction(new AbstractAction(){
+        endTurnButton.setAction(new AbstractAction() {
             @Override public void actionPerformed(final ActionEvent e) {
                 if(endable){
                     done = true;
@@ -186,6 +190,7 @@ public abstract class AbstractRobot implements Robot {
         }
 
         displayedMoves.setText(builder.toString());
+        healthLabel.setText(Integer.toString(hitpoints));
     }
 
     /**
@@ -304,8 +309,8 @@ public abstract class AbstractRobot implements Robot {
     }
 
     public void takeDamage(int damage) {
-        hitPoints -= damage;
-        if(hitPoints < 1) {
+        hitpoints -= damage;
+        if(hitpoints < 1) {
             dead = true;
         }
     }
