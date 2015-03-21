@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8c2e1e0-bd86-4976-8596-68d4c3c8c0d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/robot/AbstractRobot.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/robot/AbstractRobot.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/board/Board.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/board/Board.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/robot/TestRobot.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/robot/TestRobot.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RoboRampage.iws" />
@@ -58,8 +57,8 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/board/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.154532" vertical-offset="3286" max-vertical-offset="4964">
-              <caret line="315" column="62" selection-start-line="315" selection-start-column="62" selection-end-line="315" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.6240713" vertical-offset="3592" max-vertical-offset="4964">
+              <caret line="312" column="21" selection-start-line="312" selection-start-column="21" selection-end-line="312" selection-end-column="21" />
               <folding>
                 <element signature="method#canMoveRobot#0;class#Board#0" expanded="false" />
                 <element signature="method#moveRobot#0;class#Board#0" expanded="false" />
@@ -600,7 +599,7 @@
       <workItem from="1425566112186" duration="14167000" />
       <workItem from="1426013832272" duration="1691000" />
       <workItem from="1426085479745" duration="15443000" />
-      <workItem from="1426939107320" duration="651000" />
+      <workItem from="1426939107320" duration="1290000" />
     </task>
     <task id="LOCAL-00001" summary="Added Frame class">
       <created>1424642132383</created>
@@ -656,11 +655,17 @@
       <option name="project" value="LOCAL" />
       <updated>1426939747050</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Attack works but only one of the robots take damage">
+      <created>1426939761216</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1426939761216</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35574000" />
+    <option name="totallyTimeSpent" value="36213000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1122,8 +1127,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/board/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.154532" vertical-offset="3286" max-vertical-offset="4964">
-          <caret line="315" column="62" selection-start-line="315" selection-start-column="62" selection-end-line="315" selection-end-column="62" />
+        <state vertical-scroll-proportion="0.6240713" vertical-offset="3592" max-vertical-offset="4964">
+          <caret line="312" column="21" selection-start-line="312" selection-start-column="21" selection-end-line="312" selection-end-column="21" />
           <folding>
             <element signature="method#canMoveRobot#0;class#Board#0" expanded="false" />
             <element signature="method#moveRobot#0;class#Board#0" expanded="false" />
