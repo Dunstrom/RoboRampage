@@ -5,6 +5,7 @@ import robot.Orientation;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -47,8 +48,8 @@ public class Board {
         this.width = width;
         this.height = height;
         initBoard(width, height);
-        listeners = new ArrayList<BoardListener>();
-        robots = new ArrayList<AbstractRobot>();
+        listeners = new ArrayList<>();
+        robots = new ArrayList<>();
         notifyListeners();
 
     }
@@ -98,7 +99,7 @@ public class Board {
      */
     private void removeDeadRobots() {
 
-        ArrayList<AbstractRobot> toBeRemoved = new ArrayList<>();
+        Collection<AbstractRobot> toBeRemoved = new ArrayList<>();
 
         for(AbstractRobot robot : robots){
             if(robot.isDead()){
@@ -267,44 +268,52 @@ public class Board {
         switch(orientation){
 
             case NORTH:
-                for(int yToCheck = y-tileSize; yToCheck > 0; yToCheck--){
+                for(int yToCheck = y-tileSize; yToCheck > 0; yToCheck-=tileSize){
                     if(tiles[yToCheck / tileSize][x / tileSize].isBlocking()){
                         break;
                     }
-                    AbstractRobot target = getRobotAt(yToCheck, x);
+                    int row = yToCheck / tileSize;
+                    int col = x / tileSize;
+                    AbstractRobot target = getRobotAt(row, col);
                     if(target != null){
                         target.takeDamage(robot.getDamage());
                     }
                 }
                 break;
             case SOUTH:
-                for(int yToCheck = y+tileSize; yToCheck < height; yToCheck++){
+                for(int yToCheck = y+tileSize; yToCheck < height; yToCheck+=tileSize){
                     if(tiles[yToCheck / tileSize][x / tileSize].isBlocking()){
                         break;
                     }
-                    AbstractRobot target = getRobotAt(yToCheck, x);
+                    int row = yToCheck / tileSize;
+                    int col = x / tileSize;
+                    AbstractRobot target = getRobotAt(row, col);
                     if(target != null){
                         target.takeDamage(robot.getDamage());
                     }
                 }
                 break;
             case EAST:
-                for(int xToCheck = x+tileSize; xToCheck < width; xToCheck++){
+                for(int xToCheck = x+tileSize; xToCheck < width; xToCheck+=tileSize){
                     if(tiles[xToCheck / tileSize][x / tileSize].isBlocking()){
                         break;
                     }
-                    AbstractRobot target = getRobotAt(y, xToCheck);
+                    int row = y / tileSize;
+                    int col = xToCheck / tileSize;
+                    AbstractRobot target = getRobotAt(row, col);
                     if(target != null){
                         target.takeDamage(robot.getDamage());
                     }
                 }
                 break;
             case WEST:
-                for(int xToCheck = x-tileSize; xToCheck > 0; xToCheck--){
+                for(int xToCheck = x-tileSize; xToCheck > 0; xToCheck-=tileSize){
                     if(tiles[xToCheck / tileSize][x / tileSize].isBlocking()){
                         break;
                     }
-                    AbstractRobot target = getRobotAt(y, xToCheck);
+                    int row = y / tileSize;
+                    int col = xToCheck / tileSize;
+                    AbstractRobot target = getRobotAt(row, col);
                     if(target != null){
                         target.takeDamage(robot.getDamage());
                     }
