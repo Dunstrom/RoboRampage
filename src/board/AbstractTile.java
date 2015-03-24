@@ -13,15 +13,6 @@ public abstract class AbstractTile implements Tile{
     protected Color backgroundColor = Color.GRAY;
     protected Color borderColor = Color.WHITE;
 
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
     /**
      * @return boolean true if the tile is blocking if not, false.
      */
@@ -50,12 +41,6 @@ public abstract class AbstractTile implements Tile{
         g.drawRect(x, y, TILE_SIZE, TILE_SIZE);
 
     }
-
-    /**
-     * Abstract tile does nothing.
-     */
-    @Override
-    public abstract void update();
 
 }
 

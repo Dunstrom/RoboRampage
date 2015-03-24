@@ -1,7 +1,5 @@
 package board;
 
-import java.awt.*;
-
 /**
  *The basic empty tile that don't do much.
  */
@@ -16,14 +14,6 @@ public class EmptyTile extends AbstractTile{
      */
     public boolean isBlocking() {
         return false;
-    }
-
-    /**
-     * Draws nothing else then super does because the tile is empty.
-     * @param g a Graphics object.
-     */
-    public void draw(Graphics g){
-        super.draw(g);
     }
 
     /**

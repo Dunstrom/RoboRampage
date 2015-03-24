@@ -69,10 +69,6 @@ public abstract class AbstractRobot implements Robot {
         return tempY;
     }
 
-    public int getHitpoints() {
-        return hitpoints;
-    }
-
     public int getTempX() {
         return tempX;
     }
@@ -81,8 +77,8 @@ public abstract class AbstractRobot implements Robot {
         return programmedMoves.poll();
     }
 
-    public void setDone(boolean bool) {
-        done = bool;
+    public void setDone(boolean b) {
+        done = b;
     }
 
     public boolean getDone() {
@@ -109,13 +105,13 @@ public abstract class AbstractRobot implements Robot {
 
 
 
-    public AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final Color color) {
+    public AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final Color color, final int hitpoints) {
 
         this.x = x;
         this.y = y;
         this.orientation = orientation;
         this.color = color;
-        hitpoints = 10;
+        this.hitpoints = hitpoints;
         damage = 1;
         dead = false;
 
@@ -217,7 +213,8 @@ public abstract class AbstractRobot implements Robot {
         final int yRobotOffset = 10;
         final int xRobotOffset = 10;
         g.fillRect(x + xRobotOffset, y + yRobotOffset, ROBOT_SIZE, ROBOT_SIZE);
-        final int yTextOffset = 15 + yRobotOffset;
+        final int yMargin = 15;
+        final int yTextOffset = yMargin + yRobotOffset;
         final int xTextOffset = 5 + xRobotOffset;
         g.setColor(Color.BLACK);
         switch (orientation) {
@@ -283,8 +280,6 @@ public abstract class AbstractRobot implements Robot {
             e.printStackTrace();
             image = null;
         }
-
-
         return image;
     }
 
@@ -299,8 +294,8 @@ public abstract class AbstractRobot implements Robot {
     protected void drawImageRotated(BufferedImage image, double degreesToRotate, int x, int y, Graphics2D g2d){
 
         double rotationRequired = Math.toRadians(degreesToRotate);
-        double locationX = image.getWidth() / 2;
-        double locationY = image.getHeight() / 2;
+        int locationX = image.getWidth() / 2;
+        int locationY = image.getHeight() / 2;
         AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
         BufferedImageOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
 
