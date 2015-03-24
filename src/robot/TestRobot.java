@@ -15,11 +15,12 @@ import java.awt.Graphics2D;
 public class TestRobot extends AbstractRobot {
 
 	private BufferedImage sprite;
+    	private final static int HEALTH = 10;
 
 	public TestRobot(final int x, final int y, final Orientation orientation, String name, Color color) {
-		super(x, y, orientation, name, color);
+		super(x, y, orientation, name, color, HEALTH);
 		sprite = loadImage("../Resources/Robot.png");
-		hitpoints = 10;
+
 
 	}
 

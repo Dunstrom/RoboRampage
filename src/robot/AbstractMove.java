@@ -6,12 +6,6 @@ package robot;
 public abstract class AbstractMove implements Runnable{
 
     /**
-     * A executable void that will make the robot do the move.
-     */
-    @Override
-    public abstract void run();
-
-    /**
      * @return a String that symbolizes the move.
      */
     public abstract String display();

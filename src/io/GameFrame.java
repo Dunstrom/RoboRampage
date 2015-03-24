@@ -1,7 +1,6 @@
 package io;
 
 import board.Board;
-import board.BoardListener;
 
 import java.awt.*;
 import javax.swing.*;
