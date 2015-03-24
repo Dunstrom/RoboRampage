@@ -173,11 +173,12 @@ public class Board {
      */
     private boolean canMoveRobot(AbstractRobot robot){
 
+        int oneTile = AbstractTile.getTileSize();
 
         if(!robots.contains(robot)){// Is robot on board
             throw new IllegalArgumentException("Robot not on the board");
         }
-        else if(robot.getTempX() < 0 || robot.getTempY() < 0 || robot.getTempX() >= width*AbstractTile.getTileSize() || robot.getTempY() >= height*AbstractTile.getTileSize()){
+        else if(robot.getTempX() < 0 || robot.getTempY() < 0 || robot.getTempX() >= width*oneTile || robot.getTempY() >= height*oneTile){//Checks if robot is about to move out of the board.
             return false;
         }
 
@@ -187,7 +188,6 @@ public class Board {
 
                     int x = otherRobot.getX();
                     int y = otherRobot.getY();
-                    int oneTile = AbstractTile.getTileSize();
 
                     switch (robot.getOrientation()){
 
@@ -213,6 +213,8 @@ public class Board {
                     if(canMoveRobot(otherRobot)){ // check if move to tempx and tempy is possible
                         otherRobot.place(otherRobot.getTempX(), otherRobot.getTempY()); // sets x to tempx and y to tempy
                         notifyListeners();
+                    }else{
+                        return false;
                     }
 
                     return true;
