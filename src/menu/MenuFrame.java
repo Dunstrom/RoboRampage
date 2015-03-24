@@ -7,9 +7,7 @@ public class MenuFrame extends JFrame {
 
     private JPanel playerSelect;
 
-    public static void main(String[] args) {
-	JFrame menu = new MenuFrame();
-    }
+
 
     public MenuFrame() {
 	super("RoboRampage");
@@ -42,6 +40,8 @@ public class MenuFrame extends JFrame {
  	setVisible(true);
 
     }
+
+
 
     private JPanel addPlayer(int playerNumber){
 
