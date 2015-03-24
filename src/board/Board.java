@@ -283,7 +283,7 @@ public class Board {
                 }
                 break;
             case SOUTH:
-                for(int yToCheck = y+tileSize; yToCheck < height; yToCheck+=tileSize){
+                for(int yToCheck = y+tileSize; yToCheck < (height-1)*tileSize; yToCheck+=tileSize){
                     if(tiles[yToCheck / tileSize][x / tileSize].isBlocking()){
                         break;
                     }
@@ -296,8 +296,8 @@ public class Board {
                 }
                 break;
             case EAST:
-                for(int xToCheck = x+tileSize; xToCheck < width; xToCheck+=tileSize){
-                    if(tiles[xToCheck / tileSize][x / tileSize].isBlocking()){
+                for(int xToCheck = x+tileSize; xToCheck < (width-1)*tileSize; xToCheck+=tileSize){
+                    if(tiles[y / tileSize][xToCheck / tileSize].isBlocking()){
                         break;
                     }
                     int row = y / tileSize;
@@ -310,7 +310,7 @@ public class Board {
                 break;
             case WEST:
                 for(int xToCheck = x-tileSize; xToCheck > 0; xToCheck-=tileSize){
-                    if(tiles[xToCheck / tileSize][x / tileSize].isBlocking()){
+                    if(tiles[y / tileSize][xToCheck / tileSize].isBlocking()){
                         break;
                     }
                     int row = y / tileSize;

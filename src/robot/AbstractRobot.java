@@ -283,8 +283,6 @@ public abstract class AbstractRobot implements Robot {
             e.printStackTrace();
             image = null;
         }
-
-
         return image;
     }
 
