@@ -3,19 +3,43 @@ package board;
 import java.awt.*;
 
 /**
- * A interface for the tiles implemented by the AbstractTile
+ * An abstract class that implements the most basic methods and fields every tile needs
  */
-public interface Tile {
+public  class Tile
+{
+    /** The size of one tile both height and width in pixels */
+    public final static int TILE_SIZE = 50;
+    protected int x;
+    protected int y;
+    protected Color backgroundColor = Color.GRAY;
+    protected Color borderColor = Color.WHITE;
 
     /**
-     * A method that should be implemented to draw the tile.
-     * @param g a Graphics object.
+     * @return boolean true if the tile is blocking if not, false.
      */
-    public void draw(Graphics g);
+    boolean isBlocking() {
+        return false;
+    }
+
+    protected Tile(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 
     /**
-     * A method tat should be implemented to update the tile.
+     * Draws the outline and background of every tile and if a robot ocupies it tells the robot to draw itself
      */
-    public void update();
+    public void draw(Graphics g) {
+
+        //Draws the background of the tile
+        g.setColor(backgroundColor);
+        g.fillRect(x, y, TILE_SIZE, TILE_SIZE);
+
+        //Draws the border of the tiles
+        g.setColor(borderColor);
+        g.drawRect(x, y, TILE_SIZE, TILE_SIZE);
+
+    }
 
 }
+

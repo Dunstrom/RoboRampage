@@ -1,10 +1,9 @@
 package robot;
 
-import board.AbstractTile;
+import board.Tile;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics2D;
@@ -13,20 +12,15 @@ import java.awt.Graphics2D;
  * Class to create test robots
  */
 public class TestRobot extends AbstractRobot {
+
     private BufferedImage sprite;
     private final static int HEALTH = 10;
-    public TestRobot(final int x, final int y, final Orientation orientation, String name, Color color) {
-	super(x, y, orientation, name, color, HEALTH);
+
+    public TestRobot(final int x, final int y, final Orientation orientation, String name) {
+	super(x, y, orientation, name, HEALTH);
 	sprite = loadImage("../Resources/Robot.png");
 
-    }
-
-    /**
-     * Adds move forward, turn left and turn right buttons to the mainPanel.
-     */
-    @Override
-    public void setupPlayerInterface() {
-	super.setupPlayerInterface();
+	//Setup player interface
 	JButton moveForwardButton = new JButton();
 	JButton turnLeftButton = new JButton();
 	JButton turnRightButton = new JButton();
@@ -59,7 +53,6 @@ public class TestRobot extends AbstractRobot {
 	moveButtonPanel.add(moveForwardButton);
 	moveButtonPanel.add(turnLeftButton);
 	moveButtonPanel.add(turnRightButton);
-
     }
 
     /**
@@ -71,18 +64,18 @@ public class TestRobot extends AbstractRobot {
 	    switch (orientation) {
 		case NORTH:
 		    tempX = x;
-		    tempY = y - AbstractTile.getTileSize();
+		    tempY = y - Tile.TILE_SIZE;
 		    break;
 		case SOUTH:
 		    tempX = x;
-		    tempY = y + AbstractTile.getTileSize();
+		    tempY = y + Tile.TILE_SIZE;
 		    break;
 		case WEST:
-		    tempX = x - AbstractTile.getTileSize();
+		    tempX = x - Tile.TILE_SIZE;
 		    tempY = y;
 		    break;
 		case EAST:
-		    tempX = x + AbstractTile.getTileSize();
+		    tempX = x + Tile.TILE_SIZE;
 		    tempY = y;
 		    break;
 	    }
@@ -166,11 +159,10 @@ public class TestRobot extends AbstractRobot {
     };
 
 
-/**
- * Draws the robot by drawing it's sprite rotated in the right direction. Completely overrides supermethod since we don't want to draw that at all.
- * @param g a Graphics object
- */
-    @Override
+    /**
+     * Draws the robot by drawing it's sprite rotated in the right direction. Completely overrides supermethod since we don't want to draw that at all.
+     * @param g a Graphics object
+     */
     public void draw(Graphics g) {
 	Graphics2D g2d = (Graphics2D) g;
 	final int degreesToRotate;

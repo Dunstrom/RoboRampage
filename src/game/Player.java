@@ -2,6 +2,9 @@ package game;
 
 import robot.Orientation;
 
+/**
+ * A class that holds all the information about the player choosen in the menu and generated in the playerfactory
+ */
 public class Player {
 
     private String name;

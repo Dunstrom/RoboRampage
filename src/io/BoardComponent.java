@@ -1,6 +1,6 @@
 package io;
 
-import board.AbstractTile;
+import board.Tile;
 import board.Board;
 import board.BoardListener;
 
@@ -28,8 +28,8 @@ public class BoardComponent extends JComponent implements BoardListener {
     @Override
     public Dimension getPreferredSize() {
         super.getPreferredSize();
-        int width = board.getWidth() * AbstractTile.getTileSize();
-        int height = board.getHeight() * AbstractTile.getTileSize();
+        int width = board.getWidth() * Tile.TILE_SIZE;
+        int height = board.getHeight() * Tile.TILE_SIZE;
         return new Dimension(width, height);
     }
 
@@ -49,7 +49,7 @@ public class BoardComponent extends JComponent implements BoardListener {
      * Repaints the board immediately whenever it changes.
      */
     public void boardChanged() {
-        paintImmediately(0,0,board.getWidth() * AbstractTile.getTileSize(), board.getHeight() * AbstractTile.getTileSize());
+        paintImmediately(0,0,board.getWidth() * Tile.TILE_SIZE, board.getHeight() * Tile.TILE_SIZE);
     }
 
 }

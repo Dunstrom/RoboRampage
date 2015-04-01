@@ -1,6 +1,6 @@
 package game;
 
-import board.AbstractTile;
+import board.Tile;
 import board.Board;
 import board.BoardListener;
 import io.GameFrame;
@@ -10,9 +10,10 @@ import robot.TestRobot;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.*;
-import java.awt.Color;
-
+import javax.swing.Action;
+import javax.swing.Timer;
+import javax.swing.AbstractAction;
+import javax.swing.JOptionPane;
 /**
  * Keeps track of game stuff, initialize the game and such.
  */
@@ -27,7 +28,7 @@ public class Game implements BoardListener {
     final static int BOARD_HEIGHT = 10;
 
 
-    public Game(ArrayList<Player> players) {
+    public Game(List<Player> players) {
         this.players = players;
         board =  new Board(BOARD_WIDTH, BOARD_HEIGHT);
         board.addBoardListener(this);
@@ -40,8 +41,8 @@ public class Game implements BoardListener {
 
     private void makeRobots(){
         for (Player player : players) {
-            int tileSize = AbstractTile.getTileSize();
-            AbstractRobot robot = new TestRobot(player.getStartCol()*tileSize, player.getStartRow() * tileSize, player.getOrientation(), player.getName(), Color.GRAY);
+            int tileSize = Tile.TILE_SIZE;
+            AbstractRobot robot = new TestRobot(player.getStartCol()*tileSize, player.getStartRow() * tileSize, player.getOrientation(), player.getName());
             robots.add(robot);
         }
         board.setRobots(robots);

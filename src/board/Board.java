@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Board {
 
-    private AbstractTile[][] tiles;
+    private Tile[][] tiles;
     private int width;
     private int height;
     private List<BoardListener> listeners;
@@ -59,13 +59,13 @@ public class Board {
      */
     private void initBoard(int width, int height) {
 
-        tiles = new AbstractTile[height][width];
+        tiles = new Tile[height][width];
 
         for(int row = 0; row < height; row++){
 
             for(int col = 0; col < width; col++){
 
-                tiles[row][col] = new EmptyTile(col * AbstractTile.getTileSize(), row * AbstractTile.getTileSize());
+                tiles[row][col] = new Tile(col * Tile.TILE_SIZE, row * Tile.TILE_SIZE);
 
             }
 
@@ -78,11 +78,9 @@ public class Board {
      */
     public void update(){
 
-        for(int i = 0; i < AbstractRobot.getMaxQueuedMoves(); i++){
+        for(int i = 0; i < AbstractRobot.MAX_QUEUED_MOVES; i++){
 
             updateRobots();
-
-            updateTiles();
 
             removeDeadRobots();
 
@@ -107,24 +105,6 @@ public class Board {
             toBeRemoved.forEach(this::removeRobot);
         }
 
-    }
-
-    /**
-     * Goes through all the tiles on the board and updates them.
-     * So the tiles for example, shoot, moves or kills the robots
-     */
-    public void updateTiles() {
-
-        for(int row = 0; row < height; row++){
-
-            for(int col = 0; col < width; col++) {
-
-                tiles[row][col].update();
-
-            }
-
-        }
-        notifyListeners();
     }
 
     /**
@@ -165,7 +145,7 @@ public class Board {
      */
     private boolean canMoveRobot(AbstractRobot robot){
 
-        int oneTile = AbstractTile.getTileSize();
+        int oneTile = Tile.TILE_SIZE;
 
         if(!robots.contains(robot)){// Is robot on board
             throw new IllegalArgumentException("Robot not on the board");
@@ -239,8 +219,8 @@ public class Board {
      */
     private AbstractRobot getRobotAt(int row, int col) {
         for(AbstractRobot robot : robots){
-            int robotRow = robot.getY() / AbstractTile.getTileSize();
-            int robotCol = robot.getX() / AbstractTile.getTileSize();
+            int robotRow = robot.getY() / Tile.TILE_SIZE;
+            int robotCol = robot.getX() / Tile.TILE_SIZE;
             if(robotCol == col && robotRow == row) {
                 return robot;
             }
@@ -257,7 +237,7 @@ public class Board {
         Orientation orientation = robot.getOrientation();
         int y = robot.getY();
         int x = robot.getX();
-        int tileSize = AbstractTile.getTileSize();
+        int tileSize = Tile.TILE_SIZE;
 
         switch(orientation){
 

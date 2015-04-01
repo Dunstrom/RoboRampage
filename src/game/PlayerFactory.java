@@ -1,17 +1,20 @@
 package game;
 
-import robot.Orientation;
 
 import javax.swing.*;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
-public class PlayerFactory {
+/**
+ * Creates players with information from the menu and generates the players startpositions.
+ */
+public final class PlayerFactory {
 
+    private PlayerFactory() {
 
-    private Orientation startOrientation = Orientation.WEST;
+    }
 
-    public static ArrayList<Player> createPlayers(ArrayList<JTextField> playerNames, int numberOfPlayers) {
+    public static ArrayList<Player> createPlayers(List<JTextField> playerNames, int numberOfPlayers) {
 	ArrayList<Player> players = new ArrayList<>();
 	for(int i = 0; i < numberOfPlayers; i++) {
 	    String name = playerNames.get(i).getText();

@@ -3,7 +3,6 @@ package robot;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.Graphics;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -21,7 +20,7 @@ import java.awt.geom.AffineTransform;
 /**
  * Abstract class for all robots in the game.
  */
-public abstract class AbstractRobot implements Robot {
+public abstract class AbstractRobot {
 
     // Position
     protected int x;
@@ -40,14 +39,13 @@ public abstract class AbstractRobot implements Robot {
     protected boolean done;
     protected JLabel infoBox;
     protected JLabel displayedMoves;
-    protected Color color;
-    public final static int ROBOT_SIZE = 20;
     protected JLabel healthLabel;
 
     // Stats
     protected String name;
     protected Queue<AbstractMove> programmedMoves;
-    protected final static int MAX_QUEUED_MOVES = 3;
+    /** The maximum amount of moves allowed for one robot */
+    public final static int MAX_QUEUED_MOVES = 3;
     protected int hitpoints;
     protected int damage;
     protected boolean dead;
@@ -56,10 +54,6 @@ public abstract class AbstractRobot implements Robot {
 
     public String getName(){
         return name;
-    }
-
-    public static int getMaxQueuedMoves() {
-        return MAX_QUEUED_MOVES;
     }
 
     public int getX() {
@@ -82,8 +76,8 @@ public abstract class AbstractRobot implements Robot {
         return programmedMoves.poll();
     }
 
-    public void setDone(boolean b) {
-        done = b;
+    public void setDone(boolean bl) {
+        done = bl;
     }
 
     public boolean getDone() {
@@ -110,36 +104,24 @@ public abstract class AbstractRobot implements Robot {
 
 
 
-    public AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final Color color, final int hitpoints) {
+    protected AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final int hitpoints) {
 
         this.x = x;
         this.y = y;
         this.orientation = orientation;
-        this.color = color;
         this.hitpoints = hitpoints;
         damage = 1;
         dead = false;
         this.name = name;
         programmedMoves = new LinkedList<>();
 
-        setupPlayerInterface();
-
-    }
-
-    /**
-     * Sets up the interface in which the player interacts with the game.
-     */
-    @Override public void setupPlayerInterface() {
-
         done = false;
 
         mainPanel = new JPanel(new BorderLayout());
         turnButtonPanel = new JPanel(new GridLayout());
         moveButtonPanel = new JPanel(new FlowLayout());
-
         JButton endTurnButton  = new JButton();
         JButton removeMoveButton = new JButton();
-
         infoBox = new JLabel("It's " + name + "s turn");
         displayedMoves = new JLabel();
 
@@ -148,7 +130,6 @@ public abstract class AbstractRobot implements Robot {
         mainPanel.add(healthLabel, BorderLayout.LINE_END);
 
         updateDisplayedMoves();
-
         removeMoveButton.setAction(new AbstractAction() {
             @Override public void actionPerformed(ActionEvent e) {
                 removeProgrammedMove();
@@ -198,45 +179,11 @@ public abstract class AbstractRobot implements Robot {
      * @param newX amount of tiles to place on the x-axis. pos. x -> right, neg. x -> left.
      * @param newY amount of tiles to place on the y-axis. pos. y -> down, neg. y -> up.
      */
-    @Override public void place(final int newX, final int newY) {
+    public void place(final int newX, final int newY) {
 
         x = newX;
         y = newY;
 
-    }
-
-    /**
-     * Draws the robot on the screen
-     * @param g a Graphics object
-     */
-    @Override public void draw(final Graphics g) {
-
-
-
-        g.setColor(color);
-        final int yRobotOffset = 10;
-        final int xRobotOffset = 10;
-        g.fillRect(x + xRobotOffset, y + yRobotOffset, ROBOT_SIZE, ROBOT_SIZE);
-        final int yMargin = 15;
-        final int yTextOffset = yMargin + yRobotOffset;
-        final int xTextOffset = 5 + xRobotOffset;
-        g.setColor(Color.BLACK);
-        switch (orientation) {
-            case NORTH:
-                g.drawString("N", x + xTextOffset, y + yTextOffset);
-                break;
-            case SOUTH:
-                g.drawString("S", x + xTextOffset, y + yTextOffset);
-                break;
-            case WEST:
-                g.drawString("W", x + xTextOffset, y + yTextOffset);
-                break;
-            case EAST:
-                g.drawString("E", x + xTextOffset, y + yTextOffset);
-                break;
-
-
-        }
     }
 
     /**
@@ -317,6 +264,8 @@ public abstract class AbstractRobot implements Robot {
     public int getDamage() {
         return damage;
     }
+
+    public abstract void draw(Graphics g);
 
 }
 

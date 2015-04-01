@@ -4,21 +4,23 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * The frame in wich the menu is shown. Has all the buttons and textfields.
+ */
 public class MenuFrame extends JFrame {
 
     private JPanel playerSelect;
     private int numberOfPlayers = 1;
     private final static int MAXPLAYERS = 4;
-    private ArrayList<JTextField> playerNames;
-    private Menu menu;
+    private List<JTextField> playerNames;
 
     public MenuFrame(Menu menu) {
 	super("RoboRampage");
 
 	final int height = 400;
 	final int width = 400;
-	this.menu = menu;
 
 	playerNames = new ArrayList<>();
 
@@ -62,6 +64,7 @@ public class MenuFrame extends JFrame {
 	{
 	    @Override public void actionPerformed(ActionEvent e) {
 		menu.startGame(playerNames, numberOfPlayers);
+		dispose();
 	    }
 	});
 

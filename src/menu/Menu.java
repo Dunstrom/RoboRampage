@@ -3,18 +3,15 @@ package menu;
 import game.Game;
 import game.PlayerFactory;
 
-import javax.swing.*;
-import java.util.ArrayList;
-import java.util.HashMap;
+import javax.swing.JTextField;
+import java.util.List;
 
-public class Menu
-{
+/**
+ * Handles the games menu.
+ */
+public class Menu {
 
-    public Menu() {
-
-    }
-
-    public void startGame(ArrayList<JTextField> playerNames, int numberOfPlayers) {
+    public void startGame(List<JTextField> playerNames, int numberOfPlayers) {
         Game game = new Game(PlayerFactory.createPlayers(playerNames, numberOfPlayers));
         game.run();
 
@@ -24,7 +21,7 @@ public class Menu
 
         Menu menu = new Menu();
 
-	JFrame menuFrame = new MenuFrame(menu);
+	MenuFrame menuFrame = new MenuFrame(menu);
     }
 
 }

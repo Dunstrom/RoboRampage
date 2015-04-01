@@ -3,7 +3,7 @@ package robot;
 /**
  * A abstract class to force every move to not only be executable but also displayable to the player.
  */
-public abstract class AbstractMove implements Runnable{
+public interface AbstractMove extends Runnable{
 
     /**
      * @return a String that symbolizes the move.
