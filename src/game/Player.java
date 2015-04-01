@@ -1,6 +1,6 @@
 package game;
 
-import robot.Orientation;
+import entity.Orientation;
 
 /**
  * A class that holds all the information about the player choosen in the menu and generated in the playerfactory

@@ -4,8 +4,8 @@ import board.Tile;
 import board.Board;
 import board.BoardListener;
 import io.GameFrame;
-import robot.AbstractRobot;
-import robot.TestRobot;
+import entity.AbstractRobot;
+import entity.TestRobot;
 
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;

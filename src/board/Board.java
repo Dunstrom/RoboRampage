@@ -1,7 +1,7 @@
 package board;
 
-import robot.AbstractRobot;
-import robot.Orientation;
+import entity.AbstractRobot;
+import entity.Orientation;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -139,18 +139,18 @@ public class Board {
     // Robot stuff
 
     /**
-     * Checks if the robot can be moved to it's temporary position. If there is another robot in the way then push it.
-     * @param robot a Abstract robot that is going to be moved.
-     * @return a boolean, true if the robot is movable false if it isn't.
+     * Checks if the entity.robot can be moved to it's temporary position. If there is another entity.robot in the way then push it.
+     * @param robot a Abstract entity.robot that is going to be moved.
+     * @return a boolean, true if the entity.robot is movable false if it isn't.
      */
     private boolean canMoveRobot(AbstractRobot robot){
 
         int oneTile = Tile.TILE_SIZE;
 
-        if(!robots.contains(robot)){// Is robot on board
+        if(!robots.contains(robot)){// Is entity.robot on board
             throw new IllegalArgumentException("Robot not on the board");
         }
-        else if(robot.getTempX() < 0 || robot.getTempY() < 0 || robot.getTempX() >= width*oneTile || robot.getTempY() >= height*oneTile){//Checks if robot is about to move out of the board.
+        else if(robot.getTempX() < 0 || robot.getTempY() < 0 || robot.getTempX() >= width*oneTile || robot.getTempY() >= height*oneTile){//Checks if entity.robot is about to move out of the board.
             return false;
         }
 
@@ -197,8 +197,8 @@ public class Board {
     }
 
     /**
-     * Get's the next move programmed in to the robot and tries to move the robot.
-     * @param robot the robot that is to be moved.
+     * Get's the next move programmed in to the entity.robot and tries to move the entity.robot.
+     * @param robot the entity.robot that is to be moved.
      */
     private void moveRobot(AbstractRobot robot) {
 
@@ -212,10 +212,10 @@ public class Board {
     }
 
     /**
-     * Finds out if theres a robot at a certain tile.
+     * Finds out if theres a entity.robot at a certain tile.
      * @param row an int that tells which row to look.
      * @param col an int that tells which col to look.
-     * @return a AbstractRobot if there is a robot else returns null
+     * @return a AbstractRobot if there is a entity.robot else returns null
      */
     private AbstractRobot getRobotAt(int row, int col) {
         for(AbstractRobot robot : robots){
@@ -229,8 +229,8 @@ public class Board {
     }
 
     /**
-     * Makes the robot attack
-     * @param robot the robot that shall attack.
+     * Makes the entity.robot attack
+     * @param robot the entity.robot that shall attack.
      */
     private void robotAttack(AbstractRobot robot) {
 

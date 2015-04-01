@@ -15,7 +15,7 @@ public class GameFrame extends JFrame
     private BoardComponent boardComponent;
 
     /**
-     * Sets the activePlayer to a a robot. The activePlayer is the one who's interface is displayed.
+     * Sets the activePlayer to a a entity.robot. The activePlayer is the one who's interface is displayed.
      * @param nextPlayerInterface the player who's turn it is next.
      */
     public void setActivePlayer(JPanel nextPlayerInterface) {

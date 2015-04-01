@@ -1,4 +1,4 @@
-package robot;
+package entity;
 
 /**
  * A abstract class to force every move to not only be executable but also displayable to the player.

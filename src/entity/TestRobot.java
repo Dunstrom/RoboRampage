@@ -1,4 +1,4 @@
-package robot;
+package entity;
 
 import board.Tile;
 
@@ -56,7 +56,7 @@ public class TestRobot extends AbstractRobot {
     }
 
     /**
-     * Runnable that moves the robot one step forward.
+     * Runnable that moves the entity.robot one step forward.
      */
     AbstractMove moveForwardOne = new AbstractMove() {
 	@Override
@@ -87,7 +87,7 @@ public class TestRobot extends AbstractRobot {
     };
 
     /**
-     * Runnable that turns the robot left 90 degrees
+     * Runnable that turns the entity.robot left 90 degrees
      */
     AbstractMove turnLeft = new AbstractMove() {
 	@Override
@@ -123,7 +123,7 @@ public class TestRobot extends AbstractRobot {
 
 
     /**
-     * Runnable that turns the robot right 90 degrees
+     * Runnable that turns the entity.robot right 90 degrees
      */
     AbstractMove turnRight = new AbstractMove() {
 	@Override
@@ -160,7 +160,7 @@ public class TestRobot extends AbstractRobot {
 
 
     /**
-     * Draws the robot by drawing it's sprite rotated in the right direction. Completely overrides supermethod since we don't want to draw that at all.
+     * Draws the entity.robot by drawing it's sprite rotated in the right direction. Completely overrides supermethod since we don't want to draw that at all.
      * @param g a Graphics object
      */
     public void draw(Graphics g) {
