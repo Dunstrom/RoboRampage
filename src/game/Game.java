@@ -39,6 +39,7 @@ public class Game implements BoardListener {
         final int boardWidth = 20;
         final int boardHeight = 10;
         board =  new Board(boardWidth, boardHeight);
+        board.addBoardListener(this);
 
         players = new ArrayList<>();
 	    addPlayers(NUMBER_OF_PLAYERS);
@@ -122,8 +123,8 @@ public class Game implements BoardListener {
     }
 
     @Override public void boardChanged() {
-        if(board.oneRobotLeft()){
-            String winner = board.getFirstRobot().getName();
+        if(players.size() == 1){
+            String winner = players.get(0).getName();
             Object[] options = {"New Game", "Quit"};
             int optionChosen = JOptionPane.showOptionDialog(gameFrame,
                 "GAME OVER\n" +
@@ -138,10 +139,10 @@ public class Game implements BoardListener {
                 //TODO: start new game
             }
             else if (optionChosen == 1){
-                //TODO: QUIT
+                System.exit(0);
             }
         }
-        else if (board.noRobotsLeft()){
+        else if (players.isEmpty()){
             Object[] options = {"New Game", "Quit"};
             int optionChosen = JOptionPane.showOptionDialog(gameFrame,
                 "GAME OVER\n" +
@@ -156,7 +157,7 @@ public class Game implements BoardListener {
                 //TODO: start new game
             }
             else if (optionChosen == 1){
-                //TODO: QUIT
+                System.exit(0);
             }
         }
 
