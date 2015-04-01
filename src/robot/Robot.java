@@ -9,9 +9,8 @@ public interface Robot {
 
     /**
      * Sets up the interface in which the player interacts with the game.
-     * @param name Name of the player using the interface
      */
-    void setupPlayerInterface(String name);
+    void setupPlayerInterface();
 
     /**
      * changes the robots position

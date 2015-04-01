@@ -2,6 +2,7 @@ package game;
 
 import board.AbstractTile;
 import board.Board;
+import board.BoardListener;
 import io.GameFrame;
 import robot.AbstractRobot;
 import robot.Orientation;
@@ -16,7 +17,7 @@ import javax.swing.*;
 /**
  * Keeps track of game stuff, initialize the game and such.
  */
-public class Game {
+public class Game implements BoardListener {
 
     private Board board;
     private List<AbstractRobot> players;
@@ -52,7 +53,7 @@ public class Game {
      * @param numberOfPlayers number of players in this game
      */
     private void addPlayers(int numberOfPlayers){
-	    for (int i = 0; i < numberOfPlayers; i++) {
+        for (int i = 0; i < numberOfPlayers; i++) {
             Color color = PLAYER_COLORS[i];
             String name = PLAYER_NAMES[i];
             Orientation dir = Orientation.NORTH;
@@ -60,8 +61,8 @@ public class Game {
             int y = 3 * AbstractTile.getTileSize();
 	        AbstractRobot testRobot = new TestRobot(x, y, dir, name, color);
 	        players.add(testRobot);
-	        board.addRobot(testRobot);
-	    }
+        }
+        board.setRobots(players);
     }
 
     /**
@@ -120,4 +121,25 @@ public class Game {
 
     }
 
+    @Override public void boardChanged() {
+        if(board.oneRobotLeft()){
+            String winner = board.getFirstRobot().getName();
+            Object[] options = {"New Game", "Quit"};
+            int optionChosen = JOptionPane.showOptionDialog(gameFrame,
+                "GAME OVER",
+                "GAME OVER",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]);
+            if (optionChosen == 0){
+                //TODO: start new game
+            }
+            else if (optionChosen == 1){
+                //TODO: QUIT
+            }
+        }
+
+    }
 }

@@ -27,8 +27,12 @@ public class Board {
         return height;
     }
 
-    public void addRobot(AbstractRobot robot){
-        robots.add(robot);
+    public AbstractRobot getFirstRobot(){
+        return robots.get(0);
+    }
+
+    public void setRobots(List<AbstractRobot> robots){
+        this.robots = robots;
     }
 
     public void removeRobot(AbstractRobot robot){
@@ -37,6 +41,24 @@ public class Board {
 
     public void addBoardListener(BoardListener bl) {
         listeners.add(bl);
+    }
+
+    public boolean oneRobotLeft(){
+        if (robots.size() == 1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean noRobotsLeft(){
+        if(robots.size() == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public Board(int width, int height){

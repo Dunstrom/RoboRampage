@@ -45,6 +45,7 @@ public abstract class AbstractRobot implements Robot {
     protected JLabel healthLabel;
 
     // Stats
+    protected String name;
     protected Queue<AbstractMove> programmedMoves;
     protected final static int MAX_QUEUED_MOVES = 3;
     protected int hitpoints;
@@ -52,6 +53,10 @@ public abstract class AbstractRobot implements Robot {
     protected boolean dead;
 
     // Getters
+
+    public String getName(){
+        return name;
+    }
 
     public static int getMaxQueuedMoves() {
         return MAX_QUEUED_MOVES;
@@ -114,18 +119,17 @@ public abstract class AbstractRobot implements Robot {
         this.hitpoints = hitpoints;
         damage = 1;
         dead = false;
-
+        this.name = name;
         programmedMoves = new LinkedList<>();
 
-        setupPlayerInterface(name);
+        setupPlayerInterface();
 
     }
 
     /**
      * Sets up the interface in which the player interacts with the game.
-     * @param name Name of the player using the interface
      */
-    @Override public void setupPlayerInterface(String name) {
+    @Override public void setupPlayerInterface() {
 
         done = false;
 
