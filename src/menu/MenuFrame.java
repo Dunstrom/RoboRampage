@@ -4,21 +4,23 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MenuFrame extends JFrame {
 
     private JPanel playerSelect;
     private int numberOfPlayers = 1;
-    private List<JPanel> playerPanels;
     private final static int MAXPLAYERS = 4;
+    private ArrayList<JTextField> playerNames;
+    private Menu menu;
 
-    public MenuFrame() {
+    public MenuFrame(Menu menu) {
 	super("RoboRampage");
-	playerPanels = new ArrayList<>();
 
 	final int height = 400;
 	final int width = 400;
+	this.menu = menu;
+
+	playerNames = new ArrayList<>();
 
 	setLayout(new BorderLayout());
 
@@ -59,9 +61,7 @@ public class MenuFrame extends JFrame {
 	startBtn.setAction(new AbstractAction()
 	{
 	    @Override public void actionPerformed(ActionEvent e) {
-		for (JPanel playerPanel : playerPanels) {
-		    playerPanel.getComponent(1).getText();//TODO: Använd http://stackoverflow.com/questions/11389802/after-creating-jtextfield-dynamically-how-do-i-use-gettext
-		}
+		menu.startGame(playerNames, numberOfPlayers);
 	    }
 	});
 
@@ -70,13 +70,13 @@ public class MenuFrame extends JFrame {
     }
 
 
-
     private void addPlayer(){
 
 	JPanel playerPanel = new JPanel();
 	Label playerNr = new Label("Player " + numberOfPlayers + ":");
 
 	JTextField playerName = new JTextField("Player " + numberOfPlayers);
+	playerNames.add(playerName);
 	playerName.setColumns(10);
 
 	JButton playerRobot = new JButton("Robot");
@@ -88,7 +88,6 @@ public class MenuFrame extends JFrame {
 	playerPanel.add(playerRobot);
 	playerPanel.add(playerColor);
 
-	playerPanels.add(playerPanel);
 	playerSelect.add(playerPanel);
     }
 
