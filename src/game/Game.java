@@ -126,7 +126,26 @@ public class Game implements BoardListener {
             String winner = board.getFirstRobot().getName();
             Object[] options = {"New Game", "Quit"};
             int optionChosen = JOptionPane.showOptionDialog(gameFrame,
+                "GAME OVER\n" +
+                "The player " + winner + " has won the game!",
                 "GAME OVER",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]);
+            if (optionChosen == 0){
+                //TODO: start new game
+            }
+            else if (optionChosen == 1){
+                //TODO: QUIT
+            }
+        }
+        else if (board.noRobotsLeft()){
+            Object[] options = {"New Game", "Quit"};
+            int optionChosen = JOptionPane.showOptionDialog(gameFrame,
+                "GAME OVER\n" +
+                "All robots have been destroyed, there is no winner",
                 "GAME OVER",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
