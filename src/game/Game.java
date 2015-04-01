@@ -5,14 +5,13 @@ import board.Board;
 import board.BoardListener;
 import io.GameFrame;
 import robot.AbstractRobot;
-import robot.Orientation;
 import robot.TestRobot;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
+import java.awt.Color;
 
 /**
  * Keeps track of game stuff, initialize the game and such.
@@ -20,50 +19,32 @@ import javax.swing.*;
 public class Game implements BoardListener {
 
     private Board board;
-    private List<AbstractRobot> players;
-    private final static int NUMBER_OF_PLAYERS = 2;
-    private AbstractRobot currentPlayer;
+    private List<AbstractRobot> robots;
+    private List<Player> players;
+    private AbstractRobot currentRobot;
     private GameFrame gameFrame;
-    private static final Color[] PLAYER_COLORS = {Color.BLUE, Color.RED, Color.YELLOW, Color.GREEN};
-    private static final String[] PLAYER_NAMES = {"Blue", "Red", "Yellow", "Green"};
+    final static int BOARD_WIDTH = 20;
+    final static int BOARD_HEIGHT = 10;
 
 
-    public Game() {
-        startGame();
-    }
-
-    /**
-     * Starts the game by creating both bord and a frame.
-     */
-    private void startGame() {
-        final int boardWidth = 20;
-        final int boardHeight = 10;
-        board =  new Board(boardWidth, boardHeight);
+    public Game(ArrayList<Player> players) {
+        this.players = players;
+        board =  new Board(BOARD_WIDTH, BOARD_HEIGHT);
         board.addBoardListener(this);
-
-        players = new ArrayList<>();
-	    addPlayers(NUMBER_OF_PLAYERS);
-	    currentPlayer = players.get(0);
-
-        gameFrame = new GameFrame(board, currentPlayer.getMainPanel());
-
+        robots = new ArrayList<>();
+        makeRobots();
+        currentRobot = robots.get(0);
+        gameFrame = new GameFrame(board, currentRobot.getMainPanel());
     }
 
-    /**
-     * Adds al the players to the game.
-     * @param numberOfPlayers number of players in this game
-     */
-    private void addPlayers(int numberOfPlayers){
-        for (int i = 0; i < numberOfPlayers; i++) {
-            Color color = PLAYER_COLORS[i];
-            String name = PLAYER_NAMES[i];
-            Orientation dir = Orientation.NORTH;
-            int x = (3 + i*2) * AbstractTile.getTileSize();
-            int y = 3 * AbstractTile.getTileSize();
-	        AbstractRobot testRobot = new TestRobot(x, y, dir, name, color);
-	        players.add(testRobot);
+
+    private void makeRobots(){
+        for (Player player : players) {
+            int tileSize = AbstractTile.getTileSize();
+            AbstractRobot robot = new TestRobot(player.getStartCol()*tileSize, player.getStartRow() * tileSize, player.getOrientation(), player.getName(), Color.GRAY);
+            robots.add(robot);
         }
-        board.setRobots(players);
+        board.setRobots(robots);
     }
 
     /**
@@ -73,7 +54,7 @@ public class Game implements BoardListener {
 
         board.update();
 
-	for (AbstractRobot player : players) {
+	for (AbstractRobot player : robots) {
 	    player.setDone(false);
 	}
 
@@ -83,15 +64,15 @@ public class Game implements BoardListener {
      * Updates the gameFrame every tick of the timer
      */
     public void update() {
-        if(currentPlayer.getDone()){
-	        if(players.indexOf(currentPlayer) < players.size()-1){//Are there more players left this turn?
-		        currentPlayer = players.get(players.indexOf(currentPlayer) + 1);
-		        gameFrame.setActivePlayer(currentPlayer.getMainPanel());
+        if(currentRobot.getDone()){
+	        if(robots.indexOf(currentRobot) < robots.size()-1){//Are there more robots left this turn?
+		        currentRobot = robots.get(robots.indexOf(currentRobot) + 1);
+		        gameFrame.setActivePlayer(currentRobot.getMainPanel());
 	        }
 	    else{
 		    executeTurn();
-		    currentPlayer = players.get(0);
-		    gameFrame.setActivePlayer(currentPlayer.getMainPanel());
+		    currentRobot = robots.get(0);
+		    gameFrame.setActivePlayer(currentRobot.getMainPanel());
 	        }
         }
 
@@ -99,32 +80,25 @@ public class Game implements BoardListener {
 
     }
 
-    /**
-     * Main method that runs the game by using a timer.
-     * @param args String[] with arguments
-     */
-    public static void main(String[] args) {
+    public void run() {
 
         final int updateTime = 500;
-
-        final Game game = new Game();
 
         final Action doOneFrame = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                game.update();
-            }
+                        update();
+                    }
         };
 
         final Timer timer = new Timer(updateTime, doOneFrame);
         timer.setCoalesce(true);
         timer.start();
-
     }
 
     @Override public void boardChanged() {
-        if(players.size() == 1){
-            String winner = players.get(0).getName();
+        if(robots.size() == 1){
+            String winner = robots.get(0).getName();
             Object[] options = {"New Game", "Quit"};
             int optionChosen = JOptionPane.showOptionDialog(gameFrame,
                 "GAME OVER\n" +
@@ -142,7 +116,7 @@ public class Game implements BoardListener {
                 System.exit(0);
             }
         }
-        else if (players.isEmpty()){
+        else if (robots.isEmpty()){
             Object[] options = {"New Game", "Quit"};
             int optionChosen = JOptionPane.showOptionDialog(gameFrame,
                 "GAME OVER\n" +

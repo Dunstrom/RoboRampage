@@ -7,7 +7,7 @@ import java.awt.*;
  */
 public abstract class AbstractTile implements Tile{
 
-    protected final static int TILE_SIZE = 50;
+    protected final static int TILE_SIZE = 50;//TODO: Make public and use that instead of the getter.
     protected int x;
     protected int y;
     protected Color backgroundColor = Color.GRAY;

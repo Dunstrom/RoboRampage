@@ -15,7 +15,9 @@ public class Menu
     }
 
     public void startGame(ArrayList<JTextField> playerNames, int numberOfPlayers) {
-        //new Game(PlayerFactory.createPlayers(playerNames, numberOfPlayers));
+        Game game = new Game(PlayerFactory.createPlayers(playerNames, numberOfPlayers));
+        game.run();
+
     }
 
     public static void main(String[] args) {
