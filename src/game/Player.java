@@ -8,6 +8,7 @@ import entity.Orientation;
 public class Player {
 
     private String name;
+    private String spriteFileName;
     private int startCol;
     private int startRow;
     private Orientation orientation = Orientation.EAST;
@@ -28,11 +29,17 @@ public class Player {
         return orientation;
     }
 
-    public Player(String name, int startCol, int startRow) {
+    public String getSpriteFileName() {
+        return spriteFileName;
+    }
 
-	this.name = name;
+    public Player(String name, int startCol, int startRow, String spriteFileName) {
+
+	    this.name = name;
         this.startCol = startCol;
         this.startRow = startRow;
+        this.spriteFileName = spriteFileName;
+
 
     }
 

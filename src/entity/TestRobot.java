@@ -16,9 +16,9 @@ public class TestRobot extends AbstractRobot {
     private BufferedImage sprite;
     private final static int HEALTH = 10;
 
-    public TestRobot(final int x, final int y, final Orientation orientation, String name) {
+    public TestRobot(final int x, final int y, final Orientation orientation, String name, String spriteFileName) {
 	super(x, y, orientation, name, HEALTH);
-	sprite = loadImage("../Resources/Robot.png");
+	sprite = loadImage("../Resources/" + spriteFileName);
 
 	//Setup player interface
 	JButton moveForwardButton = new JButton();

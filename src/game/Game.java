@@ -42,7 +42,7 @@ public class Game implements BoardListener {
     private void makeRobots(){
         for (Player player : players) {
             int tileSize = Tile.TILE_SIZE;
-            AbstractRobot robot = new TestRobot(player.getStartCol()*tileSize, player.getStartRow() * tileSize, player.getOrientation(), player.getName());
+            AbstractRobot robot = new TestRobot(player.getStartCol()*tileSize, player.getStartRow() * tileSize, player.getOrientation(), player.getName(), player.getSpriteFileName());
             robots.add(robot);
         }
         board.setRobots(robots);

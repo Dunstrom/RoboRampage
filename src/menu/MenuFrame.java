@@ -15,6 +15,7 @@ public class MenuFrame extends JFrame {
     private int numberOfPlayers = 1;
     private final static int MAXPLAYERS = 4;
     private List<JTextField> playerNames;
+	private List<JComboBox<String>> playerColors;
 
     public MenuFrame(Menu menu) {
 	super("RoboRampage");
@@ -23,6 +24,7 @@ public class MenuFrame extends JFrame {
 	final int width = 400;
 
 	playerNames = new ArrayList<>();
+	playerColors = new ArrayList<>();
 
 	setLayout(new BorderLayout());
 
@@ -63,7 +65,7 @@ public class MenuFrame extends JFrame {
 	startBtn.setAction(new AbstractAction()
 	{
 	    @Override public void actionPerformed(ActionEvent e) {
-		menu.startGame(playerNames, numberOfPlayers);
+		menu.startGame(playerNames, playerColors, numberOfPlayers);
 		dispose();
 	    }
 	});
@@ -83,8 +85,10 @@ public class MenuFrame extends JFrame {
 	playerName.setColumns(10);
 
 	JButton playerRobot = new JButton("Robot");
-	JButton playerColor = new JButton("Color");
-
+	String[] colors = {"Gray", "Blue", "Yellow", "Green", "Red"};
+	JComboBox<String> playerColor = new JComboBox<>(colors);
+	playerColor.setSelectedIndex(numberOfPlayers - 1);
+	playerColors.add(playerColor);
 
 	playerPanel.add(playerNr);
 	playerPanel.add(playerName);

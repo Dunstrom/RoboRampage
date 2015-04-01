@@ -3,7 +3,7 @@ package menu;
 import game.Game;
 import game.PlayerFactory;
 
-import javax.swing.JTextField;
+import javax.swing.*;
 import java.util.List;
 
 /**
@@ -11,8 +11,8 @@ import java.util.List;
  */
 public class Menu {
 
-    public void startGame(List<JTextField> playerNames, int numberOfPlayers) {
-        Game game = new Game(PlayerFactory.createPlayers(playerNames, numberOfPlayers));
+    public void startGame(List<JTextField> playerNames, List<JComboBox<String>> playerColors, int numberOfPlayers) {
+        Game game = new Game(PlayerFactory.createPlayers(playerNames, playerColors, numberOfPlayers));
         game.run();
 
     }
