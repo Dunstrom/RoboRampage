@@ -77,4 +77,15 @@ public abstract class AbstractBoardObject implements BoardObject{
 
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public Orientation getOrientation() {
+        return orientation;
+    }
 }

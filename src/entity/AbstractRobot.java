@@ -43,14 +43,6 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         return name;
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
     public int getTempY() {
         return tempY;
     }
@@ -73,10 +65,6 @@ public abstract class AbstractRobot extends AbstractBoardObject{
 
     public JPanel getMainPanel() {
         return mainPanel;
-    }
-
-    public Orientation getOrientation() {
-        return orientation;
     }
 
     public boolean isDead() { return dead; }

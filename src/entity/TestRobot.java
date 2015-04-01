@@ -183,7 +183,7 @@ public class TestRobot extends AbstractRobot {
 		degreesToRotate = 0;
 	}
 
-	drawImageRotated(sprite, degreesToRotate, x, y, g2d);
+	drawImageRotated(sprite, degreesToRotate, getX(), getY(), g2d);
 
     }
 
