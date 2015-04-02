@@ -77,6 +77,14 @@ public abstract class AbstractBoardObject implements BoardObject{
 
     }
 
+    @Override
+    public boolean collide(BoardObject obj) {
+        if(x == obj.getX() && y == getY()) {
+            return true;
+        }
+        return false;
+    }
+
     public int getX() {
         return x;
     }

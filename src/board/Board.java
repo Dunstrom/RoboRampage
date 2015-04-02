@@ -1,6 +1,8 @@
 package board;
 
 import entity.AbstractRobot;
+import entity.BoardObject;
+import entity.Flag;
 import entity.Orientation;
 
 import java.awt.*;
@@ -18,6 +20,7 @@ public class Board {
     private int height;
     private List<BoardListener> listeners;
     private List<AbstractRobot> robots;
+    private List<BoardObject> boardObjects;
 
     public int getWidth() {
         return width;
@@ -29,6 +32,11 @@ public class Board {
 
     public void setRobots(List<AbstractRobot> robots){
         this.robots = robots;
+        for(AbstractRobot robot: robots) {
+            if(!boardObjects.contains(robot)){
+                boardObjects.add(robot);
+            }
+        }
     }
 
     public void removeRobot(AbstractRobot robot){
@@ -43,9 +51,10 @@ public class Board {
 
         this.width = width;
         this.height = height;
-        initBoard(width, height);
         listeners = new ArrayList<>();
         robots = new ArrayList<>();
+        boardObjects = new ArrayList<>();
+        initBoard(width, height);
         notifyListeners();
 
     }
@@ -70,6 +79,22 @@ public class Board {
             }
 
         }
+
+        placeFlags();
+
+    }
+
+    private void placeFlags() {
+
+        int tileSize = Tile.TILE_SIZE;
+        final int flagX1 = (width - 1)*tileSize;
+        final int flagX2 = (width - 3)*tileSize;
+        final int bottY = (height - 1)*tileSize;
+        final int middleY = (height/2)*tileSize;
+
+        boardObjects.add(new Flag(flagX1, tileSize));
+        boardObjects.add(new Flag(flagX2, middleY));
+        boardObjects.add(new Flag(flagX1, bottY));
 
     }
 
@@ -123,8 +148,8 @@ public class Board {
 
         }
 
-        for(AbstractRobot robot : robots) {
-            robot.draw(g);
+        for(BoardObject obj : boardObjects) {
+            obj.draw(g);
         }
 
     }
@@ -138,22 +163,17 @@ public class Board {
 
     // Robot stuff
 
-    /**
-     * Checks if the entity.robot can be moved to it's temporary position. If there is another entity.robot in the way then push it.
-     * @param robot a Abstract entity.robot that is going to be moved.
-     * @return a boolean, true if the entity.robot is movable false if it isn't.
-     */
-    private boolean canMoveRobot(AbstractRobot robot){
-
-        int oneTile = Tile.TILE_SIZE;
-
-        if(!robots.contains(robot)){// Is entity.robot on board
+    private boolean onBoard(AbstractRobot robot, int oneTile) {
+        if(!robots.contains(robot)){// Is robot on board
             throw new IllegalArgumentException("Robot not on the board");
         }
         else if(robot.getTempX() < 0 || robot.getTempY() < 0 || robot.getTempX() >= width*oneTile || robot.getTempY() >= height*oneTile){//Checks if entity.robot is about to move out of the board.
             return false;
         }
+        return true;
+    }
 
+    private boolean canPush(AbstractRobot robot, int oneTile) {
         for (AbstractRobot otherRobot : robots) {
             if(!robot.equals(otherRobot)){
                 if(otherRobot.getX() == robot.getTempX() && otherRobot.getY() == robot.getTempY()){
@@ -197,6 +217,30 @@ public class Board {
     }
 
     /**
+     * Checks if the entity.robot can be moved to it's temporary position. If there is another entity.robot in the way then push it.
+     * @param robot a Abstract entity.robot that is going to be moved.
+     * @return a boolean, true if the entity.robot is movable false if it isn't.
+     */
+    private boolean canMoveRobot(AbstractRobot robot){
+
+        int tileSize = Tile.TILE_SIZE;
+
+        if(!onBoard(robot, tileSize) || !canPush(robot, tileSize)){
+            return false;
+        }
+
+        return true;
+    }
+
+    private void pickFlag(AbstractRobot robot) {
+        for(BoardObject obj : boardObjects) {
+            if(robot.collide(obj) && obj.getClass().equals(Flag.class)){
+                robot.pickFlag((Flag)obj); // Can cast obj to Flag because I have chacked that it is a flag.
+            }
+        }
+    }
+
+    /**
      * Get's the next move programmed in to the entity.robot and tries to move the entity.robot.
      * @param robot the entity.robot that is to be moved.
      */
@@ -206,6 +250,7 @@ public class Board {
 
         if(canMoveRobot(robot)){ // check if move to tempx and tempy is possible
             robot.place(robot.getTempX(), robot.getTempY()); // sets x to tempx and y to tempy
+            pickFlag(robot);
             notifyListeners();
         }
 

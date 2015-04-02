@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
 import java.util.LinkedList;
 
@@ -36,6 +38,7 @@ public abstract class AbstractRobot extends AbstractBoardObject{
     protected int hitpoints;
     protected int damage;
     protected boolean dead;
+    protected List<Flag> flags;
 
     // Getters
 
@@ -69,6 +72,8 @@ public abstract class AbstractRobot extends AbstractBoardObject{
 
     public boolean isDead() { return dead; }
 
+    public int getFlagCount() { return flags.size(); }
+
     // Setters
 
     public void setTempX(int newTempX) { tempX = newTempX; }
@@ -77,19 +82,28 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         tempY = newTempY;
     }
 
+    public void pickFlag(Flag flag) {
+        if(!flags.contains(flag)){
+            flags.add(flag);
+        }
+    }
+
 
 
     protected AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final int hitpoints) {
         super(x, orientation, y);
 
+        //Setup robot
         this.hitpoints = hitpoints;
         damage = 1;
         dead = false;
         this.name = name;
         programmedMoves = new LinkedList<>();
+        flags = new ArrayList<>();
 
         done = false;
 
+        //Setup player interface
         mainPanel = new JPanel(new BorderLayout());
         turnButtonPanel = new JPanel(new GridLayout());
         moveButtonPanel = new JPanel(new FlowLayout());

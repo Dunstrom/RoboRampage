@@ -7,6 +7,12 @@ import java.awt.Graphics;
  */
 public interface BoardObject {
 
+    public int getX();
+
+    public int getY();
+
     public void draw(Graphics g);
+
+    public boolean collide(BoardObject obj);
 
 }

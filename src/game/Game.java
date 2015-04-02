@@ -97,44 +97,46 @@ public class Game implements BoardListener {
         timer.start();
     }
 
+    /** Checks the games winning conditions */
     @Override public void boardChanged() {
         if(robots.size() == 1){
             String winner = robots.get(0).getName();
-            Object[] options = {"New Game", "Quit"};
-            int optionChosen = JOptionPane.showOptionDialog(gameFrame,
-                "GAME OVER\n" +
-                "The player " + winner + " has won the game!",
-                "GAME OVER",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                options,
-                options[0]);
-            if (optionChosen == 0){
-                //TODO: start new game
-            }
-            else if (optionChosen == 1){
-                System.exit(0);
-            }
+            displayWinscreen(winner + " is the champion by murder!");
         }
         else if (robots.isEmpty()){
-            Object[] options = {"New Game", "Quit"};
-            int optionChosen = JOptionPane.showOptionDialog(gameFrame,
-                "GAME OVER\n" +
-                "All robots have been destroyed, there is no winner",
-                "GAME OVER",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                options,
-                options[0]);
-            if (optionChosen == 0){
-                //TODO: start new game
-            }
-            else if (optionChosen == 1){
-                System.exit(0);
-            }
+            String winnText = "No one wins, lol...";
+            displayWinscreen(winnText);
         }
 
+        checkRobotGotAllFlags();
+
     }
+
+    private void checkRobotGotAllFlags() {
+        for(AbstractRobot robot : robots) {
+            if(robot.getFlagCount() == 3){
+                displayWinscreen(robot.getName() + " is the champion by capture");
+            }
+        }
+    }
+
+    private void displayWinscreen(String winnText) {
+        Object[] options = {"New Game", "Quit"};
+        int optionChosen = JOptionPane.showOptionDialog(gameFrame,
+            "GAME OVER\n" + winnText,
+
+            "GAME OVER",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+            options,
+            options[0]);
+        if (optionChosen == 0){
+            //TODO: start new game
+        }
+        else if (optionChosen == 1){
+            System.exit(0);
+        }
+    }
+
 }
