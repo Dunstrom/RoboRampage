@@ -3,6 +3,7 @@ package board;
 import entity.AbstractRobot;
 import entity.BoardObject;
 import entity.Flag;
+import entity.FlagFactory;
 import entity.Orientation;
 
 import java.awt.*;
@@ -86,15 +87,17 @@ public class Board {
 
     private void placeFlags() {
 
+        FlagFactory flagFactory = FlagFactory.getInstance();
+
         int tileSize = Tile.TILE_SIZE;
         final int flagX1 = (width - 1)*tileSize;
         final int flagX2 = (width - 3)*tileSize;
         final int bottY = (height - 1)*tileSize;
         final int middleY = (height/2)*tileSize;
 
-        boardObjects.add(new Flag(flagX1, tileSize));
-        boardObjects.add(new Flag(flagX2, middleY));
-        boardObjects.add(new Flag(flagX1, bottY));
+        boardObjects.add(flagFactory.createFlag(flagX1, tileSize));
+        boardObjects.add(flagFactory.createFlag(flagX2, middleY));
+        boardObjects.add(flagFactory.createFlag(flagX1, bottY));
 
     }
 
