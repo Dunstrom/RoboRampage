@@ -152,7 +152,6 @@ public class Game implements BoardListener {
             options[0]);
         if (optionChosen == 0){
             resetGame();
-            //call menu
         }
         else if (optionChosen == 1){
             System.exit(0);
