@@ -1,7 +1,6 @@
 package entity;
 
 import javax.swing.*;
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
