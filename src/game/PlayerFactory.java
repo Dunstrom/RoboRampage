@@ -14,8 +14,8 @@ public final class PlayerFactory {
 
     }
 
-    public static ArrayList<Player> createPlayers(List<JTextField> playerNames, List<JComboBox<String>> playerColors, int numberOfPlayers) {
-	ArrayList<Player> players = new ArrayList<>();
+    public static List<Player> createPlayers(List<JTextField> playerNames, List<JComboBox<String>> playerColors, int numberOfPlayers) {
+	List<Player> players = new ArrayList<>();
 	for(int i = 0; i < numberOfPlayers; i++) {
 		//Name
 	    String name = playerNames.get(i).getText();

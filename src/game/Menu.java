@@ -108,8 +108,6 @@ public class Menu extends JFrame {
         while (true) {
             if (done) {
                 return PlayerFactory.createPlayers(playerNames, playerColors, numberOfPlayers);
-            }else {
-                System.out.println();
             }
         }
 
