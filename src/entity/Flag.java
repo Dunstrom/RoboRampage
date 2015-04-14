@@ -10,15 +10,16 @@ public class Flag extends AbstractBoardObject {
 
     final static int WIDTH = 20;
     final static int HEIGHT = 15;
+    private Color color;
 
-    public Flag(int x, int y) {
+    public Flag(int x, int y, Color color) {
         super(x, Orientation.NORTH, y);
-
+        this.color = color;
     }
 
     public void draw(Graphics g) {
 
-        g.setColor(Color.GREEN);
+        g.setColor(color);
         g.fillRect(x, y, WIDTH, HEIGHT);
         g.setColor(Color.WHITE);
         g.drawRect(x, y, WIDTH, HEIGHT);
