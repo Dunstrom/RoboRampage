@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class Game implements BoardListener {
 
+    private Menu menu;
     private Board board;
     private List<AbstractRobot> robots;
     private List<Player> players;
@@ -28,16 +29,34 @@ public class Game implements BoardListener {
     final static int BOARD_HEIGHT = 10;
 
 
-    public Game(List<Player> players) {
-        this.players = players;
+
+    public Game() {
+        players = new ArrayList<>();
         board =  new Board(BOARD_WIDTH, BOARD_HEIGHT);
         board.addBoardListener(this);
         robots = new ArrayList<>();
+        currentRobot = null;
+        gameFrame = null;
+        menu = new Menu();
+        setUpGame();
+    }
+
+    public void setUpGame(){
+        players = menu.setUpPlayers();
+        menu.dispose();
         makeRobots();
         currentRobot = robots.get(0);
         gameFrame = new GameFrame(board, currentRobot.getMainPanel());
+        run();
     }
 
+    private void resetGame(){
+        gameFrame.dispose();
+        players.clear();
+        board =  new Board(BOARD_WIDTH, BOARD_HEIGHT);
+        robots.clear();
+        currentRobot = null;
+    }
 
     private void makeRobots(){
         for (Player player : players) {
@@ -104,8 +123,8 @@ public class Game implements BoardListener {
             displayWinscreen(winner + " is the champion by murder!");
         }
         else if (robots.isEmpty()){
-            String winnText = "No one wins, lol...";
-            displayWinscreen(winnText);
+            String winText = "No one wins, lol...";
+            displayWinscreen(winText);
         }
 
         checkRobotGotAllFlags();
@@ -120,10 +139,10 @@ public class Game implements BoardListener {
         }
     }
 
-    private void displayWinscreen(String winnText) {
+    private void displayWinscreen(String winText) {
         Object[] options = {"New Game", "Quit"};
         int optionChosen = JOptionPane.showOptionDialog(gameFrame,
-            "GAME OVER\n" + winnText,
+            "GAME OVER\n" + winText,
 
             "GAME OVER",
             JOptionPane.YES_NO_OPTION,
@@ -132,11 +151,16 @@ public class Game implements BoardListener {
             options,
             options[0]);
         if (optionChosen == 0){
-            //TODO: start new game
+            resetGame();
+            //call menu
         }
         else if (optionChosen == 1){
             System.exit(0);
         }
+    }
+
+    public static void main(String[] args) {
+        new Game();
     }
 
 }
