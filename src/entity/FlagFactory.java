@@ -3,7 +3,7 @@ package entity;
 import java.util.LinkedList;
 import java.awt.Color;
 
-public class FlagFactory
+public final class FlagFactory
 {
 
     private static final FlagFactory INSTANCE = new FlagFactory();
