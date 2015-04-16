@@ -13,49 +13,40 @@ import java.util.List;
 import javax.swing.Action;
 import javax.swing.Timer;
 import javax.swing.AbstractAction;
-import javax.swing.JOptionPane;
+
 /**
  * Keeps track of game stuff, initialize the game and such.
  */
 public class Game implements BoardListener {
 
-    private Menu menu;
     private Board board;
     private List<AbstractRobot> robots;
     private List<Player> players;
+    private List<DoneListener> listeners;
     private AbstractRobot currentRobot;
     private GameFrame gameFrame;
     final static int BOARD_WIDTH = 20;
     final static int BOARD_HEIGHT = 10;
+    private String winner = "No one...";
 
+    public String getWinner() {
+        return winner;
+    }
 
-
-    public Game() {
-        players = new ArrayList<>();
+    public Game(List<Player> players) {
+        this.players = players;
         board =  new Board(BOARD_WIDTH, BOARD_HEIGHT);
         board.addBoardListener(this);
         robots = new ArrayList<>();
         currentRobot = null;
         gameFrame = null;
-        menu = new Menu();
-        setUpGame();
     }
 
-    public void setUpGame(){
-        players = menu.setUpPlayers();
-        menu.dispose();
+    public void startGame(){
         makeRobots();
         currentRobot = robots.get(0);
         gameFrame = new GameFrame(board, currentRobot.getMainPanel());
         run();
-    }
-
-    private void resetGame(){
-        gameFrame.dispose();
-        players.clear();
-        board =  new Board(BOARD_WIDTH, BOARD_HEIGHT);
-        robots.clear();
-        currentRobot = null;
     }
 
     private void makeRobots(){
@@ -120,11 +111,10 @@ public class Game implements BoardListener {
     @Override public void boardChanged() {
         if(robots.size() == 1){
             String winner = robots.get(0).getName();
-            displayWinscreen(winner + " is the champion by murder!");
+            gameOver(winner);
         }
         else if (robots.isEmpty()){
-            String winText = "No one wins, lol...";
-            displayWinscreen(winText);
+            gameOver("No one");
         }
 
         checkRobotGotAllFlags();
@@ -134,13 +124,15 @@ public class Game implements BoardListener {
     private void checkRobotGotAllFlags() {
         for(AbstractRobot robot : robots) {
             if(robot.getFlagCount() == 3){
-                displayWinscreen(robot.getName() + " is the champion by capture");
+                gameOver(robot.getName());
             }
         }
     }
 
-    private void displayWinscreen(String winText) {
-        Object[] options = {"New Game", "Quit"};
+    private void gameOver(String winner) {
+        this.winner = winner;
+        gameDone();
+        /*Object[] options = {"New Game", "Quit"};
         int optionChosen = JOptionPane.showOptionDialog(gameFrame,
             "GAME OVER\n" + winText,
 
@@ -151,15 +143,17 @@ public class Game implements BoardListener {
             options,
             options[0]);
         if (optionChosen == 0){
-            resetGame();
+
         }
         else if (optionChosen == 1){
             System.exit(0);
-        }
+        }*/
     }
 
-    public static void main(String[] args) {
-        new Game();
+    private void gameDone() {
+        for(DoneListener listener : listeners) {
+            listener.whenDone();
+        }
     }
 
 }

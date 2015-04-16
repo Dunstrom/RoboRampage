@@ -1,7 +1,5 @@
 package game;
 
-import game.Player;
-import game.PlayerFactory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,13 +17,25 @@ public class Menu extends JFrame {
     private final static int MAXPLAYERS = 4;
     private List<JTextField> playerNames;
     private List<JComboBox<String>> playerColors;
-    private boolean done = false;
+    private List<Player> players;
+    private List<DoneListener> listeners;
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void addListener(DoneListener listener) {
+        listeners.add(listener);
+    }
 
     public Menu() {
         super("RoboRampage");
 
+        playerSelect = new JPanel();
+        players = new ArrayList<>();
         playerNames = new ArrayList<>();
         playerColors = new ArrayList<>();
+        listeners = new ArrayList<>();
 
     }
 
@@ -52,7 +62,7 @@ public class Menu extends JFrame {
         playerSelect.add(playerPanel);
     }
 
-    public List<Player> setUpPlayers() {
+    public void setUpPlayers() {
 
         final int height = 400;
         final int width = 400;
@@ -62,7 +72,6 @@ public class Menu extends JFrame {
         setResizable(false);
 
         Label title = new Label("ROBO RAMPAGE");
-        playerSelect = new JPanel();
         JButton addPlayerBtn = new JButton("Add Player");
         JButton startBtn = new JButton("START");
 
@@ -97,7 +106,8 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (playerNames.size() > 1) {
-                    done = true;
+                    players = PlayerFactory.createPlayers(playerNames, playerColors, numberOfPlayers);
+                    menuDone();
                 }
             }
         });
@@ -105,12 +115,13 @@ public class Menu extends JFrame {
         addPlayerBtn.setText("Add Player");
         startBtn.setText("START");
 
-        while (true) {
-            if (done) {
-                return PlayerFactory.createPlayers(playerNames, playerColors, numberOfPlayers);
-            }
-        }
 
+    }
+
+    private void menuDone() {
+        for(DoneListener listener : listeners) {
+            listener.whenDone();
+        }
     }
 
 }
