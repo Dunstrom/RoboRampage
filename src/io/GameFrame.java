@@ -9,7 +9,7 @@ import javax.swing.*;
 /**
  * Creates and updates the frame.
  */
-public class GameFrame extends JFrame implements BoardListener
+public class GameFrame extends JFrame
 {
 
     private JPanel currentPlayerInterface;
@@ -49,10 +49,6 @@ public class GameFrame extends JFrame implements BoardListener
      */
     public void repaintPlayerInterface() {
         repaint(0,0,boardComponent.getHeight(),getWidth(), getHeight());
-    }
-
-    public void boardChanged() {
-        repaintPlayerInterface();
     }
 
 }

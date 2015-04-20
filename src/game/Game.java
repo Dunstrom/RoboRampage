@@ -51,7 +51,6 @@ public class Game implements BoardListener {
         makeRobots();
         currentRobot = robots.get(0);
         gameFrame = new GameFrame(board, currentRobot.getMainPanel());
-        board.addBoardListener(gameFrame);
         run();
     }
 
@@ -92,6 +91,8 @@ public class Game implements BoardListener {
 		    gameFrame.setActivePlayer(currentRobot.getMainPanel());
 	        }
         }
+
+        gameFrame.repaintPlayerInterface();
 
     }
 
