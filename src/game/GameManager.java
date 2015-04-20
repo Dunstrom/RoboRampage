@@ -12,39 +12,40 @@ public class GameManager implements DoneListener {
     private String winner;
 
     public GameManager() {
-	players = new ArrayList<>();
-	menu = new Menu();
-	game = null;
+        players = new ArrayList<>();
+        menu = new Menu();
+        game = null;
     }
 
     public void startGame() {
-	state = GameState.MENU;
-	runState();
+        state = GameState.MENU;
+        runState();
 
     }
 
     private void runState() {
-	switch(state) {
-	    case MENU:
-		runMenu();
-		break;
-	    case GAME:
-		runGame();
-		break;
-	    case WINSCREEN:
-		runWinScreen();
-		break;
-	}
+        switch (state) {
+            case MENU:
+                runMenu();
+                break;
+            case GAME:
+                runGame();
+                break;
+            case WINSCREEN:
+                runWinScreen();
+                break;
+        }
     }
 
     private void runMenu() {
-	menu.addListener(this);
-	menu.setUpPlayers();
+        menu.addListener(this);
+        menu.setUpPlayers();
     }
 
     private void runGame() {
-	game = new Game(players);
-	game.startGame();
+        game = new Game(players);
+        game.addDoneListener(this);
+        game.startGame();
     }
 
     private void runWinScreen() {
@@ -52,26 +53,26 @@ public class GameManager implements DoneListener {
     }
 
     public void whenDone() {
-	switch(state) {
-	    case MENU:
-		players = menu.getPlayers();
-		state = GameState.GAME;
-		menu.dispose();
-		break;
-	    case GAME:
-		winner = game.getWinner();
-		state = GameState.WINSCREEN;
-		break;
-	    case WINSCREEN:
-		state = GameState.MENU;
-		break;
-	}
-	runState();
+        switch (state) {
+            case MENU:
+                players = menu.getPlayers();
+                state = GameState.GAME;
+                menu.dispose();
+                break;
+            case GAME:
+                winner = game.getWinner();
+                state = GameState.WINSCREEN;
+                break;
+            case WINSCREEN:
+                state = GameState.MENU;
+                break;
+        }
+        runState();
     }
 
     public static void main(String[] args) {
-	GameManager gm = new GameManager();
-	gm.startGame();
+        GameManager gm = new GameManager();
+        gm.startGame();
     }
 
 }

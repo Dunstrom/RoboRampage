@@ -5,6 +5,7 @@ import entity.BoardObject;
 import entity.Flag;
 import entity.FlagFactory;
 import entity.Orientation;
+import io.GameFrame;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -166,14 +167,13 @@ public class Board {
 
     // Robot stuff
 
-    private boolean onBoard(AbstractRobot robot, int oneTile) {
-        if(!robots.contains(robot)){// Is robot on board
-            throw new IllegalArgumentException("Robot not on the board");
-        }
-        else if(robot.getTempX() < 0 || robot.getTempY() < 0 || robot.getTempX() >= width*oneTile || robot.getTempY() >= height*oneTile){//Checks if entity.robot is about to move out of the board.
+    private boolean stillOnBoard(AbstractRobot robot, int oneTile) {
+        assert robots.contains(robot); // Makes sure the robot is on the board
+        if(robot.getTempX() < 0 || robot.getTempY() < 0 || robot.getTempX() >= width*oneTile || robot.getTempY() >= height*oneTile){//Checks if entity.robot is about to move out of the board.
             return false;
+        } else {
+            return true;
         }
-        return true;
     }
 
     private boolean canPush(AbstractRobot robot, int oneTile) {
@@ -228,7 +228,7 @@ public class Board {
 
         int tileSize = Tile.TILE_SIZE;
 
-        if(!onBoard(robot, tileSize) || !canPush(robot, tileSize)){
+        if(!stillOnBoard(robot, tileSize) || !canPush(robot, tileSize)){
             return false;
         }
 
@@ -307,7 +307,7 @@ public class Board {
     }
 
     private void attackNorth(int y, int x, int tileSize, AbstractRobot robot) {
-        for(int yToCheck = y-tileSize; yToCheck > 0; yToCheck-=tileSize){
+        for(int yToCheck = y-tileSize; yToCheck >= 0; yToCheck-=tileSize){
             if(tiles[yToCheck / tileSize][x / tileSize].isBlocking()){
                 break;
             }
@@ -321,7 +321,7 @@ public class Board {
     }
 
     private void attackSouth(int y, int x, int tileSize, AbstractRobot robot) {
-        for(int yToCheck = y+tileSize; yToCheck < (height-1)*tileSize; yToCheck+=tileSize){
+        for(int yToCheck = y+tileSize; yToCheck <= (height-1)*tileSize; yToCheck+=tileSize){
             if(tiles[yToCheck / tileSize][x / tileSize].isBlocking()){
                 break;
             }
@@ -335,7 +335,7 @@ public class Board {
     }
 
     private void attackWest(int y, int x, int tileSize, AbstractRobot robot) {
-        for(int xToCheck = x-tileSize; xToCheck > 0; xToCheck-=tileSize){
+        for(int xToCheck = x-tileSize; xToCheck >= 0; xToCheck-=tileSize){
             if(tiles[y / tileSize][xToCheck / tileSize].isBlocking()){
                 break;
             }
@@ -349,7 +349,7 @@ public class Board {
     }
 
     private void attackEast(int y, int x, int tileSize, AbstractRobot robot) {
-        for(int xToCheck = x+tileSize; xToCheck < (width-1)*tileSize; xToCheck+=tileSize){
+        for(int xToCheck = x+tileSize; xToCheck <= (width-1)*tileSize; xToCheck+=tileSize){
             if(tiles[y / tileSize][xToCheck / tileSize].isBlocking()){
                 break;
             }

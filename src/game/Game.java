@@ -33,6 +33,10 @@ public class Game implements BoardListener {
         return winner;
     }
 
+    public void addDoneListener(DoneListener listener) {
+        listeners.add(listener);
+    }
+
     public Game(List<Player> players) {
         this.players = players;
         board =  new Board(BOARD_WIDTH, BOARD_HEIGHT);
@@ -40,12 +44,14 @@ public class Game implements BoardListener {
         robots = new ArrayList<>();
         currentRobot = null;
         gameFrame = null;
+        listeners = new ArrayList<>();
     }
 
     public void startGame(){
         makeRobots();
         currentRobot = robots.get(0);
         gameFrame = new GameFrame(board, currentRobot.getMainPanel());
+        board.addBoardListener(gameFrame);
         run();
     }
 
@@ -86,8 +92,6 @@ public class Game implements BoardListener {
 		    gameFrame.setActivePlayer(currentRobot.getMainPanel());
 	        }
         }
-
-        gameFrame.repaintPlayerInterface();
 
     }
 
