@@ -248,7 +248,7 @@ public class Board {
      */
     private void moveRobot(AbstractRobot robot) {
 
-        robot.getNextMove().run(); // sets tempx and tempy
+        robot.getNextMove().execute(); // sets tempx and tempy
 
         if(canMoveRobot(robot)){ // check if move to tempx and tempy is possible
             robot.place(robot.getTempX(), robot.getTempY()); // sets x to tempx and y to tempy

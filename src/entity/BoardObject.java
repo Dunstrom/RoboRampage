@@ -1,18 +1,16 @@
 package entity;
 
-import java.awt.Graphics;
+import io.Outputobject;
 
 /**
  * Interface for all objects present on the board
  */
-public interface BoardObject {
+public interface BoardObject extends Outputobject {
 
-    public int getX();
+    int getX();
 
-    public int getY();
+    int getY();
 
-    public void draw(Graphics g);
-
-    public boolean collide(BoardObject obj);
+    boolean collide(BoardObject obj);
 
 }

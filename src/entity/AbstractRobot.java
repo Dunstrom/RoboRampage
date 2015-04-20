@@ -2,6 +2,7 @@ package entity;
 
 import io.InterfaceComponent;
 
+import javax.sound.sampled.Clip;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,15 +20,18 @@ public abstract class AbstractRobot extends AbstractBoardObject{
 
     protected boolean endable;
     protected boolean done;
+
+    //io
     protected BufferedImage buttonSprite;
     protected BufferedImage hpBarSprite;
     protected InterfaceComponent playerInterface;
     protected BufferedImage robotSprite;
     protected BufferedImage choosenMoveSprite;
+    protected Clip testSound;
 
     // Stats
     protected String name;
-    protected Queue<AbstractButton> programmedMoves;
+    protected Queue<Move> programmedMoves;
     /** The maximum amount of moves allowed for one entity.robot */
     public final static int MAX_QUEUED_MOVES = 3;
     protected int hitpoints;
@@ -35,8 +39,10 @@ public abstract class AbstractRobot extends AbstractBoardObject{
     protected boolean dead;
     protected List<Flag> flags;
 
+
+
     // Getters
-    public Queue<AbstractButton> getProgrammedMoves() {
+    public Queue<Move> getProgrammedMoves() {
         return programmedMoves;
     }
 
@@ -68,7 +74,7 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         return tempX;
     }
 
-    public Runnable getNextMove() {
+    public Move getNextMove() {
         return programmedMoves.poll();
     }
 
@@ -140,6 +146,8 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         choosenMoveSprite = loadImage("../Resources/Brown_Button.png");
         playerInterface = new InterfaceComponent(this);
 
+        testSound = loadSoundClip("../Resources/testljud.wav");
+
     }
 
     /**
@@ -155,7 +163,7 @@ public abstract class AbstractRobot extends AbstractBoardObject{
      * Adds a move to the list of pre programmed moves.
      * @param move a Runnable that is supposed to be executed in the sequential move phase of the game.
      */
-    protected void addProgrammedMove(AbstractButton move){
+    protected void addProgrammedMove(Move move){
 
         if(programmedMoves.size() < MAX_QUEUED_MOVES){
             programmedMoves.add(move);
@@ -186,6 +194,7 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         if(hitpoints < 1) {
             dead = true;
         }
+        testSound.loop(1);
     }
 
     public int getDamage() {

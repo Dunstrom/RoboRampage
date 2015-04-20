@@ -3,7 +3,7 @@ package io;
 import board.Tile;
 import entity.Flag;
 import game.Game;
-import entity.AbstractButton;
+import entity.Button;
 import entity.AbstractRobot;
 
 import javax.swing.JComponent;
@@ -24,10 +24,10 @@ public class InterfaceComponent extends JComponent implements MouseListener {
     private AbstractRobot robot;
     private final static int HEIGHT = 150;
     private final static int WIDTH = Game.BOARD_WIDTH * Tile.TILE_SIZE;
-    private List<AbstractButton> moves;
-    private Map<Rectangle, AbstractButton> buttons;
+    private List<Button> moves;
+    private Map<Rectangle, Button> buttons;
 
-    public void addMove(AbstractButton move) {
+    public void addMove(Button move) {
         moves.add(move);
     }
 
@@ -58,14 +58,14 @@ public class InterfaceComponent extends JComponent implements MouseListener {
     }
 
     private void drawStandardButtons(Graphics g) {
-        AbstractButton[] standardButtons = {new EndTurn()};
+        Button[] standardButtons = {new EndTurn(), new RemoveMove()};
         BufferedImage sprite = robot.getButtonSprite();
         final int y = sprite.getHeight()/2;
         final int marginLeft = 25;
         int x = marginLeft;
         final int stringMarginLeft = 15;
         final int stringMarginTop = sprite.getHeight()/2;
-        for(AbstractButton button : standardButtons) {
+        for(Button button : standardButtons) {
             g.drawImage(sprite, x, y, null);
             g.drawString(button.display(), x + stringMarginLeft, y + stringMarginTop);
             if(!buttons.containsValue(button)){
@@ -76,7 +76,7 @@ public class InterfaceComponent extends JComponent implements MouseListener {
         }
     }
 
-    public class EndTurn implements AbstractButton {
+    public class EndTurn implements Button {
 
         public void run() {
             if(robot.isEndable()){
@@ -91,14 +91,16 @@ public class InterfaceComponent extends JComponent implements MouseListener {
         }
     }
 
-    public class RemoveMove implements AbstractButton {
-        public void run() {
-            robot.removeProgrammedMove();
+    public class RemoveMove implements Button {
+        @Override
+        public String display() {
+            return "Remove";
         }
 
         @Override
-        public String display() {
-            return "Remove Move";
+        public void run() {
+            robot.removeProgrammedMove();
+            robot.renderPlayerInterface();
         }
     }
 
@@ -109,7 +111,7 @@ public class InterfaceComponent extends JComponent implements MouseListener {
         final int marginRight = 20;
         final int stringMarginLeft = 15;
         final int stringMarginTop = sprite.getHeight()/2;
-        for(AbstractButton button : moves) {
+        for(Button button : moves) {
             String text = button.display();
             g.drawImage(sprite, x, y, null);
             g.drawString(text, x + stringMarginLeft, y + stringMarginTop);
@@ -127,7 +129,7 @@ public class InterfaceComponent extends JComponent implements MouseListener {
         final int stringMarginLeft = 15;
         final int marginRight = 20;
         final int stringMarginTop = sprite.getHeight()/2;
-        for(AbstractButton move : robot.getProgrammedMoves()) {
+        for(Button move : robot.getProgrammedMoves()) {
             String text = move.display();
             g.drawImage(sprite, x, y, null);
             g.drawString(text, x + stringMarginLeft, y + stringMarginTop);
@@ -175,8 +177,7 @@ public class InterfaceComponent extends JComponent implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
-        for(Map.Entry<Rectangle, AbstractButton> button : buttons.entrySet()){
+        for(Map.Entry<Rectangle, Button> button : buttons.entrySet()){
             if(button.getKey().contains(e.getX(), e.getY())){
                 button.getValue().run();
             }

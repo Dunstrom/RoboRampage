@@ -2,8 +2,6 @@ package entity;
 
 import board.Tile;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics2D;
@@ -30,7 +28,7 @@ public class TestRobot extends AbstractRobot {
 
     }
 
-    AbstractButton forwadButton = new AbstractButton() {
+    Button forwadButton = new Button() {
         @Override
         public String display() {
             return "Forward";
@@ -42,7 +40,7 @@ public class TestRobot extends AbstractRobot {
         }
     };
 
-    AbstractButton turnLeftButton = new AbstractButton() {
+    Button turnLeftButton = new Button() {
         @Override
         public String display() {
             return "Turn Left";
@@ -54,7 +52,7 @@ public class TestRobot extends AbstractRobot {
         }
     };
 
-    AbstractButton turnRightButton = new AbstractButton() {
+    Button turnRightButton = new Button() {
         @Override
         public String display() {
             return "Turn Right";
@@ -69,14 +67,14 @@ public class TestRobot extends AbstractRobot {
     /**
      * Runnable that moves the entity.robot one step forward.
      */
-    AbstractButton moveForwardOne = new AbstractButton() {
+    Move moveForwardOne = new Move() {
         @Override
         public String display() {
             return "Forward";
         }
 
         @Override
-        public void run() {
+        public void execute() {
             switch (orientation) {
                 case NORTH:
                     tempX = x;
@@ -96,19 +94,26 @@ public class TestRobot extends AbstractRobot {
                     break;
             }
         }
+
+        @Override
+        public void run() {
+            removeProgrammedMove();
+            renderPlayerInterface();
+        }
+
     };
 
     /**
      * Runnable that turns the entity.robot left 90 degrees
      */
-    AbstractButton turnLeft = new AbstractButton() {
+    Move turnLeft = new Move() {
         @Override
         public String display() {
             return "Turn Left";
         }
 
         @Override
-        public void run() {
+        public void execute() {
             switch (orientation) {
                 case NORTH:
                     orientation = Orientation.WEST;
@@ -131,6 +136,12 @@ public class TestRobot extends AbstractRobot {
                     tempY = y;
                     break;
             }
+        }
+
+        @Override
+        public void run() {
+            removeProgrammedMove();
+            renderPlayerInterface();
         }
     };
 
@@ -138,14 +149,14 @@ public class TestRobot extends AbstractRobot {
     /**
      * Runnable that turns the entity.robot right 90 degrees
      */
-    AbstractButton turnRight = new AbstractButton() {
+    Move turnRight = new Move() {
         @Override
         public String display() {
             return "Turn Right";
         }
 
         @Override
-        public void run() {
+        public void execute() {
             switch (orientation) {
                 case NORTH:
                     orientation = Orientation.EAST;
@@ -168,6 +179,12 @@ public class TestRobot extends AbstractRobot {
                     tempY = y;
                     break;
             }
+        }
+
+        @Override
+        public void run() {
+            removeProgrammedMove();
+            renderPlayerInterface();
         }
 
     };
