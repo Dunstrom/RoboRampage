@@ -1,7 +1,6 @@
 package io;
 
 import board.Board;
-import board.BoardListener;
 
 import java.awt.*;
 import javax.swing.*;
@@ -48,7 +47,7 @@ public class GameFrame extends JFrame
      * Repaints the playerInterface
      */
     public void repaintPlayerInterface() {
-        repaint(0,0,boardComponent.getHeight(),getWidth(), getHeight());
+        repaint(0, 0, boardComponent.getHeight(), getWidth(), getHeight());
     }
 
 }

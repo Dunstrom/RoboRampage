@@ -8,6 +8,6 @@ public interface AbstractMove extends Runnable{
     /**
      * @return a String that symbolizes the move.
      */
-    public abstract String display();
+      String display();
 
 }

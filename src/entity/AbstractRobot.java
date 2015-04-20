@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.image.BufferedImage;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
@@ -28,6 +30,8 @@ public abstract class AbstractRobot extends AbstractBoardObject{
     protected JLabel infoBox;
     protected JLabel displayedMoves;
     protected JLabel healthLabel;
+    protected BufferedImage buttonSprite;
+    protected BufferedImage hpBarSprite;
 
     // Stats
     protected String name;
@@ -40,6 +44,10 @@ public abstract class AbstractRobot extends AbstractBoardObject{
     protected List<Flag> flags;
 
     // Getters
+
+    public BufferedImage getButtonSprite() {
+        return buttonSprite;
+    }
 
     public String getName(){
         return name;
@@ -73,6 +81,14 @@ public abstract class AbstractRobot extends AbstractBoardObject{
 
     public int getFlagCount() { return flags.size(); }
 
+    public BufferedImage getHpBarSprite() {
+        return hpBarSprite;
+    }
+
+    public int getHitpoints() {
+        return hitpoints;
+    }
+
     // Setters
 
     public void setTempX(int newTempX) { tempX = newTempX; }
@@ -103,6 +119,8 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         done = false;
 
         //Setup player interface
+        buttonSprite = loadImage("../Resources/Button.png");
+        hpBarSprite = loadImage("../Resources/hp_bar.png");
         mainPanel = new JPanel(new BorderLayout());
         turnButtonPanel = new JPanel(new GridLayout());
         moveButtonPanel = new JPanel(new FlowLayout());
