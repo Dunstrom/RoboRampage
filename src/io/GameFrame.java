@@ -11,14 +11,14 @@ import javax.swing.*;
 public class GameFrame extends JFrame
 {
 
-    private JPanel currentPlayerInterface;
+    private InterfaceComponent currentPlayerInterface;
     private BoardComponent boardComponent;
 
     /**
      * Sets the activePlayer to a a entity.robot. The activePlayer is the one who's interface is displayed.
      * @param nextPlayerInterface the player who's turn it is next.
      */
-    public void setActivePlayer(JPanel nextPlayerInterface) {
+    public void setActivePlayer(InterfaceComponent nextPlayerInterface) {
         remove(currentPlayerInterface);
         currentPlayerInterface = nextPlayerInterface;
         add(currentPlayerInterface, BorderLayout.PAGE_END);
@@ -26,7 +26,7 @@ public class GameFrame extends JFrame
 
     }
 
-    public GameFrame(Board board, JPanel playerInterface) {
+    public GameFrame(Board board, InterfaceComponent playerInterface) {
 
         super("RoboRampage");
 

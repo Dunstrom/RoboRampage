@@ -25,8 +25,8 @@ public class Game implements BoardListener {
     private List<DoneListener> listeners;
     private AbstractRobot currentRobot;
     private GameFrame gameFrame;
-    final static int BOARD_WIDTH = 20;
-    final static int BOARD_HEIGHT = 10;
+    public final static int BOARD_WIDTH = 20;
+    public final static int BOARD_HEIGHT = 10;
     private String winner = "No one...";
 
     public String getWinner() {
@@ -50,7 +50,7 @@ public class Game implements BoardListener {
     public void startGame(){
         makeRobots();
         currentRobot = robots.get(0);
-        gameFrame = new GameFrame(board, currentRobot.getMainPanel());
+        gameFrame = new GameFrame(board, currentRobot.getPlayerInterface());
         run();
     }
 
@@ -83,12 +83,12 @@ public class Game implements BoardListener {
         if(currentRobot.getDone()){
 	        if(robots.indexOf(currentRobot) < robots.size()-1){//Are there more robots left this turn?
 		        currentRobot = robots.get(robots.indexOf(currentRobot) + 1);
-		        gameFrame.setActivePlayer(currentRobot.getMainPanel());
+		        gameFrame.setActivePlayer(currentRobot.getPlayerInterface());
 	        }
 	    else{
 		    executeTurn();
 		    currentRobot = robots.get(0);
-		    gameFrame.setActivePlayer(currentRobot.getMainPanel());
+		    gameFrame.setActivePlayer(currentRobot.getPlayerInterface());
 	        }
         }
 

@@ -1,12 +1,8 @@
 package entity;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
+import io.InterfaceComponent;
+
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
@@ -22,20 +18,23 @@ public abstract class AbstractRobot extends AbstractBoardObject{
     protected int tempY;
 
     //Interface and output
-    protected JPanel mainPanel;
-    protected JPanel moveButtonPanel;
-    protected JPanel turnButtonPanel;
+    //protected JPanel mainPanel;
+    //protected JPanel moveButtonPanel;
+    //protected JPanel turnButtonPanel;
     protected boolean endable;
     protected boolean done;
-    protected JLabel infoBox;
-    protected JLabel displayedMoves;
-    protected JLabel healthLabel;
+    //protected JLabel infoBox;
+    //protected JLabel displayedMoves;
+    //protected JLabel healthLabel;
     protected BufferedImage buttonSprite;
     protected BufferedImage hpBarSprite;
+    protected InterfaceComponent playerInterface;
+    protected BufferedImage robotSprite;
+    protected BufferedImage choosenMoveSprite;
 
     // Stats
     protected String name;
-    protected Queue<AbstractMove> programmedMoves;
+    protected Queue<AbstractButton> programmedMoves;
     /** The maximum amount of moves allowed for one entity.robot */
     public final static int MAX_QUEUED_MOVES = 3;
     protected int hitpoints;
@@ -44,6 +43,21 @@ public abstract class AbstractRobot extends AbstractBoardObject{
     protected List<Flag> flags;
 
     // Getters
+    public Queue<AbstractButton> getProgrammedMoves() {
+        return programmedMoves;
+    }
+
+    public BufferedImage getChoosenMoveSprite() {
+        return choosenMoveSprite;
+    }
+
+    public boolean isEndable() {
+        return endable;
+    }
+
+    public InterfaceComponent getPlayerInterface() {
+        return playerInterface;
+    }
 
     public BufferedImage getButtonSprite() {
         return buttonSprite;
@@ -73,9 +87,9 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         return done;
     }
 
-    public JPanel getMainPanel() {
+    /*public JPanel getMainPanel() {
         return mainPanel;
-    }
+    } */
 
     public boolean isDead() { return dead; }
 
@@ -89,7 +103,15 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         return hitpoints;
     }
 
+    public BufferedImage getRobotSprite() {
+        return robotSprite;
+
+    }
+
     // Setters
+    public void setEndable(boolean bl) {
+        endable = bl;
+    }
 
     public void setTempX(int newTempX) { tempX = newTempX; }
 
@@ -121,6 +143,12 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         //Setup player interface
         buttonSprite = loadImage("../Resources/Button.png");
         hpBarSprite = loadImage("../Resources/hp_bar.png");
+        robotSprite = loadImage("../Resources/Robot.png");
+        choosenMoveSprite = loadImage("../Resources/Red_Button.png");
+        playerInterface = new InterfaceComponent(this);
+
+
+        /*
         mainPanel = new JPanel(new BorderLayout());
         turnButtonPanel = new JPanel(new GridLayout());
         moveButtonPanel = new JPanel(new FlowLayout());
@@ -158,6 +186,7 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         mainPanel.add(moveButtonPanel, BorderLayout.CENTER);
         mainPanel.add(infoBox, BorderLayout.PAGE_START);
         mainPanel.add(displayedMoves, BorderLayout.PAGE_END);
+        */
 
     }
 
@@ -166,7 +195,9 @@ public abstract class AbstractRobot extends AbstractBoardObject{
      */
     public void updateDisplayedMoves(){
 
-        StringBuilder builder = new StringBuilder();
+        playerInterface.paintImmediately(0,0,playerInterface.getWidth(), playerInterface.getWidth());
+
+      /*  StringBuilder builder = new StringBuilder();
         builder.append("You have choosen: ");
 
         for (AbstractMove programmedMove : programmedMoves) {
@@ -176,13 +207,15 @@ public abstract class AbstractRobot extends AbstractBoardObject{
 
         displayedMoves.setText(builder.toString());
         healthLabel.setText(Integer.toString(hitpoints));
+
+        */
     }
 
     /**
      * Adds a move to the list of pre programmed moves.
      * @param move a Runnable that is supposed to be executed in the sequential move phase of the game.
      */
-    protected void addProgrammedMove(AbstractMove move){
+    protected void addProgrammedMove(AbstractButton move){
 
         if(programmedMoves.size() < MAX_QUEUED_MOVES){
             programmedMoves.add(move);
@@ -200,7 +233,7 @@ public abstract class AbstractRobot extends AbstractBoardObject{
     /**
      * Removes a the latest added programmed move.
      */
-    protected void removeProgrammedMove(){
+    public void removeProgrammedMove(){
         if(!programmedMoves.isEmpty()){
             programmedMoves.remove();
             endable = false;

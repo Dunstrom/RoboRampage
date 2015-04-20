@@ -14,7 +14,6 @@ import java.awt.Graphics2D;
 public class TestRobot extends AbstractRobot {
 
     private final static int HEALTH = 10;
-    private BufferedImage robotSprite;
 
 
 
@@ -27,6 +26,7 @@ public class TestRobot extends AbstractRobot {
         robotSprite = loadImage("../Resources/" + spriteFileName);
 
         //Setup player interface
+        /*
         JButton moveForwardButton = new JButton();
         JButton turnLeftButton = new JButton();
         JButton turnRightButton = new JButton();
@@ -52,19 +52,63 @@ public class TestRobot extends AbstractRobot {
             }
         });
 
+
         moveForwardButton.setText("Forward");
         turnLeftButton.setText("Turn Left");
         turnRightButton.setText("Turn Right");
+        */
 
-        moveButtonPanel.add(moveForwardButton);
-        moveButtonPanel.add(turnLeftButton);
-        moveButtonPanel.add(turnRightButton);
+        playerInterface.addMove(forwadButton);
+        playerInterface.addMove(turnLeftButton);
+        playerInterface.addMove(turnRightButton);
+
     }
+
+    AbstractButton forwadButton = new AbstractButton() {
+        @Override
+        public String display() {
+            return "Forward";
+        }
+
+        @Override
+        public void run() {
+            addProgrammedMove(moveForwardOne);
+        }
+    };
+
+    AbstractButton turnLeftButton = new AbstractButton() {
+        @Override
+        public String display() {
+            return "Turn Left";
+        }
+
+        @Override
+        public void run() {
+            addProgrammedMove(turnLeft);
+        }
+    };
+
+    AbstractButton turnRightButton = new AbstractButton() {
+        @Override
+        public String display() {
+            return "Turn Right";
+        }
+
+        @Override
+        public void run() {
+            addProgrammedMove(turnRight);
+        }
+    };
 
     /**
      * Runnable that moves the entity.robot one step forward.
      */
-    AbstractMove moveForwardOne = new AbstractMove() {
+    AbstractButton moveForwardOne = new AbstractButton() {
+        @Override
+        public String display() {
+            return "Forward";
+        }
+
         @Override
         public void run() {
             switch (orientation) {
@@ -86,17 +130,17 @@ public class TestRobot extends AbstractRobot {
                     break;
             }
         }
-
-        @Override
-        public String display() {
-            return "Forward 1";
-        }
     };
 
     /**
      * Runnable that turns the entity.robot left 90 degrees
      */
-    AbstractMove turnLeft = new AbstractMove() {
+    AbstractButton turnLeft = new AbstractButton() {
+        @Override
+        public String display() {
+            return "Turn Left";
+        }
+
         @Override
         public void run() {
             switch (orientation) {
@@ -121,11 +165,6 @@ public class TestRobot extends AbstractRobot {
                     tempY = y;
                     break;
             }
-        }
-
-        @Override
-        public String display() {
-            return "Turn Left";
         }
     };
 
@@ -133,7 +172,12 @@ public class TestRobot extends AbstractRobot {
     /**
      * Runnable that turns the entity.robot right 90 degrees
      */
-    AbstractMove turnRight = new AbstractMove() {
+    AbstractButton turnRight = new AbstractButton() {
+        @Override
+        public String display() {
+            return "Turn Right";
+        }
+
         @Override
         public void run() {
             switch (orientation) {
@@ -158,11 +202,6 @@ public class TestRobot extends AbstractRobot {
                     tempY = y;
                     break;
             }
-        }
-
-        @Override
-        public String display() {
-            return "Turn Right";
         }
 
     };
