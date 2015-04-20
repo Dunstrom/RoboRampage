@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8c2e1e0-bd86-4976-8596-68d4c3c8c0d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Game.java" afterPath="$PROJECT_DIR$/src/game/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/io/GameFrame.java" afterPath="$PROJECT_DIR$/src/io/GameFrame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RoboRampage.iws" />
@@ -746,7 +744,7 @@
       <workItem from="1429196370195" duration="136000" />
       <workItem from="1429196520506" duration="81000" />
       <workItem from="1429196603591" duration="50000" />
-      <workItem from="1429518593468" duration="3762000" />
+      <workItem from="1429518593468" duration="3767000" />
     </task>
     <task id="LOCAL-00001" summary="Added Frame class">
       <created>1424642132383</created>
@@ -814,11 +812,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429522117449</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fixed attack bug, problem was the for loop diden't check the extrems y,x = 0 or max height/width it only checked &lt; 0 or &gt; 0 and so on">
+      <created>1429522360441</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1429522360441</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41664000" />
+    <option name="totallyTimeSpent" value="41669000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
