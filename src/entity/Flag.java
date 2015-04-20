@@ -8,9 +8,18 @@ import java.awt.Color;
  */
 public class Flag extends AbstractBoardObject {
 
-    final static int WIDTH = 20;
-    final static int HEIGHT = 15;
+    public final static int WIDTH = 20;
+    public final static int HEIGHT = 15;
     private Color color;
+    private Color borderColor = Color.WHITE;
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Color getBorderColor() {
+        return borderColor;
+    }
 
     public Flag(int x, int y, Color color) {
         super(x, Orientation.NORTH, y);
@@ -21,7 +30,7 @@ public class Flag extends AbstractBoardObject {
 
         g.setColor(color);
         g.fillRect(x, y, WIDTH, HEIGHT);
-        g.setColor(Color.WHITE);
+        g.setColor(borderColor);
         g.drawRect(x, y, WIDTH, HEIGHT);
 
     }

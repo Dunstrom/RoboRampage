@@ -5,7 +5,6 @@ import entity.BoardObject;
 import entity.Flag;
 import entity.FlagFactory;
 import entity.Orientation;
-import io.GameFrame;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -373,7 +372,7 @@ public class Board {
 
             robotAttack(robot);
 
-            robot.updateDisplayedMoves();
+            robot.renderPlayerInterface();
 
             notifyListeners();
 

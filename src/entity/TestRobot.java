@@ -15,8 +15,6 @@ public class TestRobot extends AbstractRobot {
 
     private final static int HEALTH = 10;
 
-
-
     public BufferedImage getRobotSprite() {
         return robotSprite;
     }
@@ -26,38 +24,6 @@ public class TestRobot extends AbstractRobot {
         robotSprite = loadImage("../Resources/" + spriteFileName);
 
         //Setup player interface
-        /*
-        JButton moveForwardButton = new JButton();
-        JButton turnLeftButton = new JButton();
-        JButton turnRightButton = new JButton();
-
-        moveForwardButton.setAction(new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                addProgrammedMove(moveForwardOne);
-            }
-        });
-
-        turnLeftButton.setAction(new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                addProgrammedMove(turnLeft);
-            }
-        });
-
-        turnRightButton.setAction(new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                addProgrammedMove(turnRight);
-            }
-        });
-
-
-        moveForwardButton.setText("Forward");
-        turnLeftButton.setText("Turn Left");
-        turnRightButton.setText("Turn Right");
-        */
-
         playerInterface.addMove(forwadButton);
         playerInterface.addMove(turnLeftButton);
         playerInterface.addMove(turnRightButton);

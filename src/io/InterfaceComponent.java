@@ -1,6 +1,7 @@
 package io;
 
 import board.Tile;
+import entity.Flag;
 import game.Game;
 import entity.AbstractButton;
 import entity.AbstractRobot;
@@ -57,7 +58,7 @@ public class InterfaceComponent extends JComponent implements MouseListener {
     }
 
     private void drawStandardButtons(Graphics g) {
-        AbstractButton[] standardButtons = {new EndTurn(), new RemoveMove()};
+        AbstractButton[] standardButtons = {new EndTurn()};
         BufferedImage sprite = robot.getButtonSprite();
         final int y = sprite.getHeight()/2;
         final int marginLeft = 25;
@@ -67,7 +68,9 @@ public class InterfaceComponent extends JComponent implements MouseListener {
         for(AbstractButton button : standardButtons) {
             g.drawImage(sprite, x, y, null);
             g.drawString(button.display(), x + stringMarginLeft, y + stringMarginTop);
-            buttons.put(new Rectangle(x, y, sprite.getWidth(), sprite.getHeight()), button);
+            if(!buttons.containsValue(button)){
+                buttons.put(new Rectangle(x, y, sprite.getWidth(), sprite.getHeight()), button);
+            }
             x += sprite.getWidth() + marginLeft;
 
         }
@@ -110,7 +113,9 @@ public class InterfaceComponent extends JComponent implements MouseListener {
             String text = button.display();
             g.drawImage(sprite, x, y, null);
             g.drawString(text, x + stringMarginLeft, y + stringMarginTop);
-            buttons.put(new Rectangle(x, y, sprite.getWidth(), sprite.getHeight()), button);
+            if(!buttons.containsValue(button)){
+                buttons.put(new Rectangle(x, y, sprite.getWidth(), sprite.getHeight()), button);
+            }
             x += sprite.getWidth() + marginRight;
         }
     }
@@ -134,17 +139,38 @@ public class InterfaceComponent extends JComponent implements MouseListener {
         BufferedImage sprite = robot.getRobotSprite();
         final int x = 25;
         final int y = HEIGHT - sprite.getHeight() - 10;
+        final int textX = x + sprite.getWidth() + 10;
+        final int textY = y + sprite.getHeight()/2;
         g.drawImage(sprite, x, y, null);
+        g.drawString(robot.getName(), textX, textY);
+    }
+
+    private void drawFlags(Graphics g) {
+        final int flagMarginTop = 10;
+        final int marginRight = 75;
+        final int x = WIDTH - (Flag.WIDTH + marginRight);
+        int y = HEIGHT - Flag.HEIGHT - flagMarginTop;
+        for(Flag flag : robot.getFlags()) {
+            g.setColor(flag.getColor());
+            g.fillRect(x, y, Flag.WIDTH, Flag.HEIGHT);
+            g.setColor(flag.getBorderColor());
+            g.drawRect(x, y, Flag.WIDTH, Flag.HEIGHT);
+            y -= Flag.HEIGHT + flagMarginTop;
+        }
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        final int fontSize = 14;
+        Font font = new Font("Arial",Font.BOLD, fontSize);
+        g.setFont(font);
         drawHealthBar(g);
         drawStandardButtons(g);
         drawMoveButtons(g);
         drawRobot(g);
         drawChoosenMoves(g);
+        drawFlags(g);
     }
 
     @Override
@@ -153,7 +179,6 @@ public class InterfaceComponent extends JComponent implements MouseListener {
         for(Map.Entry<Rectangle, AbstractButton> button : buttons.entrySet()){
             if(button.getKey().contains(e.getX(), e.getY())){
                 button.getValue().run();
-                System.out.println(button.getValue().display());
             }
         }
     }
