@@ -1,6 +1,9 @@
 package entity;
 
+import board.BoardNotFoundException;
+import board.SettingsFailiureException;
 import io.InterfaceComponent;
+import game.Settings;
 
 import javax.sound.sampled.Clip;
 import java.awt.image.BufferedImage;
@@ -128,7 +131,7 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         }
     }
 
-    protected AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final int hitpoints) {
+    protected AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final int hitpoints, Settings settings) throws BoardNotFoundException, SettingsFailiureException{
         super(x, orientation, y);
 
         //Setup robot
@@ -146,7 +149,7 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         hpBarSprite = loadImage("../Resources/hp_bar.png");
         robotSprite = loadImage("../Resources/Robot.png");
         choosenMoveSprite = loadImage("../Resources/Brown_Button.png");
-        playerInterface = new InterfaceComponent(this);
+        playerInterface = new InterfaceComponent(this, settings);
 
         testSound = loadSoundClip("../Resources/testljud.wav");
 

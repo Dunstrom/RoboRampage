@@ -1,10 +1,11 @@
 package io;
 
-import board.Tile;
+import board.BoardNotFoundException;
+import board.SettingsFailiureException;
 import entity.Flag;
-import game.Game;
 import entity.Button;
 import entity.AbstractRobot;
+import game.Settings;
 
 import javax.swing.JComponent;
 import java.awt.*;
@@ -23,7 +24,7 @@ public class InterfaceComponent extends JComponent implements MouseListener {
 
     private AbstractRobot robot;
     private final static int HEIGHT = 150;
-    private final static int WIDTH = Game.BOARD_WIDTH * Tile.TILE_SIZE;
+    private int width;
     private List<Button> moves;
     private Map<Rectangle, Button> buttons;
 
@@ -31,7 +32,8 @@ public class InterfaceComponent extends JComponent implements MouseListener {
         moves.add(move);
     }
 
-    public InterfaceComponent(AbstractRobot robot) {
+    public InterfaceComponent(AbstractRobot robot, Settings settings) throws BoardNotFoundException, SettingsFailiureException {
+        width = settings.getBoardWidth() * settings.getTileSize();
         this.robot = robot;
         moves = new ArrayList<>();
         buttons = new HashMap<>();
@@ -41,14 +43,14 @@ public class InterfaceComponent extends JComponent implements MouseListener {
     @Override
     public Dimension getPreferredSize() {
         super.getPreferredSize();
-        return new Dimension(WIDTH, HEIGHT);
+        return new Dimension(width, HEIGHT);
     }
 
     private void drawHealthBar(Graphics g) {
         BufferedImage sprite = robot.getHpBarSprite();
         final int marginRight = 10;
         final int marginBottom = 20;
-        final int x = WIDTH - marginRight - sprite.getWidth();
+        final int x = width - marginRight - sprite.getWidth();
         int spriteHeight = sprite.getHeight();
         int padding = 1;
         for(int i = 0; i < robot.getHitpoints(); i++) {
@@ -106,7 +108,7 @@ public class InterfaceComponent extends JComponent implements MouseListener {
 
     private void drawMoveButtons(Graphics g) {
         BufferedImage sprite = robot.getButtonSprite();
-        int x = WIDTH/2;
+        int x = width/2;
         final int y = sprite.getHeight()/2;
         final int marginRight = 20;
         final int stringMarginLeft = 15;
@@ -124,7 +126,7 @@ public class InterfaceComponent extends JComponent implements MouseListener {
 
     private void drawChoosenMoves(Graphics g) {
         BufferedImage sprite = robot.getChoosenMoveSprite();
-        int x = WIDTH/2;
+        int x = width/2;
         final int y = HEIGHT - sprite.getHeight() - 10;
         final int stringMarginLeft = 15;
         final int marginRight = 20;
@@ -150,7 +152,7 @@ public class InterfaceComponent extends JComponent implements MouseListener {
     private void drawFlags(Graphics g) {
         final int flagMarginTop = 10;
         final int marginRight = 75;
-        final int x = WIDTH - (Flag.WIDTH + marginRight);
+        final int x = width - (Flag.WIDTH + marginRight);
         int y = HEIGHT - Flag.HEIGHT - flagMarginTop;
         for(Flag flag : robot.getFlags()) {
             g.setColor(flag.getColor());

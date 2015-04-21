@@ -1,8 +1,6 @@
 package game;
 
-import board.Tile;
-import board.Board;
-import board.BoardListener;
+import board.*;
 import io.GameFrame;
 import entity.AbstractRobot;
 import entity.TestRobot;
@@ -25,9 +23,18 @@ public class Game implements BoardListener {
     private List<DoneListener> listeners;
     private AbstractRobot currentRobot;
     private GameFrame gameFrame;
-    public final static int BOARD_WIDTH = 20;
-    public final static int BOARD_HEIGHT = 10;
+    private int boardHeight;
+    private int boardWidth;
     private String winner = "No one...";
+    private Settings settings;
+
+    public int getBoardHeight() {
+        return boardHeight;
+    }
+
+    public int getBoardWidth() {
+        return boardWidth;
+    }
 
     public String getWinner() {
         return winner;
@@ -37,9 +44,12 @@ public class Game implements BoardListener {
         listeners.add(listener);
     }
 
-    public Game(List<Player> players) {
+    public Game(List<Player> players, Settings settings) throws BoardNotFoundException, SettingsFailiureException {
         this.players = players;
-        board =  new Board(BOARD_WIDTH, BOARD_HEIGHT);
+        this.settings = settings;
+        board =  new Board(settings.getTiles());
+        boardHeight = board.getHeight();
+        boardWidth = board.getWidth();
         board.addBoardListener(this);
         robots = new ArrayList<>();
         currentRobot = null;
@@ -47,17 +57,17 @@ public class Game implements BoardListener {
         listeners = new ArrayList<>();
     }
 
-    public void startGame(){
+    public void startGame() throws BoardNotFoundException, SettingsFailiureException{
         makeRobots();
         currentRobot = robots.get(0);
         gameFrame = new GameFrame(board, currentRobot.getPlayerInterface());
         run();
     }
 
-    private void makeRobots(){
+    private void makeRobots() throws BoardNotFoundException, SettingsFailiureException {
         for (Player player : players) {
             int tileSize = Tile.TILE_SIZE;
-            AbstractRobot robot = new TestRobot(player.getStartCol()*tileSize, player.getStartRow() * tileSize, player.getOrientation(), player.getName(), player.getSpriteFileName());
+            AbstractRobot robot = new TestRobot(player.getStartCol()*tileSize, player.getStartRow() * tileSize, player.getOrientation(), player.getName(), player.getSpriteFileName(), settings);
             robots.add(robot);
         }
         board.setRobots(robots);

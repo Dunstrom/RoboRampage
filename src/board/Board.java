@@ -48,14 +48,15 @@ public class Board {
         listeners.add(bl);
     }
 
-    public Board(int width, int height){
+    public Board(Tile[][] tiles){
 
-        this.width = width;
-        this.height = height;
+        width = tiles[0].length;
+        height = tiles.length;
         listeners = new ArrayList<>();
         robots = new ArrayList<>();
         boardObjects = new ArrayList<>();
-        initBoard(width, height);
+        this.tiles = tiles;
+        placeFlags();
         notifyListeners();
 
     }
@@ -80,8 +81,6 @@ public class Board {
             }
 
         }
-
-        placeFlags();
 
     }
 

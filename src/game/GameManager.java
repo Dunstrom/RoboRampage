@@ -1,5 +1,11 @@
 package game;
 
+import board.BoardNotFoundException;
+import board.SettingsFailiureException;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,10 +16,21 @@ public class GameManager implements DoneListener {
     private Menu menu;
     private Game game;
     private String winner;
+    private Settings settings;
 
     public GameManager() {
+        try {
+            settings = new Settings("settings");
+        } catch(SettingsFailiureException e) {
+            handleSettingsExceptions(e);
+        }
         players = new ArrayList<>();
-        menu = new Menu();
+        try {
+            menu = new Menu(settings);
+        } catch(BoardNotFoundException e) {
+            handleSettingsExceptions(e);
+        }
+
         game = null;
     }
 
@@ -21,9 +38,10 @@ public class GameManager implements DoneListener {
         state = GameState.MENU;
         runState();
 
+
     }
 
-    private void runState() {
+    private void runState(){
         switch (state) {
             case MENU:
                 runMenu();
@@ -43,9 +61,19 @@ public class GameManager implements DoneListener {
     }
 
     private void runGame() {
-        game = new Game(players);
+        try{
+            game = new Game(players, settings);
+        } catch(BoardNotFoundException | SettingsFailiureException e) {
+            handleSettingsExceptions(e);
+        }
+
         game.addDoneListener(this);
-        game.startGame();
+        try {
+            game.startGame();
+        } catch(BoardNotFoundException | SettingsFailiureException e) {
+            handleSettingsExceptions(e);
+        }
+
     }
 
     private void runWinScreen() {
@@ -73,6 +101,26 @@ public class GameManager implements DoneListener {
     public static void main(String[] args) {
         GameManager gm = new GameManager();
         gm.startGame();
+    }
+
+    private void handleSettingsExceptions(Exception e) {
+
+        final JFrame frame = new JFrame("Oops!");
+        JLabel errorMessage = new JLabel(e.getMessage());
+        frame.add(errorMessage);
+        JButton button = new JButton();
+        button.setText("Exit");
+        frame.add(button);
+        frame.pack();
+        frame.setVisible(true);
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(1);
+            }
+        });
+
     }
 
 }

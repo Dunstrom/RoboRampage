@@ -1,6 +1,10 @@
 package entity;
 
+import board.Board;
+import board.BoardNotFoundException;
+import board.SettingsFailiureException;
 import board.Tile;
+import game.Settings;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -17,8 +21,8 @@ public class TestRobot extends AbstractRobot {
         return robotSprite;
     }
 
-    public TestRobot(final int x, final int y, final Orientation orientation, String name, String spriteFileName) {
-        super(x, y, orientation, name, HEALTH);
+    public TestRobot(final int x, final int y, final Orientation orientation, String name, String spriteFileName, Settings settings) throws BoardNotFoundException, SettingsFailiureException{
+        super(x, y, orientation, name, HEALTH, settings);
         robotSprite = loadImage("../Resources/" + spriteFileName);
 
         //Setup player interface

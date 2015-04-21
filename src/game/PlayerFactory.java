@@ -14,7 +14,7 @@ public final class PlayerFactory {
 
     }
 
-    public static List<Player> createPlayers(List<JTextField> playerNames, List<JComboBox<String>> playerColors, int numberOfPlayers) {
+    public static List<Player> createPlayers(List<JTextField> playerNames, List<JComboBox<String>> playerColors, int numberOfPlayers, int boardHeight) {
 	List<Player> players = new ArrayList<>();
 	for(int i = 0; i < numberOfPlayers; i++) {
 		//Name
@@ -23,7 +23,7 @@ public final class PlayerFactory {
 		//Starting position
 	    int startCol = i % 2;
 	    int startRow = i * 2;
-	    if(startRow > Game.BOARD_HEIGHT) {
+	    if(startRow > boardHeight) {
 		throw new IllegalArgumentException("To Many players for the board");
 	    }
 

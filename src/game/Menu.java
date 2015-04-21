@@ -1,6 +1,9 @@
 package game;
 
 
+import board.BoardNotFoundException;
+import board.SettingsFailiureException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -19,6 +22,7 @@ public class Menu extends JFrame {
     private List<JComboBox<String>> playerColors;
     private List<Player> players;
     private List<DoneListener> listeners;
+    private int boardHeight;
 
     public List<Player> getPlayers() {
         return players;
@@ -28,15 +32,14 @@ public class Menu extends JFrame {
         listeners.add(listener);
     }
 
-    public Menu() {
+    public Menu(Settings settings) throws BoardNotFoundException{
         super("RoboRampage");
-
+        boardHeight = settings.getBoardHeight();
         playerSelect = new JPanel();
         players = new ArrayList<>();
         playerNames = new ArrayList<>();
         playerColors = new ArrayList<>();
         listeners = new ArrayList<>();
-
     }
 
     private void addPlayer() {
@@ -106,7 +109,7 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (playerNames.size() > 1) {
-                    players = PlayerFactory.createPlayers(playerNames, playerColors, numberOfPlayers);
+                    players = PlayerFactory.createPlayers(playerNames, playerColors, numberOfPlayers, boardHeight);
                     menuDone();
                 }
             }
