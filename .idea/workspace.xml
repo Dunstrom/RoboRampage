@@ -1,26 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8c2e1e0-bd86-4976-8596-68d4c3c8c0d7" name="Default" comment="Added several diffrent tiles.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/board/BoardNotFoundException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game/Settings.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/board/SettingsFailiureException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Resources/settings" />
-      <change type="DELETED" beforePath="C:\Users\Hampus\Documents\RoboRampage\out\production\RoboRampage\board\Board.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Hampus\Documents\RoboRampage\out\production\RoboRampage\board\Tile.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Hampus\Documents\RoboRampage\out\production\RoboRampage\game\Game$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Hampus\Documents\RoboRampage\out\production\RoboRampage\game\Game.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Hampus\Documents\RoboRampage\out\production\RoboRampage\io\GameFrame.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Hampus\Documents\RoboRampage\src\board\RobotNotOnBoardException.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entity/AbstractRobot.java" afterPath="$PROJECT_DIR$/src/entity/AbstractRobot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/Board.java" afterPath="$PROJECT_DIR$/src/board/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Game.java" afterPath="$PROJECT_DIR$/src/game/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/GameManager.java" afterPath="$PROJECT_DIR$/src/game/GameManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/io/InterfaceComponent.java" afterPath="$PROJECT_DIR$/src/io/InterfaceComponent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Menu.java" afterPath="$PROJECT_DIR$/src/game/Menu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/PlayerFactory.java" afterPath="$PROJECT_DIR$/src/game/PlayerFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entity/TestRobot.java" afterPath="$PROJECT_DIR$/src/entity/TestRobot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="f8c2e1e0-bd86-4976-8596-68d4c3c8c0d7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/game/Game$1.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/game/Game$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/game/Game.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/game/Game.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Settings.java" afterPath="$PROJECT_DIR$/src/game/Settings.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RoboRampage.iws" />
@@ -57,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Settings.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Settings.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/game/Settings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.82198954">
+              <caret line="100" column="34" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -71,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/src/Resources/settings">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+              <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -87,10 +71,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13385826">
+            <state vertical-scroll-proportion="0.0">
               <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
@@ -229,13 +213,13 @@
         <option value="$PROJECT_DIR$/src/board/WallTile.java" />
         <option value="$PROJECT_DIR$/src/board/RotatorTile.java" />
         <option value="$PROJECT_DIR$/src/game/Menu.java" />
-        <option value="$PROJECT_DIR$/src/Resources/settings" />
-        <option value="$PROJECT_DIR$/src/game/Settings.java" />
         <option value="$PROJECT_DIR$/src/entity/AbstractRobot.java" />
         <option value="$PROJECT_DIR$/src/entity/TestRobot.java" />
         <option value="$PROJECT_DIR$/src/game/GameManager.java" />
         <option value="$PROJECT_DIR$/src/io/InterfaceComponent.java" />
         <option value="$PROJECT_DIR$/src/game/Game.java" />
+        <option value="$PROJECT_DIR$/src/Resources/settings" />
+        <option value="$PROJECT_DIR$/src/game/Settings.java" />
       </list>
     </option>
   </component>
@@ -799,7 +783,7 @@
       <workItem from="1429196603591" duration="50000" />
       <workItem from="1429518593468" duration="25829000" />
       <workItem from="1429604952045" duration="6465000" />
-      <workItem from="1429620714577" duration="3025000" />
+      <workItem from="1429620714577" duration="3286000" />
     </task>
     <task id="LOCAL-00001" summary="Added Frame class">
       <created>1424642132383</created>
@@ -897,11 +881,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429552900453</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added Settings">
+      <created>1429623759992</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1429623759992</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73221000" />
+    <option name="totallyTimeSpent" value="73482000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -936,7 +926,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2413793" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2413793" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15458423" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1015,7 +1005,8 @@
     <MESSAGE value="Succesfully changed the playerInterface to a JComponent and made it much better looking" />
     <MESSAGE value="Draws flags now" />
     <MESSAGE value="Added several diffrent tiles." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added several diffrent tiles." />
+    <MESSAGE value="Added Settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Settings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1206,6 +1197,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1213,6 +1205,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5288889">
           <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1220,6 +1213,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="37" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1383,14 +1377,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Resources/settings">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entity/AbstractRobot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1430,6 +1416,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/InterfaceComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="32" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/GameManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1441,26 +1443,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Resources/settings">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/InterfaceComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="75" column="32" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13385826">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.82198954">
+          <caret line="100" column="34" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="34" />
           <folding />
         </state>
       </provider>

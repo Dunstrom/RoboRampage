@@ -1,6 +1,7 @@
 package game;
 
 import board.*;
+import entity.Orientation;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -82,6 +83,24 @@ public class Settings {
                             break;
                         case "2":
                             tiles[row][col] = new PitTile(col * tileSize, row * tileSize);
+                            break;
+                        case "3":
+                            tiles[row][col] = new RepairTile(col * tileSize, row * tileSize);
+                            break;
+                        case "4":
+                            tiles[row][col] = new FireTile(col * tileSize, row * tileSize);
+                            break;
+                        case "5":
+                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.EAST);
+                            break;
+                        case "6":
+                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.WEST);
+                            break;
+                        case "7":
+                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.NORTH);
+                            break;
+                        case "8":
+                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.SOUTH);
                             break;
                         default:
                             tiles[row][col] = new Tile(col * tileSize, row * tileSize);
