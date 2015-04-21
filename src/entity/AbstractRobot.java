@@ -15,7 +15,7 @@ import java.util.LinkedList;
 /**
  * Abstract class for all robots in the game.
  */
-public abstract class AbstractRobot extends AbstractBoardObject{
+public abstract class AbstractRobot extends AbstractBoardObject {
 
     //For the collisionhandling
     protected int tempX;
@@ -35,13 +35,15 @@ public abstract class AbstractRobot extends AbstractBoardObject{
     // Stats
     protected String name;
     protected Queue<Move> programmedMoves;
-    /** The maximum amount of moves allowed for one entity.robot */
+    /**
+     * The maximum amount of moves allowed for one entity.robot
+     */
     public final static int MAX_QUEUED_MOVES = 3;
     protected int hitpoints;
+    protected int maxHitpoints;
     protected int damage;
     protected boolean dead;
     protected List<Flag> flags;
-
 
 
     // Getters
@@ -65,7 +67,7 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         return buttonSprite;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
@@ -89,9 +91,13 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         return done;
     }
 
-    public boolean isDead() { return dead; }
+    public boolean isDead() {
+        return dead;
+    }
 
-    public int getFlagCount() { return flags.size(); }
+    public int getFlagCount() {
+        return flags.size();
+    }
 
     public BufferedImage getHpBarSprite() {
         return hpBarSprite;
@@ -115,27 +121,30 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         endable = bl;
     }
 
-    public void setTempX(int newTempX) { tempX = newTempX; }
+    public void setTempX(int newTempX) {
+        tempX = newTempX;
+    }
 
     public void setTempY(int newTempY) {
         tempY = newTempY;
     }
 
-    public void kill(){
-	dead = true;
+    public void kill() {
+        dead = true;
     }
 
     public void pickFlag(Flag flag) {
-        if(!flags.contains(flag)){
+        if (!flags.contains(flag)) {
             flags.add(flag);
         }
     }
 
-    protected AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final int hitpoints, Settings settings) throws BoardNotFoundException, SettingsFailiureException{
+    protected AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final int hitpoints, Settings settings) throws BoardNotFoundException, SettingsFailiureException {
         super(x, orientation, y);
 
         //Setup robot
-        this.hitpoints = hitpoints;
+        maxHitpoints = hitpoints;
+        this.hitpoints = maxHitpoints;
         damage = 1;
         dead = false;
         this.name = name;
@@ -158,25 +167,26 @@ public abstract class AbstractRobot extends AbstractBoardObject{
     /**
      * Constructs a string and sets it to the JLabel displayedMoves.
      */
-    public void renderPlayerInterface(){
+    public void renderPlayerInterface() {
 
-        playerInterface.paintImmediately(0,0,playerInterface.getWidth(), playerInterface.getWidth());
+        playerInterface.paintImmediately(0, 0, playerInterface.getWidth(), playerInterface.getWidth());
 
     }
 
     /**
      * Adds a move to the list of pre programmed moves.
+     *
      * @param move a Runnable that is supposed to be executed in the sequential move phase of the game.
      */
-    protected void addProgrammedMove(Move move){
+    protected void addProgrammedMove(Move move) {
 
-        if(programmedMoves.size() < MAX_QUEUED_MOVES){
+        if (programmedMoves.size() < MAX_QUEUED_MOVES) {
             programmedMoves.add(move);
-            if(programmedMoves.size() == MAX_QUEUED_MOVES) {
+            if (programmedMoves.size() == MAX_QUEUED_MOVES) {
                 endable = true;
             }
             renderPlayerInterface();
-        }else {
+        } else {
             programmedMoves.remove();
             programmedMoves.add(move);
             renderPlayerInterface();
@@ -186,8 +196,8 @@ public abstract class AbstractRobot extends AbstractBoardObject{
     /**
      * Removes a the latest added programmed move.
      */
-    public void removeProgrammedMove(){
-        if(!programmedMoves.isEmpty()){
+    public void removeProgrammedMove() {
+        if (!programmedMoves.isEmpty()) {
             programmedMoves.remove();
             endable = false;
             renderPlayerInterface();
@@ -196,14 +206,17 @@ public abstract class AbstractRobot extends AbstractBoardObject{
 
     public void takeDamage(int damage) {
         hitpoints -= damage;
-        if(hitpoints < 1) {
+        if (hitpoints < 1) {
             dead = true;
         }
         testSound.loop(1);
     }
 
-    public void heal(int hp){
-	hitpoints += hp;
+    public void heal(int hp) {
+        hitpoints += hp;
+        if(hitpoints > maxHitpoints) {
+            hitpoints = maxHitpoints;
+        }
     }
 
     public int getDamage() {
