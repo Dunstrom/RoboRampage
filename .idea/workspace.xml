@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8c2e1e0-bd86-4976-8596-68d4c3c8c0d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/board/Board.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/board/Board.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/io/BoardComponent.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/io/BoardComponent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/board/Tile.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/board/Tile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/Board.java" afterPath="$PROJECT_DIR$/src/board/Board.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -54,8 +51,8 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/board/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33246073">
-              <caret line="369" column="74" selection-start-line="369" selection-start-column="74" selection-end-line="369" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.62172776">
+              <caret line="382" column="83" selection-start-line="382" selection-start-column="83" selection-end-line="382" selection-end-column="83" />
               <folding>
                 <element signature="docComment;method#update#0;class#Board#0" expanded="false" />
                 <element signature="method#update#0;class#Board#0" expanded="false" />
@@ -77,6 +74,16 @@
                 <element signature="method#attackEast#0;class#Board#0" expanded="false" />
                 <element signature="docComment;method#updateRobots#0;class#Board#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Resources/settings">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -146,16 +153,6 @@
                 <element signature="docComment;method#draw#0;class#TestRobot#0" expanded="false" />
                 <element signature="method#draw#0;class#TestRobot#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/board/Tile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -821,7 +818,7 @@
       <workItem from="1429196603591" duration="50000" />
       <workItem from="1429518593468" duration="25829000" />
       <workItem from="1429604952045" duration="6465000" />
-      <workItem from="1429620714577" duration="6884000" />
+      <workItem from="1429620714577" duration="7939000" />
     </task>
     <task id="LOCAL-00001" summary="Added Frame class">
       <created>1424642132383</created>
@@ -943,11 +940,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429627677593</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Fixed small error in update tiles">
+      <created>1429627766607</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1429627766607</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77080000" />
+    <option name="totallyTimeSpent" value="78135000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1063,7 +1066,8 @@
     <MESSAGE value="Added several diffrent tiles." />
     <MESSAGE value="Added Settings" />
     <MESSAGE value="Fixed some sprites for tiles and so tiles uses settings tilesize" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed some sprites for tiles and so tiles uses settings tilesize" />
+    <MESSAGE value="Fixed small error in update tiles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed small error in update tiles" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1316,14 +1320,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Resources/settings">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/AbstractOutputObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33246073">
@@ -1493,10 +1489,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Resources/settings">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/board/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33246073">
-          <caret line="369" column="74" selection-start-line="369" selection-start-column="74" selection-end-line="369" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.62172776">
+          <caret line="382" column="83" selection-start-line="382" selection-start-column="83" selection-end-line="382" selection-end-column="83" />
           <folding>
             <element signature="docComment;method#update#0;class#Board#0" expanded="false" />
             <element signature="method#update#0;class#Board#0" expanded="false" />
