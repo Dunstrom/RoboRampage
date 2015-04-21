@@ -1,6 +1,5 @@
 package io;
 
-import board.Tile;
 import board.Board;
 import board.BoardListener;
 

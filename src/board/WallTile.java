@@ -1,12 +1,9 @@
 package board;
 
-import entity.AbstractRobot;
-import game.Settings;
 /**
  * Impassable tile. No robots or weapons can pass through.
  */
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 public class WallTile extends Tile {
 

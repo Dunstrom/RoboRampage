@@ -2,7 +2,6 @@ package board;
 
 import entity.AbstractRobot;
 import entity.Orientation;
-import game.Settings;
 
 import java.awt.*;
 

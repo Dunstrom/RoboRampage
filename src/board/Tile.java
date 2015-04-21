@@ -1,7 +1,6 @@
 package board;
 
 import entity.AbstractRobot;
-import game.Settings;
 import io.AbstractOutputObject;
 
 import java.awt.*;

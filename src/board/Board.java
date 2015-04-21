@@ -365,7 +365,7 @@ public class Board {
     }
 
     private void updateTiles(){
-	int tileSize = Tile.TILE_SIZE;
+
 	for (AbstractRobot robot : robots) {
 	    Tile tile = tiles[robot.getX()/tileSize][robot.getY()/tileSize];
 	    tile.update(robot);
