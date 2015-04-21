@@ -210,7 +210,7 @@ public class Board {
      */
     private boolean canMoveRobot(AbstractRobot robot){
 
-        if(!stillOnBoard(robot, tileSize) || !canPush(robot, tileSize) || tiles[robot.getTempX()/tileSize][robot.getTempY()/tileSize].isBlocking()){
+        if(!stillOnBoard(robot, tileSize) || !canPush(robot, tileSize) || tiles[robot.getTempY()/tileSize][robot.getTempX()/tileSize].isBlocking()){
             return false;
         }
 
@@ -367,7 +367,7 @@ public class Board {
     private void updateTiles(){
 
 	for (AbstractRobot robot : robots) {
-	    Tile tile = tiles[robot.getX()/tileSize][robot.getY()/tileSize];
+	    Tile tile = tiles[robot.getY() / tileSize][robot.getX() / tileSize];
 	    tile.update(robot);
 
 	    if(tile.willMoveRobot() && canMoveRobot(robot)){ // check if move to tempx and tempy is possible
