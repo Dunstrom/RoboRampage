@@ -118,13 +118,15 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         tempY = newTempY;
     }
 
+    public void kill(){
+	dead = true;
+    }
+
     public void pickFlag(Flag flag) {
         if(!flags.contains(flag)){
             flags.add(flag);
         }
     }
-
-
 
     protected AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final int hitpoints) {
         super(x, orientation, y);

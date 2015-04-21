@@ -1,9 +1,11 @@
 package board;
 
+import entity.AbstractRobot;
+
 import java.awt.*;
 
 /**
- * An abstract class that implements the most basic methods and fields every tile needs
+ * A class that implements the most basic methods and fields every tile needs (floor tile)
  */
 public  class Tile
 {
@@ -21,9 +23,23 @@ public  class Tile
         return false;
     }
 
-    protected Tile(int x, int y) {
+    public Tile(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public Tile(int x, int y, Color backgrouncolor){
+	this.x = x;
+	this.y = y;
+	this.backgroundColor = backgrouncolor;
+    }
+
+    public void update(AbstractRobot robot){
+
+    }
+
+    public boolean willMoveRobot(){
+	return false;
     }
 
     /**
@@ -40,6 +56,8 @@ public  class Tile
         g.drawRect(x, y, TILE_SIZE, TILE_SIZE);
 
     }
+
+
 
 }
 

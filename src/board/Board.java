@@ -110,6 +110,8 @@ public class Board {
 
             updateRobots();
 
+	    updateTiles();
+
             removeDeadRobots();
 
         }
@@ -227,7 +229,7 @@ public class Board {
 
         int tileSize = Tile.TILE_SIZE;
 
-        if(!stillOnBoard(robot, tileSize) || !canPush(robot, tileSize)){
+        if(!stillOnBoard(robot, tileSize) || !canPush(robot, tileSize) || tiles[robot.getTempX()/tileSize][robot.getTempY()/tileSize].isBlocking()){
             return false;
         }
 
@@ -380,6 +382,20 @@ public class Board {
 
         }
 
+    }
+
+    private void updateTiles(){
+
+	for (AbstractRobot robot : robots) {
+	    Tile tile = tiles[robot.getX()][robot.getY()];
+	    tile.update(robot);
+
+	    if(tile.willMoveRobot() && canMoveRobot(robot)){ // check if move to tempx and tempy is possible
+         	robot.place(robot.getTempX(), robot.getTempY()); // sets x to tempx and y to tempy
+        	pickFlag(robot);
+         	notifyListeners();
+     }
+	}
     }
 
     /**
