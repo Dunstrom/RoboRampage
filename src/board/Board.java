@@ -384,9 +384,9 @@ public class Board {
     }
 
     private void updateTiles(){
-
+	int tileSize = Tile.TILE_SIZE;
 	for (AbstractRobot robot : robots) {
-	    Tile tile = tiles[robot.getX()][robot.getY()];
+	    Tile tile = tiles[robot.getX()/tileSize][robot.getY()/tileSize];
 	    tile.update(robot);
 
 	    if(tile.willMoveRobot() && canMoveRobot(robot)){ // check if move to tempx and tempy is possible
