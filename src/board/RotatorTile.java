@@ -2,15 +2,16 @@ package board;
 
 import entity.AbstractRobot;
 import entity.Orientation;
+import game.Settings;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class RotatorTile extends Tile
 {
     private Orientation orientation;
 
-    public RotatorTile(final int x, final int y, Orientation orientation) {
-	super(x, y, Color.BLUE);
+    public RotatorTile(final int x, final int y, Orientation orientation, int tileSize) {
+	super(x, y, tileSize);
 	this.orientation = orientation;
     }
 
@@ -19,7 +20,12 @@ public class RotatorTile extends Tile
 	return true;
     }
 
-    @Override public void update(final AbstractRobot robot) {
+	@Override
+	public void draw(Graphics g) {
+		super.draw(g);
+	}
+
+	@Override public void update(final AbstractRobot robot) {
 	super.update(robot);
 	if(orientation == Orientation.EAST) {
 	    switch (robot.getOrientation()) {

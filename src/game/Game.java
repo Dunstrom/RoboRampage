@@ -47,7 +47,7 @@ public class Game implements BoardListener {
     public Game(List<Player> players, Settings settings) throws BoardNotFoundException, SettingsFailiureException {
         this.players = players;
         this.settings = settings;
-        board =  new Board(settings.getTiles());
+        board =  new Board(settings);
         boardHeight = board.getHeight();
         boardWidth = board.getWidth();
         board.addBoardListener(this);
@@ -66,7 +66,7 @@ public class Game implements BoardListener {
 
     private void makeRobots() throws BoardNotFoundException, SettingsFailiureException {
         for (Player player : players) {
-            int tileSize = Tile.TILE_SIZE;
+            int tileSize = settings.getTileSize();
             AbstractRobot robot = new TestRobot(player.getStartCol()*tileSize, player.getStartRow() * tileSize, player.getOrientation(), player.getName(), player.getSpriteFileName(), settings);
             robots.add(robot);
         }
