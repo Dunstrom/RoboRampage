@@ -19,6 +19,7 @@ public class Menu extends JFrame {
     private final static int MAXPLAYERS = 4;
     private List<JTextField> playerNames;
     private List<JComboBox<String>> playerColors;
+    private List<JComboBox<String>> playerRobots;
     private List<Player> players;
     private List<DoneListener> listeners;
     private int boardHeight;
@@ -38,6 +39,7 @@ public class Menu extends JFrame {
         players = new ArrayList<>();
         playerNames = new ArrayList<>();
         playerColors = new ArrayList<>();
+        playerRobots = new ArrayList<>();
         listeners = new ArrayList<>();
     }
 
@@ -50,7 +52,12 @@ public class Menu extends JFrame {
         playerNames.add(playerName);
         playerName.setColumns(10);
 
-        JButton playerRobot = new JButton("Robot");
+        //JButton playerRobot = new JButton("Robot");
+        String[] robots = {"Standard", "Zig Zag"};
+        JComboBox<String> playerRobot = new JComboBox<>(robots);
+        playerRobot.setSelectedIndex(0);
+        playerRobots.add(playerRobot);
+
         String[] colors = {"Gray", "Blue", "Yellow", "Green", "Red"};
         JComboBox<String> playerColor = new JComboBox<>(colors);
         playerColor.setSelectedIndex(numberOfPlayers - 1);
@@ -108,7 +115,7 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (playerNames.size() > 1) {
-                    players = PlayerFactory.createPlayers(playerNames, playerColors, numberOfPlayers, boardHeight);
+                    players = PlayerFactory.createPlayers(playerNames, playerColors, playerRobots, numberOfPlayers, boardHeight);
                     menuDone();
                 }
             }

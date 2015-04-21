@@ -14,7 +14,7 @@ public final class PlayerFactory {
 
     }
 
-    public static List<Player> createPlayers(List<JTextField> playerNames, List<JComboBox<String>> playerColors, int numberOfPlayers, int boardHeight) {
+    public static List<Player> createPlayers(List<JTextField> playerNames, List<JComboBox<String>> playerColors, List<JComboBox<String>> playerRobots, int numberOfPlayers, int boardHeight) {
 	List<Player> players = new ArrayList<>();
 	for(int i = 0; i < numberOfPlayers; i++) {
 		//Name
@@ -23,15 +23,11 @@ public final class PlayerFactory {
 		//Starting position
 	    int startCol = i % 2;
 	    int startRow = i * 2;
-	    if(startRow > boardHeight) {
-		throw new IllegalArgumentException("To Many players for the board");
-	    }
+	    assert startRow < boardHeight;
 
 		//Color "Gray", "Blue", "Yellow", "Green", "Red"
 		String spriteFileName = "Robot.png";
-		if(!playerColors.get(i).getSelectedItem().getClass().equals(String.class)){
-			throw new IllegalArgumentException("Color key is not a string.");
-		}
+		assert playerColors.get(i).getSelectedItem().getClass().equals(String.class);
 		switch ((String)playerColors.get(i).getSelectedItem()) {
 			case("Blue"):
 				spriteFileName = "BlueRobot.png";
@@ -46,8 +42,9 @@ public final class PlayerFactory {
 				spriteFileName = "RedRobot.png";
 				break;
 		}
+		assert playerRobots.get(i).getSelectedItem().getClass().equals(String.class);
 
-	    players.add(new Player(name, startCol, startRow, spriteFileName));
+	    players.add(new Player(name, startCol, startRow, spriteFileName, (String)playerRobots.get(i).getSelectedItem()));
 	}
 	return players;
     }

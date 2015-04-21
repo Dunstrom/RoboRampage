@@ -12,6 +12,11 @@ public class Player {
     private int startCol;
     private int startRow;
     private Orientation orientation = Orientation.EAST;
+    private String robotType;
+
+    public String getRobotType() {
+        return robotType;
+    }
 
     public String getName() {
 	return name;
@@ -33,12 +38,13 @@ public class Player {
         return spriteFileName;
     }
 
-    public Player(String name, int startCol, int startRow, String spriteFileName) {
+    public Player(String name, int startCol, int startRow, String spriteFileName, String robotType) {
 
 	    this.name = name;
         this.startCol = startCol;
         this.startRow = startRow;
         this.spriteFileName = spriteFileName;
+        this.robotType = robotType;
 
 
     }

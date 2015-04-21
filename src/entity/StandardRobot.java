@@ -11,22 +11,18 @@ import java.awt.Graphics2D;
 /**
  * Class to create test robots
  */
-public class TestRobot extends AbstractRobot {
+public class StandardRobot extends AbstractRobot {
 
     private final static int HEALTH = 10;
-    private int tileSize;
 
     public BufferedImage getRobotSprite() {
         return robotSprite;
     }
 
-    public TestRobot(final int x, final int y, final Orientation orientation, String name, String spriteFileName, Settings settings) throws BoardNotFoundException, SettingsFailiureException{
+    public StandardRobot(final int x, final int y, final Orientation orientation, String name, String spriteFileName, Settings settings) throws BoardNotFoundException, SettingsFailiureException{
         super(x, y, orientation, name, HEALTH, settings);
         robotSprite = loadImage("../Resources/" + spriteFileName);
-        tileSize = settings.getTileSize();
 
-
-        //Setup player interface
         playerInterface.addMove(forwadButton);
         playerInterface.addMove(turnLeftButton);
         playerInterface.addMove(turnRightButton);
@@ -36,12 +32,12 @@ public class TestRobot extends AbstractRobot {
     Button forwadButton = new Button() {
         @Override
         public String display() {
-            return "Forward";
+            return "forward";
         }
 
         @Override
         public void run() {
-            addProgrammedMove(moveForwardOne);
+            addProgrammedMove(forward);
         }
     };
 
@@ -72,7 +68,7 @@ public class TestRobot extends AbstractRobot {
     /**
      * Runnable that moves the entity.robot one step forward.
      */
-    Move moveForwardOne = new Move() {
+    Move forward = new Move() {
         @Override
         public String display() {
             return "Forward";

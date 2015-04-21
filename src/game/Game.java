@@ -1,9 +1,10 @@
 package game;
 
 import board.*;
+import entity.ZigZagRobot;
 import io.GameFrame;
 import entity.AbstractRobot;
-import entity.TestRobot;
+import entity.StandardRobot;
 
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -67,7 +68,12 @@ public class Game implements BoardListener {
     private void makeRobots() throws BoardNotFoundException, SettingsFailiureException {
         for (Player player : players) {
             int tileSize = settings.getTileSize();
-            AbstractRobot robot = new TestRobot(player.getStartCol()*tileSize, player.getStartRow() * tileSize, player.getOrientation(), player.getName(), player.getSpriteFileName(), settings);
+            AbstractRobot robot;
+            if(player.getRobotType().equals("Standard")){
+                robot = new StandardRobot(player.getStartCol()*tileSize, player.getStartRow() * tileSize, player.getOrientation(), player.getName(), player.getSpriteFileName(), settings);
+            }else {
+                robot = new ZigZagRobot(player.getStartCol()*tileSize, player.getStartRow() * tileSize, player.getOrientation(), player.getName(), player.getSpriteFileName(), settings);
+            }
             robots.add(robot);
         }
         board.setRobots(robots);

@@ -20,7 +20,7 @@ public abstract class AbstractRobot extends AbstractBoardObject {
     //For the collisionhandling
     protected int tempX;
     protected int tempY;
-
+    protected int tileSize;
     protected boolean endable;
     protected boolean done;
 
@@ -150,7 +150,7 @@ public abstract class AbstractRobot extends AbstractBoardObject {
         this.name = name;
         programmedMoves = new LinkedList<>();
         flags = new ArrayList<>();
-
+        tileSize = settings.getTileSize();
         done = false;
 
         //Setup player interface
