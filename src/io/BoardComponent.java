@@ -13,10 +13,12 @@ import java.awt.*;
 public class BoardComponent extends JComponent implements BoardListener {
 
     private Board board;
+    private int tileSize;
 
     public BoardComponent(Board board) {
 
         this.board = board;
+        tileSize = board.getTileSize();
         board.addBoardListener(this);
 
     }
@@ -28,8 +30,8 @@ public class BoardComponent extends JComponent implements BoardListener {
     @Override
     public Dimension getPreferredSize() {
         super.getPreferredSize();
-        int width = board.getWidth() * Tile.TILE_SIZE;
-        int height = board.getHeight() * Tile.TILE_SIZE;
+        int width = board.getWidth() * tileSize;
+        int height = board.getHeight() * tileSize;
         return new Dimension(width, height);
     }
 
@@ -49,7 +51,7 @@ public class BoardComponent extends JComponent implements BoardListener {
      * Repaints the board immediately whenever it changes.
      */
     public void boardChanged() {
-        paintImmediately(0,0,board.getWidth() * Tile.TILE_SIZE, board.getHeight() * Tile.TILE_SIZE);
+        paintImmediately(0,0,board.getWidth() * tileSize, board.getHeight() * tileSize);
     }
 
 }

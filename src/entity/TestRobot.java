@@ -16,6 +16,7 @@ import java.awt.Graphics2D;
 public class TestRobot extends AbstractRobot {
 
     private final static int HEALTH = 10;
+    private int tileSize;
 
     public BufferedImage getRobotSprite() {
         return robotSprite;
@@ -24,6 +25,8 @@ public class TestRobot extends AbstractRobot {
     public TestRobot(final int x, final int y, final Orientation orientation, String name, String spriteFileName, Settings settings) throws BoardNotFoundException, SettingsFailiureException{
         super(x, y, orientation, name, HEALTH, settings);
         robotSprite = loadImage("../Resources/" + spriteFileName);
+        tileSize = settings.getTileSize();
+
 
         //Setup player interface
         playerInterface.addMove(forwadButton);
@@ -82,18 +85,18 @@ public class TestRobot extends AbstractRobot {
             switch (orientation) {
                 case NORTH:
                     tempX = x;
-                    tempY = y - Tile.TILE_SIZE;
+                    tempY = y - tileSize;
                     break;
                 case SOUTH:
                     tempX = x;
-                    tempY = y + Tile.TILE_SIZE;
+                    tempY = y + tileSize;
                     break;
                 case WEST:
-                    tempX = x - Tile.TILE_SIZE;
+                    tempX = x - tileSize;
                     tempY = y;
                     break;
                 case EAST:
-                    tempX = x + Tile.TILE_SIZE;
+                    tempX = x + tileSize;
                     tempY = y;
                     break;
             }

@@ -1,20 +1,23 @@
 package board;
 
 import entity.AbstractRobot;
+import game.Settings;
+import io.AbstractOutputObject;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * A class that implements the most basic methods and fields every tile needs (floor tile)
  */
-public  class Tile
+public  class Tile extends AbstractOutputObject
 {
-    /** The size of one tile both height and width in pixels */
-    public final static int TILE_SIZE = 50;
+    protected int tileSize;
     protected int x;
     protected int y;
     protected Color backgroundColor = Color.GRAY;
-    protected Color borderColor = Color.WHITE;
+    protected Color borderColor = Color.BLACK;
+    protected BufferedImage sprite;
 
     /**
      * @return boolean true if the tile is blocking if not, false.
@@ -23,9 +26,11 @@ public  class Tile
         return false;
     }
 
-    public Tile(int x, int y) {
+    public Tile(int x, int y, int tileSize) {
+        this.tileSize = tileSize;
         this.x = x;
         this.y = y;
+        sprite = loadImage("../Resources/tile.png");
     }
 
     public Tile(int x, int y, Color backgrouncolor){
@@ -48,12 +53,9 @@ public  class Tile
     public void draw(Graphics g) {
 
         //Draws the background of the tile
-        g.setColor(backgroundColor);
-        g.fillRect(x, y, TILE_SIZE, TILE_SIZE);
-
-        //Draws the border of the tiles
+        g.drawImage(sprite, x, y, null);
         g.setColor(borderColor);
-        g.drawRect(x, y, TILE_SIZE, TILE_SIZE);
+        g.drawRect(x, y, tileSize, tileSize);
 
     }
 

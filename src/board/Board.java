@@ -5,6 +5,7 @@ import entity.BoardObject;
 import entity.Flag;
 import entity.FlagFactory;
 import entity.Orientation;
+import game.Settings;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -22,6 +23,11 @@ public class Board {
     private List<BoardListener> listeners;
     private List<AbstractRobot> robots;
     private List<BoardObject> boardObjects;
+    private int tileSize;
+
+    public int getTileSize() {
+        return tileSize;
+    }
 
     public int getWidth() {
         return width;
@@ -48,14 +54,14 @@ public class Board {
         listeners.add(bl);
     }
 
-    public Board(Tile[][] tiles){
-
+    public Board(Settings settings) throws BoardNotFoundException, SettingsFailiureException{
+        tiles = settings.getTiles();
+        tileSize = settings.getTileSize();
         width = tiles[0].length;
         height = tiles.length;
         listeners = new ArrayList<>();
         robots = new ArrayList<>();
         boardObjects = new ArrayList<>();
-        this.tiles = tiles;
         placeFlags();
         notifyListeners();
 
@@ -63,32 +69,10 @@ public class Board {
 
     // Board stuff
 
-    /**
-     * Initialize the board with all empty tiles
-     * @param width an int telling the board how many tiles it should have per row.
-     * @param height an int telling the board how many rows it should have.
-     */
-    private void initBoard(int width, int height) {
-
-        tiles = new Tile[height][width];
-
-        for(int row = 0; row < height; row++){
-
-            for(int col = 0; col < width; col++){
-
-                tiles[row][col] = new Tile(col * Tile.TILE_SIZE, row * Tile.TILE_SIZE);
-
-            }
-
-        }
-
-    }
-
     private void placeFlags() {
 
         FlagFactory flagFactory = FlagFactory.getInstance();
 
-        int tileSize = Tile.TILE_SIZE;
         final int flagX1 = (width - 1)*tileSize;
         final int flagX2 = (width - 3)*tileSize;
         final int bottY = (height - 1)*tileSize;
@@ -226,8 +210,6 @@ public class Board {
      */
     private boolean canMoveRobot(AbstractRobot robot){
 
-        int tileSize = Tile.TILE_SIZE;
-
         if(!stillOnBoard(robot, tileSize) || !canPush(robot, tileSize) || tiles[robot.getTempX()/tileSize][robot.getTempY()/tileSize].isBlocking()){
             return false;
         }
@@ -267,8 +249,8 @@ public class Board {
      */
     private AbstractRobot getRobotAt(int row, int col) {
         for(AbstractRobot robot : robots){
-            int robotRow = robot.getY() / Tile.TILE_SIZE;
-            int robotCol = robot.getX() / Tile.TILE_SIZE;
+            int robotRow = robot.getY() / tileSize;
+            int robotCol = robot.getX() / tileSize;
             if(robotCol == col && robotRow == row) {
                 return robot;
             }
@@ -285,7 +267,6 @@ public class Board {
         Orientation orientation = robot.getOrientation();
         int y = robot.getY();
         int x = robot.getX();
-        int tileSize = Tile.TILE_SIZE;
 
         switch(orientation){
 

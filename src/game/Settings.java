@@ -79,31 +79,31 @@ public class Settings {
                     String token = tokens[col];
                     switch (token) {
                         case "1":
-                            tiles[row][col] = new WallTile(col * tileSize, row * tileSize);
+                            tiles[row][col] = new WallTile(col * tileSize, row * tileSize, tileSize);
                             break;
                         case "2":
-                            tiles[row][col] = new PitTile(col * tileSize, row * tileSize);
+                            tiles[row][col] = new PitTile(col * tileSize, row * tileSize, tileSize);
                             break;
                         case "3":
-                            tiles[row][col] = new RepairTile(col * tileSize, row * tileSize);
+                            tiles[row][col] = new RepairTile(col * tileSize, row * tileSize, tileSize);
                             break;
                         case "4":
-                            tiles[row][col] = new FireTile(col * tileSize, row * tileSize);
+                            tiles[row][col] = new FireTile(col * tileSize, row * tileSize, tileSize);
                             break;
                         case "5":
-                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.EAST);
+                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.EAST, tileSize);
                             break;
                         case "6":
-                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.WEST);
+                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.WEST, tileSize);
                             break;
                         case "7":
-                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.NORTH);
+                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.NORTH, tileSize);
                             break;
                         case "8":
-                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.SOUTH);
+                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.SOUTH, tileSize);
                             break;
                         default:
-                            tiles[row][col] = new Tile(col * tileSize, row * tileSize);
+                            tiles[row][col] = new Tile(col * tileSize, row * tileSize, tileSize);
                     }
                 }
             }
