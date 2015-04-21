@@ -21,5 +21,37 @@ public class RotatorTile extends Tile
 
     @Override public void update(final AbstractRobot robot) {
 	super.update(robot);
+	if(orientation == Orientation.EAST) {
+	    switch (robot.getOrientation()) {
+		case NORTH:
+		    robot.setOrientation(Orientation.EAST);
+		    break;
+		case EAST:
+		    robot.setOrientation(Orientation.SOUTH);
+		    break;
+		case SOUTH:
+		    robot.setOrientation(Orientation.WEST);
+		    break;
+		case WEST:
+		    robot.setOrientation(Orientation.NORTH);
+		    break;
+	    }
+	}
+	else{
+	    switch (robot.getOrientation()) {
+	    	case NORTH:
+		    robot.setOrientation(Orientation.WEST);
+		    break;
+	    	case WEST:
+	    	    robot.setOrientation(Orientation.SOUTH);
+	    	    break;
+	    	case SOUTH:
+	    	    robot.setOrientation(Orientation.EAST);
+	    	    break;
+	    	case EAST:
+	    	    robot.setOrientation(Orientation.NORTH);
+	    	    break;
+	    }
+    	}
     }
 }

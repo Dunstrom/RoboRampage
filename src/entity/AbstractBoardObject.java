@@ -51,4 +51,8 @@ public abstract class AbstractBoardObject extends AbstractOutputObject implement
     public Orientation getOrientation() {
         return orientation;
     }
+
+    public void setOrientation(Orientation orientation){
+	this.orientation = orientation;
+    }
 }

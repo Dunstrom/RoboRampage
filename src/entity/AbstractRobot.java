@@ -199,6 +199,10 @@ public abstract class AbstractRobot extends AbstractBoardObject{
         testSound.loop(1);
     }
 
+    public void heal(int hp){
+	hitpoints += hp;
+    }
+
     public int getDamage() {
         return damage;
     }
