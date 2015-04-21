@@ -37,16 +37,16 @@ public class Board {
         return height;
     }
 
-    public void setRobots(List<AbstractRobot> robots) {
+    public void setRobots(List<AbstractRobot> robots){
         this.robots = robots;
-        for (AbstractRobot robot : robots) {
-            if (!boardObjects.contains(robot)) {
+        for(AbstractRobot robot: robots) {
+            if(!boardObjects.contains(robot)){
                 boardObjects.add(robot);
             }
         }
     }
 
-    public void removeRobot(AbstractRobot robot) {
+    public void removeRobot(AbstractRobot robot){
         robots.remove(robot);
     }
 
@@ -54,7 +54,7 @@ public class Board {
         listeners.add(bl);
     }
 
-    public Board(Settings settings) throws BoardNotFoundException, SettingsFailiureException {
+    public Board(Settings settings) throws BoardNotFoundException, SettingsFailiureException{
         tiles = settings.getTiles();
         tileSize = settings.getTileSize();
         width = tiles[0].length;
@@ -73,10 +73,10 @@ public class Board {
 
         FlagFactory flagFactory = FlagFactory.getInstance();
 
-        final int flagX1 = (width - 1) * tileSize;
-        final int flagX2 = (width - 3) * tileSize;
-        final int bottY = (height - 1) * tileSize;
-        final int middleY = (height / 2) * tileSize;
+        final int flagX1 = (width - 1)*tileSize;
+        final int flagX2 = (width - 3)*tileSize;
+        final int bottY = (height - 1)*tileSize;
+        final int middleY = (height/2)*tileSize;
 
         boardObjects.add(flagFactory.createFlag(flagX1, tileSize));
         boardObjects.add(flagFactory.createFlag(flagX2, middleY));
@@ -87,13 +87,13 @@ public class Board {
     /**
      * Updates the board by updating robots and updating the tiles.
      */
-    public void update() {
+    public void update(){
 
-        for (int i = 0; i < AbstractRobot.MAX_QUEUED_MOVES; i++) {
+        for(int i = 0; i < AbstractRobot.MAX_QUEUED_MOVES; i++){
 
             updateRobots();
 
-            updateTiles();
+	    updateTiles();
 
             removeDeadRobots();
 
@@ -108,13 +108,13 @@ public class Board {
 
         Collection<AbstractRobot> toBeRemoved = new ArrayList<>();
 
-        for (AbstractRobot robot : robots) {
-            if (robot.isDead()) {
+        for(AbstractRobot robot : robots){
+            if(robot.isDead()){
                 toBeRemoved.add(robot);
             }
         }
 
-        if (!toBeRemoved.isEmpty()) {
+        if(!toBeRemoved.isEmpty()) {
             toBeRemoved.forEach(this::removeRobot);
         }
 
@@ -122,14 +122,13 @@ public class Board {
 
     /**
      * Draws the board by going through all the tiles and draws them.
-     *
      * @param g a Graphics object needed to draw the individual tile.
      */
     public void draw(Graphics g) {
 
-        for (int row = 0; row < height; row++) {
+        for(int row = 0; row < height; row++){
 
-            for (int col = 0; col < width; col++) {
+            for(int col = 0; col < width; col++) {
 
                 tiles[row][col].draw(g);
 
@@ -137,7 +136,7 @@ public class Board {
 
         }
 
-        for (BoardObject obj : boardObjects) {
+        for(BoardObject obj : boardObjects) {
             obj.draw(g);
         }
 
@@ -154,7 +153,7 @@ public class Board {
 
     private boolean stillOnBoard(AbstractRobot robot, int oneTile) {
         assert robots.contains(robot); // Makes sure the robot is on the board
-        if (robot.getTempX() < 0 || robot.getTempY() < 0 || robot.getTempX() >= width * oneTile || robot.getTempY() >= height * oneTile) {//Checks if entity.robot is about to move out of the board.
+        if(robot.getTempX() < 0 || robot.getTempY() < 0 || robot.getTempX() >= width*oneTile || robot.getTempY() >= height*oneTile){//Checks if entity.robot is about to move out of the board.
             return false;
         } else {
             return true;
@@ -163,13 +162,13 @@ public class Board {
 
     private boolean canPush(AbstractRobot robot, int oneTile) {
         for (AbstractRobot otherRobot : robots) {
-            if (!robot.equals(otherRobot)) {
-                if (otherRobot.getX() == robot.getTempX() && otherRobot.getY() == robot.getTempY()) {
+            if(!robot.equals(otherRobot)){
+                if(otherRobot.getX() == robot.getTempX() && otherRobot.getY() == robot.getTempY()){
 
                     int x = otherRobot.getX();
                     int y = otherRobot.getY();
 
-                    switch (robot.getOrientation()) {
+                    switch (robot.getOrientation()){
 
                         case NORTH:
                             otherRobot.setTempX(x);
@@ -190,10 +189,10 @@ public class Board {
 
                     }
 
-                    if (canMoveRobot(otherRobot)) { // check if move to tempx and tempy is possible
+                    if(canMoveRobot(otherRobot)){ // check if move to tempx and tempy is possible
                         otherRobot.place(otherRobot.getTempX(), otherRobot.getTempY()); // sets x to tempx and y to tempy
                         notifyListeners();
-                    } else {
+                    }else{
                         return false;
                     }
 
@@ -206,13 +205,12 @@ public class Board {
 
     /**
      * Checks if the entity.robot can be moved to it's temporary position. If there is another entity.robot in the way then push it.
-     *
      * @param robot a Abstract entity.robot that is going to be moved.
      * @return a boolean, true if the entity.robot is movable false if it isn't.
      */
-    private boolean canMoveRobot(AbstractRobot robot) {
+    private boolean canMoveRobot(AbstractRobot robot){
 
-        if (!stillOnBoard(robot, tileSize) || !canPush(robot, tileSize) || tiles[robot.getTempY() / tileSize][robot.getTempX() / tileSize].isBlocking()) {
+        if(!stillOnBoard(robot, tileSize) || !canPush(robot, tileSize) || tiles[robot.getTempY()/tileSize][robot.getTempX()/tileSize].isBlocking()){
             return false;
         }
 
@@ -220,23 +218,22 @@ public class Board {
     }
 
     private void pickFlag(AbstractRobot robot) {
-        for (BoardObject obj : boardObjects) {
-            if (robot.collide(obj) && obj.getClass().equals(Flag.class)) {
-                robot.pickFlag((Flag) obj); // Can cast obj to Flag because I have chacked that it is a flag.
+        for(BoardObject obj : boardObjects) {
+            if(robot.collide(obj) && obj.getClass().equals(Flag.class)){
+                robot.pickFlag((Flag)obj); // Can cast obj to Flag because I have chacked that it is a flag.
             }
         }
     }
 
     /**
      * Get's the next move programmed in to the entity.robot and tries to move the entity.robot.
-     *
      * @param robot the entity.robot that is to be moved.
      */
     private void moveRobot(AbstractRobot robot) {
 
         robot.getNextMove().execute(); // sets tempx and tempy
 
-        if (canMoveRobot(robot)) { // check if move to tempx and tempy is possible
+        if(canMoveRobot(robot)){ // check if move to tempx and tempy is possible
             robot.place(robot.getTempX(), robot.getTempY()); // sets x to tempx and y to tempy
             pickFlag(robot);
             notifyListeners();
@@ -246,16 +243,15 @@ public class Board {
 
     /**
      * Finds out if theres a entity.robot at a certain tile.
-     *
      * @param row an int that tells which row to look.
      * @param col an int that tells which col to look.
      * @return a AbstractRobot if there is a entity.robot else returns null
      */
     private AbstractRobot getRobotAt(int row, int col) {
-        for (AbstractRobot robot : robots) {
+        for(AbstractRobot robot : robots){
             int robotRow = robot.getY() / tileSize;
             int robotCol = robot.getX() / tileSize;
-            if (robotCol == col && robotRow == row) {
+            if(robotCol == col && robotRow == row) {
                 return robot;
             }
         }
@@ -264,7 +260,6 @@ public class Board {
 
     /**
      * Makes the entity.robot attack
-     *
      * @param robot the entity.robot that shall attack.
      */
     private void robotAttack(AbstractRobot robot) {
@@ -273,10 +268,10 @@ public class Board {
         int y = robot.getY();
         int x = robot.getX();
 
-        switch (orientation) {
+        switch(orientation){
 
             case NORTH:
-                attackNorth(y, x, tileSize, robot);
+                attackNorth(y,x, tileSize, robot);
                 break;
             case SOUTH:
                 attackSouth(y, x, tileSize, robot);
@@ -293,56 +288,56 @@ public class Board {
     }
 
     private void attackNorth(int y, int x, int tileSize, AbstractRobot robot) {
-        for (int yToCheck = y - tileSize; yToCheck >= 0; yToCheck -= tileSize) {
-            if (tiles[yToCheck / tileSize][x / tileSize].isBlocking()) {
+        for(int yToCheck = y-tileSize; yToCheck >= 0; yToCheck-=tileSize){
+            if(tiles[yToCheck / tileSize][x / tileSize].isBlocking()){
                 break;
             }
             int row = yToCheck / tileSize;
             int col = x / tileSize;
             AbstractRobot target = getRobotAt(row, col);
-            if (target != null) {
+            if(target != null){
                 target.takeDamage(robot.getDamage());
             }
         }
     }
 
     private void attackSouth(int y, int x, int tileSize, AbstractRobot robot) {
-        for (int yToCheck = y + tileSize; yToCheck <= (height - 1) * tileSize; yToCheck += tileSize) {
-            if (tiles[yToCheck / tileSize][x / tileSize].isBlocking()) {
+        for(int yToCheck = y+tileSize; yToCheck <= (height-1)*tileSize; yToCheck+=tileSize){
+            if(tiles[yToCheck / tileSize][x / tileSize].isBlocking()){
                 break;
             }
             int row = yToCheck / tileSize;
             int col = x / tileSize;
             AbstractRobot target = getRobotAt(row, col);
-            if (target != null) {
+            if(target != null){
                 target.takeDamage(robot.getDamage());
             }
         }
     }
 
     private void attackWest(int y, int x, int tileSize, AbstractRobot robot) {
-        for (int xToCheck = x - tileSize; xToCheck >= 0; xToCheck -= tileSize) {
-            if (tiles[y / tileSize][xToCheck / tileSize].isBlocking()) {
+        for(int xToCheck = x-tileSize; xToCheck >= 0; xToCheck-=tileSize){
+            if(tiles[y / tileSize][xToCheck / tileSize].isBlocking()){
                 break;
             }
             int row = y / tileSize;
             int col = xToCheck / tileSize;
             AbstractRobot target = getRobotAt(row, col);
-            if (target != null) {
+            if(target != null){
                 target.takeDamage(robot.getDamage());
             }
         }
     }
 
     private void attackEast(int y, int x, int tileSize, AbstractRobot robot) {
-        for (int xToCheck = x + tileSize; xToCheck <= (width - 1) * tileSize; xToCheck += tileSize) {
-            if (tiles[y / tileSize][xToCheck / tileSize].isBlocking()) {
+        for(int xToCheck = x+tileSize; xToCheck <= (width-1)*tileSize; xToCheck+=tileSize){
+            if(tiles[y / tileSize][xToCheck / tileSize].isBlocking()){
                 break;
             }
             int row = y / tileSize;
             int col = xToCheck / tileSize;
             AbstractRobot target = getRobotAt(row, col);
-            if (target != null) {
+            if(target != null){
                 target.takeDamage(robot.getDamage());
             }
         }
@@ -353,7 +348,7 @@ public class Board {
      */
     private void updateRobots() {
 
-        for (AbstractRobot robot : robots) {
+        for(AbstractRobot robot : robots){
 
             moveRobot(robot);
 
@@ -369,30 +364,29 @@ public class Board {
 
     }
 
-    private void updateTiles() {
+    private void updateTiles(){
 
-        for (AbstractRobot robot : robots) {
-            Tile tile = tiles[robot.getY() / tileSize][robot.getX() / tileSize];
-            tile.update(robot);
+	for (AbstractRobot robot : robots) {
+	    Tile tile = tiles[robot.getY() / tileSize][robot.getX() / tileSize];
+	    tile.update(robot);
 
-            if (tile.willMoveRobot() && canMoveRobot(robot)) { // check if move to tempx and tempy is possible
-                robot.place(robot.getTempX(), robot.getTempY()); // sets x to tempx and y to tempy
-                pickFlag(robot);
-            }
-            notifyListeners();
-        }
+	    if(tile.willMoveRobot() && canMoveRobot(robot)){ // check if move to tempx and tempy is possible
+         	robot.place(robot.getTempX(), robot.getTempY()); // sets x to tempx and y to tempy
+        	pickFlag(robot);
+         	notifyListeners();
+     }
+	}
     }
 
     /**
      * Makes the program wait.
-     *
      * @param time the amount of time you want the program to wait, in miliseconds.
      */
     private void wait(int time) {
 
         try {
             Thread.sleep(time);
-        } catch (InterruptedException e) {
+        } catch(InterruptedException e) {
             e.printStackTrace();
         }
 

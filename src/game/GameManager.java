@@ -104,23 +104,9 @@ public class GameManager implements DoneListener {
     }
 
     private void handleSettingsExceptions(Exception e) {
-
-        final JFrame frame = new JFrame("Oops!");
-        JLabel errorMessage = new JLabel(e.getMessage());
-        frame.add(errorMessage);
-        JButton button = new JButton();
-        button.setText("Exit");
-        frame.add(button);
-        frame.pack();
-        frame.setVisible(true);
-
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(1);
-            }
-        });
-
+	final JFrame frame = new JFrame("Oops!");
+	frame.setVisible(true);
+        JOptionPane.showMessageDialog(frame, "hej", e.getMessage(), JOptionPane.ERROR_MESSAGE);
     }
 
 }
