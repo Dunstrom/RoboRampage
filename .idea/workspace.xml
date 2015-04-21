@@ -1,28 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8c2e1e0-bd86-4976-8596-68d4c3c8c0d7" name="Default" comment="Added Settings">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Pit.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Resources/lavapit.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Resources/repairTile.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Resources/tile.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Resources/wall.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/board/Board.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/board/Board.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/io/BoardComponent.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/io/BoardComponent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/game/Game.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/game/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/board/Tile.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/board/Tile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/Board.java" afterPath="$PROJECT_DIR$/src/board/Board.java" />
+    <list default="true" id="f8c2e1e0-bd86-4976-8596-68d4c3c8c0d7" name="Default" comment="Fixed some sprites for tiles and so tiles uses settings tilesize">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entity/AbstractRobot.java" afterPath="$PROJECT_DIR$/src/entity/AbstractRobot.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/io/BoardComponent.java" afterPath="$PROJECT_DIR$/src/io/BoardComponent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/FireTile.java" afterPath="$PROJECT_DIR$/src/board/FireTile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Game.java" afterPath="$PROJECT_DIR$/src/game/Game.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entity/FlagFactory.java" afterPath="$PROJECT_DIR$/src/entity/FlagFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Menu.java" afterPath="$PROJECT_DIR$/src/game/Menu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/PitTile.java" afterPath="$PROJECT_DIR$/src/board/PitTile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/RepairTile.java" afterPath="$PROJECT_DIR$/src/board/RepairTile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/RotatorTile.java" afterPath="$PROJECT_DIR$/src/board/RotatorTile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Settings.java" afterPath="$PROJECT_DIR$/src/game/Settings.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entity/TestRobot.java" afterPath="$PROJECT_DIR$/src/entity/TestRobot.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/Tile.java" afterPath="$PROJECT_DIR$/src/board/Tile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/WallTile.java" afterPath="$PROJECT_DIR$/src/board/WallTile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Resources/settings" afterPath="$PROJECT_DIR$/src/Resources/settings" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RoboRampage.iws" />
@@ -50,111 +40,89 @@
         <entry file="file://$PROJECT_DIR$/src/board/FireTile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="59" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
+              <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game/GameManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="78" column="4" selection-start-line="78" selection-start-column="4" selection-end-line="78" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/board/Board.java">
+      <file leaf-file-name="InterfaceComponent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/io/InterfaceComponent.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
-              <folding>
-                <element signature="e#604#605#0" expanded="true" />
-                <element signature="e#635#636#0" expanded="true" />
-                <element signature="e#722#723#0" expanded="true" />
-                <element signature="e#751#752#0" expanded="true" />
-                <element signature="e#1139#1140#0" expanded="true" />
-                <element signature="e#1172#1173#0" expanded="true" />
-                <element signature="docComment;method#update#0;class#Board#0" expanded="false" />
-                <element signature="method#update#0;class#Board#0" expanded="false" />
-                <element signature="docComment;method#removeDeadRobots#0;class#Board#0" expanded="false" />
-                <element signature="method#removeDeadRobots#0;class#Board#0" expanded="false" />
-                <element signature="docComment;method#draw#0;class#Board#0" expanded="false" />
-                <element signature="method#draw#0;class#Board#0" expanded="false" />
-                <element signature="docComment;method#notifyListeners#0;class#Board#0" expanded="false" />
-                <element signature="method#stillOnBoard#0;class#Board#0" expanded="false" />
-                <element signature="method#canPush#0;class#Board#0" expanded="false" />
-                <element signature="docComment;method#canMoveRobot#0;class#Board#0" expanded="false" />
-                <element signature="method#pickFlag#0;class#Board#0" expanded="false" />
-                <element signature="docComment;method#moveRobot#0;class#Board#0" expanded="false" />
-                <element signature="docComment;method#getRobotAt#0;class#Board#0" expanded="false" />
-                <element signature="docComment;method#robotAttack#0;class#Board#0" expanded="false" />
-                <element signature="method#attackNorth#0;class#Board#0" expanded="false" />
-                <element signature="method#attackSouth#0;class#Board#0" expanded="false" />
-                <element signature="method#attackWest#0;class#Board#0" expanded="false" />
-                <element signature="method#attackEast#0;class#Board#0" expanded="false" />
-                <element signature="docComment;method#updateRobots#0;class#Board#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BoardComponent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/io/BoardComponent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="53" column="86" selection-start-line="53" selection-start-column="86" selection-end-line="53" selection-end-column="86" />
-              <folding>
-                <element signature="e#1184#1185#0" expanded="true" />
-                <element signature="e#1279#1280#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PitTile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/board/PitTile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+              <caret line="181" column="12" selection-start-line="181" selection-start-column="12" selection-end-line="181" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RotatorTile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/board/RotatorTile.java">
+      <file leaf-file-name="AbstractRobot.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entity/AbstractRobot.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+              <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
               <folding>
-                <element signature="e#480#481#0" expanded="true" />
-                <element signature="e#500#501#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1227#1228#0" expanded="true" />
+                <element signature="e#1265#1266#0" expanded="true" />
+                <element signature="method#getRobotSprite#0;class#AbstractRobot#0" expanded="false" />
+                <element signature="e#2331#2332#0" expanded="true" />
+                <element signature="e#2359#2360#0" expanded="true" />
+                <element signature="method#pickFlag#0;class#AbstractRobot#0" expanded="false" />
+                <element signature="docComment;method#renderPlayerInterface#0;class#AbstractRobot#0" expanded="false" />
+                <element signature="method#renderPlayerInterface#0;class#AbstractRobot#0" expanded="false" />
+                <element signature="docComment;method#addProgrammedMove#0;class#AbstractRobot#0" expanded="false" />
+                <element signature="method#addProgrammedMove#0;class#AbstractRobot#0" expanded="false" />
+                <element signature="docComment;method#removeProgrammedMove#0;class#AbstractRobot#0" expanded="false" />
+                <element signature="method#removeProgrammedMove#0;class#AbstractRobot#0" expanded="false" />
+                <element signature="method#takeDamage#0;class#AbstractRobot#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestRobot.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FlagFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entity/FlagFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestRobot.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/entity/TestRobot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="87" column="41" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.33333334">
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
               <folding>
-                <element signature="class#1061:1273" expanded="false" />
-                <element signature="class#1308:1516" expanded="false" />
-                <element signature="class#1552:1762" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#407#408#0" expanded="true" />
+                <element signature="e#441#442#0" expanded="true" />
+                <element signature="class#1022:1234" expanded="false" />
+                <element signature="class#1269:1477" expanded="false" />
+                <element signature="class#1513:1723" expanded="false" />
                 <element signature="docComment;field#moveForwardOne#0;class#TestRobot#0" expanded="false" />
                 <element signature="docComment;field#turnLeft#0;class#TestRobot#0" expanded="false" />
-                <element signature="class#2833:3857" expanded="false" />
+                <element signature="class#2794:3818" expanded="false" />
                 <element signature="docComment;field#turnRight#0;class#TestRobot#0" expanded="false" />
-                <element signature="class#3963:4989" expanded="false" />
+                <element signature="class#3924:4950" expanded="false" />
                 <element signature="docComment;method#draw#0;class#TestRobot#0" expanded="false" />
                 <element signature="method#draw#0;class#TestRobot#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -163,7 +131,7 @@
         <entry file="file://$PROJECT_DIR$/src/board/Tile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -173,18 +141,30 @@
         <entry file="file://$PROJECT_DIR$/src/board/WallTile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Settings.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game/Settings.java">
+      <file leaf-file-name="RepairTile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/board/RepairTile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="105" column="95" selection-start-line="105" selection-start-column="95" selection-end-line="105" selection-end-column="95" />
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RotatorTile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/board/RotatorTile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -231,7 +211,6 @@
         <option value="$PROJECT_DIR$/src/game/MenuListener.java" />
         <option value="$PROJECT_DIR$/src/game/DoneListener.java" />
         <option value="$PROJECT_DIR$/src/entity/Flagfactory.java" />
-        <option value="$PROJECT_DIR$/src/entity/FlagFactory.java" />
         <option value="$PROJECT_DIR$/src/board/RobotNotOnBoard.java" />
         <option value="$PROJECT_DIR$/src/io/PlayerInterface.java" />
         <option value="$PROJECT_DIR$/src/io/GameComponent.java" />
@@ -249,22 +228,23 @@
         <option value="$PROJECT_DIR$/src/io/Soundable.java" />
         <option value="$PROJECT_DIR$/src/io/AbstractOutputObject.java" />
         <option value="$PROJECT_DIR$/src/board/RobotNotOnBoardException.java" />
-        <option value="$PROJECT_DIR$/src/game/Menu.java" />
-        <option value="$PROJECT_DIR$/src/entity/AbstractRobot.java" />
         <option value="$PROJECT_DIR$/src/game/GameManager.java" />
         <option value="$PROJECT_DIR$/src/io/InterfaceComponent.java" />
         <option value="$PROJECT_DIR$/src/Resources/settings" />
-        <option value="$PROJECT_DIR$/src/board/Tile.java" />
-        <option value="$PROJECT_DIR$/src/board/RepairTile.java" />
-        <option value="$PROJECT_DIR$/src/board/PitTile.java" />
-        <option value="$PROJECT_DIR$/src/board/FireTile.java" />
-        <option value="$PROJECT_DIR$/src/board/RotatorTile.java" />
-        <option value="$PROJECT_DIR$/src/board/WallTile.java" />
         <option value="$PROJECT_DIR$/src/game/Settings.java" />
-        <option value="$PROJECT_DIR$/src/entity/TestRobot.java" />
         <option value="$PROJECT_DIR$/src/game/Game.java" />
-        <option value="$PROJECT_DIR$/src/io/BoardComponent.java" />
         <option value="$PROJECT_DIR$/src/board/Board.java" />
+        <option value="$PROJECT_DIR$/src/io/BoardComponent.java" />
+        <option value="$PROJECT_DIR$/src/board/FireTile.java" />
+        <option value="$PROJECT_DIR$/src/game/Menu.java" />
+        <option value="$PROJECT_DIR$/src/board/PitTile.java" />
+        <option value="$PROJECT_DIR$/src/board/RepairTile.java" />
+        <option value="$PROJECT_DIR$/src/board/RotatorTile.java" />
+        <option value="$PROJECT_DIR$/src/entity/TestRobot.java" />
+        <option value="$PROJECT_DIR$/src/board/Tile.java" />
+        <option value="$PROJECT_DIR$/src/board/WallTile.java" />
+        <option value="$PROJECT_DIR$/src/entity/AbstractRobot.java" />
+        <option value="$PROJECT_DIR$/src/entity/FlagFactory.java" />
       </list>
     </option>
   </component>
@@ -828,7 +808,7 @@
       <workItem from="1429196603591" duration="50000" />
       <workItem from="1429518593468" duration="25829000" />
       <workItem from="1429604952045" duration="6465000" />
-      <workItem from="1429620714577" duration="6312000" />
+      <workItem from="1429620714577" duration="6805000" />
     </task>
     <task id="LOCAL-00001" summary="Added Frame class">
       <created>1424642132383</created>
@@ -938,11 +918,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429624009036</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fixed some sprites for tiles and so tiles uses settings tilesize">
+      <created>1429627208426</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1429627208426</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76508000" />
+    <option name="totallyTimeSpent" value="77001000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -976,8 +962,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39846742" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2413793" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2413793" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15458423" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -995,7 +982,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39922482" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1057,7 +1043,8 @@
     <MESSAGE value="Draws flags now" />
     <MESSAGE value="Added several diffrent tiles." />
     <MESSAGE value="Added Settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Settings" />
+    <MESSAGE value="Fixed some sprites for tiles and so tiles uses settings tilesize" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some sprites for tiles and so tiles uses settings tilesize" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1084,8 +1071,8 @@
           <caret line="120" column="17" selection-start-line="120" selection-start-column="17" selection-end-line="120" selection-end-column="17" />
           <folding>
             <element signature="method#getRobotSprite#0;class#AbstractRobot#0" expanded="false" />
-            <element signature="e#2598#2599#0" expanded="true" />
-            <element signature="e#2618#2619#0" expanded="true" />
+            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#2625#2626#0" expanded="true" />
             <element signature="method#pickFlag#0;class#AbstractRobot#0" expanded="false" />
             <element signature="method#AbstractRobot#0;class#AbstractRobot#0" expanded="false" />
             <element signature="docComment;method#renderPlayerInterface#0;class#AbstractRobot#0" expanded="false" />
@@ -1139,15 +1126,15 @@
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
             <element signature="method#TestRobot#0;class#TestRobot#0" expanded="false" />
-            <element signature="class#1061:1273" expanded="false" />
-            <element signature="class#1308:1516" expanded="false" />
-            <element signature="class#1552:1762" expanded="false" />
+            <element signature="class#1022:1234" expanded="false" />
+            <element signature="class#1269:1477" expanded="false" />
+            <element signature="class#1513:1723" expanded="false" />
             <element signature="docComment;field#moveForwardOne#0;class#TestRobot#0" expanded="false" />
-            <element signature="class#1873:2730" expanded="false" />
+            <element signature="class#1834:2691" expanded="false" />
             <element signature="docComment;field#turnLeft#0;class#TestRobot#0" expanded="false" />
-            <element signature="class#2833:3857" expanded="false" />
+            <element signature="class#2794:3818" expanded="false" />
             <element signature="docComment;field#turnRight#0;class#TestRobot#0" expanded="false" />
-            <element signature="class#3963:4989" expanded="false" />
+            <element signature="class#3924:4950" expanded="false" />
             <element signature="docComment;method#draw#0;class#TestRobot#0" expanded="false" />
             <element signature="method#draw#0;class#TestRobot#0" expanded="false" />
           </folding>
@@ -1159,10 +1146,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="89" selection-start-line="7" selection-start-column="89" selection-end-line="7" selection-end-column="89" />
           <folding>
-            <element signature="e#618#619#0" expanded="true" />
-            <element signature="e#646#647#0" expanded="true" />
-            <element signature="e#1042#1043#0" expanded="true" />
-            <element signature="e#1063#1064#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+            <element signature="e#1041#1042#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1172,8 +1159,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
           <folding>
-            <element signature="e#277#278#0" expanded="false" />
-            <element signature="e#367#368#0" expanded="false" />
+            <element signature="e#189#190#0" expanded="false" />
+            <element signature="e#279#280#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1183,8 +1170,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
           <folding>
-            <element signature="e#240#241#0" expanded="false" />
-            <element signature="e#322#323#0" expanded="false" />
+            <element signature="e#218#219#0" expanded="false" />
+            <element signature="e#300#301#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1227,8 +1214,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#getRobotSprite#0;class#AbstractRobot#0" expanded="false" />
-            <element signature="e#2598#2599#0" expanded="true" />
-            <element signature="e#2618#2619#0" expanded="true" />
+            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#2625#2626#0" expanded="true" />
             <element signature="method#pickFlag#0;class#AbstractRobot#0" expanded="false" />
             <element signature="method#AbstractRobot#0;class#AbstractRobot#0" expanded="false" />
             <element signature="docComment;method#renderPlayerInterface#0;class#AbstractRobot#0" expanded="false" />
@@ -1246,14 +1233,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entity/FlagFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5288889">
-          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -1320,25 +1299,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09953161">
           <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/GameManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="66" selection-start-line="72" selection-start-column="66" selection-end-line="72" selection-end-column="66" />
-          <folding>
-            <element signature="e#2902#2903#0" expanded="true" />
-            <element signature="e#2948#2949#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1346,33 +1307,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entity/AbstractRobot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21358268">
-          <caret line="133" column="200" selection-start-line="133" selection-start-column="200" selection-end-line="133" selection-end-column="200" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getRobotSprite#0;class#AbstractRobot#0" expanded="false" />
-            <element signature="method#pickFlag#0;class#AbstractRobot#0" expanded="false" />
-            <element signature="docComment;method#renderPlayerInterface#0;class#AbstractRobot#0" expanded="false" />
-            <element signature="method#renderPlayerInterface#0;class#AbstractRobot#0" expanded="false" />
-            <element signature="docComment;method#addProgrammedMove#0;class#AbstractRobot#0" expanded="false" />
-            <element signature="method#addProgrammedMove#0;class#AbstractRobot#0" expanded="false" />
-            <element signature="docComment;method#removeProgrammedMove#0;class#AbstractRobot#0" expanded="false" />
-            <element signature="method#removeProgrammedMove#0;class#AbstractRobot#0" expanded="false" />
-            <element signature="method#takeDamage#0;class#AbstractRobot#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/InterfaceComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35236222">
-          <caret line="75" column="32" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1385,81 +1319,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/board/RepairTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/board/FireTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="59" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/board/PitTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/board/RotatorTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-          <folding>
-            <element signature="e#480#481#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/board/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/board/WallTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="105" column="95" selection-start-line="105" selection-start-column="95" selection-end-line="105" selection-end-column="95" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entity/TestRobot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="87" column="41" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
-          <folding>
-            <element signature="class#1061:1273" expanded="false" />
-            <element signature="class#1308:1516" expanded="false" />
-            <element signature="class#1552:1762" expanded="false" />
-            <element signature="docComment;field#moveForwardOne#0;class#TestRobot#0" expanded="false" />
-            <element signature="docComment;field#turnLeft#0;class#TestRobot#0" expanded="false" />
-            <element signature="class#2833:3857" expanded="false" />
-            <element signature="docComment;field#turnRight#0;class#TestRobot#0" expanded="false" />
-            <element signature="class#3963:4989" expanded="false" />
-            <element signature="docComment;method#draw#0;class#TestRobot#0" expanded="false" />
-            <element signature="method#draw#0;class#TestRobot#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1471,21 +1335,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/io/BoardComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="86" selection-start-line="53" selection-start-column="86" selection-end-line="53" selection-end-column="86" />
-          <folding>
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1279#1280#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/board/Board.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
             <element signature="e#604#605#0" expanded="true" />
             <element signature="e#635#636#0" expanded="true" />
@@ -1512,6 +1365,151 @@
             <element signature="method#attackWest#0;class#Board#0" expanded="false" />
             <element signature="method#attackEast#0;class#Board#0" expanded="false" />
             <element signature="docComment;method#updateRobots#0;class#Board#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/BoardComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1165#1166#0" expanded="true" />
+            <element signature="e#1260#1261#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/board/PitTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/board/RepairTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/board/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/board/WallTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/AbstractRobot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1227#1228#0" expanded="true" />
+            <element signature="e#1265#1266#0" expanded="true" />
+            <element signature="method#getRobotSprite#0;class#AbstractRobot#0" expanded="false" />
+            <element signature="e#2331#2332#0" expanded="true" />
+            <element signature="e#2359#2360#0" expanded="true" />
+            <element signature="method#pickFlag#0;class#AbstractRobot#0" expanded="false" />
+            <element signature="docComment;method#renderPlayerInterface#0;class#AbstractRobot#0" expanded="false" />
+            <element signature="method#renderPlayerInterface#0;class#AbstractRobot#0" expanded="false" />
+            <element signature="docComment;method#addProgrammedMove#0;class#AbstractRobot#0" expanded="false" />
+            <element signature="method#addProgrammedMove#0;class#AbstractRobot#0" expanded="false" />
+            <element signature="docComment;method#removeProgrammedMove#0;class#AbstractRobot#0" expanded="false" />
+            <element signature="method#removeProgrammedMove#0;class#AbstractRobot#0" expanded="false" />
+            <element signature="method#takeDamage#0;class#AbstractRobot#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/FlagFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/board/FireTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/InterfaceComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="181" column="12" selection-start-line="181" selection-start-column="12" selection-end-line="181" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/GameManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="78" column="4" selection-start-line="78" selection-start-column="4" selection-end-line="78" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/board/RotatorTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/TestRobot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#407#408#0" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+            <element signature="class#1022:1234" expanded="false" />
+            <element signature="class#1269:1477" expanded="false" />
+            <element signature="class#1513:1723" expanded="false" />
+            <element signature="docComment;field#moveForwardOne#0;class#TestRobot#0" expanded="false" />
+            <element signature="docComment;field#turnLeft#0;class#TestRobot#0" expanded="false" />
+            <element signature="class#2794:3818" expanded="false" />
+            <element signature="docComment;field#turnRight#0;class#TestRobot#0" expanded="false" />
+            <element signature="class#3924:4950" expanded="false" />
+            <element signature="docComment;method#draw#0;class#TestRobot#0" expanded="false" />
+            <element signature="method#draw#0;class#TestRobot#0" expanded="false" />
           </folding>
         </state>
       </provider>

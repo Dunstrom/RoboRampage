@@ -30,7 +30,7 @@ public final class FlagFactory {
 	return INSTANCE;
     }
 
-    public Flag createFlag(int x, int y) {
+    public BoardObject createFlag(int x, int y) {
 		if(flagColors.isEmpty()){
 			addColors();
 			return new Flag(x, y, flagColors.poll());

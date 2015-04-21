@@ -1,10 +1,8 @@
 package board;
 
 import entity.AbstractRobot;
-import game.Settings;
 
 import java.awt.*;
-import java.util.Set;
 
 public class RepairTile extends Tile
 {

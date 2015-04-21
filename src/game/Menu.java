@@ -2,7 +2,6 @@ package game;
 
 
 import board.BoardNotFoundException;
-import board.SettingsFailiureException;
 
 import javax.swing.*;
 import java.awt.*;

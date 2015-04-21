@@ -1,9 +1,7 @@
 package entity;
 
-import board.Board;
 import board.BoardNotFoundException;
 import board.SettingsFailiureException;
-import board.Tile;
 import game.Settings;
 
 import java.awt.Graphics;

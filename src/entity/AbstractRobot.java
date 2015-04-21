@@ -45,7 +45,7 @@ public abstract class AbstractRobot extends AbstractBoardObject{
 
 
     // Getters
-    public Queue<Move> getProgrammedMoves() {
+    public Iterable<Move> getProgrammedMoves() {
         return programmedMoves;
     }
 
@@ -106,7 +106,7 @@ public abstract class AbstractRobot extends AbstractBoardObject{
 
     }
 
-    public List<Flag> getFlags() {
+    public Iterable<Flag> getFlags() {
         return flags;
     }
 
