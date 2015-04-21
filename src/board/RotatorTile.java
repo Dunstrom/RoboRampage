@@ -10,8 +10,14 @@ public class RotatorTile extends Tile
     private Orientation orientation;
 
     public RotatorTile(final int x, final int y, Orientation orientation, int tileSize) {
-	super(x, y, tileSize);
-	this.orientation = orientation;
+		super(x, y, tileSize);
+		this.orientation = orientation;
+		assert orientation == Orientation.NORTH || orientation == Orientation.SOUTH;
+		if(orientation == Orientation.EAST) {
+			sprite = loadImage("../Resources/rotateEast.png");
+		}else {
+			sprite = loadImage("../Resources/rotateWest.png");
+		}
     }
 
     @Override public boolean willMoveRobot() {

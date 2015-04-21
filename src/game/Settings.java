@@ -96,12 +96,6 @@ public class Settings {
                         case "6":
                             tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.WEST, tileSize);
                             break;
-                        case "7":
-                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.NORTH, tileSize);
-                            break;
-                        case "8":
-                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.SOUTH, tileSize);
-                            break;
                         default:
                             tiles[row][col] = new Tile(col * tileSize, row * tileSize, tileSize);
                     }
