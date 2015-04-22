@@ -2,10 +2,9 @@ package entity;
 
 import board.BoardNotFoundException;
 import board.SettingsFailiureException;
-import game.Settings;
+import io.Settings;
 
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 import java.awt.Graphics2D;
 
 /**
@@ -15,13 +14,44 @@ public class StandardRobot extends AbstractRobot {
 
     private final static int HEALTH = 10;
 
-    public BufferedImage getRobotSprite() {
-        return robotSprite;
-    }
-
     public StandardRobot(final int x, final int y, final Orientation orientation, String name, String spriteFileName, Settings settings) throws BoardNotFoundException, SettingsFailiureException{
-        super(x, y, orientation, name, HEALTH, settings);
-        robotSprite = loadImage("../Resources/" + spriteFileName);
+        super(x, y, orientation, name, HEALTH, settings, "../Resources/" + spriteFileName);
+
+        Button forwadButton = new Button() {
+                @Override
+                public String display() {
+                    return "forward";
+                }
+
+                @Override
+                public void run() {
+                    addProgrammedMove(forward);
+                }
+            };
+
+        Button turnLeftButton = new Button() {
+                @Override
+                public String display() {
+                    return "Turn Left";
+                }
+
+                @Override
+                public void run() {
+                    addProgrammedMove(turnLeft);
+                }
+            };
+
+        Button turnRightButton = new Button() {
+                @Override
+                public String display() {
+                    return "Turn Right";
+                }
+
+                @Override
+                public void run() {
+                    addProgrammedMove(turnRight);
+                }
+            };
 
         playerInterface.addMove(forwadButton);
         playerInterface.addMove(turnLeftButton);
@@ -29,46 +59,12 @@ public class StandardRobot extends AbstractRobot {
 
     }
 
-    Button forwadButton = new Button() {
-        @Override
-        public String display() {
-            return "forward";
-        }
 
-        @Override
-        public void run() {
-            addProgrammedMove(forward);
-        }
-    };
-
-    Button turnLeftButton = new Button() {
-        @Override
-        public String display() {
-            return "Turn Left";
-        }
-
-        @Override
-        public void run() {
-            addProgrammedMove(turnLeft);
-        }
-    };
-
-    Button turnRightButton = new Button() {
-        @Override
-        public String display() {
-            return "Turn Right";
-        }
-
-        @Override
-        public void run() {
-            addProgrammedMove(turnRight);
-        }
-    };
 
     /**
      * Runnable that moves the entity.robot one step forward.
      */
-    Move forward = new Move() {
+    private Move forward = new Move() {
         @Override
         public String display() {
             return "Forward";
@@ -107,7 +103,7 @@ public class StandardRobot extends AbstractRobot {
     /**
      * Runnable that turns the entity.robot left 90 degrees
      */
-    Move turnLeft = new Move() {
+    private Move turnLeft = new Move() {
         @Override
         public String display() {
             return "Turn Left";
@@ -150,7 +146,7 @@ public class StandardRobot extends AbstractRobot {
     /**
      * Runnable that turns the entity.robot right 90 degrees
      */
-    Move turnRight = new Move() {
+    private Move turnRight = new Move() {
         @Override
         public String display() {
             return "Turn Right";

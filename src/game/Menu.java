@@ -2,6 +2,7 @@ package game;
 
 
 import board.BoardNotFoundException;
+import io.Settings;
 
 import javax.swing.*;
 import java.awt.*;
@@ -128,9 +129,7 @@ public class Menu extends JFrame {
     }
 
     private void menuDone() {
-        for(DoneListener listener : listeners) {
-            listener.whenDone();
-        }
+        listeners.forEach(DoneListener::whenDone);
     }
 
 }

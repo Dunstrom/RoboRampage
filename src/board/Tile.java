@@ -32,10 +32,11 @@ public  class Tile extends AbstractOutputObject
         sprite = loadImage("../Resources/tile.png");
     }
 
-    public Tile(int x, int y, Color backgrouncolor){
-	this.x = x;
+    public Tile(int x, int y, int tileSize, String spritePath){
+	this.tileSize = tileSize;
+        this.x = x;
 	this.y = y;
-	this.backgroundColor = backgrouncolor;
+        this.sprite = loadImage(spritePath);
     }
 
     public void update(AbstractRobot robot){

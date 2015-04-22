@@ -2,10 +2,9 @@ package game;
 
 import board.BoardNotFoundException;
 import board.SettingsFailiureException;
+import io.Settings;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +12,10 @@ public class GameManager implements DoneListener {
 
     private GameState state;
     private List<Player> players;
-    private Menu menu;
+    private Menu menu = null;
     private Game game;
     private String winner;
-    private Settings settings;
+    private Settings settings = null;
 
     public GameManager() {
         try {
@@ -30,7 +29,7 @@ public class GameManager implements DoneListener {
         } catch(BoardNotFoundException e) {
             handleSettingsExceptions(e);
         }
-
+        state = GameState.MENU;
         game = null;
     }
 
@@ -70,8 +69,10 @@ public class GameManager implements DoneListener {
         game.addDoneListener(this);
         try {
             game.startGame();
-        } catch(BoardNotFoundException | SettingsFailiureException e) {
+        } catch(BoardNotFoundException e) {
             handleSettingsExceptions(e);
+        } catch(SettingsFailiureException er) {
+            er.printStackTrace();
         }
 
     }

@@ -3,13 +3,11 @@ package board;
 /**
  * Impassable tile. No robots or weapons can pass through.
  */
-import java.awt.*;
 
 public class WallTile extends Tile {
 
     public WallTile(int x, int y, int tileSize) {
-        super(x, y, tileSize);
-        sprite = loadImage("../Resources/wall.png");
+        super(x, y, tileSize, "../Resources/wall.png");
     }
 
     @Override
@@ -18,8 +16,4 @@ public class WallTile extends Tile {
         return true;
     }
 
-    @Override
-    public void draw(Graphics g) {
-        g.drawImage(sprite, x, y, null);
-    }
 }

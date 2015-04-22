@@ -1,7 +1,6 @@
-package game;
+package io;
 
 import board.*;
-import entity.Orientation;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,7 +24,7 @@ public class Settings {
             URL url = Settings.class.getResource("../Resources/" + fileName);
             BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
             String inputLine;
-            while((inputLine = in.readLine()) != null) {
+            while((inputLine = in.readLine()) != null) {//Common practice...
                 String[] strings = inputLine.split(";");
                 settings.put(strings[0], strings[1]);
             }
@@ -91,10 +90,10 @@ public class Settings {
                             tiles[row][col] = new FireTile(col * tileSize, row * tileSize, tileSize);
                             break;
                         case "5":
-                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.EAST, tileSize);
+                            tiles[row][col] = new RotateRightTile(col * tileSize, row * tileSize, tileSize);
                             break;
                         case "6":
-                            tiles[row][col] = new RotatorTile(col * tileSize, row * tileSize, Orientation.WEST, tileSize);
+                            tiles[row][col] = new RotateLeftTile(col * tileSize, row * tileSize, tileSize);
                             break;
                         default:
                             tiles[row][col] = new Tile(col * tileSize, row * tileSize, tileSize);

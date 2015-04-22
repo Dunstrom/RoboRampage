@@ -5,7 +5,6 @@ import board.SettingsFailiureException;
 import entity.Flag;
 import entity.Button;
 import entity.AbstractRobot;
-import game.Settings;
 
 import javax.swing.JComponent;
 import java.awt.*;
@@ -16,6 +15,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * Created by Hampus on 2015-04-20.
@@ -179,7 +179,7 @@ public class InterfaceComponent extends JComponent implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        for(Map.Entry<Rectangle, Button> button : buttons.entrySet()){
+        for(Entry<Rectangle, Button> button : buttons.entrySet()){//Prefer it this way because of increased readability
             if(button.getKey().contains(e.getX(), e.getY())){
                 button.getValue().run();
             }

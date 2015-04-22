@@ -5,7 +5,7 @@ import entity.BoardObject;
 import entity.Flag;
 import entity.FlagFactory;
 import entity.Orientation;
-import game.Settings;
+import io.Settings;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class Board {
 
     public void setRobots(List<AbstractRobot> robots){
         this.robots = robots;
-        for(AbstractRobot robot: robots) {
+        for(AbstractRobot robot: robots) {//Prefer it this way because of increased readability
             if(!boardObjects.contains(robot)){
                 boardObjects.add(robot);
             }
@@ -108,7 +108,7 @@ public class Board {
 
         Collection<AbstractRobot> toBeRemoved = new ArrayList<>();
 
-        for(AbstractRobot robot : robots){
+        for(AbstractRobot robot : robots){//Prefer it this way because of increased readability
             if(robot.isDead()){
                 toBeRemoved.add(robot);
             }
@@ -218,7 +218,7 @@ public class Board {
     }
 
     private void pickFlag(AbstractRobot robot) {
-        for(BoardObject obj : boardObjects) {
+        for(BoardObject obj : boardObjects) {//Prefer it this way because of increased readability
             if(robot.collide(obj) && obj.getClass().equals(Flag.class)){
                 robot.pickFlag((Flag)obj); // Can cast obj to Flag because I have chacked that it is a flag.
             }

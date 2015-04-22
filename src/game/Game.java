@@ -5,6 +5,7 @@ import entity.ZigZagRobot;
 import io.GameFrame;
 import entity.AbstractRobot;
 import entity.StandardRobot;
+import io.Settings;
 
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -143,7 +144,7 @@ public class Game implements BoardListener {
     }
 
     private void checkRobotGotAllFlags() {
-        for(AbstractRobot robot : robots) {
+        for(AbstractRobot robot : robots) {//Prefer it this way because of increased readability
             if(robot.getFlagCount() == 3){
                 gameOver(robot.getName());
             }
@@ -172,9 +173,7 @@ public class Game implements BoardListener {
     }
 
     private void gameDone() {
-        for(DoneListener listener : listeners) {
-            listener.whenDone();
-        }
+        listeners.forEach(DoneListener::whenDone);
     }
 
 }

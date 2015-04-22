@@ -3,7 +3,7 @@ package entity;
 import board.BoardNotFoundException;
 import board.SettingsFailiureException;
 import io.InterfaceComponent;
-import game.Settings;
+import io.Settings;
 
 import javax.sound.sampled.Clip;
 import java.awt.image.BufferedImage;
@@ -109,7 +109,6 @@ public abstract class AbstractRobot extends AbstractBoardObject {
 
     public BufferedImage getRobotSprite() {
         return robotSprite;
-
     }
 
     public Iterable<Flag> getFlags() {
@@ -139,7 +138,7 @@ public abstract class AbstractRobot extends AbstractBoardObject {
         }
     }
 
-    protected AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final int hitpoints, Settings settings) throws BoardNotFoundException, SettingsFailiureException {
+    protected AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final int hitpoints, Settings settings, String spritePath) throws BoardNotFoundException, SettingsFailiureException {
         super(x, orientation, y);
 
         //Setup robot
@@ -156,13 +155,15 @@ public abstract class AbstractRobot extends AbstractBoardObject {
         //Setup player interface
         buttonSprite = loadImage("../Resources/Button.png");
         hpBarSprite = loadImage("../Resources/hp_bar.png");
-        robotSprite = loadImage("../Resources/Robot.png");
+        robotSprite = loadImage(spritePath);
         choosenMoveSprite = loadImage("../Resources/Brown_Button.png");
         playerInterface = new InterfaceComponent(this, settings);
 
         testSound = loadSoundClip("../Resources/testljud.wav");
 
     }
+
+
 
     /**
      * Constructs a string and sets it to the JLabel displayedMoves.

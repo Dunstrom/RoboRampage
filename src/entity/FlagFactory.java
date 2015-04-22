@@ -14,7 +14,7 @@ public final class FlagFactory {
 		addColors();
     }
 
-	private void addColors() {
+    private void addColors() {
 		flagColors.add(Color.GREEN);
 		flagColors.add(Color.YELLOW);
 		flagColors.add(Color.BLUE);
@@ -24,7 +24,7 @@ public final class FlagFactory {
 		flagColors.add(Color.BLACK);
 		flagColors.add(Color.CYAN);
 		flagColors.add(Color.ORANGE);
-	}
+    }
 
     public static FlagFactory getInstance() {
 	return INSTANCE;
