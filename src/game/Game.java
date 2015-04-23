@@ -10,9 +10,7 @@ import io.Settings;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.Action;
-import javax.swing.Timer;
-import javax.swing.AbstractAction;
+import javax.swing.*;
 
 /**
  * Keeps track of game stuff, initialize the game and such.
@@ -29,6 +27,7 @@ public class Game implements BoardListener {
     private int boardWidth;
     private String winner = "No one...";
     private Settings settings;
+    private boolean gameOver = false;
 
     public int getBoardHeight() {
         return boardHeight;
@@ -46,7 +45,7 @@ public class Game implements BoardListener {
         listeners.add(listener);
     }
 
-    public Game(List<Player> players, Settings settings) throws BoardNotFoundException, SettingsFailiureException {
+    public Game(List<Player> players, GameFrame frame, Settings settings) throws BoardNotFoundException, SettingsFailiureException {
         this.players = players;
         this.settings = settings;
         board =  new Board(settings);
@@ -55,14 +54,14 @@ public class Game implements BoardListener {
         board.addBoardListener(this);
         robots = new ArrayList<>();
         currentRobot = null;
-        gameFrame = null;
+        gameFrame = frame;
         listeners = new ArrayList<>();
     }
 
     public void startGame() throws BoardNotFoundException, SettingsFailiureException{
         makeRobots();
         currentRobot = robots.get(0);
-        gameFrame = new GameFrame(board, currentRobot.getPlayerInterface());
+        gameFrame.runGameScreen(board, currentRobot.getPlayerInterface());
         run();
     }
 
@@ -100,17 +99,16 @@ public class Game implements BoardListener {
         if(currentRobot.getDone()){
 	        if(robots.indexOf(currentRobot) < robots.size()-1){//Are there more robots left this turn?
 		        currentRobot = robots.get(robots.indexOf(currentRobot) + 1);
-		        gameFrame.setActivePlayer(currentRobot.getPlayerInterface());
 	        }
 	    else{
 		    executeTurn();
 		    currentRobot = robots.get(0);
-		    gameFrame.setActivePlayer(currentRobot.getPlayerInterface());
 	        }
         }
-
-        gameFrame.repaintPlayerInterface();
-
+        if(!gameOver){
+            gameFrame.setActivePlayer(currentRobot.getPlayerInterface());
+            gameFrame.repaintPlayerInterface();
+        }
     }
 
     public void run() {
@@ -120,7 +118,9 @@ public class Game implements BoardListener {
         final Action doOneFrame = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                        update();
+                if(!gameOver){
+                    update();
+                }
                     }
         };
 
@@ -152,24 +152,11 @@ public class Game implements BoardListener {
     }
 
     private void gameOver(String winner) {
-        this.winner = winner;
-        gameDone();
-        /*Object[] options = {"New Game", "Quit"};
-        int optionChosen = JOptionPane.showOptionDialog(gameFrame,
-            "GAME OVER\n" + winText,
-
-            "GAME OVER",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE,
-            null,
-            options,
-            options[0]);
-        if (optionChosen == 0){
-
+        if(!gameOver){// Makes sure this only happens once
+            gameOver = true;
+            this.winner = winner;
+            gameDone();
         }
-        else if (optionChosen == 1){
-            System.exit(0);
-        }*/
     }
 
     private void gameDone() {

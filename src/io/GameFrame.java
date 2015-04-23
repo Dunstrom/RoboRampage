@@ -1,6 +1,7 @@
 package io;
 
 import board.Board;
+import game.DoneListener;
 
 import java.awt.*;
 import javax.swing.*;
@@ -26,21 +27,17 @@ public class GameFrame extends JFrame
 
     }
 
-    public GameFrame(Board board, InterfaceComponent playerInterface) {
-
+    public GameFrame() {
         super("RoboRampage");
 
-        currentPlayerInterface = playerInterface;
-
-        boardComponent = new BoardComponent(board);
-        board.addBoardListener(boardComponent);
+        currentPlayerInterface = null;
+        boardComponent = null;
         setLayout(new BorderLayout());
-        add(currentPlayerInterface, BorderLayout.PAGE_END);
-        add(boardComponent,BorderLayout.CENTER);
 
        	pack();
         requestFocus();
         setVisible(true);
+        setResizable(false);
     }
 
     /**
@@ -48,6 +45,31 @@ public class GameFrame extends JFrame
      */
     public void repaintPlayerInterface() {
         repaint(0, 0, boardComponent.getHeight(), getWidth(), getHeight());
+    }
+
+    public void runGameScreen(Board board, InterfaceComponent playerInterface) {
+
+        currentPlayerInterface = playerInterface;
+        boardComponent = new BoardComponent(board);
+
+        board.addBoardListener(boardComponent);
+
+        add(currentPlayerInterface, BorderLayout.PAGE_END);
+        add(boardComponent, BorderLayout.CENTER);
+        pack();
+
+    }
+
+    public void runwinScreen(String winner, DoneListener[] listeners) {
+
+        remove(boardComponent);
+        remove(currentPlayerInterface);
+        WinScreenComponent winScreenComponent = new WinScreenComponent(winner);
+        add(winScreenComponent, BorderLayout.CENTER);
+        for (DoneListener listener : listeners) {
+            winScreenComponent.addListener(listener);
+        }
+        pack();
     }
 
 }

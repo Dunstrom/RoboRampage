@@ -20,7 +20,7 @@ public class StandardRobot extends AbstractRobot {
         Button forwadButton = new Button() {
                 @Override
                 public String display() {
-                    return "forward";
+                    return "Forward";
                 }
 
                 @Override

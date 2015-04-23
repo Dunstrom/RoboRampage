@@ -2,12 +2,17 @@ package game;
 
 import board.BoardNotFoundException;
 import board.SettingsFailiureException;
+import io.GameFrame;
 import io.Settings;
 
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * This class handles the games states, switching between menu, game and the winscreen. Also responsible for starting and restarting the game.
+ */
 public class GameManager implements DoneListener {
 
     private GameState state;
@@ -16,6 +21,7 @@ public class GameManager implements DoneListener {
     private Game game;
     private String winner;
     private Settings settings = null;
+    private GameFrame gameFrame;
 
     public GameManager() {
         try {
@@ -29,15 +35,15 @@ public class GameManager implements DoneListener {
         } catch(BoardNotFoundException e) {
             handleSettingsExceptions(e);
         }
+        gameFrame = new GameFrame();
         state = GameState.MENU;
         game = null;
+        winner = "No one, yet...";
     }
 
     public void startGame() {
         state = GameState.MENU;
         runState();
-
-
     }
 
     private void runState(){
@@ -61,24 +67,22 @@ public class GameManager implements DoneListener {
 
     private void runGame() {
         try{
-            game = new Game(players, settings);
+            game = new Game(players, gameFrame, settings);
         } catch(BoardNotFoundException | SettingsFailiureException e) {
             handleSettingsExceptions(e);
         }
-
         game.addDoneListener(this);
         try {
             game.startGame();
-        } catch(BoardNotFoundException e) {
+        } catch(BoardNotFoundException | SettingsFailiureException e) {
             handleSettingsExceptions(e);
-        } catch(SettingsFailiureException er) {
-            er.printStackTrace();
         }
 
     }
 
     private void runWinScreen() {
-
+        DoneListener[] listeners = {this};
+        gameFrame.runwinScreen(winner, listeners);
     }
 
     public void whenDone() {

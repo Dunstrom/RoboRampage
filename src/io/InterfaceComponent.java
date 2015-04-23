@@ -18,9 +18,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 /**
- * Created by Hampus on 2015-04-20.
+ * This is the component that handles the players input during the game and draws the interface the player interacts with.
  */
-public class InterfaceComponent extends JComponent implements MouseListener {
+public class InterfaceComponent extends GameComponent implements MouseListener {
 
     private AbstractRobot robot;
     private final static int HEIGHT = 150;
