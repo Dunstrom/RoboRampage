@@ -72,8 +72,4 @@ public abstract class GameComponent extends JComponent {
         return clip;
     }
 
-    protected void handleReadingError(String message) {
-
-    }
-
 }

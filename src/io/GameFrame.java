@@ -48,12 +48,11 @@ public class GameFrame extends JFrame
     }
 
     public void runGameScreen(Board board, InterfaceComponent playerInterface) {
-
         currentPlayerInterface = playerInterface;
         boardComponent = new BoardComponent(board);
 
         board.addBoardListener(boardComponent);
-
+        resetFrame();
         add(currentPlayerInterface, BorderLayout.PAGE_END);
         add(boardComponent, BorderLayout.CENTER);
         pack();
@@ -61,15 +60,17 @@ public class GameFrame extends JFrame
     }
 
     public void runwinScreen(String winner, DoneListener[] listeners) {
-
-        remove(boardComponent);
-        remove(currentPlayerInterface);
         WinScreenComponent winScreenComponent = new WinScreenComponent(winner);
+        resetFrame();
         add(winScreenComponent, BorderLayout.CENTER);
         for (DoneListener listener : listeners) {
             winScreenComponent.addListener(listener);
         }
         pack();
+    }
+
+    private void resetFrame() {
+        getContentPane().removeAll();
     }
 
 }
