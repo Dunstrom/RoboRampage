@@ -41,7 +41,6 @@ public class BoardComponent extends JComponent implements BoardListener {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
         board.draw(g);
 
     }

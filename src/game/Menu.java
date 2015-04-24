@@ -15,6 +15,7 @@ import java.util.List;
  */
 public class Menu extends JFrame {
 
+    private boolean firstLaunch = true;
     private JPanel playerSelect;
     private int numberOfPlayers = 1;
     private final static int MAXPLAYERS = 4;
@@ -87,17 +88,20 @@ public class Menu extends JFrame {
 
         add(title, BorderLayout.PAGE_START);
 
-        playerSelect.add(addPlayerBtn);
+        if(firstLaunch) {
 
-        addPlayer();
+            playerSelect.add(addPlayerBtn);
+            addPlayer();
+            add(startBtn, BorderLayout.PAGE_END);
+            firstLaunch = false;
+        }
 
         add(playerSelect, BorderLayout.CENTER);
-
-        add(startBtn, BorderLayout.PAGE_END);
 
         setSize(width, height);
         requestFocus();
         setVisible(true);
+
 
         addPlayerBtn.setAction(new AbstractAction() {
             @Override
