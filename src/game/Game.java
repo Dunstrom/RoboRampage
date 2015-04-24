@@ -23,19 +23,9 @@ public class Game implements BoardListener {
     private List<DoneListener> listeners;
     private AbstractRobot currentRobot;
     private GameFrame gameFrame;
-    private int boardHeight;
-    private int boardWidth;
     private String winner = "No one...";
     private Settings settings;
     private boolean gameOver = false;
-
-    public int getBoardHeight() {
-        return boardHeight;
-    }
-
-    public int getBoardWidth() {
-        return boardWidth;
-    }
 
     public String getWinner() {
         return winner;
@@ -49,8 +39,6 @@ public class Game implements BoardListener {
         this.players = players;
         this.settings = settings;
         board =  new Board(settings);
-        boardHeight = board.getHeight();
-        boardWidth = board.getWidth();
         board.addBoardListener(this);
         robots = new ArrayList<>();
         currentRobot = null;
@@ -59,6 +47,7 @@ public class Game implements BoardListener {
     }
 
     public void startGame() throws BoardNotFoundException, SettingsFailiureException{
+        gameOver = false;
         makeRobots();
         currentRobot = robots.get(0);
         gameFrame.runGameScreen(board, currentRobot.getPlayerInterface());

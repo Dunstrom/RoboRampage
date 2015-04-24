@@ -1,10 +1,8 @@
 package io;
 
-import entity.*;
 import entity.Button;
 import game.DoneListener;
 
-import javax.swing.JComponent;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -109,7 +107,7 @@ public class WinScreenComponent extends GameComponent implements MouseListener {
         for(Entry<Rectangle, Button> button : buttons.entrySet()){
             if(button.getKey().contains(e.getX(), e.getY())){
                 button.getValue().run();
-                System.out.println("träff");
+                System.out.println("trï¿½ff");
             }
         }
     }
