@@ -3,13 +3,17 @@ package io;
 import javax.imageio.ImageIO;
 import javax.sound.sampled.*;
 import javax.swing.*;
-import java.awt.*;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.awt.image.BufferedImageOp;
 import java.io.IOException;
 import java.net.URL;
+import java.awt.event.KeyEvent;
+import java.awt.event.InputEvent;
 
 /**
  * Created by Hampus on 2015-04-23.
@@ -20,6 +24,19 @@ public abstract class GameComponent extends JComponent {
     protected final static Font BUTTON_FONT = new Font("Arial",Font.BOLD, BUTTON_FONT_SIZE);
     protected final static int HEADLINE_FONT_SIZE = 25;
     protected final static Font HEADLINE_FONT = new Font("Arial",Font.BOLD, HEADLINE_FONT_SIZE);
+
+    protected GameComponent() {
+
+        //Setup standard keybindings
+        getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ALT,InputEvent.CTRL_DOWN_MASK), "actionMapKey");
+        Action exit = new AbstractAction() {
+            @Override public void actionPerformed(final ActionEvent e) {
+                System.exit(0);
+            }
+        };
+        getActionMap().put("actionMapKey", exit);
+
+    }
 
     /**
      * Loads an image
