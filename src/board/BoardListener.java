@@ -8,6 +8,6 @@ public interface BoardListener {
     /**
      * Method to be implemented and called every time the board changes.
      */
-    public void boardChanged();
+    void boardChanged();
 
 }

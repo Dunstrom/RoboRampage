@@ -109,8 +109,9 @@ public class Game implements BoardListener {
             public void actionPerformed(ActionEvent e) {
                 if(!gameOver){
                     update();
+                    gameFrame.repaint();
                 }
-                    }
+            }
         };
 
         final Timer timer = new Timer(updateTime, doOneFrame);

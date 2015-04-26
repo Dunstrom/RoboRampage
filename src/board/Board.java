@@ -56,6 +56,7 @@ public class Board {
     }
 
     public Board(Settings settings) throws BoardNotFoundException, SettingsFailiureException{
+
         tiles = settings.getTiles();
         tileSize = settings.getTileSize();
         width = tiles[0].length;

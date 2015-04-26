@@ -109,8 +109,8 @@ public class GameManager implements DoneListener {
     }
 
     private void handleSettingsExceptions(Exception e) {
-	final JFrame frame = new JFrame("Oops!");
-	frame.setVisible(true);
+	    final JFrame frame = new JFrame("Oops!");
+	    frame.setVisible(true);
         JOptionPane.showMessageDialog(frame, "hej", e.getMessage(), JOptionPane.ERROR_MESSAGE);
     }
 

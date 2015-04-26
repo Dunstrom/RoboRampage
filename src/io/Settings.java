@@ -20,9 +20,9 @@ public class Settings {
     public Settings(String fileName) throws SettingsFailiureException{
         assert(fileName.matches(".txt$")); // Asserts if the file isn't a text file.
         settings = new HashMap<>();
-        try {
-            URL url = Settings.class.getResource("../Resources/" + fileName);
-            BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+        URL url = Settings.class.getResource("../Resources/" + fileName);
+        assert(url != null); //Asserts if the url is null.
+        try(BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()))) {
             String inputLine;
             while((inputLine = in.readLine()) != null) {//Common practice...
                 String[] strings = inputLine.split(";");
