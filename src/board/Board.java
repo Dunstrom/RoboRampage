@@ -48,6 +48,7 @@ public class Board {
 
     public void removeRobot(AbstractRobot robot){
         robots.remove(robot);
+        boardObjects.remove(robot);
     }
 
     public void addBoardListener(BoardListener bl) {
@@ -93,7 +94,7 @@ public class Board {
 
             updateRobots();
 
-	    updateTiles();
+	        updateTiles();
 
             removeDeadRobots();
 
