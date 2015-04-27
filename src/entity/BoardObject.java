@@ -11,6 +11,4 @@ public interface BoardObject extends Outputobject {
 
     int getY();
 
-    boolean collide(BoardObject obj);
-
 }
