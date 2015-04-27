@@ -5,9 +5,6 @@ package board;
  */
 public interface BoardListener {
 
-    /**
-     * Method to be implemented and called every time the board changes.
-     */
     void boardChanged();
 
 }

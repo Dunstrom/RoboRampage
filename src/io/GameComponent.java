@@ -4,20 +4,14 @@ import javax.imageio.ImageIO;
 import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.Font;
-import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
-import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
-import java.awt.image.BufferedImageOp;
 import java.io.IOException;
 import java.net.URL;
 import java.awt.event.KeyEvent;
 import java.awt.event.InputEvent;
 
-/**
- * Created by Hampus on 2015-04-23.
- */
+/** An abstract class for every Component used in the game. Has the implementation of loading images, some standard key actions and overall standard info on displaying things in the game. */
 public abstract class GameComponent extends JComponent {
 
     protected final static int BUTTON_FONT_SIZE = 14;
@@ -28,7 +22,7 @@ public abstract class GameComponent extends JComponent {
     protected GameComponent() {
 
         //Setup standard keybindings
-        getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ALT,InputEvent.CTRL_DOWN_MASK), "actionMapKey");
+        getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_Q,InputEvent.CTRL_DOWN_MASK), "actionMapKey");
         Action exit = new AbstractAction() {
             @Override public void actionPerformed(final ActionEvent e) {
                 System.exit(0);
@@ -54,26 +48,6 @@ public abstract class GameComponent extends JComponent {
             image = null;
         }
         return image;
-    }
-
-    /**
-     * Takes an image and draws it rotated to the screen.
-     * @param image The image we want to draw.
-     * @param degreesToRotate The amount of degrees to rotate the image.
-     * @param x the x position where we draw the image.
-     * @param y the y position where we draw the image.
-     * @param g2d a Graphics2D object that draws the image to the screen.
-     */
-    protected void drawImageRotated(BufferedImage image, double degreesToRotate, int x, int y, Graphics2D g2d){
-
-        double rotationRequired = Math.toRadians(degreesToRotate);
-        int locationX = image.getWidth() / 2;
-        int locationY = image.getHeight() / 2;
-        AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
-        BufferedImageOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
-
-        g2d.drawImage(op.filter(image, null), x, y, null);
-
     }
 
     protected Clip loadSoundClip(String filename) {

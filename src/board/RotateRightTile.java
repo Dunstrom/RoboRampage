@@ -3,7 +3,7 @@ package board;
 import entity.AbstractRobot;
 import entity.Orientation;
 
-
+/** A tile that rotates a robot to the right. */
 public class RotateRightTile extends Tile
 {
     public RotateRightTile(final int x, final int y, int tileSize) {

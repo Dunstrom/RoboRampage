@@ -3,7 +3,7 @@ package io;
 import java.awt.*;
 
 /**
- * Created by Hampus on 2015-04-20.
+ * A outputobject is an object putting out info to the user.
  */
 public interface Outputobject {
 

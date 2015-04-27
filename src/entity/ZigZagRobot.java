@@ -1,22 +1,19 @@
 package entity;
 
-import board.BoardNotFoundException;
 import board.SettingsFailiureException;
 import io.Settings;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-/**
- * Created by Hampus on 2015-04-21.
- */
+/** ZigZagRobot is a robot that uses a not so straight forward set of moves. It has implemented AbstractRobot with the moves Turn, Zag Right and Zag Left */
 public class ZigZagRobot extends AbstractRobot
 {
 
     private final static int HEALTH = 10;
 
     public ZigZagRobot(int x, int y, Orientation orientation, String name, String spriteFileName, Settings settings)
-	    throws BoardNotFoundException, SettingsFailiureException
+	    throws SettingsFailiureException
     {
 	super(x, y, orientation, name, HEALTH, settings, "../Resources/" + spriteFileName);
 

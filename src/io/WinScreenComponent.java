@@ -3,7 +3,9 @@ package io;
 import entity.Button;
 import game.DoneListener;
 
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -13,9 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-/**
- * Created by Hampus on 2015-04-23.
- */
+/** Knows how to handle io when the game is in the winscreen state. */
 public class WinScreenComponent extends GameComponent implements MouseListener {
 
     private String winner;

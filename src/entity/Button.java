@@ -6,7 +6,7 @@ package entity;
 public interface Button extends Runnable{
 
     /**
-     * @return a String that symbolizes the move.
+     * @return a String that symbolizes/explains the move.
      */
       String display();
 

@@ -2,9 +2,7 @@ package board;
 
 import entity.AbstractRobot;
 
-/**
- * Instantly kills any robots that goes over it.
- */
+/** Instantly kills any robots that goes over it. */
 public class PitTile extends Tile
 {
     public PitTile(final int x, final int y, int tileSize) {

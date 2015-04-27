@@ -3,7 +3,6 @@ package board;
 /**
  * Impassable tile. No robots or weapons can pass through.
  */
-
 public class WallTile extends Tile {
 
     public WallTile(int x, int y, int tileSize) {
