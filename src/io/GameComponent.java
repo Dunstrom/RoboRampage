@@ -29,7 +29,7 @@ public abstract class GameComponent extends JComponent {
             }
         };
         getActionMap().put("actionMapKey", exit);
-        loopMusic("../Resources/music.wav");
+        loopMusic("../Resources/Hitman.wav");
 
 
     }
@@ -58,7 +58,6 @@ public abstract class GameComponent extends JComponent {
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
             music.open(audioIn);
             music.loop(Clip.LOOP_CONTINUOUSLY);
-
         } catch(UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
