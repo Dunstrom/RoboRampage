@@ -58,7 +58,7 @@ public abstract class GameComponent extends JComponent {
                 AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
                 clip.open(audioIn);
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
-                Thread.sleep(clip.getMicrosecondLength()/999);
+                Thread.sleep(clip.getMicrosecondLength());
             } catch (UnsupportedAudioFileException | IOException | LineUnavailableException | InterruptedException e) {
                 e.printStackTrace();
             }
