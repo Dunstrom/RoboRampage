@@ -17,13 +17,13 @@ public class Menu extends JFrame {
     private boolean firstLaunch = true;
     private JPanel playerSelect;
     private int numberOfPlayers = 1;
-    private final static int MAXPLAYERS = 4;
+    private  int playerMax;
     private List<JTextField> playerNames;
     private List<JComboBox<String>> playerColors;
     private List<JComboBox<String>> playerRobots;
     private List<Player> players;
     private List<DoneListener> listeners;
-    private int boardHeight;
+    private Settings settings;
 
     public List<Player> getPlayers() {
         return players;
@@ -35,13 +35,14 @@ public class Menu extends JFrame {
 
     public Menu(Settings settings) throws SettingsFailiureException{
         super("RoboRampage");
-        boardHeight = settings.getBoardHeight();
+        this.settings = settings;
         playerSelect = new JPanel();
         players = new ArrayList<>();
         playerNames = new ArrayList<>();
         playerColors = new ArrayList<>();
         playerRobots = new ArrayList<>();
         listeners = new ArrayList<>();
+        playerMax = settings.getPlayerMax();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
@@ -114,7 +115,7 @@ public class Menu extends JFrame {
         addPlayerBtn.setAction(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (numberOfPlayers < MAXPLAYERS) {
+                if (numberOfPlayers < playerMax) {
                     numberOfPlayers++;
                     addPlayer();
 
@@ -142,7 +143,6 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (playerNames.size() > 1) {
-                    players = PlayerFactory.createPlayers(playerNames, playerColors, playerRobots, numberOfPlayers, boardHeight);
                     menuDone();
                 }
             }
@@ -157,6 +157,20 @@ public class Menu extends JFrame {
 
     private void menuDone() {
         if(!listeners.isEmpty()) {
+            try {
+                players = PlayerFactory.createPlayers(playerNames, playerColors, playerRobots, numberOfPlayers, settings);
+            } catch(SettingsFailiureException e) {
+                JFrame frame = new JFrame("Oops!");
+                JOptionPane.showMessageDialog(frame,
+                    e.getMessage(),
+                    "Settings Error",
+                    JOptionPane.ERROR_MESSAGE);
+                frame.setVisible(true);
+                frame.pack();
+                e.printStackTrace();
+                System.exit(0);
+            }
+
             listeners.forEach(DoneListener::whenDone);
         }
         listeners.clear();

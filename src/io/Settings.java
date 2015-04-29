@@ -18,6 +18,7 @@ public class Settings {
 
     private Map<String, String> settings;
     private String currentBoard;
+    private Tile[][] tiles;
 
     public Settings(String fileName) throws SettingsFailiureException{
         assert(fileName.matches(".txt$")); // Asserts if the file isn't a text file.
@@ -34,6 +35,7 @@ public class Settings {
             e.printStackTrace();
         }
         currentBoard = getCurrentBoard();
+        readTiles();
     }
 
     public String getCurrentBoard() throws SettingsFailiureException{
@@ -68,53 +70,62 @@ public class Settings {
         }
     }
 
-    public Tile[][] getTiles() throws SettingsFailiureException {
+    public Tile[][] getTiles() {
+        return tiles;
+    }
+
+    /**
+     * Reads the settingsfile and saves the tiles and starting positions for both players and flags.
+     * token - what it represents
+     * '1' - Wall Tile
+     * '2' - Pit Tile
+     * '3' - Repair Tile
+     * '4' - Fire Tile
+     * '5' - Rotate Right Tile
+     * '6' - Rotate Left Tile
+     * 'F(1 to 10)' - Flag position for flag 1 to 10
+     * 'P(1 to 10)' - Player position for player 1 to 10
+     * @throws SettingsFailiureException
+     */
+    private void readTiles() throws SettingsFailiureException {
         if (containsBoard()){
             int width = getBoardWidth();
             int height = getBoardHeight();
             int tileSize = getTileSize();
-            Tile[][] tiles = new Tile[height][width];
+            Tile[][] readTiles = new Tile[height][width];
             for(int row = 0; row < height; row++) {
                 String[] tokens = settings.get("row" + (row+1) + currentBoard).split(":");
                 for(int col = 0; col < width; col++) {
                     String token = tokens[col];
                     switch (token) {
                         case "1":
-                            tiles[row][col] = new WallTile(col * tileSize, row * tileSize, tileSize);
+                            readTiles[row][col] = new WallTile(col * tileSize, row * tileSize, tileSize);
                             break;
                         case "2":
-                            tiles[row][col] = new PitTile(col * tileSize, row * tileSize, tileSize);
+                            readTiles[row][col] = new PitTile(col * tileSize, row * tileSize, tileSize);
                             break;
                         case "3":
-                            tiles[row][col] = new RepairTile(col * tileSize, row * tileSize, tileSize);
+                            readTiles[row][col] = new RepairTile(col * tileSize, row * tileSize, tileSize);
                             break;
                         case "4":
-                            tiles[row][col] = new FireTile(col * tileSize, row * tileSize, tileSize);
+                            readTiles[row][col] = new FireTile(col * tileSize, row * tileSize, tileSize);
                             break;
                         case "5":
-                            tiles[row][col] = new RotateRightTile(col * tileSize, row * tileSize, tileSize);
+                            readTiles[row][col] = new RotateRightTile(col * tileSize, row * tileSize, tileSize);
                             break;
                         case "6":
-                            tiles[row][col] = new RotateLeftTile(col * tileSize, row * tileSize, tileSize);
+                            readTiles[row][col] = new RotateLeftTile(col * tileSize, row * tileSize, tileSize);
                             break;
-                        case "F1":
-                            tiles[row][col] = new Tile(col * tileSize, row * tileSize, tileSize);
-                            settings.put(token, Integer.toString(col * tileSize) + ";" + Integer.toString(row * tileSize));
-                            break;
-                        case "F2":
-                            tiles[row][col] = new Tile(col * tileSize, row * tileSize, tileSize);
-                            settings.put(token, Integer.toString(col * tileSize) + ";" + Integer.toString(row * tileSize));
-                            break;
-                        case "F3":
-                            tiles[row][col] = new Tile(col * tileSize, row * tileSize, tileSize);
+                        case"F1":case"F2":case"F3":case "F4":case"F5":case"F6":case"F7":case"F8":case "P1":case"P2":case"P3":case"P4":case"P5":case"P6":case"P7":case"P8"://Positions
+                            readTiles[row][col] = new Tile(col * tileSize, row * tileSize, tileSize);
                             settings.put(token, Integer.toString(col * tileSize) + ";" + Integer.toString(row * tileSize));
                             break;
                         default:
-                            tiles[row][col] = new Tile(col * tileSize, row * tileSize, tileSize);
+                            readTiles[row][col] = new Tile(col * tileSize, row * tileSize, tileSize);
                     }
                 }
             }
-            return tiles;
+            tiles = readTiles;
         }else {
             throw new SettingsFailiureException("Board name " + currentBoard + " not found");
         }
@@ -126,6 +137,7 @@ public class Settings {
             if(settings.get("boardName"+i).equals(currentBoard)){
                 return true;
             }
+            i++;
         }
         return false;
     }
@@ -133,24 +145,48 @@ public class Settings {
 
     public List<int[]> getFlagPositions() throws SettingsFailiureException {
 
-        List<int[]> flagPositions = new ArrayList<>();
-        int i = 1;
-        while(settings.containsKey("F" + Integer.toString(i))) {
-            String flagpos = settings.get("F" + Integer.toString(i));
-            String[] flagXY = flagpos.split(";");
-            int[] pos = new int[2];
-            pos[0] = Integer.parseInt(flagXY[0]);
-            pos[1] = Integer.parseInt(flagXY[1]);
-            flagPositions.add(pos);
-            i++;
-        }
+        List<int[]> flagPositions = readPositions("F");
         if(flagPositions.isEmpty()){
-            throw new SettingsFailiureException("No Flags on the map");
+            throw new SettingsFailiureException("No Flags on the map.");
         }
 
         return flagPositions;
     }
 
+    public int getPlayerMax() throws SettingsFailiureException {
 
+        List<int[]> playerPositions = readPositions("P");
+        if(playerPositions.isEmpty()){
+            throw new SettingsFailiureException("No players on the map.");
+        }
+
+        return playerPositions.size();
+
+    }
+
+    public List<int[]> getPlayerPositions() throws SettingsFailiureException {
+
+            List<int[]> playerPositions = readPositions("P");
+            if(playerPositions.isEmpty()){
+                throw new SettingsFailiureException("No Players on the map.");
+            }
+
+            return playerPositions;
+        }
+
+    private List<int[]> readPositions(String id) {
+        List<int[]> positions = new ArrayList<>();
+        int i = 1;
+        while(settings.containsKey(id + Integer.toString(i))) {
+            String posString = settings.get(id + Integer.toString(i));
+            String[] xYString = posString.split(";");
+            int[] pos = new int[2];
+            pos[0] = Integer.parseInt(xYString[0]);
+            pos[1] = Integer.parseInt(xYString[1]);
+            positions.add(pos);
+            i++;
+        }
+        return positions;
+    }
 
 }

@@ -5,6 +5,7 @@ import game.DoneListener;
 
 import java.awt.BorderLayout;
 import javax.swing.*;
+import java.lang.Thread.State;
 
 /**
  * Creates and updates the frame.
@@ -51,7 +52,6 @@ public class GameFrame extends JFrame
     public void runGameScreen(Board board, InterfaceComponent playerInterface) {
         currentPlayerInterface = playerInterface;
         boardComponent = new BoardComponent(board);
-
         board.addBoardListener(boardComponent);
         resetFrame();
         setVisible(true);

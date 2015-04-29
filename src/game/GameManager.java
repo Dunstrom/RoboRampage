@@ -2,6 +2,7 @@ package game;
 
 import board.SettingsFailiureException;
 import io.GameFrame;
+import io.OutputObject;
 import io.Settings;
 
 import javax.swing.*;
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * This class handles the games states, switching between menu, game and the winscreen. Also responsible for starting and restarting the game.
  */
-public class GameManager implements DoneListener {
+public class GameManager extends OutputObject implements DoneListener {
 
     private GameState state;
     private List<Player> players;
@@ -21,8 +22,10 @@ public class GameManager implements DoneListener {
     private String winner;
     private Settings settings = null;
     private GameFrame gameFrame;
+    private Thread bgMusicThread;
 
     public GameManager() {
+        bgMusicThread = new Thread(loadBgMusic("../Resources/Hitman.wav"));
         try {
             settings = new Settings("settings");
         } catch(SettingsFailiureException e) {
@@ -42,6 +45,7 @@ public class GameManager implements DoneListener {
 
     public void startGame() {
         state = GameState.MENU;
+        bgMusicThread.start();
         runState();
     }
 

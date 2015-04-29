@@ -54,12 +54,11 @@ public class Game implements BoardListener {
 
     private void makeRobots() throws SettingsFailiureException {
         for (Player player : players) {
-            int tileSize = settings.getTileSize();
             AbstractRobot robot;
             if(player.getRobotType().equals("Standard")){
-                robot = new StandardRobot(player.getStartCol()*tileSize, player.getStartRow() * tileSize, player.getOrientation(), player.getName(), player.getSpriteFileName(), settings);
+                robot = new StandardRobot(player.getStartX(), player.getStartY(), player.getOrientation(), player.getName(), player.getSpriteFileName(), settings);
             }else {
-                robot = new ZigZagRobot(player.getStartCol()*tileSize, player.getStartRow() * tileSize, player.getOrientation(), player.getName(), player.getSpriteFileName(), settings);
+                robot = new ZigZagRobot(player.getStartX(), player.getStartY(), player.getOrientation(), player.getName(), player.getSpriteFileName(), settings);
             }
             robots.add(robot);
         }

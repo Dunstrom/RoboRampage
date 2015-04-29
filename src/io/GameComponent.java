@@ -19,6 +19,7 @@ public abstract class GameComponent extends JComponent {
     protected final static int HEADLINE_FONT_SIZE = 25;
     protected final static Font HEADLINE_FONT = new Font("Arial",Font.BOLD, HEADLINE_FONT_SIZE);
 
+
     protected GameComponent() {
 
         //Setup standard keybindings
@@ -29,7 +30,6 @@ public abstract class GameComponent extends JComponent {
             }
         };
         getActionMap().put("actionMapKey", exit);
-        runBgMusic("../Resources/Hitman.wav");
     }
 
     /**
@@ -40,7 +40,7 @@ public abstract class GameComponent extends JComponent {
     protected BufferedImage loadImage(String fileName) {
 
         BufferedImage image;
-        URL url = AbstractOutputObject.class.getResource("../Resources/" + fileName);
+        URL url = OutputObject.class.getResource("../Resources/" + fileName);
         try {
             image = ImageIO.read(url);
         }catch(IOException e){
@@ -48,29 +48,6 @@ public abstract class GameComponent extends JComponent {
             image = null;
         }
         return image;
-    }
-
-    protected Runnable loadBgMusic(String filePath) {
-        URL url = AbstractOutputObject.class.getResource(filePath);
-        Runnable sound =  () -> {
-
-            try (Clip clip = AudioSystem.getClip()) {
-                AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
-                clip.open(audioIn);
-                clip.loop(Clip.LOOP_CONTINUOUSLY);
-                Thread.sleep(clip.getMicrosecondLength());
-            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException | InterruptedException e) {
-                e.printStackTrace();
-            }
-        };
-
-        return sound;
-    }
-
-    private void runBgMusic(String filePath){
-        Runnable bgMusic = loadBgMusic(filePath);
-        Thread bgMusicPlayer = new Thread(bgMusic);
-        bgMusicPlayer.start();
     }
 
 }

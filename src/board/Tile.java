@@ -1,7 +1,7 @@
 package board;
 
 import entity.AbstractRobot;
-import io.AbstractOutputObject;
+import io.OutputObject;
 
 import java.awt.Graphics;
 import java.awt.Color;
@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 /**
  * A class that implements the most basic methods and fields every tile needs (floor tile)
  */
-public  class Tile extends AbstractOutputObject
+public  class Tile extends OutputObject
 {
     protected int tileSize;
     protected int x;

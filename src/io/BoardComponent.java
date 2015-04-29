@@ -3,18 +3,16 @@ package io;
 import board.Board;
 import board.BoardListener;
 
-import javax.swing.JComponent;
 import java.awt.Graphics;
 import java.awt.Dimension;
 
 /**
  * Handles the input and output for the board.
  */
-public class BoardComponent extends JComponent implements BoardListener {
+public class BoardComponent extends GameComponent implements BoardListener {
 
     private Board board;
     private int tileSize;
-
     public BoardComponent(Board board) {
 
         this.board = board;

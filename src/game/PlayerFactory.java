@@ -1,5 +1,7 @@
 package game;
 
+import board.SettingsFailiureException;
+import io.Settings;
 
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -15,16 +17,12 @@ public final class PlayerFactory {
 
     }
 
-    public static List<Player> createPlayers(List<JTextField> playerNames, List<JComboBox<String>> playerColors, List<JComboBox<String>> playerRobots, int numberOfPlayers, int boardHeight) {
+    public static List<Player> createPlayers(List<JTextField> playerNames, List<JComboBox<String>> playerColors, List<JComboBox<String>> playerRobots, int numberOfPlayers, Settings settings) throws SettingsFailiureException {
 	List<Player> players = new ArrayList<>();
-	for(int i = 0; i < numberOfPlayers; i++) {
+	List<int[]> playerPos = settings.getPlayerPositions();
+ 	for(int i = 0; i < numberOfPlayers; i++) {
 		//Name
 	    String name = playerNames.get(i).getText();
-
-		//Starting position
-	    int startCol = i % 2;
-	    int startRow = i * 2;
-	    assert startRow < boardHeight;
 
 		//Color "Gray", "Blue", "Yellow", "Green", "Red"
 		String spriteFileName = "Robot.png";
@@ -45,7 +43,7 @@ public final class PlayerFactory {
 		}
 		assert playerRobots.get(i).getSelectedItem().getClass().equals(String.class);
 
-	    players.add(new Player(name, startCol, startRow, spriteFileName, (String)playerRobots.get(i).getSelectedItem()));
+	    players.add(new Player(name, playerPos.get(i)[0], playerPos.get(i)[1], spriteFileName, (String)playerRobots.get(i).getSelectedItem(), settings));
 	}
 	return players;
     }

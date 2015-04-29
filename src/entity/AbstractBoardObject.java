@@ -1,12 +1,14 @@
 package entity;
 
 
-import io.AbstractOutputObject;
+import io.OutputObject;
+
+import java.awt.Graphics;
 
 /**
  * A abstract class for every object pressent on the board.
  */
-public abstract class AbstractBoardObject extends AbstractOutputObject implements BoardObject{
+public abstract class AbstractBoardObject extends OutputObject implements BoardObject{
 
 
     // Position

@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 
 /** A abstract class to be extended by objects that want to be able to use output. */
-public abstract class AbstractOutputObject implements Outputobject {
+public abstract class OutputObject {
 
     /**
      * Loads an image
@@ -25,7 +25,7 @@ public abstract class AbstractOutputObject implements Outputobject {
     protected BufferedImage loadImage(String fileName) {
 
         BufferedImage image;
-        URL url = AbstractOutputObject.class.getResource(fileName);
+        URL url = OutputObject.class.getResource(fileName);
         try {
             image = ImageIO.read(url);
         }catch(IOException e){
@@ -56,7 +56,7 @@ public abstract class AbstractOutputObject implements Outputobject {
     }
 
     protected Runnable loadSound(String filename) {
-        URL url = AbstractOutputObject.class.getResource(filename);
+        URL url = OutputObject.class.getResource(filename);
         Runnable sound =  () -> {
 
                 try (Clip clip = AudioSystem.getClip()) {
@@ -71,5 +71,22 @@ public abstract class AbstractOutputObject implements Outputobject {
 
         return sound;
     }
+
+    protected Runnable loadBgMusic(String filePath) {
+            URL url = OutputObject.class.getResource(filePath);
+            Runnable sound =  () -> {
+
+                try (Clip clip = AudioSystem.getClip()) {
+                    AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+                    clip.open(audioIn);
+                    clip.loop(Clip.LOOP_CONTINUOUSLY);
+                    Thread.sleep(clip.getMicrosecondLength());
+                } catch (UnsupportedAudioFileException | IOException | LineUnavailableException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+            };
+
+            return sound;
+        }
 
 }
