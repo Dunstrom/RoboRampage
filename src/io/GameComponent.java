@@ -29,9 +29,6 @@ public abstract class GameComponent extends JComponent {
             }
         };
         getActionMap().put("actionMapKey", exit);
-        loopMusic("../Resources/Hitman.wav");
-
-
     }
 
     /**
@@ -50,17 +47,6 @@ public abstract class GameComponent extends JComponent {
             image = null;
         }
         return image;
-    }
-
-    protected void loopMusic(String fileName){
-        URL url = AbstractOutputObject.class.getResource(fileName);
-        try(Clip music = AudioSystem.getClip()){
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
-            music.open(audioIn);
-            music.loop(Clip.LOOP_CONTINUOUSLY);
-        } catch(UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            e.printStackTrace();
-        }
     }
 
     protected Clip loadSoundClip(String filename) {
