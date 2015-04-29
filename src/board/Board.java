@@ -64,25 +64,18 @@ public class Board {
         listeners = new ArrayList<>();
         robots = new ArrayList<>();
         boardObjects = new ArrayList<>();
-        placeFlags();
+        placeFlags(settings);
         notifyListeners();
 
     }
 
     // Board stuff
 
-    private void placeFlags() {
+    private void placeFlags(Settings settings) {
 
         FlagFactory flagFactory = FlagFactory.getInstance();
 
-        final int flagX1 = (width - 1)*tileSize;
-        final int flagX2 = (width - 3)*tileSize;
-        final int bottY = (height - 1)*tileSize;
-        final int middleY = (height/2)*tileSize;
-
-        boardObjects.add(flagFactory.createFlag(flagX1, tileSize));
-        boardObjects.add(flagFactory.createFlag(flagX2, middleY));
-        boardObjects.add(flagFactory.createFlag(flagX1, bottY));
+        boardObjects.addAll(flagFactory.createFlags(settings));
 
     }
 
