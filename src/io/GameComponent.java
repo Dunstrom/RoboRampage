@@ -29,6 +29,7 @@ public abstract class GameComponent extends JComponent {
             }
         };
         getActionMap().put("actionMapKey", exit);
+        runBgMusic("../Resources/Hitman.wav");
     }
 
     /**
@@ -49,16 +50,27 @@ public abstract class GameComponent extends JComponent {
         return image;
     }
 
-    protected Clip loadSoundClip(String filename) {
-        URL url = AbstractOutputObject.class.getResource(filename);
-        try(Clip clip = AudioSystem.getClip()) {
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
-            clip.open(audioIn);
-            return clip;
-        } catch(UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            e.printStackTrace();
-        }
-        return null;
+    protected Runnable loadBgMusic(String filePath) {
+        URL url = AbstractOutputObject.class.getResource(filePath);
+        Runnable sound =  () -> {
+
+            try (Clip clip = AudioSystem.getClip()) {
+                AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+                clip.open(audioIn);
+                clip.loop(Clip.LOOP_CONTINUOUSLY);
+                Thread.sleep(clip.getMicrosecondLength()/999);
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        };
+
+        return sound;
+    }
+
+    private void runBgMusic(String filePath){
+        Runnable bgMusic = loadBgMusic(filePath);
+        Thread bgMusicPlayer = new Thread(bgMusic);
+        bgMusicPlayer.start();
     }
 
 }
