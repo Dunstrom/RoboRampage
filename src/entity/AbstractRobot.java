@@ -186,10 +186,6 @@ public abstract class AbstractRobot extends AbstractBoardObject {
                 endable = true;
             }
             renderPlayerInterface();
-        } else {
-            programmedMoves.remove();
-            programmedMoves.add(move);
-            renderPlayerInterface();
         }
     }
 
