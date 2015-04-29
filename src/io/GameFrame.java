@@ -4,7 +4,7 @@ import board.Board;
 import game.DoneListener;
 
 import java.awt.BorderLayout;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  * Creates and updates the frame.
@@ -36,8 +36,9 @@ public class GameFrame extends JFrame
 
        	pack();
         requestFocus();
-        setVisible(true);
+        setVisible(false);
         setResizable(false);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     /**
@@ -53,6 +54,7 @@ public class GameFrame extends JFrame
 
         board.addBoardListener(boardComponent);
         resetFrame();
+        setVisible(true);
         add(currentPlayerInterface, BorderLayout.PAGE_END);
         add(boardComponent, BorderLayout.CENTER);
         pack();
@@ -60,6 +62,7 @@ public class GameFrame extends JFrame
     }
 
     public void runwinScreen(String winner, DoneListener[] listeners) {
+        setVisible(true);
         WinScreenComponent winScreenComponent = new WinScreenComponent(winner);
         resetFrame();
         add(winScreenComponent, BorderLayout.CENTER);

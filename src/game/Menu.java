@@ -42,6 +42,7 @@ public class Menu extends JFrame {
         playerColors = new ArrayList<>();
         playerRobots = new ArrayList<>();
         listeners = new ArrayList<>();
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     private void addPlayer() {

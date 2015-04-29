@@ -97,6 +97,7 @@ public class GameManager implements DoneListener {
                 break;
             case WINSCREEN:
                 state = GameState.MENU;
+                gameFrame.setVisible(false);
                 break;
         }
         runState();
