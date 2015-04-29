@@ -157,7 +157,7 @@ public abstract class AbstractRobot extends AbstractBoardObject {
         choosenMoveSprite = loadImage("../Resources/Brown_Button.png");
         playerInterface = new InterfaceComponent(this, settings);
 
-        shootSound = loadSoundClip("../Resources/testljud.wav");
+        shootSound = loadSound("../Resources/testljud.wav");
 
     }
 
@@ -214,7 +214,7 @@ public abstract class AbstractRobot extends AbstractBoardObject {
     }
 
     public int getDamage() {
-        shootSound.run();
+        new Thread(shootSound).start();
         return damage;
     }
 
