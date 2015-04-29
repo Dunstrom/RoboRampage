@@ -1,7 +1,6 @@
 package io;
 
 import javax.imageio.ImageIO;
-import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.Font;
 import java.awt.event.ActionEvent;

@@ -14,8 +14,8 @@ import java.awt.image.BufferedImageOp;
 import java.io.IOException;
 import java.net.URL;
 
-/** A abstract class to be extended by objects that want to be able to use output. */
-public abstract class OutputObject {
+/** A class to be extended by objects that want to be able to use some standard outputmethods. */
+public class OutputObject {
 
     /**
      * Loads an image

@@ -3,8 +3,6 @@ package entity;
 
 import io.OutputObject;
 
-import java.awt.Graphics;
-
 /**
  * A abstract class for every object pressent on the board.
  */

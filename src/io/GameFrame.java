@@ -5,7 +5,6 @@ import game.DoneListener;
 
 import java.awt.BorderLayout;
 import javax.swing.*;
-import java.lang.Thread.State;
 
 /**
  * Creates and updates the frame.
