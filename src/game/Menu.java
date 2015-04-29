@@ -132,7 +132,10 @@ public class Menu extends JFrame {
     }
 
     private void menuDone() {
-        listeners.forEach(DoneListener::whenDone);
+        if(!listeners.isEmpty()) {
+            listeners.forEach(DoneListener::whenDone);
+        }
+        listeners.clear();
     }
 
 }

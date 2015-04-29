@@ -148,7 +148,10 @@ public class Game implements BoardListener {
     }
 
     private void gameDone() {
-        listeners.forEach(DoneListener::whenDone);
+        if(!listeners.isEmpty()) {
+            listeners.forEach(DoneListener::whenDone);
+        }
+        listeners.clear();
     }
 
 }
