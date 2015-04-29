@@ -72,6 +72,13 @@ public class Menu extends JFrame {
         playerSelect.add(playerPanel);
     }
 
+    private void removePlayer() {
+        playerSelect.remove(playerSelect.getComponentCount() - 1);
+        playerNames.remove(playerNames.size()-1);
+        playerColors.remove(playerColors.size()-1);
+        playerRobots.remove(playerRobots.size()-1);
+    }
+
     public void setUpPlayers() {
 
         final int height = 400;
@@ -83,6 +90,7 @@ public class Menu extends JFrame {
 
         Label title = new Label("ROBO RAMPAGE");
         JButton addPlayerBtn = new JButton("Add Player");
+        JButton removePlayerBtn = new JButton("Remove Player");
         JButton startBtn = new JButton("START");
 
         add(title, BorderLayout.PAGE_START);
@@ -90,13 +98,13 @@ public class Menu extends JFrame {
         if(firstLaunch) {
 
             playerSelect.add(addPlayerBtn);
+            playerSelect.add(removePlayerBtn);
             addPlayer();
             add(startBtn, BorderLayout.PAGE_END);
             firstLaunch = false;
         }
 
         add(playerSelect, BorderLayout.CENTER);
-
         setSize(width, height);
         requestFocus();
         setVisible(true);
@@ -115,6 +123,20 @@ public class Menu extends JFrame {
             }
         });
 
+        removePlayerBtn.setAction(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (numberOfPlayers > 1) {
+                    numberOfPlayers--;
+                    removePlayer();
+
+                    repaint();
+                    requestFocus();
+                    setVisible(true);
+                }
+            }
+        });
+
         startBtn.setAction(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -126,6 +148,7 @@ public class Menu extends JFrame {
         });
 
         addPlayerBtn.setText("Add Player");
+        removePlayerBtn.setText("Remove Player");
         startBtn.setText("START");
 
 
