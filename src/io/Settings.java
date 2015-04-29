@@ -38,7 +38,7 @@ public class Settings {
         if(settings.containsKey("currentBoard")){
             return settings.get("currentBoard");
         }else {
-            throw new SettingsFailiureException("currentBoard not defined in settings. Define by writing 'currentBoard;exampleBoardName'");
+            throw new SettingsFailiureException("currentBoard not defined in settings.");
         }
     }
 
@@ -62,7 +62,7 @@ public class Settings {
         if(settings.containsKey("tileSize")){
             return Integer.parseInt(settings.get("tileSize"));
         } else {
-            throw new SettingsFailiureException("tileSize not defined in settings. Define by writing 'tileSize;#' where # is a number bigger than 0");
+            throw new SettingsFailiureException("tileSize not defined in settings.");
         }
     }
 

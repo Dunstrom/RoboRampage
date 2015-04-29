@@ -4,6 +4,7 @@ import board.SettingsFailiureException;
 import io.GameFrame;
 import io.Settings;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,8 +108,16 @@ public class GameManager implements DoneListener {
     }
 
     private void handleSettingsExceptions(Exception e) {
+        JFrame frame = new JFrame("Oops!");
+        JOptionPane.showMessageDialog(frame,
+            e.getMessage(),
+            "Settings Error",
+            JOptionPane.ERROR_MESSAGE);
+        frame.setVisible(true);
+        frame.pack();
         e.printStackTrace();
         System.exit(0);
+
     }
 
 }
