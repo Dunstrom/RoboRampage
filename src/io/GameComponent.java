@@ -29,7 +29,6 @@ public abstract class GameComponent extends JComponent {
             }
         };
         getActionMap().put("actionMapKey", exit);
-
     }
 
     /**
