@@ -63,7 +63,8 @@ public abstract class AbstractOutputObject implements Outputobject {
                     AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
                     clip.open(audioIn);
                     clip.loop(1);
-                } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+                    Thread.sleep(clip.getMicrosecondLength()/1000);
+                } catch (UnsupportedAudioFileException | IOException | LineUnavailableException | InterruptedException e) {
                     e.printStackTrace();
                 }
             }
