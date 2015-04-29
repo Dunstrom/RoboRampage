@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -130,9 +131,9 @@ public class Settings {
     }
 
 
-    public ArrayList<int[]> getFlagPositions() {
+    public List<int[]> getFlagPositions() throws SettingsFailiureException {
 
-        ArrayList<int[]> flagPositions = new ArrayList<>();
+        List<int[]> flagPositions = new ArrayList<>();
         int i = 1;
         while(settings.containsKey("F" + Integer.toString(i))) {
             String flagpos = settings.get("F" + Integer.toString(i));
@@ -143,6 +144,10 @@ public class Settings {
             flagPositions.add(pos);
             i++;
         }
+        if(flagPositions.isEmpty()){
+            throw new SettingsFailiureException("No Flags on the map");
+        }
+
         return flagPositions;
     }
 

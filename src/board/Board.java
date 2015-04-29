@@ -71,7 +71,7 @@ public class Board {
 
     // Board stuff
 
-    private void placeFlags(Settings settings) {
+    private void placeFlags(Settings settings) throws SettingsFailiureException{
 
         FlagFactory flagFactory = FlagFactory.getInstance();
 
