@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8c2e1e0-bd86-4976-8596-68d4c3c8c0d7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/board/Board.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/board/Board.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/Board.java" afterPath="$PROJECT_DIR$/src/board/Board.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entity/FlagFactory.java" afterPath="$PROJECT_DIR$/src/entity/FlagFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/io/Settings.java" afterPath="$PROJECT_DIR$/src/io/Settings.java" />
@@ -91,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/src/Resources/settings">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -100,8 +101,8 @@
       <file leaf-file-name="Settings.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/io/Settings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.07012195" vertical-offset="1846" max-vertical-offset="2826">
-              <caret line="100" column="48" selection-start-line="100" selection-start-column="48" selection-end-line="100" selection-end-column="48" />
+            <state vertical-scroll-proportion="2.9756098" vertical-offset="748" max-vertical-offset="2916">
+              <caret line="150" column="22" selection-start-line="150" selection-start-column="22" selection-end-line="150" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -110,8 +111,8 @@
       <file leaf-file-name="FlagFactory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entity/FlagFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1044">
-              <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="177" max-vertical-offset="1062">
+              <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -120,8 +121,8 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/board/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="641" max-vertical-offset="6948">
-              <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="767" max-vertical-offset="6948">
+              <caret line="77" column="47" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -790,7 +791,7 @@
       <workItem from="1430293093465" duration="1366000" />
       <workItem from="1430294714747" duration="39000" />
       <workItem from="1430303982631" duration="2213000" />
-      <workItem from="1430306207684" duration="4365000" />
+      <workItem from="1430306207684" duration="4657000" />
     </task>
     <task id="LOCAL-00001" summary="Added Frame class">
       <created>1424642132383</created>
@@ -1008,11 +1009,17 @@
       <option name="project" value="LOCAL" />
       <updated>1430307031367</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Implemented flagpos read from settings">
+      <created>1430310621843</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1430310621843</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114501000" />
+    <option name="totallyTimeSpent" value="114793000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1036,7 +1043,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1888" height="1004" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1050,7 +1057,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19347826" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19347826" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23684211" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1084,7 +1091,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Made a code analyze and fixed some of the problems" />
     <MESSAGE value="Merged the player class with the robots so it will be easier to connect moves depending on what robot you are using and since the player class only keept track of the interface it felt like it was a unnecesary class. Also added so you can turn left and right and so you can choose three moves before ending the turn and all three moves gets executed. You can not end your turn if you haven't choosen the three moves and you can't choose more then three moves. If you choose more the las one will be replaced. I've also added a remove move button so you can remove your moves. &#10;&#10;Todo is to make it clear to the player which moves been choosen and if he can end his turn." />
     <MESSAGE value="Added game over condition.&#10;Added popup to start new game.&#10;The players list in game and robots list in board now points to the same object" />
     <MESSAGE value="Completed the menu connected it to the game so it starts with the values inputed through the menu. Ready for demo, GGEAZZY BIAAATCH!" />
@@ -1109,7 +1115,8 @@
     <MESSAGE value="Remade sound a little" />
     <MESSAGE value="Made sound even better with multithreading so game don't slow down." />
     <MESSAGE value="Made it so gameFrame hides when menu comes up" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made it so gameFrame hides when menu comes up" />
+    <MESSAGE value="Implemented flagpos read from settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented flagpos read from settings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1528,16 +1535,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entity/FlagFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1044">
-          <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="177" max-vertical-offset="1062">
+          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/board/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="641" max-vertical-offset="6948">
-          <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="767" max-vertical-offset="6948">
+          <caret line="77" column="47" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -1545,15 +1552,15 @@
     <entry file="file://$PROJECT_DIR$/src/Resources/settings">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.07012195" vertical-offset="1846" max-vertical-offset="2826">
-          <caret line="100" column="48" selection-start-line="100" selection-start-column="48" selection-end-line="100" selection-end-column="48" />
+        <state vertical-scroll-proportion="2.9756098" vertical-offset="748" max-vertical-offset="2916">
+          <caret line="150" column="22" selection-start-line="150" selection-start-column="22" selection-end-line="150" selection-end-column="22" />
           <folding />
         </state>
       </provider>

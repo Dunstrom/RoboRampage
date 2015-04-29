@@ -1,5 +1,6 @@
 package entity;
 
+import board.SettingsFailiureException;
 import io.Settings;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public final class FlagFactory {
 	return INSTANCE;
     }
 
-    public List<BoardObject> createFlags(Settings settings) {
+    public List<BoardObject> createFlags(Settings settings) throws SettingsFailiureException {
 	List<int[]> flagPositions = settings.getFlagPositions();
 	List<BoardObject> flags = new ArrayList<>();
 	int i = 0;
