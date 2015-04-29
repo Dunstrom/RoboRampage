@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -95,6 +96,18 @@ public class Settings {
                         case "6":
                             tiles[row][col] = new RotateLeftTile(col * tileSize, row * tileSize, tileSize);
                             break;
+                        case "F1":
+                            tiles[row][col] = new Tile(col * tileSize, row * tileSize, tileSize);
+                            settings.put(token, Integer.toString(col * tileSize) + ";" + Integer.toString(row * tileSize));
+                            break;
+                        case "F2":
+                            tiles[row][col] = new Tile(col * tileSize, row * tileSize, tileSize);
+                            settings.put(token, Integer.toString(col * tileSize) + ";" + Integer.toString(row * tileSize));
+                            break;
+                        case "F3":
+                            tiles[row][col] = new Tile(col * tileSize, row * tileSize, tileSize);
+                            settings.put(token, Integer.toString(col * tileSize) + ";" + Integer.toString(row * tileSize));
+                            break;
                         default:
                             tiles[row][col] = new Tile(col * tileSize, row * tileSize, tileSize);
                     }
@@ -114,6 +127,23 @@ public class Settings {
             }
         }
         return false;
+    }
+
+
+    public ArrayList<int[]> getFlagPositions() {
+
+        ArrayList<int[]> flagPositions = new ArrayList<>();
+        int i = 1;
+        while(settings.containsKey("F" + Integer.toString(i))) {
+            String flagpos = settings.get("F" + Integer.toString(i));
+            String[] flagXY = flagpos.split(";");
+            int[] pos = new int[2];
+            pos[0] = Integer.parseInt(flagXY[0]);
+            pos[1] = Integer.parseInt(flagXY[1]);
+            flagPositions.add(pos);
+            i++;
+        }
+        return flagPositions;
     }
 
 
