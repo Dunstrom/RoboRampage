@@ -4,7 +4,6 @@ import board.SettingsFailiureException;
 import io.InterfaceComponent;
 import io.Settings;
 
-import javax.sound.sampled.Clip;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +28,7 @@ public abstract class AbstractRobot extends AbstractBoardObject {
     protected InterfaceComponent playerInterface;
     protected BufferedImage robotSprite;
     protected BufferedImage choosenMoveSprite;
-    protected Clip testSound;
+    protected Runnable shootSound;
 
     // Stats
     protected String name;
@@ -158,7 +157,7 @@ public abstract class AbstractRobot extends AbstractBoardObject {
         choosenMoveSprite = loadImage("../Resources/Brown_Button.png");
         playerInterface = new InterfaceComponent(this, settings);
 
-        testSound = loadSoundClip("../Resources/testljud.wav");
+        shootSound = loadSoundClip("../Resources/testljud.wav");
 
     }
 
@@ -205,7 +204,6 @@ public abstract class AbstractRobot extends AbstractBoardObject {
         if (hitpoints < 1) {
             dead = true;
         }
-        testSound.loop(1);
     }
 
     public void heal(int hp) {
@@ -216,6 +214,7 @@ public abstract class AbstractRobot extends AbstractBoardObject {
     }
 
     public int getDamage() {
+        shootSound.run();
         return damage;
     }
 

@@ -55,16 +55,21 @@ public abstract class AbstractOutputObject implements Outputobject {
 
     }
 
-    protected Clip loadSoundClip(String filename) {
+    protected Runnable loadSoundClip(String filename) {
         URL url = AbstractOutputObject.class.getResource(filename);
-        try(Clip clip = AudioSystem.getClip()) {
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
-            clip.open(audioIn);
-            return clip;
-        } catch(UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            e.printStackTrace();
-        }
-        return null;
+        Runnable sound = new Runnable() {
+            @Override public void run() {
+                try (Clip clip = AudioSystem.getClip()) {
+                    AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+                    clip.open(audioIn);
+                    clip.loop(1);
+                } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        return sound;
     }
 
 }
