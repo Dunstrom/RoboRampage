@@ -1,13 +1,14 @@
 package io;
 
-import board.BoardNotFoundException;
 import board.SettingsFailiureException;
 import entity.Flag;
 import entity.Button;
 import entity.AbstractRobot;
 
-import javax.swing.JComponent;
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -32,7 +33,7 @@ public class InterfaceComponent extends GameComponent implements MouseListener {
         moves.add(move);
     }
 
-    public InterfaceComponent(AbstractRobot robot, Settings settings) throws BoardNotFoundException, SettingsFailiureException {
+    public InterfaceComponent(AbstractRobot robot, Settings settings) throws SettingsFailiureException {
         width = settings.getBoardWidth() * settings.getTileSize();
         this.robot = robot;
         moves = new ArrayList<>();

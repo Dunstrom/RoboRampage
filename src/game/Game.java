@@ -12,9 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 
-/**
- * Keeps track of game stuff, initialize the game and such.
- */
+/** Keeps track of game stuff, initialize the game, runs it, ends it and keep tracks of who has won. */
 public class Game implements BoardListener {
 
     private Board board;
@@ -35,7 +33,7 @@ public class Game implements BoardListener {
         listeners.add(listener);
     }
 
-    public Game(List<Player> players, GameFrame frame, Settings settings) throws BoardNotFoundException, SettingsFailiureException {
+    public Game(List<Player> players, GameFrame frame, Settings settings) throws SettingsFailiureException {
         this.players = players;
         this.settings = settings;
         board =  new Board(settings);
@@ -46,7 +44,7 @@ public class Game implements BoardListener {
         listeners = new ArrayList<>();
     }
 
-    public void startGame() throws BoardNotFoundException, SettingsFailiureException{
+    public void startGame() throws SettingsFailiureException{
         gameOver = false;
         makeRobots();
         currentRobot = robots.get(0);
@@ -54,7 +52,7 @@ public class Game implements BoardListener {
         run();
     }
 
-    private void makeRobots() throws BoardNotFoundException, SettingsFailiureException {
+    private void makeRobots() throws SettingsFailiureException {
         for (Player player : players) {
             int tileSize = settings.getTileSize();
             AbstractRobot robot;
@@ -109,8 +107,9 @@ public class Game implements BoardListener {
             public void actionPerformed(ActionEvent e) {
                 if(!gameOver){
                     update();
+                    gameFrame.repaint();
                 }
-                    }
+            }
         };
 
         final Timer timer = new Timer(updateTime, doOneFrame);

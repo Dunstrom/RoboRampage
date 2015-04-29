@@ -32,7 +32,6 @@ public abstract class AbstractBoardObject extends AbstractOutputObject implement
 
     }
 
-    @Override
     public boolean collide(BoardObject obj) {
         if(x == obj.getX() && y == obj.getY()) {
             return true;

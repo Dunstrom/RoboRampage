@@ -3,7 +3,8 @@ package board;
 import entity.AbstractRobot;
 import io.AbstractOutputObject;
 
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 /**
@@ -14,7 +15,6 @@ public  class Tile extends AbstractOutputObject
     protected int tileSize;
     protected int x;
     protected int y;
-    protected Color backgroundColor = Color.GRAY;
     protected Color borderColor = Color.BLACK;
     protected BufferedImage sprite;
 

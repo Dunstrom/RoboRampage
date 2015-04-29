@@ -1,7 +1,8 @@
 package game;
 
 
-import javax.swing.*;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,20 +1,18 @@
 package entity;
 
-import board.BoardNotFoundException;
+
 import board.SettingsFailiureException;
 import io.Settings;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-/**
- * Class to create test robots
- */
+/** The standard robot extending AbstractRobot with the moves forward, turn left and turn right. */
 public class StandardRobot extends AbstractRobot {
 
     private final static int HEALTH = 10;
 
-    public StandardRobot(final int x, final int y, final Orientation orientation, String name, String spriteFileName, Settings settings) throws BoardNotFoundException, SettingsFailiureException{
+    public StandardRobot(final int x, final int y, final Orientation orientation, String name, String spriteFileName, Settings settings) throws SettingsFailiureException{
         super(x, y, orientation, name, HEALTH, settings, "../Resources/" + spriteFileName);
 
         Button forwadButton = new Button() {

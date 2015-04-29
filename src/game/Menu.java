@@ -1,7 +1,6 @@
 package game;
 
-
-import board.BoardNotFoundException;
+import board.SettingsFailiureException;
 import io.Settings;
 
 import javax.swing.*;
@@ -34,7 +33,7 @@ public class Menu extends JFrame {
         listeners.add(listener);
     }
 
-    public Menu(Settings settings) throws BoardNotFoundException{
+    public Menu(Settings settings) throws SettingsFailiureException{
         super("RoboRampage");
         boardHeight = settings.getBoardHeight();
         playerSelect = new JPanel();

@@ -1,6 +1,5 @@
 package entity;
 
-import board.BoardNotFoundException;
 import board.SettingsFailiureException;
 import io.InterfaceComponent;
 import io.Settings;
@@ -138,7 +137,7 @@ public abstract class AbstractRobot extends AbstractBoardObject {
         }
     }
 
-    protected AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final int hitpoints, Settings settings, String spritePath) throws BoardNotFoundException, SettingsFailiureException {
+    protected AbstractRobot(final int x, final int y, final Orientation orientation, final String name, final int hitpoints, Settings settings, String spritePath) throws SettingsFailiureException {
         super(x, orientation, y);
 
         //Setup robot

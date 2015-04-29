@@ -1,6 +1,5 @@
 package game;
 
-import board.BoardNotFoundException;
 import board.SettingsFailiureException;
 import io.GameFrame;
 import io.Settings;
@@ -32,7 +31,7 @@ public class GameManager implements DoneListener {
         players = new ArrayList<>();
         try {
             menu = new Menu(settings);
-        } catch(BoardNotFoundException e) {
+        } catch(SettingsFailiureException e) {
             handleSettingsExceptions(e);
         }
         gameFrame = new GameFrame();
@@ -68,13 +67,13 @@ public class GameManager implements DoneListener {
     private void runGame() {
         try{
             game = new Game(players, gameFrame, settings);
-        } catch(BoardNotFoundException | SettingsFailiureException e) {
+        } catch(SettingsFailiureException e) {
             handleSettingsExceptions(e);
         }
         game.addDoneListener(this);
         try {
             game.startGame();
-        } catch(BoardNotFoundException | SettingsFailiureException e) {
+        } catch(SettingsFailiureException e) {
             handleSettingsExceptions(e);
         }
 
@@ -109,8 +108,8 @@ public class GameManager implements DoneListener {
     }
 
     private void handleSettingsExceptions(Exception e) {
-	final JFrame frame = new JFrame("Oops!");
-	frame.setVisible(true);
+	    final JFrame frame = new JFrame("Oops!");
+	    frame.setVisible(true);
         JOptionPane.showMessageDialog(frame, "hej", e.getMessage(), JOptionPane.ERROR_MESSAGE);
     }
 

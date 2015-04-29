@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Hampus on 2015-04-21.
+ * The settings objects handles the reading and interpeting of the settings file. Returning usefull information to the game. Throws SettingsFailiureException if something is wrong with the settings file.
  */
 public class Settings {
 
@@ -20,9 +20,9 @@ public class Settings {
     public Settings(String fileName) throws SettingsFailiureException{
         assert(fileName.matches(".txt$")); // Asserts if the file isn't a text file.
         settings = new HashMap<>();
-        try {
-            URL url = Settings.class.getResource("../Resources/" + fileName);
-            BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+        URL url = Settings.class.getResource("../Resources/" + fileName);
+        assert(url != null); //Asserts if the url is null.
+        try(BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()))) {
             String inputLine;
             while((inputLine = in.readLine()) != null) {//Common practice...
                 String[] strings = inputLine.split(";");
@@ -42,19 +42,19 @@ public class Settings {
         }
     }
 
-    public int getBoardWidth() throws BoardNotFoundException {
+    public int getBoardWidth() throws SettingsFailiureException {
         if(containsBoard()){
             return Integer.parseInt(settings.get(currentBoard + "Width"));
         }else {
-            throw new BoardNotFoundException("Board name " + currentBoard + " not found");
+            throw new SettingsFailiureException("Board name " + currentBoard + " not found");
         }
     }
 
-    public int getBoardHeight() throws BoardNotFoundException {
+    public int getBoardHeight() throws SettingsFailiureException {
         if(containsBoard()){
             return Integer.parseInt(settings.get(currentBoard + "Height"));
         }else {
-            throw new BoardNotFoundException("Board name " + currentBoard + " not found");
+            throw new SettingsFailiureException("Board name " + currentBoard + " not found");
         }
     }
 
@@ -66,7 +66,7 @@ public class Settings {
         }
     }
 
-    public Tile[][] getTiles() throws BoardNotFoundException, SettingsFailiureException {
+    public Tile[][] getTiles() throws SettingsFailiureException {
         if (containsBoard()){
             int width = getBoardWidth();
             int height = getBoardHeight();
@@ -102,7 +102,7 @@ public class Settings {
             }
             return tiles;
         }else {
-            throw new BoardNotFoundException("Board name " + currentBoard + " not found");
+            throw new SettingsFailiureException("Board name " + currentBoard + " not found");
         }
     }
 

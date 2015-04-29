@@ -3,7 +3,9 @@ package io;
 import entity.Button;
 import game.DoneListener;
 
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -13,9 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-/**
- * Created by Hampus on 2015-04-23.
- */
+/** Knows how to handle io when the game is in the winscreen state. */
 public class WinScreenComponent extends GameComponent implements MouseListener {
 
     private String winner;
@@ -41,7 +41,7 @@ public class WinScreenComponent extends GameComponent implements MouseListener {
         buttons = new HashMap<>();
         addMouseListener(this);
 
-        Button Restart = new Button() {
+        Button restart = new Button() {
             @Override
             public String display() {
                 return "Restart";
@@ -53,7 +53,7 @@ public class WinScreenComponent extends GameComponent implements MouseListener {
             }
         };
 
-        Button EndGame = new Button() {
+        Button endGame = new Button() {
             @Override
             public String display() {
                 return "End Game";
@@ -68,8 +68,8 @@ public class WinScreenComponent extends GameComponent implements MouseListener {
         restartButtonArea = new Rectangle(WIDTH / 3, HEIGHT - 100, buttonSprite.getWidth(), buttonSprite.getWidth());
         endGameButtonArea = new Rectangle(WIDTH / 3 + buttonSprite.getWidth() * 2, HEIGHT - 100, buttonSprite.getWidth(), buttonSprite.getWidth());
 
-        buttons.put(restartButtonArea, Restart);
-        buttons.put(endGameButtonArea, EndGame);
+        buttons.put(restartButtonArea, restart);
+        buttons.put(endGameButtonArea, endGame);
 
     }
 
@@ -96,9 +96,7 @@ public class WinScreenComponent extends GameComponent implements MouseListener {
     }
 
     private void done() {
-        for(DoneListener listener : listeners) {
-            listener.whenDone();
-        }
+        listeners.forEach(DoneListener::whenDone);
     }
 
     @Override

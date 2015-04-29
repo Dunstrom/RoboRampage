@@ -1,8 +1,12 @@
 package io;
 
 import javax.imageio.ImageIO;
-import javax.sound.sampled.*;
-import java.awt.*;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.sound.sampled.LineUnavailableException;
+import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
@@ -10,9 +14,7 @@ import java.awt.image.BufferedImageOp;
 import java.io.IOException;
 import java.net.URL;
 
-/**
- * Created by Hampus on 2015-04-20.
- */
+/** A abstract class to be extended by objects that want to be able to use output. */
 public abstract class AbstractOutputObject implements Outputobject {
 
     /**
@@ -54,16 +56,15 @@ public abstract class AbstractOutputObject implements Outputobject {
     }
 
     protected Clip loadSoundClip(String filename) {
-        Clip clip = null;
         URL url = AbstractOutputObject.class.getResource(filename);
-        try {
+        try(Clip clip = AudioSystem.getClip()) {
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
-            clip = AudioSystem.getClip();
             clip.open(audioIn);
+            return clip;
         } catch(UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
-        return clip;
+        return null;
     }
 
 }

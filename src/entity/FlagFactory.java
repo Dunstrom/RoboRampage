@@ -3,6 +3,7 @@ package entity;
 import java.util.LinkedList;
 import java.awt.Color;
 
+/** A class that creates flags and makes sure that they don't get the same color in one particular game. Flags should only be created through this factory. */
 public final class FlagFactory {
 
     private static final FlagFactory INSTANCE = new FlagFactory();

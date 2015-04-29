@@ -3,8 +3,8 @@ package io;
 import board.Board;
 import game.DoneListener;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.BorderLayout;
+import javax.swing.JFrame;
 
 /**
  * Creates and updates the frame.

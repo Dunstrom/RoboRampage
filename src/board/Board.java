@@ -7,13 +7,13 @@ import entity.FlagFactory;
 import entity.Orientation;
 import io.Settings;
 
-import java.awt.*;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 /**
- * Keeps tracks of all the tiles on the board.
+ * Keeps tracks of everything that is kept on the board where the game takes place. Handels the actual moving of the robots, collision handeling and the shoot functionality aswell.
  */
 public class Board {
 
@@ -48,13 +48,15 @@ public class Board {
 
     public void removeRobot(AbstractRobot robot){
         robots.remove(robot);
+        boardObjects.remove(robot);
     }
 
     public void addBoardListener(BoardListener bl) {
         listeners.add(bl);
     }
 
-    public Board(Settings settings) throws BoardNotFoundException, SettingsFailiureException{
+    public Board(Settings settings) throws SettingsFailiureException{
+
         tiles = settings.getTiles();
         tileSize = settings.getTileSize();
         width = tiles[0].length;
@@ -93,7 +95,7 @@ public class Board {
 
             updateRobots();
 
-	    updateTiles();
+	        updateTiles();
 
             removeDeadRobots();
 
