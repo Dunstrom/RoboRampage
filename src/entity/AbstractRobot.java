@@ -32,7 +32,7 @@ public abstract class AbstractRobot extends AbstractBoardObject {
 
     // Stats
     protected String name;
-    protected Queue<Move> programmedMoves;
+    protected LinkedList<Move> programmedMoves;
     /**
      * The maximum amount of moves allowed for one entity.robot
      */
@@ -193,7 +193,8 @@ public abstract class AbstractRobot extends AbstractBoardObject {
      */
     public void removeProgrammedMove() {
         if (!programmedMoves.isEmpty()) {
-            programmedMoves.remove();
+            int i = programmedMoves.size()-1;
+            programmedMoves.remove(i);
             endable = false;
             renderPlayerInterface();
         }

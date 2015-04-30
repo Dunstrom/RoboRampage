@@ -227,9 +227,9 @@ public class InterfaceComponent extends GameComponent implements MouseListener, 
 
         int keyCode = e.getKeyCode();
 
-        if(keyCode == KeyEvent.VK_E) {
+        if(keyCode == KeyEvent.VK_E || keyCode == KeyEvent.VK_ENTER) {
             keyButtons.get(endTurnButtonString).run();
-        }else if(keyCode == KeyEvent.VK_R) {
+        }else if(keyCode == KeyEvent.VK_R || keyCode == KeyEvent.VK_BACK_SPACE) {
             keyButtons.get(removeButtonString).run();
         }else if(keyCode == KeyEvent.VK_P) {
             robot.getDamage();
