@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -17,17 +18,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.awt.event.KeyListener;
 
 /**
  * This is the component that handles the players input during the game and draws the interface the player interacts with.
  */
-public class InterfaceComponent extends GameComponent implements MouseListener {
+public class InterfaceComponent extends GameComponent implements MouseListener, KeyListener {
 
     private AbstractRobot robot;
     private final static int HEIGHT = 150;
     private int width;
     private List<Button> moves;
     private Map<Rectangle, Button> buttons;
+    private Map<String, Button> keyButtons;
+    private String endTurnButtonString;
+    private String removeButtonString;
 
     public void addMove(Button move) {
         moves.add(move);
@@ -38,7 +43,11 @@ public class InterfaceComponent extends GameComponent implements MouseListener {
         this.robot = robot;
         moves = new ArrayList<>();
         buttons = new HashMap<>();
+        keyButtons = new HashMap<>();
+        endTurnButtonString = "End Turn";
+        removeButtonString = "Remove";
         addMouseListener(this);
+
     }
 
     @Override
@@ -74,6 +83,9 @@ public class InterfaceComponent extends GameComponent implements MouseListener {
             if(!buttons.containsValue(button)){
                 buttons.put(new Rectangle(x, y, sprite.getWidth(), sprite.getHeight()), button);
             }
+            if(!keyButtons.containsValue(button)){
+                keyButtons.put(button.display(), button);
+            }
             x += sprite.getWidth() + marginLeft;
 
         }
@@ -90,14 +102,14 @@ public class InterfaceComponent extends GameComponent implements MouseListener {
 
         @Override
         public String display() {
-            return "End Turn";
+            return endTurnButtonString;
         }
     }
 
     public class RemoveMove implements Button {
         @Override
         public String display() {
-            return "Remove";
+            return removeButtonString;
         }
 
         @Override
@@ -207,4 +219,24 @@ public class InterfaceComponent extends GameComponent implements MouseListener {
 
     }
 
+    @Override public void keyTyped(final KeyEvent e) {
+
+    }
+
+    @Override public void keyPressed(final KeyEvent e) {
+
+        int keyCode = e.getKeyCode();
+
+        if(keyCode == KeyEvent.VK_E) {
+            keyButtons.get(endTurnButtonString).run();
+        }else if(keyCode == KeyEvent.VK_R) {
+            keyButtons.get(removeButtonString).run();
+        }else if(keyCode == KeyEvent.VK_P) {
+            robot.getDamage();
+        }
+
+    }
+
+    @Override public void keyReleased(final KeyEvent e) {
+    }
 }

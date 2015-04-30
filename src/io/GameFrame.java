@@ -20,8 +20,10 @@ public class GameFrame extends JFrame
      * @param nextPlayerInterface the player who's turn it is next.
      */
     public void setActivePlayer(InterfaceComponent nextPlayerInterface) {
+        removeKeyListener(currentPlayerInterface);
         remove(currentPlayerInterface);
         currentPlayerInterface = nextPlayerInterface;
+        addKeyListener(currentPlayerInterface);
         add(currentPlayerInterface, BorderLayout.PAGE_END);
        	pack();
 
