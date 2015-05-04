@@ -38,9 +38,9 @@ public final class FlagFactory {
 	return INSTANCE;
     }
 
-    public Collection<BoardObject> createFlags(Settings settings) throws SettingsFailiureException {
+    public Collection<BoardEntity> createFlags(Settings settings) throws SettingsFailiureException {
 	List<int[]> flagPositions = settings.getFlagPositions();
-	Collection<BoardObject> flags = new ArrayList<>();
+	Collection<BoardEntity> flags = new ArrayList<>();
 	for(int[] pos : flagPositions) {
 	    flags.add(new Flag(pos[0], pos[1], flagColors.poll()));
 	    if(flagColors.isEmpty()) {

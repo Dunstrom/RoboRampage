@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 
 /** A class to be extended by objects that want to be able to use some standard outputmethods. */
-public class OutputObject {
+public class OutputEntity {
 
     /**
      * Loads an image
@@ -25,7 +25,7 @@ public class OutputObject {
     protected BufferedImage loadImage(String fileName) {
 
         BufferedImage image;
-        URL url = OutputObject.class.getResource(fileName);
+        URL url = OutputEntity.class.getResource(fileName);
         try {
             image = ImageIO.read(url);
         }catch(IOException e){
@@ -56,7 +56,7 @@ public class OutputObject {
     }
 
     protected Runnable loadSound(String filename) {
-        URL url = OutputObject.class.getResource(filename);
+        URL url = OutputEntity.class.getResource(filename);
         Runnable sound =  () -> {
 
                 try (Clip clip = AudioSystem.getClip()) {
@@ -73,7 +73,7 @@ public class OutputObject {
     }
 
     protected Runnable loadBgMusic(String filePath) {
-            URL url = OutputObject.class.getResource(filePath);
+            URL url = OutputEntity.class.getResource(filePath);
             Runnable sound =  () -> {
 
                 try (Clip clip = AudioSystem.getClip()) {

@@ -7,13 +7,12 @@ import io.Settings;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 import java.util.LinkedList;
 
 /**
  * Abstract class for all robots in the game.
  */
-public abstract class AbstractRobot extends AbstractBoardObject {
+public abstract class AbstractRobot extends AbstractBoardEntity {
 
     //For the collisionhandling
     protected int tempX;

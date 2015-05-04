@@ -23,7 +23,7 @@ public abstract class GameComponent extends JComponent {
     protected BufferedImage loadImage(String fileName) {
 
         BufferedImage image;
-        URL url = OutputObject.class.getResource("../Resources/" + fileName);
+        URL url = OutputEntity.class.getResource("../Resources/" + fileName);
         try {
             image = ImageIO.read(url);
         }catch(IOException e){

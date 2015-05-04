@@ -1,7 +1,7 @@
 package board;
 
 import entity.AbstractRobot;
-import entity.BoardObject;
+import entity.BoardEntity;
 import entity.Flag;
 import entity.FlagFactory;
 import entity.Orientation;
@@ -22,7 +22,7 @@ public class Board {
     private int height;
     private List<BoardListener> listeners;
     private List<AbstractRobot> robots;
-    private List<BoardObject> boardObjects;
+    private List<BoardEntity> boardEntities;
     private int tileSize;
 
     public int getTileSize() {
@@ -40,15 +40,15 @@ public class Board {
     public void setRobots(List<AbstractRobot> robots){
         this.robots = robots;
         for(AbstractRobot robot: robots) {//Prefer it this way because of increased readability
-            if(!boardObjects.contains(robot)){
-                boardObjects.add(robot);
+            if(!boardEntities.contains(robot)){
+                boardEntities.add(robot);
             }
         }
     }
 
     public void removeRobot(AbstractRobot robot){
         robots.remove(robot);
-        boardObjects.remove(robot);
+        boardEntities.remove(robot);
     }
 
     public void addBoardListener(BoardListener bl) {
@@ -63,7 +63,7 @@ public class Board {
         height = tiles.length;
         listeners = new ArrayList<>();
         robots = new ArrayList<>();
-        boardObjects = new ArrayList<>();
+        boardEntities = new ArrayList<>();
         placeFlags(settings);
         notifyListeners();
 
@@ -75,7 +75,7 @@ public class Board {
 
         FlagFactory flagFactory = FlagFactory.getInstance();
 
-        boardObjects.addAll(flagFactory.createFlags(settings));
+        boardEntities.addAll(flagFactory.createFlags(settings));
 
     }
 
@@ -131,7 +131,7 @@ public class Board {
 
         }
 
-        for(BoardObject obj : boardObjects) {
+        for(BoardEntity obj : boardEntities) {
             obj.draw(g);
         }
 
@@ -213,7 +213,7 @@ public class Board {
     }
 
     private void pickFlag(AbstractRobot robot) {
-        for(BoardObject obj : boardObjects) {//Prefer it this way because of increased readability
+        for(BoardEntity obj : boardEntities) {//Prefer it this way because of increased readability
             if(robot.collide(obj) && obj.getClass().equals(Flag.class)){
                 robot.pickFlag((Flag)obj); // Can cast obj to Flag because I have chacked that it is a flag.
             }

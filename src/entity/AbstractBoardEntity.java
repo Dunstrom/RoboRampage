@@ -1,12 +1,12 @@
 package entity;
 
 
-import io.OutputObject;
+import io.OutputEntity;
 
 /**
  * A abstract class for every object pressent on the board.
  */
-public abstract class AbstractBoardObject extends OutputObject implements BoardObject{
+public abstract class AbstractBoardEntity extends OutputEntity implements BoardEntity {
 
 
     // Position
@@ -14,7 +14,7 @@ public abstract class AbstractBoardObject extends OutputObject implements BoardO
     protected int y;
     protected Orientation orientation;
 
-    protected AbstractBoardObject(final int x, final Orientation orientation, final int y) {
+    protected AbstractBoardEntity(final int x, final Orientation orientation, final int y) {
 	this.x = x;
 	this.orientation = orientation;
 	this.y = y;
@@ -32,7 +32,7 @@ public abstract class AbstractBoardObject extends OutputObject implements BoardO
 
     }
 
-    public boolean collide(BoardObject obj) {
+    public boolean collide(BoardEntity obj) {
         if(x == obj.getX() && y == obj.getY()) {
             return true;
         }
