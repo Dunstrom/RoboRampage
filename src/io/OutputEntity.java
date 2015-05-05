@@ -1,13 +1,13 @@
 package io;
 
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.awt.image.BufferedImageOp;
 
-/** A class to be extended by objects that want to be able to use some standard outputmethods. */
-public class OutputEntity {
+/** A class to be extended by objects that want to be able to use some standard outputmethods and needs to be drawn to the screen. */
+public abstract class OutputEntity {
 
     /**
      * Takes an image and draws it rotated to the screen.
@@ -28,5 +28,7 @@ public class OutputEntity {
         g2d.drawImage(op.filter(image, null), x, y, null);
 
     }
+
+    public abstract void draw(Graphics g);
 
 }

@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.net.URL;
 
 /**
- * Created by Hampus on 2015-05-05.
+ * A help class for loading images and sounds from resources.
  */
 public final class Loader {
 
@@ -23,7 +23,7 @@ public final class Loader {
     public static BufferedImage loadImage(String fileName) {
 
         BufferedImage image;
-        URL url = OutputEntity.class.getResource("../Resources/" + fileName);
+        URL url = Loader.class.getResource("../Resources/" + fileName);
         try {
             image = ImageIO.read(url);
         }catch(IOException e){
@@ -34,7 +34,7 @@ public final class Loader {
     }
 
     public static Runnable loadSound(String filename) {
-        URL url = OutputEntity.class.getResource(filename);
+        URL url = Loader.class.getResource(filename);
         Runnable sound =  () -> {
 
             try (Clip clip = AudioSystem.getClip()) {
@@ -51,7 +51,7 @@ public final class Loader {
     }
 
     public static Runnable loadBgMusic(String filePath) {
-        URL url = OutputEntity.class.getResource(filePath);
+        URL url = Loader.class.getResource(filePath);
         Runnable sound =  () -> {
 
             try (Clip clip = AudioSystem.getClip()) {

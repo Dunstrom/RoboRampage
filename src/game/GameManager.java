@@ -3,7 +3,6 @@ package game;
 import board.SettingsFailiureException;
 import io.GameFrame;
 import io.Loader;
-import io.OutputEntity;
 import io.Settings;
 
 import javax.swing.*;
@@ -14,7 +13,7 @@ import java.util.List;
 /**
  * This class handles the games states, switching between menu, game and the winscreen. Also responsible for starting and restarting the game.
  */
-public class GameManager extends OutputEntity implements DoneListener {
+public class GameManager implements DoneListener {
 
     private GameState state;
     private List<Player> players;
