@@ -49,6 +49,7 @@ public  class Tile extends OutputEntity
     }
 
     /** Draws the outline and background of every tile and if a entity.robot ocupies it tells the entity.robot to draw itself */
+   @Override
     public void draw(Graphics g) {
 
         //Draws the background of the tile

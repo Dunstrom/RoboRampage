@@ -1,16 +1,14 @@
 package entity;
 
-import java.awt.Graphics;
+import io.Drawable;
 
 /**
  * Interface for all objects present on the board
  */
-public interface BoardEntity {
+public interface BoardEntity extends Drawable {
 
     int getX();
 
     int getY();
-
-    void draw(Graphics g);
 
 }
