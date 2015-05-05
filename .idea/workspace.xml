@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8c2e1e0-bd86-4976-8596-68d4c3c8c0d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entity/BoardEntity.java" afterPath="$PROJECT_DIR$/src/entity/BoardEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/io/OutputEntity.java" afterPath="$PROJECT_DIR$/src/io/OutputEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/board/Tile.java" afterPath="$PROJECT_DIR$/src/board/Tile.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tiles.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/output2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/robots.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RoboRampage.iws" />
@@ -58,16 +59,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Settings.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/io/Settings.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="94" column="57" selection-start-line="94" selection-start-column="57" selection-end-line="94" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BoardComponent.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/io/BoardComponent.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -85,45 +76,46 @@
               <ID>JAVA</ID>
               <OriginalElement>io.OutputEntity</OriginalElement>
               <nodes>
-                <node x="244.0" y="79.0">board.Tile</node>
-                <node x="0.0" y="168.0">board.WallTile</node>
-                <node x="94.0" y="168.0">board.PitTile</node>
-                <node x="759.0" y="168.0">entity.Flag</node>
-                <node x="722.4285714285713" y="0.0">entity.BoardEntity</node>
-                <node x="244.5" y="0.0">io.OutputEntity</node>
-                <node x="373.0" y="168.0">board.RotateLeftTile</node>
-                <node x="498.0" y="168.0">board.RotateRightTile</node>
-                <node x="283.0" y="168.0">board.FireTile</node>
-                <node x="666.1785714285713" y="79.0">entity.AbstractBoardEntity</node>
-                <node x="631.0" y="168.0">entity.AbstractRobot</node>
-                <node x="179.0" y="168.0">board.RepairTile</node>
-                <node x="571.5" y="247.0">entity.ZigZagRobot</node>
-                <node x="692.5" y="247.0">entity.StandardRobot</node>
+                <node x="244.0" y="158.0">board.Tile</node>
+                <node x="0.0" y="247.0">board.WallTile</node>
+                <node x="94.0" y="247.0">board.PitTile</node>
+                <node x="759.0" y="247.0">entity.Flag</node>
+                <node x="462.9916666666667" y="0.0">io.Drawable</node>
+                <node x="723.25" y="79.0">entity.BoardEntity</node>
+                <node x="244.5" y="79.0">io.OutputEntity</node>
+                <node x="373.0" y="247.0">board.RotateLeftTile</node>
+                <node x="498.0" y="247.0">board.RotateRightTile</node>
+                <node x="283.0" y="247.0">board.FireTile</node>
+                <node x="667.0" y="158.0">entity.AbstractBoardEntity</node>
+                <node x="631.0" y="247.0">entity.AbstractRobot</node>
+                <node x="179.0" y="247.0">board.RepairTile</node>
+                <node x="571.5" y="326.0">entity.ZigZagRobot</node>
+                <node x="692.5" y="326.0">entity.StandardRobot</node>
               </nodes>
               <notes />
               <edges>
                 <edge source="board.FireTile" target="board.Tile">
                   <point x="0.0" y="-14.5" />
-                  <point x="318.0" y="148.0" />
-                  <point x="273.75" y="148.0" />
+                  <point x="318.0" y="227.0" />
+                  <point x="273.75" y="227.0" />
                   <point x="4.25" y="14.5" />
                 </edge>
                 <edge source="entity.ZigZagRobot" target="entity.AbstractRobot">
                   <point x="0.0" y="-14.5" />
-                  <point x="622.0" y="222.0" />
-                  <point x="658.0" y="222.0" />
+                  <point x="622.0" y="301.0" />
+                  <point x="658.0" y="301.0" />
                   <point x="-27.0" y="14.5" />
                 </edge>
                 <edge source="entity.StandardRobot" target="entity.AbstractRobot">
                   <point x="0.0" y="-14.5" />
-                  <point x="748.0" y="222.0" />
-                  <point x="712.0" y="222.0" />
+                  <point x="748.0" y="301.0" />
+                  <point x="712.0" y="301.0" />
                   <point x="27.0" y="14.5" />
                 </edge>
                 <edge source="board.RotateRightTile" target="board.Tile">
                   <point x="0.0" y="-14.5" />
-                  <point x="554.5" y="128.0" />
-                  <point x="290.75" y="128.0" />
+                  <point x="554.5" y="207.0" />
+                  <point x="290.75" y="207.0" />
                   <point x="21.25" y="14.5" />
                 </edge>
                 <edge source="board.Tile" target="io.OutputEntity">
@@ -132,38 +124,50 @@
                 </edge>
                 <edge source="entity.AbstractRobot" target="entity.AbstractBoardEntity">
                   <point x="0.0" y="-14.5" />
-                  <point x="685.0" y="148.0" />
-                  <point x="700.4285714285713" y="148.0" />
+                  <point x="685.0" y="227.0" />
+                  <point x="701.25" y="227.0" />
                   <point x="-34.25" y="14.5" />
                 </edge>
                 <edge source="board.WallTile" target="board.Tile">
                   <point x="0.0" y="-14.5" />
-                  <point x="37.0" y="128.0" />
-                  <point x="248.25" y="128.0" />
+                  <point x="37.0" y="207.0" />
+                  <point x="248.25" y="207.0" />
                   <point x="-21.25" y="14.5" />
                 </edge>
                 <edge source="board.RepairTile" target="board.Tile">
                   <point x="0.0" y="-14.5" />
-                  <point x="221.0" y="148.0" />
-                  <point x="265.25" y="148.0" />
+                  <point x="221.0" y="227.0" />
+                  <point x="265.25" y="227.0" />
                   <point x="-4.25" y="14.5" />
+                </edge>
+                <edge source="entity.BoardEntity" target="io.Drawable">
+                  <point x="0.0" y="-14.5" />
+                  <point x="769.75" y="54.0" />
+                  <point x="523.7416666666667" y="54.0" />
+                  <point x="20.25" y="14.5" />
                 </edge>
                 <edge source="board.PitTile" target="board.Tile">
                   <point x="0.0" y="-14.5" />
-                  <point x="126.5" y="138.0" />
-                  <point x="256.75" y="138.0" />
+                  <point x="126.5" y="217.0" />
+                  <point x="256.75" y="217.0" />
                   <point x="-12.75" y="14.5" />
                 </edge>
                 <edge source="board.RotateLeftTile" target="board.Tile">
                   <point x="0.0" y="-14.5" />
-                  <point x="425.5" y="138.0" />
-                  <point x="282.25" y="138.0" />
+                  <point x="425.5" y="217.0" />
+                  <point x="282.25" y="217.0" />
                   <point x="12.75" y="14.5" />
+                </edge>
+                <edge source="io.OutputEntity" target="io.Drawable">
+                  <point x="0.0" y="-14.5" />
+                  <point x="294.5" y="54.0" />
+                  <point x="483.2416666666667" y="54.0" />
+                  <point x="-20.25" y="14.5" />
                 </edge>
                 <edge source="entity.Flag" target="entity.AbstractBoardEntity">
                   <point x="0.0" y="-14.5" />
-                  <point x="786.0" y="148.0" />
-                  <point x="768.9285714285713" y="148.0" />
+                  <point x="786.0" y="227.0" />
+                  <point x="769.75" y="227.0" />
                   <point x="34.25" y="14.5" />
                 </edge>
                 <edge source="entity.AbstractBoardEntity" target="entity.BoardEntity">
@@ -172,17 +176,24 @@
                 </edge>
                 <edge source="entity.AbstractBoardEntity" target="io.OutputEntity">
                   <point x="-34.25" y="-14.5" />
-                  <point x="700.4285714285713" y="54.0" />
-                  <point x="319.5" y="54.0" />
+                  <point x="701.25" y="133.0" />
+                  <point x="319.5" y="133.0" />
                   <point x="25.0" y="14.5" />
                 </edge>
               </edges>
-              <settings layout="Hierarchic Group" zoom="1.0" x="185.0" y="-48.0" />
+              <settings layout="Hierarchic Group" zoom="1.0" x="149.5" y="183.5" />
               <SelectedNodes />
               <Categories />
               <SCOPE>All</SCOPE>
               <VISIBILITY>public</VISIBILITY>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="robots.png" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/robots.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -228,10 +239,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OutputEntity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OutputEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/io/OutputEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6909091">
+            <state vertical-scroll-proportion="0.0">
               <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -913,7 +924,7 @@
       <workItem from="1430313135132" duration="3292000" />
       <workItem from="1430316438427" duration="2923000" />
       <workItem from="1430378675434" duration="3206000" />
-      <workItem from="1430841796197" duration="3182000" />
+      <workItem from="1430841796197" duration="4838000" />
     </task>
     <task id="LOCAL-00001" summary="Added Frame class">
       <created>1424642132383</created>
@@ -1173,11 +1184,17 @@
       <option name="project" value="LOCAL" />
       <updated>1430844238595</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="the contract to draw itself on the screen has been pulled up to a seperate interface Drawable&#10;">
+      <created>1430845369861</created>
+      <option name="number" value="00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1430845369861</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128334000" />
+    <option name="totallyTimeSpent" value="129990000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1201,17 +1218,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="168" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.109447" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.109447" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39746544" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39746544" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23502304" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -1247,7 +1264,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Flagpicking now works like a charm! Only problem is that you win just before your robot moves to the last flag." />
     <MESSAGE value="Fixed attack bug, problem was the for loop diden't check the extrems y,x = 0 or max height/width it only checked &lt; 0 or &gt; 0 and so on" />
     <MESSAGE value="Started working on a better looking playerInterface lot's of code written but not implemented so game still runs as usual. Pushes so I can go back if something goes horribly wrong..." />
     <MESSAGE value="Succesfully changed the playerInterface to a JComponent and made it much better looking" />
@@ -1272,7 +1288,8 @@
     <MESSAGE value="implemented keybindings" />
     <MESSAGE value="Moved load image and sound methods to a final help class called Loader" />
     <MESSAGE value="OutputEntity now has to be drawn and is made an abstract class" />
-    <option name="LAST_COMMIT_MESSAGE" value="OutputEntity now has to be drawn and is made an abstract class" />
+    <MESSAGE value="the contract to draw itself on the screen has been pulled up to a seperate interface Drawable&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="the contract to draw itself on the screen has been pulled up to a seperate interface Drawable&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1285,14 +1302,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/io/GameFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/io/BoardComponent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1665,112 +1674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/io.OutputEntity">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>io.OutputEntity</OriginalElement>
-          <nodes>
-            <node x="244.0" y="79.0">board.Tile</node>
-            <node x="0.0" y="168.0">board.WallTile</node>
-            <node x="94.0" y="168.0">board.PitTile</node>
-            <node x="759.0" y="168.0">entity.Flag</node>
-            <node x="722.4285714285713" y="0.0">entity.BoardEntity</node>
-            <node x="244.5" y="0.0">io.OutputEntity</node>
-            <node x="373.0" y="168.0">board.RotateLeftTile</node>
-            <node x="498.0" y="168.0">board.RotateRightTile</node>
-            <node x="283.0" y="168.0">board.FireTile</node>
-            <node x="666.1785714285713" y="79.0">entity.AbstractBoardEntity</node>
-            <node x="631.0" y="168.0">entity.AbstractRobot</node>
-            <node x="179.0" y="168.0">board.RepairTile</node>
-            <node x="571.5" y="247.0">entity.ZigZagRobot</node>
-            <node x="692.5" y="247.0">entity.StandardRobot</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="board.FireTile" target="board.Tile">
-              <point x="0.0" y="-14.5" />
-              <point x="318.0" y="148.0" />
-              <point x="273.75" y="148.0" />
-              <point x="4.25" y="14.5" />
-            </edge>
-            <edge source="entity.ZigZagRobot" target="entity.AbstractRobot">
-              <point x="0.0" y="-14.5" />
-              <point x="622.0" y="222.0" />
-              <point x="658.0" y="222.0" />
-              <point x="-27.0" y="14.5" />
-            </edge>
-            <edge source="entity.StandardRobot" target="entity.AbstractRobot">
-              <point x="0.0" y="-14.5" />
-              <point x="748.0" y="222.0" />
-              <point x="712.0" y="222.0" />
-              <point x="27.0" y="14.5" />
-            </edge>
-            <edge source="board.RotateRightTile" target="board.Tile">
-              <point x="0.0" y="-14.5" />
-              <point x="554.5" y="128.0" />
-              <point x="290.75" y="128.0" />
-              <point x="21.25" y="14.5" />
-            </edge>
-            <edge source="board.Tile" target="io.OutputEntity">
-              <point x="0.0" y="-14.5" />
-              <point x="-25.0" y="14.5" />
-            </edge>
-            <edge source="entity.AbstractRobot" target="entity.AbstractBoardEntity">
-              <point x="0.0" y="-14.5" />
-              <point x="685.0" y="148.0" />
-              <point x="700.4285714285713" y="148.0" />
-              <point x="-34.25" y="14.5" />
-            </edge>
-            <edge source="board.WallTile" target="board.Tile">
-              <point x="0.0" y="-14.5" />
-              <point x="37.0" y="128.0" />
-              <point x="248.25" y="128.0" />
-              <point x="-21.25" y="14.5" />
-            </edge>
-            <edge source="board.RepairTile" target="board.Tile">
-              <point x="0.0" y="-14.5" />
-              <point x="221.0" y="148.0" />
-              <point x="265.25" y="148.0" />
-              <point x="-4.25" y="14.5" />
-            </edge>
-            <edge source="board.PitTile" target="board.Tile">
-              <point x="0.0" y="-14.5" />
-              <point x="126.5" y="138.0" />
-              <point x="256.75" y="138.0" />
-              <point x="-12.75" y="14.5" />
-            </edge>
-            <edge source="board.RotateLeftTile" target="board.Tile">
-              <point x="0.0" y="-14.5" />
-              <point x="425.5" y="138.0" />
-              <point x="282.25" y="138.0" />
-              <point x="12.75" y="14.5" />
-            </edge>
-            <edge source="entity.Flag" target="entity.AbstractBoardEntity">
-              <point x="0.0" y="-14.5" />
-              <point x="786.0" y="148.0" />
-              <point x="768.9285714285713" y="148.0" />
-              <point x="34.25" y="14.5" />
-            </edge>
-            <edge source="entity.AbstractBoardEntity" target="entity.BoardEntity">
-              <point x="34.25" y="-14.5" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="entity.AbstractBoardEntity" target="io.OutputEntity">
-              <point x="-34.25" y="-14.5" />
-              <point x="700.4285714285713" y="54.0" />
-              <point x="319.5" y="54.0" />
-              <point x="25.0" y="14.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="185.0" y="-48.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>public</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entity/BoardEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1789,12 +1692,136 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/OutputEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6909091">
+        <state vertical-scroll-proportion="0.0">
           <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/io.OutputEntity">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>io.OutputEntity</OriginalElement>
+          <nodes>
+            <node x="244.0" y="158.0">board.Tile</node>
+            <node x="0.0" y="247.0">board.WallTile</node>
+            <node x="94.0" y="247.0">board.PitTile</node>
+            <node x="759.0" y="247.0">entity.Flag</node>
+            <node x="462.9916666666667" y="0.0">io.Drawable</node>
+            <node x="723.25" y="79.0">entity.BoardEntity</node>
+            <node x="244.5" y="79.0">io.OutputEntity</node>
+            <node x="373.0" y="247.0">board.RotateLeftTile</node>
+            <node x="498.0" y="247.0">board.RotateRightTile</node>
+            <node x="283.0" y="247.0">board.FireTile</node>
+            <node x="667.0" y="158.0">entity.AbstractBoardEntity</node>
+            <node x="631.0" y="247.0">entity.AbstractRobot</node>
+            <node x="179.0" y="247.0">board.RepairTile</node>
+            <node x="571.5" y="326.0">entity.ZigZagRobot</node>
+            <node x="692.5" y="326.0">entity.StandardRobot</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="board.FireTile" target="board.Tile">
+              <point x="0.0" y="-14.5" />
+              <point x="318.0" y="227.0" />
+              <point x="273.75" y="227.0" />
+              <point x="4.25" y="14.5" />
+            </edge>
+            <edge source="entity.ZigZagRobot" target="entity.AbstractRobot">
+              <point x="0.0" y="-14.5" />
+              <point x="622.0" y="301.0" />
+              <point x="658.0" y="301.0" />
+              <point x="-27.0" y="14.5" />
+            </edge>
+            <edge source="entity.StandardRobot" target="entity.AbstractRobot">
+              <point x="0.0" y="-14.5" />
+              <point x="748.0" y="301.0" />
+              <point x="712.0" y="301.0" />
+              <point x="27.0" y="14.5" />
+            </edge>
+            <edge source="board.RotateRightTile" target="board.Tile">
+              <point x="0.0" y="-14.5" />
+              <point x="554.5" y="207.0" />
+              <point x="290.75" y="207.0" />
+              <point x="21.25" y="14.5" />
+            </edge>
+            <edge source="board.Tile" target="io.OutputEntity">
+              <point x="0.0" y="-14.5" />
+              <point x="-25.0" y="14.5" />
+            </edge>
+            <edge source="entity.AbstractRobot" target="entity.AbstractBoardEntity">
+              <point x="0.0" y="-14.5" />
+              <point x="685.0" y="227.0" />
+              <point x="701.25" y="227.0" />
+              <point x="-34.25" y="14.5" />
+            </edge>
+            <edge source="board.WallTile" target="board.Tile">
+              <point x="0.0" y="-14.5" />
+              <point x="37.0" y="207.0" />
+              <point x="248.25" y="207.0" />
+              <point x="-21.25" y="14.5" />
+            </edge>
+            <edge source="board.RepairTile" target="board.Tile">
+              <point x="0.0" y="-14.5" />
+              <point x="221.0" y="227.0" />
+              <point x="265.25" y="227.0" />
+              <point x="-4.25" y="14.5" />
+            </edge>
+            <edge source="entity.BoardEntity" target="io.Drawable">
+              <point x="0.0" y="-14.5" />
+              <point x="769.75" y="54.0" />
+              <point x="523.7416666666667" y="54.0" />
+              <point x="20.25" y="14.5" />
+            </edge>
+            <edge source="board.PitTile" target="board.Tile">
+              <point x="0.0" y="-14.5" />
+              <point x="126.5" y="217.0" />
+              <point x="256.75" y="217.0" />
+              <point x="-12.75" y="14.5" />
+            </edge>
+            <edge source="board.RotateLeftTile" target="board.Tile">
+              <point x="0.0" y="-14.5" />
+              <point x="425.5" y="217.0" />
+              <point x="282.25" y="217.0" />
+              <point x="12.75" y="14.5" />
+            </edge>
+            <edge source="io.OutputEntity" target="io.Drawable">
+              <point x="0.0" y="-14.5" />
+              <point x="294.5" y="54.0" />
+              <point x="483.2416666666667" y="54.0" />
+              <point x="-20.25" y="14.5" />
+            </edge>
+            <edge source="entity.Flag" target="entity.AbstractBoardEntity">
+              <point x="0.0" y="-14.5" />
+              <point x="786.0" y="227.0" />
+              <point x="769.75" y="227.0" />
+              <point x="34.25" y="14.5" />
+            </edge>
+            <edge source="entity.AbstractBoardEntity" target="entity.BoardEntity">
+              <point x="34.25" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="entity.AbstractBoardEntity" target="io.OutputEntity">
+              <point x="-34.25" y="-14.5" />
+              <point x="701.25" y="133.0" />
+              <point x="319.5" y="133.0" />
+              <point x="25.0" y="14.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="149.5" y="183.5" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>public</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robots.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>
