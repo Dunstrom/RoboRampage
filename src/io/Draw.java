@@ -9,6 +9,4 @@ public interface Draw {
 
     void draw(Graphics g);
 
-    //bas
-
 }
