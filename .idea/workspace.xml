@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8c2e1e0-bd86-4976-8596-68d4c3c8c0d7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/io/Draw.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/game/Game$1.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/game/Game$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/game/Game.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/game/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RoboRampage/board/Tile.class" afterPath="$PROJECT_DIR$/out/production/RoboRampage/board/Tile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entity/BoardEntity.java" afterPath="$PROJECT_DIR$/src/entity/BoardEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/io/OutputEntity.java" afterPath="$PROJECT_DIR$/src/io/OutputEntity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="0ca8fbbb-5a5b-430b-905b-7349ed1a125d" name="Failed commit: Default" comment="Factory pattern added by implementing robotcreators&#10;" />
@@ -106,7 +100,7 @@
       <file leaf-file-name="Draw.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/io/Draw.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18405512">
+            <state vertical-scroll-proportion="0.22475961">
               <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
               <folding />
             </state>
@@ -831,7 +825,7 @@
       <workItem from="1430313135132" duration="3292000" />
       <workItem from="1430316438427" duration="2923000" />
       <workItem from="1430378675434" duration="3206000" />
-      <workItem from="1430841796197" duration="8364000" />
+      <workItem from="1430841796197" duration="8424000" />
     </task>
     <task id="LOCAL-00001" summary="Added Frame class">
       <created>1424642132383</created>
@@ -1109,11 +1103,17 @@
       <option name="project" value="LOCAL" />
       <updated>1430852168105</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Factory pattern added by implementing robotcreators&#10;">
+      <created>1430852576942</created>
+      <option name="number" value="00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1430852576942</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133516000" />
+    <option name="totallyTimeSpent" value="133576000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1141,7 +1141,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17624521" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17624521" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -1755,7 +1755,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/io/Draw.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18405512">
+        <state vertical-scroll-proportion="0.22475961">
           <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
           <folding />
         </state>
