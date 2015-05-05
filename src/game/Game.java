@@ -60,6 +60,7 @@ public class Game implements BoardListener {
 
     private void makeRobots() throws SettingsFailiureException {
         for (Player player : players) {
+            assert !robotCreators.containsKey(player.getRobotType()) ;
             AbstractRobot robot;
             robot = robotCreators.get(player.getRobotType()).createRobot(player);
             robots.add(robot);
