@@ -11,13 +11,13 @@ import java.util.List;
 /**
  * Creates players with information from the menu and generates the players startpositions.
  */
-public final class PlayerFactory {
+public final class PlayerFactory  {
 
     private PlayerFactory() {
 
     }
 
-    public static List<Player> createPlayers(List<JTextField> playerNames, List<JComboBox<String>> playerColors, List<JComboBox<String>> playerRobots, int numberOfPlayers, Settings settings) throws SettingsFailiureException {
+    public static List<Player> createPlayerFactory(List<JTextField> playerNames, List<JComboBox<String>> playerColors, List<JComboBox<String>> playerRobots, int numberOfPlayers, Settings settings) throws SettingsFailiureException {
 	List<Player> players = new ArrayList<>();
 	List<int[]> playerPos = settings.getPlayerPositions();
  	for(int i = 0; i < numberOfPlayers; i++) {
@@ -47,5 +47,4 @@ public final class PlayerFactory {
 	}
 	return players;
     }
-
 }

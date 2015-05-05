@@ -55,7 +55,6 @@ public class Menu extends JFrame {
         playerNames.add(playerName);
         playerName.setColumns(10);
 
-        //JButton playerRobot = new JButton("Robot");
         String[] robots = {"Standard", "Zig Zag"};
         JComboBox<String> playerRobot = new JComboBox<>(robots);
         playerRobot.setSelectedIndex(0);
@@ -158,7 +157,7 @@ public class Menu extends JFrame {
     private void menuDone() {
         if(!listeners.isEmpty()) {
             try {
-                players = PlayerFactory.createPlayers(playerNames, playerColors, playerRobots, numberOfPlayers, settings);
+                players = PlayerFactory.createPlayerFactory(playerNames, playerColors, playerRobots, numberOfPlayers, settings);
             } catch(SettingsFailiureException e) {
                 JFrame frame = new JFrame("Oops!");
                 JOptionPane.showMessageDialog(frame,

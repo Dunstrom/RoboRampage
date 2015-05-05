@@ -1,15 +1,15 @@
 package game;
 
 import board.*;
-import entity.ZigZagRobot;
+import entity.*;
 import io.GameFrame;
-import entity.AbstractRobot;
-import entity.StandardRobot;
 import io.Settings;
 
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.swing.*;
 
 /** Keeps track of game stuff, initialize the game, runs it, ends it and keep tracks of who has won. */
@@ -22,8 +22,8 @@ public class Game implements BoardListener {
     private AbstractRobot currentRobot;
     private GameFrame gameFrame;
     private String winner = "No one...";
-    private Settings settings;
     private boolean gameOver = false;
+    private Map<String, RobotCreator> robotCreators;
 
     public String getWinner() {
         return winner;
@@ -33,15 +33,21 @@ public class Game implements BoardListener {
         listeners.add(listener);
     }
 
+    public void addRobotCreator(String robotTypeName, RobotCreator creator) {
+        robotCreators.put(robotTypeName, creator);
+    }
+
     public Game(List<Player> players, GameFrame frame, Settings settings) throws SettingsFailiureException {
         this.players = players;
-        this.settings = settings;
         board =  new Board(settings);
         board.addBoardListener(this);
         robots = new ArrayList<>();
         currentRobot = null;
         gameFrame = frame;
         listeners = new ArrayList<>();
+        robotCreators = new HashMap<>();
+        addRobotCreator("Standard", new StandardRobotFactory(settings));
+        addRobotCreator("ZigZag", new ZigZagRobotFactory(settings));
     }
 
     public void startGame() throws SettingsFailiureException{
@@ -55,11 +61,7 @@ public class Game implements BoardListener {
     private void makeRobots() throws SettingsFailiureException {
         for (Player player : players) {
             AbstractRobot robot;
-            if(player.getRobotType().equals("Standard")){
-                robot = new StandardRobot(player.getStartX(), player.getStartY(), player.getOrientation(), player.getName(), player.getSpriteFileName(), settings);
-            }else {
-                robot = new ZigZagRobot(player.getStartX(), player.getStartY(), player.getOrientation(), player.getName(), player.getSpriteFileName(), settings);
-            }
+            robot = robotCreators.get(player.getRobotType()).createRobot(player);
             robots.add(robot);
         }
         board.setRobots(robots);
