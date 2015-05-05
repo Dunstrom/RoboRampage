@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.BufferedImageOp;
 
 /** A class to be extended by objects that want to be able to use some standard outputmethods and needs to be drawn to the screen. */
-public abstract class OutputEntity implements Drawable {
+public abstract class OutputEntity implements Draw {
 
     /**
      * Takes an image and draws it rotated to the screen.

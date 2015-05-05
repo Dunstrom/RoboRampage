@@ -1,11 +1,11 @@
 package entity;
 
-import io.Drawable;
+import io.Draw;
 
 /**
  * Interface for all objects present on the board
  */
-public interface BoardEntity extends Drawable {
+public interface BoardEntity extends Draw {
 
     int getX();
 
