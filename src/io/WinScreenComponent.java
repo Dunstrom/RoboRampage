@@ -34,8 +34,8 @@ public class WinScreenComponent extends GameComponent implements MouseListener {
 
     public WinScreenComponent(String winner) {
 
-        buttonSprite = loadImage("Button.png");
-        backgroundImage = loadImage("winscreen.png");
+        buttonSprite = Loader.loadImage("Button.png");
+        backgroundImage = Loader.loadImage("winscreen.png");
         this.winner = winner;
         listeners = new ArrayList<>();
         buttons = new HashMap<>();

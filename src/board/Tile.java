@@ -1,6 +1,7 @@
 package board;
 
 import entity.AbstractRobot;
+import io.Loader;
 import io.OutputEntity;
 
 import java.awt.Graphics;
@@ -29,14 +30,14 @@ public  class Tile extends OutputEntity
         this.tileSize = tileSize;
         this.x = x;
         this.y = y;
-        sprite = loadImage("../Resources/tile.png");
+        sprite = Loader.loadImage("../Resources/tile.png");
     }
 
     public Tile(int x, int y, int tileSize, String spritePath){
 	this.tileSize = tileSize;
         this.x = x;
 	this.y = y;
-        this.sprite = loadImage(spritePath);
+        this.sprite = Loader.loadImage(spritePath);
     }
 
     public void update(AbstractRobot robot){

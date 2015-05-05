@@ -2,6 +2,7 @@ package entity;
 
 import board.SettingsFailiureException;
 import io.InterfaceComponent;
+import io.Loader;
 import io.Settings;
 
 import java.awt.image.BufferedImage;
@@ -150,13 +151,13 @@ public abstract class AbstractRobot extends AbstractBoardEntity {
         done = false;
 
         //Setup player interface
-        buttonSprite = loadImage("../Resources/Button.png");
-        hpBarSprite = loadImage("../Resources/hp_bar.png");
-        robotSprite = loadImage(spritePath);
-        choosenMoveSprite = loadImage("../Resources/Brown_Button.png");
+        buttonSprite = Loader.loadImage("../Resources/Button.png");
+        hpBarSprite = Loader.loadImage("../Resources/hp_bar.png");
+        robotSprite = Loader.loadImage(spritePath);
+        choosenMoveSprite = Loader.loadImage("../Resources/Brown_Button.png");
         playerInterface = new InterfaceComponent(this, settings);
 
-        shootSound = loadSound("../Resources/testljud.wav");
+        shootSound = Loader.loadSound("../Resources/testljud.wav");
 
     }
 

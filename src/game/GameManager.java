@@ -2,6 +2,7 @@ package game;
 
 import board.SettingsFailiureException;
 import io.GameFrame;
+import io.Loader;
 import io.OutputEntity;
 import io.Settings;
 
@@ -25,7 +26,7 @@ public class GameManager extends OutputEntity implements DoneListener {
     private Thread bgMusicThread;
 
     public GameManager() {
-        bgMusicThread = new Thread(loadBgMusic("../Resources/Hitman.wav"));
+        bgMusicThread = new Thread(Loader.loadBgMusic("../Resources/Hitman.wav"));
         try {
             settings = new Settings("settings");
         } catch(SettingsFailiureException e) {
