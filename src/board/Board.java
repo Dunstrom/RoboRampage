@@ -231,7 +231,6 @@ public class Board {
         if(canMoveRobot(robot)){ // check if move to tempx and tempy is possible
             robot.place(robot.getTempX(), robot.getTempY()); // sets x to tempx and y to tempy
             pickFlag(robot);
-            notifyListeners();
         }
 
     }
