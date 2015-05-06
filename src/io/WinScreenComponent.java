@@ -101,7 +101,7 @@ public class WinScreenComponent extends GameComponent implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        for(Entry<Rectangle, Button> button : buttons.entrySet()){
+        for(Entry<Rectangle, Button> button : buttons.entrySet()){//Prefer it this way because of increased readability
             if(button.getKey().contains(e.getX(), e.getY())){
                 button.getValue().run();
             }
