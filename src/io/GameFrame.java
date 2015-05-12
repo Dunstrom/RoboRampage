@@ -1,6 +1,7 @@
 package io;
 
 import board.Board;
+import board.SettingsFailiureException;
 import game.DoneListener;
 
 import java.awt.BorderLayout;
@@ -48,6 +49,15 @@ public class GameFrame extends JFrame
      */
     public void repaintPlayerInterface() {
         repaint(0, 0, boardComponent.getHeight(), getWidth(), getHeight());
+    }
+
+    public PlayerSelectComponent runPlayerSelectScreen(Settings settings) throws SettingsFailiureException {
+        resetFrame();
+        setVisible(true);
+        PlayerSelectComponent playerSelectComponent = new PlayerSelectComponent(this, settings);
+        add(playerSelectComponent);
+        pack();
+        return playerSelectComponent;
     }
 
     public void runGameScreen(Board board, InterfaceComponent playerInterface) {

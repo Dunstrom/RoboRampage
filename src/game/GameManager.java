@@ -3,6 +3,7 @@ package game;
 import board.SettingsFailiureException;
 import io.GameFrame;
 import io.Loader;
+import io.PlayerSelectComponent;
 import io.Settings;
 
 import javax.swing.*;
@@ -17,7 +18,7 @@ public class GameManager implements DoneListener {
 
     private GameState state;
     private List<Player> players;
-    private Menu menu = null;
+    private PlayerSelectComponent playerSelectMenu = null;
     private Game game;
     private String winner;
     private Settings settings = null;
@@ -32,11 +33,6 @@ public class GameManager implements DoneListener {
             handleSettingsExceptions(e);
         }
         players = new ArrayList<>();
-        try {
-            menu = new Menu(settings);
-        } catch(SettingsFailiureException e) {
-            handleSettingsExceptions(e);
-        }
         gameFrame = new GameFrame();
         state = GameState.MENU;
         game = null;
@@ -64,8 +60,12 @@ public class GameManager implements DoneListener {
     }
 
     private void runMenu() {
-        menu.addListener(this);
-        menu.setUpPlayers();
+        try {
+            playerSelectMenu = gameFrame.runPlayerSelectScreen(settings);
+            playerSelectMenu.addListener(this);
+        } catch (SettingsFailiureException e) {
+            handleSettingsExceptions(e);
+        }
     }
 
     private void runGame() {
@@ -91,9 +91,8 @@ public class GameManager implements DoneListener {
     public void whenDone() {
         switch (state) {
             case MENU:
-                players = menu.getPlayers();
+                players = playerSelectMenu.getPlayers();
                 state = GameState.GAME;
-                menu.dispose();
                 break;
             case GAME:
                 winner = game.getWinner();
